@@ -1,0 +1,835 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1')
+    title inventory
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans')
+    link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/nanumgothic.css')
+    link(rel='stylesheet', href='../css/font-awesome.min.css')
+    link(rel='stylesheet', href='../css/swiper.min.css')
+    link(rel='stylesheet', href='../css/reset.css')
+    link(rel='stylesheet', href='../css/css.css')
+    link(rel='stylesheet', href='../css/layout.css')
+    link(rel='stylesheet', href='../css/media.css')
+    link(rel='stylesheet', href='../css/mtree.css')
+    link(rel='stylesheet', href='../css/flexslider.css')
+    link(rel='stylesheet', href='../css/slider.css')
+    link(rel='stylesheet', href='../css/jquery.fancybox.css')
+    script(src='../js/jquery.js')
+    script(src='../js/jquery.form.min.js')
+    script(src='../js/jquery.swiper.min.js')
+    script(src='../js/lib/store.min.js')
+    script(src='../js/lib/axios.min.js')
+    script(src='../js/loginCheck.js')
+    script(src='../js/script.js')
+    script(src='../js/script.mobile.js')
+    script(src='../js/menu.js')
+    script(src='../js/mypage.js')
+    script(src='../js/about.js')
+    script(src='../js/click-page.js')
+    script(src='../js/features.js')
+    script(src='../js/jquery.ulslide.js')
+    script(src='../js/jquery.form.min.js')
+    script(src='../js/jquery.swiper.min.js')
+    script(src='../js/jquery.flexslider-min.js')
+    script(src='../js/jquery.flexslider.js')
+    script(src='../js/buy-sell-page.js')
+    script(src='../js/jquery.glide.js')
+    script(src='../js/jquery.glide2.js')
+    script(src='../js/form.js')
+    script(src='../js/my-page.js')
+    script(src='../js/designers.js')
+    script(src='../js/sell.js')
+    script(src='../js/jquery.fancybox.js')
+    script(src='../js/imageHandle.js')
+  body
+    // mypage
+    #mypage_wrap.mypage_container_cover
+    // mypage//
+    #hamburger
+      .hamburger_inner
+        a.close(href='#')
+          i.fa.fa-times.fa-1x(aria-hidden='true')
+        // 탭
+        .tab
+          ul.category-tab
+            li.active.menu.menutab1
+              a(href='#')
+                span INVENTORY
+            li.menu.menutab2
+              a(href='#')
+                span FILTER
+        // 탭
+        // 탭1
+        #tab1
+          ul.mtree.transit
+            li
+              a(href='#') MY PAGE
+              ul
+                li
+                  a(href='../mypage/login.html') login
+                li
+                  a(href='../mypage/join.html#') join
+            li
+              a(href='#') ACCOUNT
+              ul
+                li
+                  a(href='./myaccount/messages') Messages
+                li
+                  a(href='./myaccount/myitems') My items
+                li
+                  a(href='./myaccount/history') History
+                li
+                  a(href='./myaccount/settings') Settings
+            li.nocss
+              a(href='./features/features.html') FEATURES
+              //
+                <ul>
+                <li><a href="./features/news.html">News</a></li>
+                <li><a href="./features/streestyles.html">StreetStyles</a></li>
+                <li><a href="./features/lookbook.html">Lookbook</a></li>
+                <li><a href="./features/shopping.html">Shopping</a></li>
+                </ul>
+            li.nocss
+              a(href='./form/form.html') FORUM
+            li.nocss
+              a(href='/about.html') ABOUT
+        // 탭2
+        #tab2
+          ul.mtree.transit
+            li
+              a(href='#') GENDER
+              ul
+                li
+                  label
+                    input(type='radio', name='gender_name')
+                    span Man
+                li
+                  label
+                    input(type='radio', name='gender_name')
+                    span Woman
+                li
+                  label
+                    input(type='radio', name='gender_name')
+                    span Unisex
+            li
+              a(href='#') MARKET
+              ul
+                li
+                  label
+                    input(type='radio', name='market_name')
+                    span Inventory
+                li
+                  label
+                    input(type='radio', name='market_name')
+                    span Classic
+                li
+                  label
+                    input(type='radio', name='market_name')
+                    span Inventory
+            li
+              a(href='#') DESIGNER
+              ul.mdesigner
+                li
+                  span.searchtitle Search
+                  input(type='text')
+                a(href='./designers.html', style='cursor: pointer;') View all designers 
+            li
+              a(href='#') CATEGORY
+              ul.mcategory
+                li
+                  a(href='#') Tops
+                  label
+                    input(type='radio', name='category_name')
+                    span ALL
+                li
+                  a(href='#') Bottoms
+                  label
+                    input(type='radio', name='category_name')
+                    span ALL
+                li
+                  a(href='#') Outerweea
+                  label
+                    input(type='radio', name='category_name')
+                    span ALL
+                li
+                  a(href='#') Footweer
+                  label
+                    input(type='radio', name='category_name')
+                    span ALL
+                li
+                  a(href='#') Tailoring
+                  label
+                    input(type='radio', name='category_name')
+                    span ALL
+                li
+                  a(href='#') Accessories
+                  label
+                    input(type='radio', name='category_name')
+                    span ALL
+            li
+              a(href='#') SIZE
+              ul.msize
+                li
+                  a(href='#') Tops & Outerwear
+                li
+                  a(href='#') Bottoms & Pants 
+                li
+                  a(href='#') Footwear
+                li
+                  a(href='#') Tailoring
+                li
+                  a.on(href='#') Accessories
+            li
+              a(href='#') PRICE
+              ul.mprice
+                li
+                  span.searchtitle Min
+                  input(type='text')
+                  span.mprice2 ~
+                li
+                  span.searchtitle Max
+                  input(type='text')
+            li
+              a(href='#') LOCATION
+              ul.mlocation
+                li
+                  a(href='#')
+                    label
+                      span U.S.A
+                      input(type='radio', name='market_name')
+                li
+                  a(href='#')
+                    label
+                      span Canada
+                      input(type='radio', name='market_name')
+                li
+                  a(href='#')
+                    label
+                      span UK
+                      input(type='radio', name='market_name')
+                li
+                  a(href='#')
+                    label
+                      span EU
+                      input(type='radio', name='market_name')
+                li
+                  a(href='#')
+                    label
+                      span Asia
+                      input(type='radio', name='market_name')
+                li
+                  a(href='#')
+                    label
+                      span AU / NZ
+                      input(type='radio', name='market_name')
+                li
+                  a(href='#')
+                    label
+                      span Other
+                      input(type='radio', name='market_name')
+        // 탭2
+    #wrap.index
+      #header
+        .header_inner
+          .header_row
+            .header_top_box
+              span.top_string FREE STANDARD SHIPPING ON ORDERS OVER $150
+              ul.header_top_nav
+                li
+                  a(href='/about.html') About
+                li
+                  a(href='./features/features.html') Features
+                li
+                  a(href='./form/form.html') Fourm
+          .header_row
+            .right_header_box
+              a.hamburger(href='#')
+                i.fa.fa-bars(aria-hidden='true')
+              ul.member_category
+                li
+                  a.sell(href='#') SELL
+                li
+                  a.enter(href='#') MY PAGE
+                li
+                  a.mypage(href='../mypage/login.html') ENTER
+            .left_header_box
+              h1#logo
+                a(href='../') INVENTORY
+              ul.category
+                li
+                  a.m1(href='./designers.html') DESIGNERS
+                li
+                  a.m2(href='#') MAN
+                li
+                  a.m3(href='#') WOMAN
+                li
+                  a.m4(href='#searchbar') SEARCH
+          // sub1
+          .dropdown.designers
+            .dropdown_inner
+              ul
+                li
+                  a(href='#') Acne Studios
+                li
+                  a(href='#') Adidas
+                li
+                  a(href='#') Alexander McQueen
+                li
+                  a(href='#') Alexander Wang
+                li
+                  a(href='#') Balenciaga
+                li
+                  a(href='#')  Balmain
+                li
+                  a(href='#') Bape
+                li
+                  a(href='#') Burberry
+              ul
+                li
+                  a(href='#') Comme des Garcons
+                li
+                  a(href='#')  Common Projects
+                li
+                  a(href='#') Dior
+                li
+                  a(href='#') Dries Van Noten
+                li
+                  a(href='#') Fear of God
+                li
+                  a(href='#') Givenchy
+                li
+                  a(href='#') Gucci
+                li
+                  a(href='#') Julius
+                li
+                  a(href='#') Junya Watanabe
+              ul
+                li
+                  a(href='#') Lanvin
+                li
+                  a(href='#')  Louis Vuitton
+                li
+                  a(href='#') Maison Margiela
+                li
+                  a(href='#') Nike
+                li
+                  a(href='#')  Number (N)ine
+                li
+                  a(href='#')  Off-White
+                li
+                  a(href='#') Prada
+                li
+                  a(href='#') Raf Simons
+                li
+                  a(href='#') Rick Owens
+              ul
+                li
+                  a(href='#') Saint Laurent Paris
+                li
+                  a(href='#')   Stone Island
+                li
+                  a(href='#') Supreme
+                li
+                  a(href='#') Thom Browne
+                li
+                  a(href='#')  Number (N)ine
+                li
+                  a(href='#')  Undercover
+                li
+                  a(href='#')  Visvim
+                li
+                  a(href='#') Raf Simons
+                li
+                  a(href='#') Rick Owens
+              .viewall
+                a(href='./designers.html') VIEW ALL
+          // sub1
+          // sub2
+          .dropdown.man
+            .dropdown_inner
+              .depthmenu
+                h3 New Arrivals
+                ul
+                  li
+                    a(href='#') Clothing 
+                  li
+                    a(href='#') Shoes 
+                  li
+                    a(href='#')  Accessories 
+                  li
+                    a(href='#') Signature 
+                  li
+                    a(href='#') Back in Stock 
+              .depthmenu
+                h3 Clothing
+                ul
+                  li
+                    a(href='#') Button Ups 
+                  li
+                    a(href='#') Coats and Jackets 
+                  li
+                    a(href='#') Denim 
+                  li
+                    a(href='#')  Knitwear
+                  li
+                    a(href='#') Shorts 
+                  li
+                    a(href='#') Suits 
+                  li
+                    a(href='#') Trousers
+              .depthmenu
+                h3 Shoes
+                ul
+                  li
+                    a(href='#') Ankle Boots 
+                  li
+                    a(href='#') Derbies and Oxfords
+                  li
+                    a(href='#')  Lace Up Boots
+                  li
+                    a(href='#')  Sneakers 
+                  li
+                    a(href='#') Loafers 
+                  li
+                    a(href='#')  Mid Boots 
+                  li
+                    a(href='#') Sandals 
+              .depthmenu
+                h3 Accessories
+                ul
+                  li
+                    a(href='#') Sunglasses 
+                  li
+                    a(href='#')  Backpacks 
+                  li
+                    a(href='#') Belts 
+                  li
+                    a(href='#') Hats 
+                  li
+                    a(href='#') Jewelry
+                  li
+                    a(href='#') Scarves and Gloves 
+                  li
+                    a(href='#') Tote and Duffle Bags
+          // sub2
+          // sub3
+          .dropdown.woman
+            .dropdown_inner
+              .depthmenu
+                h3 New Arrivals
+                ul
+                  li
+                    a(href='#') Clothing 
+                  li
+                    a(href='#') Shoes
+                  li
+                    a(href='#') Accessories 
+                  li
+                    a(href='#') Signature
+                  li
+                    a(href='#') Back in Stock 
+              .depthmenu
+                h3 Clothing
+                ul
+                  li
+                    a(href='#') Tops 
+                  li
+                    a(href='#')  Bottoms 
+                  li
+                    a(href='#')  Dresses 
+                  li
+                    a(href='#') Jumpsuits 
+                  li
+                    a(href='#')  Denim 
+                  li
+                    a(href='#')  Jackets 
+                  li
+                    a(href='#') Knitwear 
+              .depthmenu
+                h3 Shoes
+                ul
+                  li
+                    a(href='#') Ankle 
+                  li
+                    a(href='#')  Boots 
+                  li
+                    a(href='#') Sandals 
+                  li
+                    a(href='#') Clogs 
+                  li
+                    a(href='#')  Derbies and Oxfords 
+                  li
+                    a(href='#')  Flats 
+                  li
+                    a(href='#')  Heels 
+                  li
+                    a(href='#')  Sneakers 
+              .depthmenu
+                h3 Accessories
+                ul
+                  li
+                    a(href='#') Jewelry 
+                  li
+                    a(href='#')  Sunglasses 
+                  li
+                    a(href='#')  Hats 
+                  li
+                    a(href='#') Scarves and Gloves 
+                  li
+                    a(href='#') Belts 
+                  li
+                    a(href='#')  Hair 
+                  li
+                    a(href='#') Opticals
+          // sub3
+          // account
+          .accountmenu
+            ul
+              li
+                a(href='./myaccount/messages') MESSAGES
+              li
+                a(href='./myaccount/myitems') MY ITEMS
+              li
+                a(href='./myaccount/history') HISTORY
+              li
+                a(href='./myaccount/settings') SETTINGS
+          // account
+    script(src='../js/mtree.js')
+    #container
+      // subcon
+      .forum-wrapper.form4
+        .forum-title
+          h2 MY PAGE
+          // username
+          .myformpage
+            .blockcover
+            p
+              img#coverPic(src=coverPic)
+            p.icoplus
+              a(href='#')
+                img#coverPicSelect(src='../images/form4_icoplus.png')
+              input(type="file", style="display:none")#coverPicInput
+            .title
+              p
+                a(href='#')
+                  img#profilePic(src=profilePic)
+                input(type="file", style="display:none")#profilePicInput
+              p
+                | #{userName}'s Inventory 
+                br
+                | Item  | #{itemCount}
+            ul
+              li
+                | Content count 
+                span #{contentCount}
+              li
+                | Joined
+                span #{joinedDate}
+              li
+                | Last visited 
+                span #{lastVisited}
+              li
+                | Feedback 
+                span N/A
+          .traderfeedback
+            .traderleft
+              .title Trader Feedback
+              .currum
+                ul
+                  li.bplus
+                    a(href='#')
+                      img(src='../images/6.-forum_3-_3.png')
+                    | 12
+                  li.bmin
+                    a(href='#')
+                      img(src='../images/6.-forum_3-_2.png')
+                    | 34
+                  li.bmux
+                    a(href='#')
+                      img(src='../images/6.-forum_3-_1.png')
+                    | 56
+            .traderright
+              a(href='#') See their activity
+          // username
+          // tab
+          .formtab
+            ul
+              li
+                a.selected(href='#formtab1')
+                  span My page
+              li
+                a(href='#formtab2')
+                  span Activity
+              li
+                a.bono(href='#formtab3')
+                  span Feedback
+          // tab//
+          .category-tab
+            #formtab1.tabbutton(style='display: block;')
+              // 1
+              // subcon
+              .copy-share-links-wrapper
+                | To stop receiving price drops for a specific item, hover over that item and toggle the speaker icon. 
+                br
+                | Note: If you remove an item from your Grails you will not be notified when it is reposted
+              .myfeed-listing-wrapper
+                .listing-metadata-wrapper
+                  h3.social-share-widget
+                    .social-share-widget-item.twitter
+                      a(href='#', target='_blank')
+                        img(src='../images/2.click_page_3.png', alt='Twittericon')
+                    .social-share-widget-item.facebook
+                      a(href='', target='_blank')
+                        img(src='../images/2.click_page_4.png', alt='Facebookicon')
+                // product
+                .productw.my-pagetw.form4product
+                 each val in posts
+                  .product
+                    .bellon
+                    a(href='/listings/' + val.productURL)
+                      .thumbnail
+                        img(src='..' + val.productImage.cover, alt='Thumnail')
+                      .information
+                        ol
+                          li
+                            span.product_name #{val.productSubTitle}
+                          li
+                            span.short_desc product short descrition
+                          li
+                            span.product_size #{val.productSize}
+                          li.price_row
+                            .price_row1
+                              .product_good
+                                span.goodtog
+                                  img.goodico(src='../images/product_good_ico.png', alt='GOOD')
+                                  img(style='display:none;', src='../images/product_good_ico2.png')
+                                span.count #{val.likes}
+                              .product_price
+                                img(src='../images/product_dollar_ico.png', alt='DOLLAR')
+                                span.count #{val.productPrice}
+                            .price_row2
+                              span.write_date #{val.timeAgo}
+                // product
+              // subcon
+              // 1
+            #formtab2.tabbutton(style='display: none;')
+              // 2
+              // form4 activity-
+              .form4-general
+                .form4-general-name
+                  .form4-general-img
+                    a(href='#')
+                      img(src='../images/1.mesege_1.png')
+                  .form4-general-title objectseoul's
+                  .currum
+                    ul
+                      li.ico1 November 4, 2016 
+                      li.ico2  10 replies 
+                      li.ico3 -11 
+                .form4-general-des
+                  .title SUPERARTISAN [supershopper] 
+                  .subtitle lifeofbabo replied to sufu1's topic in supershopper 
+                  .descrpiton
+                    p
+                      | Hello everyone! We are the LifeofBabo team and we are running a hip hop and urban t-shirt campaign. We would be happy if you guys could check out our website. We are a team of students at Babson College that are running a t-shirt campaign called...
+                  .form4-like
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .more
+                      a(href='#') more
+              // form4 activity-
+              // form4 activity-
+              .form4-general
+                .form4-general-name
+                  .form4-general-img
+                    a(href='#')
+                      img(src='../images/1.mesege_1.png')
+                  .form4-general-title objectseoul's
+                  .currum
+                    ul
+                      li.ico1 November 4, 2016 
+                      li.ico2  10 replies 
+                      li.ico3 -11 
+                .form4-general-des
+                  .title SUPERARTISAN [supershopper] 
+                  .subtitle lifeofbabo replied to sufu1's topic in supershopper 
+                  .descrpiton
+                    p
+                      | Hello everyone! We are the LifeofBabo team and we are running a hip hop and urban t-shirt campaign. We would be happy if you guys could check out our website. We are a team of students at Babson College that are running a t-shirt campaign called...
+                  .form4-like
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .more
+                      a(href='#') more
+              // form4 activity-
+              // form4 activity-
+              .form4-general
+                .form4-general-name
+                  .form4-general-img
+                    a(href='#')
+                      img(src='../images/1.mesege_1.png')
+                  .form4-general-title objectseoul's
+                  .currum
+                    ul
+                      li.ico1 November 4, 2016 
+                      li.ico2  10 replies 
+                      li.ico3 -11 
+                .form4-general-des
+                  .title SUPERARTISAN [supershopper] 
+                  .subtitle lifeofbabo replied to sufu1's topic in supershopper 
+                  .descrpiton
+                    p
+                      | Hello everyone! We are the LifeofBabo team and we are running a hip hop and urban t-shirt campaign. We would be happy if you guys could check out our website. We are a team of students at Babson College that are running a t-shirt campaign called...
+                  .form4-like
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .txt
+                      span
+                        a(href='#') superartisan
+                    .more
+                      a(href='#') more
+              // form4 activity-
+              // 2
+            #formtab3.tabbutton(style='display:none;')
+              .conversations-wrapper.feedback-wrapper
+                // feedback
+                .sellerscore
+                  h2 Seller Score 
+                  .sellerscoretxt  72  out of  72  users would buy again 
+                .itemas
+                  .itemas1
+                    span  Item as Described  4.97/5
+                  .itemas2
+                    span Item as Described  4.97/5
+                  .itemas3
+                    span Item as Described  4.97/5
+                // feedback
+                // 1
+                h2  Feedback Score
+                .feedbackscore
+                  .feedbackscore-item
+                    .feedbackscore-listing-details-wrapper
+                      .feedbackscore-listing-details
+                        a.feedbackscore-listing-link(href='#', target='_blank')
+                          .feedbackscore-listing-image
+                          .feedbackscore-listing-txt
+                            span
+                            h3 Arc Logo Shirt 
+                            h3.sub-title  by Supreme 
+                    .feedbackscore-last-action
+                      .activity-log-item-content
+                        .messages
+                          ul
+                            li Item As Described  5.0 / 5 
+                            li hipped Quickly  4.5 / 5
+                            li  Communicated Well  4.5 / 5
+                    .feedbackscore-details
+                      h3.sub-title
+                        | Shipped quickly and was great with communication. Item was of course authentic and fits perfectly. Thanks again.
+                        | Shipped
+                // 1
+                // 2
+                .feedbackscore
+                  .feedbackscore-item
+                    .feedbackscore-listing-details-wrapper
+                      .feedbackscore-listing-details
+                        a.feedbackscore-listing-link(href='#', target='_blank')
+                          .feedbackscore-listing-image
+                          .feedbackscore-listing-txt
+                            span
+                            h3 Arc Logo Shirt 
+                            h3.sub-title  by Supreme 
+                    .feedbackscore-last-action
+                      .activity-log-item-content
+                        .messages
+                          ul
+                            li Item As Described  5.0 / 5 
+                            li hipped Quickly  4.5 / 5
+                            li  Communicated Well  4.5 / 5
+                    .feedbackscore-details
+                      h3.sub-title
+                        | Shipped quickly and was great with communication. Item was of course authentic and fits perfectly. Thanks again.
+                        | Shipped
+                // 2
+                // 3
+                .feedbackscore
+                  .feedbackscore-item
+                    .feedbackscore-listing-details-wrapper
+                      .feedbackscore-listing-details
+                        a.feedbackscore-listing-link(href='#', target='_blank')
+                          .feedbackscore-listing-image
+                          .feedbackscore-listing-txt
+                            span
+                            h3 Arc Logo Shirt 
+                            h3.sub-title  by Supreme 
+                    .feedbackscore-last-action
+                      .activity-log-item-content
+                        .messages
+                          ul
+                            li Item As Described  5.0 / 5 
+                            li hipped Quickly  4.5 / 5
+                            li  Communicated Well  4.5 / 5
+                    .feedbackscore-details
+                      h3.sub-title
+                        | Shipped quickly and was great with communication. Item was of course authentic and fits perfectly. Thanks again.
+                        | Shipped
+                // 3
+                // item
+          script(type='text/javascript').
+            $(function(){
+            $(".category-tab div.tabbutton:not(#formtab1)").hide()
+            $(".formtab li a").click(function(){
+            $(".formtab li a").removeClass("selected");
+            $(this).addClass("selected");
+            $(".category-tab  .tabbutton").hide();
+            $($(this).attr("href")).show();
+            return false;
+            });
+            });
+        // subcon
+    #footer
+      .footer_inner
+        .left_footer_box
+          ul.social_nav
+            li
+              a(href='#')
+                img(src='../images/fk_ico.png', alt='FACE BOOK')
+            li
+              a(href='#')
+                img(src='../images/it_ico.png', alt='INSTAGRAM')
+            li
+              a(href='#')
+                img(src='../images/tw_ico.png', alt='TWITTER')
+        .cetner_desc_box
+          p © 2017 INVENTORY All right Reserved
+        .right_footer_box
+          ul.footer_nav
+            li
+              a(href='#') TERMS & CONDITIONS
+            li
+              a(href='#') PRIVACY POLICY
+            li
+              a(href='#') CONTACT
+      span.shadow
+    .black_shadow

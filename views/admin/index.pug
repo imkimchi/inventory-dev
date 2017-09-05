@@ -1,0 +1,149 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='Dashboard')
+    meta(name='keyword', content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
+    title INVENTORY DASHBOARD
+    link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/css/zabuto_calendar.css')
+    link(rel='stylesheet', type='text/css', href='/js/gritter/css/jquery.gritter.css')
+    link(rel='stylesheet', type='text/css', href='/lineicons/style.css')
+    link(rel='stylesheet', type='text/css', href='/js/jquery-easy-pie-chart/jquery.easy-pie-chart.css')
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/style-responsive.css', rel='stylesheet')
+    script(src='/js/jquery.js')
+    script(src='/js/jquery-1.8.3.min.js')
+    script(src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js")
+  body
+    section#container
+      header.header.black-bg
+        .sidebar-toggle-box
+          .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+        a.logo(href='index.html')
+          b INVENTORY
+        #top_menu.nav.notify-row
+      aside
+        #sidebar.nav-collapse
+          // sidebar menu start
+          ul#nav-accordion.sidebar-menu
+            p.centered
+              a(href='profile.html')
+                img.img-circle(src='/img/ui-sam.jpg', width='60')
+            |               &#x9;  
+            h5.centered Marcel Newman
+            |               &#x9;  &#x9;
+            |                   
+            li.mt
+              a.active(href='index.html')
+                i.fa.fa-dashboard
+                |                           
+                span Dashboard
+            |
+            li.sub-menu
+              a(href='javascript:;')
+                i.fa.fa-desktop
+                |                           
+                span Post
+            |                                
+            li.sub-menu
+              a(href='javascript:;')
+                i.fa.fa-desktop
+                |                           
+                span User
+            |                   
+            li.sub-menu
+              a(href='javascript:;')
+                i.fa.fa-cogs
+                |                           
+                span Features
+            |                   
+            li.sub-menu
+              a(href='javascript:;')
+                i.fa.fa-book
+                |                           
+                span Designer
+      section#main-content
+        section.wrapper
+          .row
+            .col-lg-12.main-chart
+              .row
+                .col-md-12.col-sm-12.mb
+                  // REVENUE PANEL
+                  .darkblue-panel.pn
+                    .darkblue-header
+                      h4 회원 가입 유저 수
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .chart.mt
+                      .sparkline(data-type='line', data-resize='true', data-height='75', data-width='90%', data-line-width='1', data-line-color='#fff', data-spot-color='#fff', data-fill-color='', data-highlight-line-color='#fff', data-spot-radius='4', data-data='[200,135,667,333,526,996,564,123,890,464,1000]')
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    p.mt
+                      b $ 17,980
+                      br
+                      | Month Income
+              .row
+                .col-md-4.col-sm-4.mb
+                  .white-panel.pn
+                    .white-header
+                      H5 실시간 접속 유저
+                    .online-user
+                      H1 300 명
+                .col-md-4.col-sm-4.mb
+                  .white-panel.pn.graphy
+                    .white-header
+                      h5 성별
+                    canvas#chart-area(width=500, height=500)
+                .col-md-4.col-sm-4.mb
+                  .white-panel.pn.graphy
+                    .white-header
+                      H5 국가
+                    canvas#chart-country(width=500, height=500)
+      footer.site-footer
+        .text-center
+          | 2014 - Alvarez.is
+          a.go-top(href='index.html#')
+            i.fa.fa-angle-up
+      // footer end
+    // js placed at the end of the document so the pages load faster
+    |     
+    script(src='/js/bootstrap.min.js')
+    |     
+    script.include(type='text/javascript', src='/js/jquery.dcjqaccordion.2.7.js')
+    |     
+    script(src='/js/jquery.scrollTo.min.js')
+    |     
+    script(src='/js/jquery.nicescroll.js', type='text/javascript')
+    |     
+    script(src='/js/jquery.sparkline.js')
+    // common script for all pages
+    script(src='/js/common-scripts.js')
+    |     
+    |     
+    script(type='text/javascript', src='/js/gritter/js/jquery.gritter.js')
+    |     
+    script(type='text/javascript', src='/js/gritter-conf.js')
+    script(src="/js/lib/socket.min.js")
+    script(src="/js/drawGraph.js")
+
+    // script for this page
+    script(src='/js/sparkline-chart.js')
+    script(src='/js/jquery-easy-pie-chart/jquery.easy-pie-chart.js')
+    script.
+      
+    |     
+    | &#x9;
+    script(src='/js/zabuto_calendar.js')
+    | &#x9;
+    | &#x9;
+    | &#x9;
+    script(type='application/javascript').
+
+      function myNavFunction(id) {
+      $("#date-popover").hide();
+      var nav = $("#" + id).data("navigation");
+      var to = $("#" + id).data("to");
+      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+      }

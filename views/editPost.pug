@@ -1,0 +1,838 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(content='IE=edge,chrome=1', http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1,maximum-scale=1', name='viewport')
+    title inventory
+    link(href='//fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
+    link(href='//fonts.googleapis.com/earlyaccess/nanumgothic.css', rel='stylesheet')
+    link(href='../../css/font-awesome.min.css', rel='stylesheet')
+    link(href='../../css/swiper.min.css', rel='stylesheet')
+    link(href='../../css/reset.css', rel='stylesheet')
+    link(href='../../css/css.css', rel='stylesheet')
+    link(href='../../css/layout.css', rel='stylesheet')
+    link(href='../../css/media.css', rel='stylesheet')
+    link(href='../../css/mtree.css', rel='stylesheet')
+    link(href='../../css/flexslider.css', rel='stylesheet')
+    link(href='../../css/slider.css', rel='stylesheet')
+    link(href='../../css/jquery.fancybox.css', rel='stylesheet')
+    script(src="../../js/lib/store.min.js")
+    script(src='../../js/lib/axios.min.js')
+    script(src="../../js/auth.js")
+    script(src='../../js/jquery.js')
+    script(src='../../js/jquery.form.min.js')
+    script(src='../../js/jquery.swiper.min.js')
+    script(src='../../js/script.js')
+    script(src='../../js/script.mobile.js')
+    script(src='../../js/menu.js')
+    script(src='../../js/mypage.js')
+    script(src='../../js/about.js')
+    script(src='../../js/lib/store.min.js')
+    script(src='../../js/click-page.js')
+    script(src='../../js/features.js')
+    script(src='../../js/jquery.ulslide.js')
+    script(src='../../js/jquery.form.min.js')
+    script(src='../../js/jquery.swiper.min.js')
+    script(src='../../js/jquery.flexslider-min.js')
+    script(src='../../js/jquery.flexslider.js')
+    script(src='../../js/buy-sell-page.js')
+    script(src='../../js/jquery.glide.js')
+    script(src='../../js/jquery.glide2.js')
+    script(src='../../js/form.js')
+    script(src='../../js/my-page.js')
+    script(src='../../js/designers.js')
+    script(src='../../js/jquery.fancybox.js')
+    script(src='../../js/upload.js')
+    script(src='../../js/sell.js')
+    script(src='../../js/modifyPost.js')
+    style(type='text/css').
+      #coverPhoto { display:none; }
+      .subPhoto { display:none; }
+  body
+    // mypage
+    #mypage_wrap.mypage_container_cover
+    // mypage//
+    #hamburger
+      .hamburger_inner
+        a.close(href='#')
+          i.fa.fa-times.fa-1x(aria-hidden='true')
+        // 탭
+        .tab
+          ul.category-tab
+            li.active.menu.menutab1
+              a(href='#')
+                span INVENTORY
+            li.menu.menutab2
+              a(href='#')
+                span FILTER
+        // 탭
+        // 탭1
+        #tab1
+          ul.mtree.transit
+            li
+              a(href='#') MY PAGE
+              ul
+                li
+                  a(href='./mypage/login.html') login
+                li
+                  a(href='./mypage/join.html#') join
+            li
+              a(href='#') ACCOUNT
+              ul
+                li
+                  a(href='./myaccount/messages') Messages
+                li
+                  a(href='./myaccount/myitems') My items
+                li
+                  a(href='./myaccount/history') History
+                li
+                  a(href='./myaccount/settings') Settings
+            li.nocss
+              a(href='./features/features.html') FEATURES
+              //
+                <ul>
+                <li><a href="./features/news.html">News</a></li>
+                <li><a href="./features/streestyles.html">StreetStyles</a></li>
+                <li><a href="./features/lookbook.html">Lookbook</a></li>
+                <li><a href="./features/shopping.html">Shopping</a></li>
+                </ul>
+            li.nocss
+              a(href='./form/form.html') FORUM
+            li.nocss
+              a(href='/about.html') ABOUT
+        // 탭2
+        #tab2
+          ul.mtree.transit
+            li
+              a(href='#') GENDER
+              ul
+                li
+                  label
+                    input(name='gender_name', type='radio')
+                    span Man
+                li
+                  label
+                    input(name='gender_name', type='radio')
+                    span Woman
+                li
+                  label
+                    input(name='gender_name', type='radio')
+                    span Unisex
+            li
+              a(href='#') MARKET
+              ul
+                li
+                  label
+                    input(name='market_name', type='radio')
+                    span Inventory
+                li
+                  label
+                    input(name='market_name', type='radio')
+                    span Classic
+                li
+                  label
+                    input(name='market_name', type='radio')
+                    span Inventory
+            li
+              a(href='#') DESIGNER
+              ul.mdesigner
+                li
+                  span.searchtitle Search
+                  input(type='text')
+                li(style='list-style: none; display: inline')
+                  a(href='./designers.html', style='cursor: pointer;') View all designers
+            li
+              a(href='#') CATEGORY
+              ul.mcategory
+                li
+                  a(href='#') Tops
+                  label
+                    input(name='category_name', type='radio')
+                    span ALL
+                li
+                  a(href='#') Bottoms
+                  label
+                    input(name='category_name', type='radio')
+                    span ALL
+                li
+                  a(href='#') Outerweea
+                  label
+                    input(name='category_name', type='radio')
+                    span ALL
+                li
+                  a(href='#') Footweer
+                  label
+                    input(name='category_name', type='radio')
+                    span ALL
+                li
+                  a(href='#') Tailoring
+                  label
+                    input(name='category_name', type='radio')
+                    span ALL
+                li
+                  a(href='#') Accessories
+                  label
+                    input(name='category_name', type='radio')
+                    span ALL
+            li
+              a(href='#') SIZE
+              ul.msize
+                li
+                  a(href='#') Tops & Outerwear
+                li
+                  a(href='#') Bottoms & Pants
+                li
+                  a(href='#') Footwear
+                li
+                  a(href='#') Tailoring
+                li
+                  a.on(href='#') Accessories
+            li
+              a(href='#') PRICE
+              ul.mprice
+                li
+                  span.searchtitle Min
+                  input(type='text')
+                  span.mprice2 ~
+                li
+                  span.searchtitle Max
+                  input(type='text')
+            li
+              a(href='#') LOCATION
+              ul.mlocation
+                li
+                  a(href='#')
+                    label
+                      span U.S.A
+                      input(name='market_name', type='radio')
+                li
+                  a(href='#')
+                    label
+                      span Canada
+                      input(name='market_name', type='radio')
+                li
+                  a(href='#')
+                    label
+                      span UK
+                      input(name='market_name', type='radio')
+                li
+                  a(href='#')
+                    label
+                      span EU
+                      input(name='market_name', type='radio')
+                li
+                  a(href='#')
+                    label
+                      span Asia
+                      input(name='market_name', type='radio')
+                li
+                  a(href='#')
+                    label
+                      span AU / NZ
+                      input(name='market_name', type='radio')
+                li
+                  a(href='#')
+                    label
+                      span Other
+                      input(name='market_name', type='radio')
+        // 탭2
+    #wrap.index
+      #header
+        .header_inner
+          .header_row
+            .header_top_box
+              span.top_string FREE STANDARD SHIPPING ON ORDERS OVER $150
+              ul.header_top_nav
+                li
+                  a(href='/about.html') About
+                li
+                  a(href='./features/features.html') Features
+                li
+                  a(href='./form/form.html') Fourm
+          .header_row
+            .right_header_box
+              a.hamburger(href='#')
+                i.fa.fa-bars(aria-hidden='true')
+              ul.member_category
+                li
+                  a.sell(href='#') SELL
+                li
+                  a.enter(href='#') MY PAGE
+                li
+                  a.mypage(href='mypage/login.html') ENTER
+            .left_header_box
+              h1#logo
+                a(href='/') INVENTORY
+              ul.category
+                li
+                  a.m1(href='./designers.html') DESIGNERS
+                li
+                  a.m2(href='#') MAN
+                li
+                  a.m3(href='#') WOMAN
+                li
+                  a.m4(href='#searchbar') SEARCH
+          // sub1
+          .dropdown.designers
+            .dropdown_inner
+              ul
+                li
+                  a(href='#') Acne Studios
+                li
+                  a(href='#') Adidas
+                li
+                  a(href='#') Alexander McQueen
+                li
+                  a(href='#') Alexander Wang
+                li
+                  a(href='#') Balenciaga
+                li
+                  a(href='#') Balmain
+                li
+                  a(href='#') Bape
+                li
+                  a(href='#') Burberry
+              ul
+                li
+                  a(href='#') Comme des Garcons
+                li
+                  a(href='#') Common Projects
+                li
+                  a(href='#') Dior
+                li
+                  a(href='#') Dries Van Noten
+                li
+                  a(href='#') Fear of God
+                li
+                  a(href='#') Givenchy
+                li
+                  a(href='#') Gucci
+                li
+                  a(href='#') Julius
+                li
+                  a(href='#') Junya Watanabe
+              ul
+                li
+                  a(href='#') Lanvin
+                li
+                  a(href='#') Louis Vuitton
+                li
+                  a(href='#') Maison Margiela
+                li
+                  a(href='#') Nike
+                li
+                  a(href='#') Number (N)ine
+                li
+                  a(href='#') Off-White
+                li
+                  a(href='#') Prada
+                li
+                  a(href='#') Raf Simons
+                li
+                  a(href='#') Rick Owens
+              ul
+                li
+                  a(href='#') Saint Laurent Paris
+                li
+                  a(href='#') Stone Island
+                li
+                  a(href='#') Supreme
+                li
+                  a(href='#') Thom Browne
+                li
+                  a(href='#') Number (N)ine
+                li
+                  a(href='#') Undercover
+                li
+                  a(href='#') Visvim
+                li
+                  a(href='#') Raf Simons
+                li
+                  a(href='#') Rick Owens
+              .viewall
+                a(href='./designers.html') VIEW ALL
+          // sub1
+          // sub2
+          .dropdown.man
+            .dropdown_inner
+              .depthmenu
+                h3 New Arrivals
+                ul
+                  li
+                    a(href='#') Clothing
+                  li
+                    a(href='#') Shoes
+                  li
+                    a(href='#') Accessories
+                  li
+                    a(href='#') Signature
+                  li
+                    a(href='#') Back in Stock
+              .depthmenu
+                h3 Clothing
+                ul
+                  li
+                    a(href='#') Button Ups
+                  li
+                    a(href='#') Coats and Jackets
+                  li
+                    a(href='#') Denim
+                  li
+                    a(href='#') Knitwear
+                  li
+                    a(href='#') Shorts
+                  li
+                    a(href='#') Suits
+                  li
+                    a(href='#') Trousers
+              .depthmenu
+                h3 Shoes
+                ul
+                  li
+                    a(href='#') Ankle Boots
+                  li
+                    a(href='#') Derbies and Oxfords
+                  li
+                    a(href='#') Lace Up Boots
+                  li
+                    a(href='#') Sneakers
+                  li
+                    a(href='#') Loafers
+                  li
+                    a(href='#') Mid Boots
+                  li
+                    a(href='#') Sandals
+              .depthmenu
+                h3 Accessories
+                ul
+                  li
+                    a(href='#') Sunglasses
+                  li
+                    a(href='#') Backpacks
+                  li
+                    a(href='#') Belts
+                  li
+                    a(href='#') Hats
+                  li
+                    a(href='#') Jewelry
+                  li
+                    a(href='#') Scarves and Gloves
+                  li
+                    a(href='#') Tote and Duffle Bags
+          // sub2
+          // sub3
+          .dropdown.woman
+            .dropdown_inner
+              .depthmenu
+                h3 New Arrivals
+                ul
+                  li
+                    a(href='#') Clothing
+                  li
+                    a(href='#') Shoes
+                  li
+                    a(href='#') Accessories
+                  li
+                    a(href='#') Signature
+                  li
+                    a(href='#') Back in Stock
+              .depthmenu
+                h3 Clothing
+                ul
+                  li
+                    a(href='#') Tops
+                  li
+                    a(href='#') Bottoms
+                  li
+                    a(href='#') Dresses
+                  li
+                    a(href='#') Jumpsuits
+                  li
+                    a(href='#') Denim
+                  li
+                    a(href='#') Jackets
+                  li
+                    a(href='#') Knitwear
+              .depthmenu
+                h3 Shoes
+                ul
+                  li
+                    a(href='#') Ankle
+                  li
+                    a(href='#') Boots
+                  li
+                    a(href='#') Sandals
+                  li
+                    a(href='#') Clogs
+                  li
+                    a(href='#') Derbies and Oxfords
+                  li
+                    a(href='#') Flats
+                  li
+                    a(href='#') Heels
+                  li
+                    a(href='#') Sneakers
+              .depthmenu
+                h3 Accessories
+                ul
+                  li
+                    a(href='#') Jewelry
+                  li
+                    a(href='#') Sunglasses
+                  li
+                    a(href='#') Hats
+                  li
+                    a(href='#') Scarves and Gloves
+                  li
+                    a(href='#') Belts
+                  li
+                    a(href='#') Hair
+                  li
+                    a(href='#') Opticals
+          // sub3
+          // account
+          .accountmenu
+            ul
+              li
+                a(href='./myaccount/messages') MESSAGES
+              li
+                a(href='./myaccount/myitems') MY ITEMS
+              li
+                a(href='./myaccount/history') HISTORY
+              li
+                a(href='./myaccount/settings') SETTINGS
+          // account
+    script(src='../../js/mtree.js')
+    #container
+      #content
+        .mypage_content_wrapper
+          .sell_form_container
+            form(action='', enctype='multipart/form-data', method='post')
+              fieldset
+                input(name='gender', type='hidden', value='')
+                #gender.sell_form_section_row
+                  h2.section_subject Gender
+                  .sell_form_market_section.sell_form_gender_section
+                    ol
+                      li#genderCheck_male.genderCheck(onclick="button(this, 'gender')")
+                        input(name='market_row_col', type='hidden', value='man')
+                        dl.market_content.gender_con.clear-fix
+                          dt
+                            span.check
+                              i.fa.fa-check.fa-2x(aria-hidden='true')
+                            span.market.gender MAN
+                      li#genderCheck_female.genderCheck(onclick="button(this, 'gender')")
+                        input(name='market_row_col', type='hidden', value='woman')
+                        dl.market_content.gender_con.clear-fix
+                          dt
+                            span.check
+                              i.fa.fa-check.fa-2x(aria-hidden='true')
+                            span.market.gender WOMAN
+                      li#genderCheck_unisex.genderCheck(onclick="button(this, 'gender')")
+                        input(name='market_row_col', type='hidden', value='unisex')
+                        dl.market_content.gender_con.clear-fix
+                          dt
+                            span.check
+                              i.fa.fa-check.fa-2x(aria-hidden='true')
+                            span.market.gender UNISEX
+                input(name='market', type='hidden', value='')
+                #market.sell_form_section_row
+                  h2.section_subject Market
+                  .sell_form_market_section.sell_real_market_section
+                    ol
+                      li#market_grails.marketCheck(onclick="button(this, 'market')")
+                        input(name='market_row_col', type='hidden', value='inventory')
+                        dl.market_content.clear-fix
+                          dt
+                            span.check
+                              i.fa.fa-check.fa-2x(aria-hidden='true')
+                            span.market Inventory
+                          dd.market_description
+                            | For highly anticipated new releases like Supreme, Jordan, Yeezy, Palace, Bape, BBC, F.O.G., Artist Merch, New Collaborations, New Drops/Releases, etc.
+                      li#market_hype.marketCheck(onclick="button(this, 'market')")
+                        input(name='market_row_col', type='hidden', value='inventory')
+                        dl.market_content.clear-fix
+                          dt
+                            span.check
+                              i.fa.fa-check.fa-2x(aria-hidden='true')
+                            span.market Inventory
+                          dd.market_description
+                            | For highly anticipated new releases like Supreme, Jordan, Yeezy, Palace, Bape, BBC, F.O.G., Artist Merch, New Collaborations, New Drops/Releases, etc.
+                      li#market_core.marketCheck(onclick="button(this, 'market')")
+                        input(name='market_row_col', type='hidden', value='inventory')
+                        dl.market_content.clear-fix
+                          dt
+                            span.check
+                              i.fa.fa-check.fa-2x(aria-hidden='true')
+                            span.market Inventory
+                          dd.market_description
+                            | For highly anticipated new releases like Supreme, Jordan, Yeezy, Palace, Bape, BBC, F.O.G., Artist Merch, New Collaborations, New Drops/Releases, etc.
+                .sell_form_section_row
+                  .clear-fix
+                    .sell_form_detail_section
+                      .detail_padding_container
+                        h2.section_subject Details
+                        ul.select_list
+                          li
+                            select(name='category')
+                              option(selected='selected') Category
+                              option#tops Tops
+                              option#bottoms Bottoms
+                              option#outwear Outwear
+                              option#footwear Footwear
+                              option#tailoring Tailoring
+                              option#accessories Accessories
+                          li
+                            select(name='size')
+                              option
+                                | Size
+                          li(style='\
+                          border-top-width: 0px;\
+                          border-right-width: 0px;\
+                          border-left-width: 0px;\
+                          border-bottom-width: 0px;\
+                          ')
+                            input(name='item_name', placeholder='Item name', type='text', style='margin-bottom: 0px;')
+                          li(style='\
+                          border-top-width: 0px;\
+                          border-right-width: 0px;\
+                          border-left-width: 0px;\
+                          border-bottom-width: 0px;\
+                          ')
+                            input(name='designer_name', placeholder='Designer', type='text', style='margin-bottom: 0px;')
+                          li(style='list-style: none; display: inline')
+                            .input_fields_wrap
+                              div
+                        .detail_message_box.add_field_button
+                          i.fa.fa-plus(aria-hidden='true')
+                          span Add Another Designer (for Collaborations)
+                          p
+                            | Please select a designer from the drop down
+                            br
+                            |                         Please email us to help@inventory.com if there's no designer you are trying to add.
+                    .sell_form_description_section
+                      .detail_padding_container
+                        h2.section_subject Description
+                        .textarea
+                          textarea.description(name='description')
+                .sell_form_section_row
+                  .clear-fix
+                    .sell_form_payment_section
+                      .detail_padding_container
+                        h2.section_subject Payment
+                        ul
+                          li
+                            input(name='price', placeholder='Price', type='text')
+                          li
+                            input(name='paypal_account', placeholder='Paypal account', type='text')
+                          li
+                            label
+                            dl.payment_list
+                              dd.payment_name
+                                label
+                                  span Buy it now
+                              dt
+                                label
+                              dt
+                                label
+                                  input(name='buy_it_now', type='checkbox')
+                              dt
+                                label
+                          li
+                            label
+                            dl.payment_list
+                              dd.payment_name
+                                label
+                                  span Accept offers?
+                              dt
+                                label
+                              dt
+                                label
+                                  input(name='accept_offes', type='checkbox', value='accept_offes')
+                              dt
+                                label
+                          li
+                            select(name='currency')
+                              option Currency
+                              option USD
+                          li(style='list-style: none; display: inline')
+                            p.bottom_desc
+                              | All prices on Inventory are in USD. If you specify an additional currency here
+                              br
+                              |                           buyers will also have the option to pay with that.
+                    .sell_form_shipping_section
+                      .detail_padding_container
+                        h2.section_subject Shipping
+                        ul
+                          li
+                            label
+                            dl.shipping_list
+                              dt
+                                label
+                                  input(name='shipping[]', type='checkbox', value='u.s.a')
+                              dt
+                                label
+                              dd.location
+                                label
+                                  span USA
+                              dt
+                                label
+                              dd.delivery_price
+                                label
+                                  input(name='delivery_price', type='number', value='20')
+                              dt
+                                label
+                          li
+                            label
+                            dl.shipping_list
+                              dt
+                                label
+                                  input(name='shipping[]', type='checkbox', value='u.s.a')
+                              dt
+                                label
+                              dd.location
+                                label
+                                  span Canada
+                              dt
+                                label
+                              dd.delivery_price
+                                label
+                                  input(name='delivery_price', type='number', value='20')
+                              dt
+                                label
+                          li
+                            label
+                            dl.shipping_list
+                              dt
+                                label
+                                  input(name='shipping[]', type='checkbox', value='u.s.a')
+                              dt
+                                label
+                              dd.location
+                                label
+                                  span United Kingdom
+                              dt
+                                label
+                              dd.delivery_price
+                                label
+                                  input(name='delivery_price', type='number', value='20')
+                              dt
+                                label
+                          li
+                            label
+                            dl.shipping_list
+                              dt
+                                label
+                                  input(name='shipping[]', type='checkbox', value='u.s.a')
+                              dt
+                                label
+                              dd.location
+                                label
+                                  span U.S.A
+                              dt
+                                label
+                              dd.delivery_price
+                                label
+                                  input(name='delivery_price', type='number', value='20')
+                              dt
+                                label
+                .sell_form_section_row
+                  h2.section_subject Photos
+                  .clear-fix
+                    #title_pic.sell_form_photo_left_section
+                      strong.sell_form_top_desc Cover Photo
+                      .image_box
+                        input#coverPhoto(type='file')
+                        span.photo Photo
+                    .sell_form_photo_right_section
+                      strong.sell_form_top_desc Drag Images Here or Click To Upload
+                      ul.shipping_box
+                        li.sub_pic(onclick='subButton(this)')
+                          .image_box
+                            input.subPhoto(type='file')
+                            span.photo Photo
+                        li.sub_pic(onclick='subButton(this)')
+                          .image_box
+                            input.subPhoto(type='file')
+                            span.photo Photo
+                        li.sub_pic(onclick='subButton(this)')
+                          .image_box
+                            input.subPhoto(type='file')
+                            span.photo Photo
+                        li.sub_pic(onclick='subButton(this)')
+                          .image_box
+                            input.subPhoto(type='file')
+                            span.photo Photo
+                        li.sub_pic(onclick='subButton(this)')
+                          .image_box
+                            input.subPhoto(type='file')
+                            span.photo Photo
+                        li.sub_pic(onclick='subButton(this)')
+                          .image_box
+                            input.subPhoto(type='file')
+                            span.photo Photo
+                .next_btn_area
+                  a#sellSubmit(href='#') SUBMIT
+    #footer
+      .footer_inner
+        .left_footer_box
+          ul.social_nav
+            li
+              a(href='#')
+                img(alt='FACE BOOK', src='../../images/fk_ico.png')
+            li
+              a(href='#')
+                img(alt='INSTAGRAM', src='../../images/it_ico.png')
+            li
+              a(href='#')
+                img(alt='TWITTER', src='../../images/tw_ico.png')
+        .cetner_desc_box
+          p © 2017 INVENTORY All right Reserved
+        .right_footer_box
+          ul.footer_nav
+            li
+              a(href='#') TERMS & CONDITIONS
+            li
+              a(href='#') PRIVACY POLICY
+            li
+              a(href='#') CONTACT
+      span.shadow
+    .black_shadow
+    script.
+      let shippingList = !{JSON.stringify(shipping).replace(/<\//g, '<\\/')}
+      let images = !{JSON.stringify(productImage).replace(/<\//g, '<\\/')}
+
+      for(let country in shippingList) {
+        let countryElem = $(`span:contains(${country})`).parents('dl').find('input')
+        countryElem[0].checked = true
+        countryElem[1].value = shippingList[country]
+      }
+
+      $('##{market}, ##{gender}').find('.fa').css("color", "rgb(56, 61, 65)")
+      $('select #'+ "#{productCategory}".toLowerCase())[0].selected = 'selected'
+      $('input[name="item_name"]')[0].value = "#{productTitle}"
+      $('input[name="designer_name"]')[0].value = "#{productSubTitle}"
+      $('.description')[0].value = "#{description}"
+      $('input[name="price"]')[0].value = "#{productPrice}"
+      $('input[name="paypal_account"]')[0].value = "#{paypalAccount}"
+
+      if(#{buyItNow}) $('input[name="buy_it_now"]').prop('checked', true)
+      if(#{acceptOffers}) $('input[name="accept_offes"').prop('checked', true)
+
+      imageObject.cover = images.cover
+      for(let count in images.subpics) {
+        let picURL = images.subpics[count]
+        imageObject.subpics.push(images.subpics[count])
+
+        $('.shipping_box').find('.image_box').eq(count).css({
+          "background-image": `url('${picURL}')`,
+          "background-size": "cover"
+        })
+      }
+
+      let $picElem = $('#title_pic .image_box')
+      $picElem.css({
+        "background-image": `url('${images.cover}')`,
+        "background-size": "cover"
+      })

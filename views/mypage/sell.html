@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport">
+  <title>inventory</title>
+  <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="//fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/swiper.min.css" rel="stylesheet">
+  <link href="../css/reset.css" rel="stylesheet">
+  <link href="../css/css.css" rel="stylesheet">
+  <link href="../css/layout.css" rel="stylesheet">
+  <link href="../css/media.css" rel="stylesheet">
+  <link href="../css/mtree.css" rel="stylesheet">
+  <link href="../css/flexslider.css" rel="stylesheet">
+  <link href="../css/slider.css" rel="stylesheet">
+  <link href="../css/jquery.fancybox.css" rel="stylesheet">
+  <script src="../js/jquery.js"></script>
+  <script src="../js/jquery.form.min.js"></script>
+  <script src="../js/jquery.swiper.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/script.mobile.js"></script>
+  <script src="../js/menu.js"></script>
+  <script src="../js/mypage.js"></script>
+  <script src="../js/about.js"></script>
+  <script src="../js/lib/store.min.js"></script>
+  <script src="../js/lib/axios.min.js"></script>
+  <script src="../js/loginCheck.js"></script>
+  <script src="../js/click-page.js"></script>
+  <script src="../js/features.js"></script>
+  <script src="../js/jquery.ulslide.js"></script>
+  <script src="../js/jquery.form.min.js"></script>
+  <script src="../js/jquery.swiper.min.js"></script>
+  <script src="../js/jquery.flexslider-min.js"></script>
+  <script src="../js/jquery.flexslider.js"></script>
+  <script src="../js/buy-sell-page.js"></script>
+  <script src="../js/jquery.glide.js"></script>
+  <script src="../js/jquery.glide2.js"></script>
+  <script src="../js/form.js"></script>
+  <script src="../js/my-page.js"></script>
+  <script src="../js/designers.js"></script>
+  <script src="../js/jquery.fancybox.js"></script>
+  <script src="../js/sellForm.js"></script>
+  <script type="text/template" id="qq-template">
+    <div class="qq-uploader-selector qq-uploader span12">
+        <div class="qq-upload-drop-area-selector qq-upload-drop-area span12" qq-hide-dropzone>
+            <span>****my custom text****</span>
+        </div>
+        <div class="qq-upload-button-selector qq-upload-button btn btn-success" style="width: auto;">
+            <div><i class="icon-upload icon-white"></i>****my custom text****</div>
+        </div>
+        <span class="qq-drop-processing-selector qq-drop-processing">
+            <span>****my custom text****</span>
+            <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+        </span>
+        <ul class="qq-upload-list-selector qq-upload-list" style="margin-top: 10px; text-align: center;">
+            <li>
+            <div class="qq-progress-bar-container-selector">
+                <div class="qq-progress-bar-selector qq-progress-bar"></div>
+            </div>
+            <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+            <span class="qq-upload-file-selector qq-upload-file"></span>
+            <span class="qq-upload-size-selector qq-upload-size"></span>
+            <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">****my custom text****</a>
+            <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+            </li>
+        </ul>
+    </div>
+</script>
+  <script src="../js/upload.js"></script>
+  <script src="../js/sell.js"></script>
+  <style type="text/css">
+#coverPhoto { display:none; }
+.subPhoto { display:none; }
+</style>
+</head>
+<body>
+  <!--mypage-->
+  <div class="mypage_container_cover" id="mypage_wrap"></div><!--mypage//-->
+  <div id="hamburger">
+    <div class="hamburger_inner">
+      <a class="close" href="#"><i aria-hidden="true" class="fa fa-times fa-1x"></i></a> <!--탭-->
+      <div class="tab">
+        <ul class="category-tab">
+          <li class="active menu menutab1">
+            <a href="#"><span>INVENTORY</span></a>
+          </li>
+          <li class="menu menutab2">
+            <a href="#"><span>FILTER</span></a>
+          </li>
+        </ul>
+      </div><!--탭-->
+      <!--탭1-->
+      <div id="tab1">
+        <ul class="mtree transit">
+          <li>
+            <a href="#">MY PAGE</a>
+            <ul>
+              <li>
+                <a href="./mypage/login.html">login</a>
+              </li>
+              <li>
+                <a href="./mypage/join.html#">join</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">ACCOUNT</a>
+            <ul>
+              <li>
+                <a href="./myaccount/messages">Messages</a>
+              </li>
+              <li>
+                <a href="./myaccount/myitems">My items</a>
+              </li>
+              <li>
+                <a href="./myaccount/history">History</a>
+              </li>
+              <li>
+                <a href="./myaccount/settings">Settings</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nocss">
+            <a href="./features/features.html">FEATURES</a> <!-- <ul>
+                    <li><a href="./features/news.html">News</a></li>
+                    <li><a href="./features/streestyles.html">StreetStyles</a></li>
+                    <li><a href="./features/lookbook.html">Lookbook</a></li>
+                    <li><a href="./features/shopping.html">Shopping</a></li>
+                   
+                  </ul>-->
+          </li>
+          <li class="nocss">
+            <a href="./form/form.html">FORUM</a>
+          </li>
+          <li class="nocss">
+            <a href="/about.html">ABOUT</a>
+          </li>
+        </ul>
+      </div><!--탭2-->
+      <div id="tab2">
+        <ul class="mtree transit">
+          <li>
+            <a href="#">GENDER</a>
+            <ul>
+              <li><label><input name="gender_name" type="radio"> <span>Man</span></label></li>
+              <li><label><input name="gender_name" type="radio"> <span>Woman</span></label></li>
+              <li><label><input name="gender_name" type="radio"> <span>Unisex</span></label></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">MARKET</a>
+            <ul>
+              <li><label><input name="market_name" type="radio"> <span>Inventory</span></label></li>
+              <li><label><input name="market_name" type="radio"> <span>Classic</span></label></li>
+              <li><label><input name="market_name" type="radio"> <span>Inventory</span></label></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">DESIGNER</a>
+            <ul class="mdesigner">
+              <li><span class="searchtitle">Search</span><input type="text"></li>
+              <li style="list-style: none; display: inline">
+                <a href="./designers.html" style="cursor: pointer;">View all designers</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">CATEGORY</a>
+            <ul class="mcategory">
+              <li>
+                <a href="#">Tops</a> <label><input name="category_name" type="radio"> <span>ALL</span></label>
+              </li>
+              <li>
+                <a href="#">Bottoms</a> <label><input name="category_name" type="radio"> <span>ALL</span></label>
+              </li>
+              <li>
+                <a href="#">Outerweea</a> <label><input name="category_name" type="radio"> <span>ALL</span></label>
+              </li>
+              <li>
+                <a href="#">Footweer</a> <label><input name="category_name" type="radio"> <span>ALL</span></label>
+              </li>
+              <li>
+                <a href="#">Tailoring</a> <label><input name="category_name" type="radio"> <span>ALL</span></label>
+              </li>
+              <li>
+                <a href="#">Accessories</a> <label><input name="category_name" type="radio"> <span>ALL</span></label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">SIZE</a>
+            <ul class="msize">
+              <li>
+                <a href="#">Tops &amp; Outerwear</a>
+              </li>
+              <li>
+                <a href="#">Bottoms &amp; Pants</a>
+              </li>
+              <li>
+                <a href="#">Footwear</a>
+              </li>
+              <li>
+                <a href="#">Tailoring</a>
+              </li>
+              <li>
+                <a class="on" href="#">Accessories</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">PRICE</a>
+            <ul class="mprice">
+              <li><span class="searchtitle">Min</span><input type="text"><span class="mprice2">~</span></li>
+              <li><span class="searchtitle">Max</span><input type="text"></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">LOCATION</a>
+            <ul class="mlocation">
+              <li>
+                <a href="#"><label><span>U.S.A</span> <input name="market_name" type="radio"></label></a>
+              </li>
+              <li>
+                <a href="#"><label><span>Canada</span> <input name="market_name" type="radio"></label></a>
+              </li>
+              <li>
+                <a href="#"><label><span>UK</span> <input name="market_name" type="radio"></label></a>
+              </li>
+              <li>
+                <a href="#"><label><span>EU</span> <input name="market_name" type="radio"></label></a>
+              </li>
+              <li>
+                <a href="#"><label><span>Asia</span> <input name="market_name" type="radio"></label></a>
+              </li>
+              <li>
+                <a href="#"><label><span>AU / NZ</span> <input name="market_name" type="radio"></label></a>
+              </li>
+              <li>
+                <a href="#"><label><span>Other</span> <input name="market_name" type="radio"></label></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--탭2-->
+    </div>
+  </div>
+  <div class="index" id="wrap">
+    <div id="header">
+      <div class="header_inner">
+        <div class="header_row">
+          <div class="header_top_box">
+            <span class="top_string">FREE STANDARD SHIPPING ON ORDERS OVER $150</span>
+            <ul class="header_top_nav">
+              <li>
+                <a href="/about.html">About</a>
+              </li>
+              <li>
+                <a href="./features/features.html">Features</a>
+              </li>
+              <li>
+                <a href="./form/form.html">Fourm</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header_row">
+          <div class="right_header_box">
+            <a class="hamburger" href="#"><i aria-hidden="true" class="fa fa-bars"></i></a>
+            <ul class="member_category">
+              <li>
+                <a class="sell" href="#">SELL</a>
+              </li>
+              <li>
+                <a class="enter" href="#">MY PAGE</a>
+              </li>
+              <li>
+                <a class="mypage" href="mypage/login.html">ENTER</a>
+              </li>
+            </ul>
+          </div>
+          <div class="left_header_box">
+            <h1 id="logo"><a href="/">INVENTORY</a></h1>
+            <ul class="category">
+              <li>
+                <a class="m1" href="./designers.html">DESIGNERS</a>
+              </li>
+              <li>
+                <a class="m2" href="#">MAN</a>
+              </li>
+              <li>
+                <a class="m3" href="#">WOMAN</a>
+              </li>
+              <li>
+                <a class="m4" href="#searchbar">SEARCH</a>
+              </li>
+            </ul>
+          </div>
+        </div><!--sub1-->
+        <div class="dropdown designers">
+          <div class="dropdown_inner">
+            <ul>
+              <li>
+                <a href="#">Acne Studios</a>
+              </li>
+              <li>
+                <a href="#">Adidas</a>
+              </li>
+              <li>
+                <a href="#">Alexander McQueen</a>
+              </li>
+              <li>
+                <a href="#">Alexander Wang</a>
+              </li>
+              <li>
+                <a href="#">Balenciaga</a>
+              </li>
+              <li>
+                <a href="#">Balmain</a>
+              </li>
+              <li>
+                <a href="#">Bape</a>
+              </li>
+              <li>
+                <a href="#">Burberry</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#">Comme des Garcons</a>
+              </li>
+              <li>
+                <a href="#">Common Projects</a>
+              </li>
+              <li>
+                <a href="#">Dior</a>
+              </li>
+              <li>
+                <a href="#">Dries Van Noten</a>
+              </li>
+              <li>
+                <a href="#">Fear of God</a>
+              </li>
+              <li>
+                <a href="#">Givenchy</a>
+              </li>
+              <li>
+                <a href="#">Gucci</a>
+              </li>
+              <li>
+                <a href="#">Julius</a>
+              </li>
+              <li>
+                <a href="#">Junya Watanabe</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#">Lanvin</a>
+              </li>
+              <li>
+                <a href="#">Louis Vuitton</a>
+              </li>
+              <li>
+                <a href="#">Maison Margiela</a>
+              </li>
+              <li>
+                <a href="#">Nike</a>
+              </li>
+              <li>
+                <a href="#">Number (N)ine</a>
+              </li>
+              <li>
+                <a href="#">Off-White</a>
+              </li>
+              <li>
+                <a href="#">Prada</a>
+              </li>
+              <li>
+                <a href="#">Raf Simons</a>
+              </li>
+              <li>
+                <a href="#">Rick Owens</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#">Saint Laurent Paris</a>
+              </li>
+              <li>
+                <a href="#">Stone Island</a>
+              </li>
+              <li>
+                <a href="#">Supreme</a>
+              </li>
+              <li>
+                <a href="#">Thom Browne</a>
+              </li>
+              <li>
+                <a href="#">Number (N)ine</a>
+              </li>
+              <li>
+                <a href="#">Undercover</a>
+              </li>
+              <li>
+                <a href="#">Visvim</a>
+              </li>
+              <li>
+                <a href="#">Raf Simons</a>
+              </li>
+              <li>
+                <a href="#">Rick Owens</a>
+              </li>
+            </ul>
+            <div class="viewall">
+              <a href="./designers.html">VIEW ALL</a>
+            </div>
+          </div>
+        </div><!--sub1--><!--sub2-->
+        <div class="dropdown man">
+          <div class="dropdown_inner">
+            <div class="depthmenu">
+              <h3>New Arrivals</h3>
+              <ul>
+                <li>
+                  <a href="#">Clothing</a>
+                </li>
+                <li>
+                  <a href="#">Shoes</a>
+                </li>
+                <li>
+                  <a href="#">Accessories</a>
+                </li>
+                <li>
+                  <a href="#">Signature</a>
+                </li>
+                <li>
+                  <a href="#">Back in Stock</a>
+                </li>
+              </ul>
+            </div>
+            <div class="depthmenu">
+              <h3>Clothing</h3>
+              <ul>
+                <li>
+                  <a href="#">Button Ups</a>
+                </li>
+                <li>
+                  <a href="#">Coats and Jackets</a>
+                </li>
+                <li>
+                  <a href="#">Denim</a>
+                </li>
+                <li>
+                  <a href="#">Knitwear</a>
+                </li>
+                <li>
+                  <a href="#">Shorts</a>
+                </li>
+                <li>
+                  <a href="#">Suits</a>
+                </li>
+                <li>
+                  <a href="#">Trousers</a>
+                </li>
+              </ul>
+            </div>
+            <div class="depthmenu">
+              <h3>Shoes</h3>
+              <ul>
+                <li>
+                  <a href="#">Ankle Boots</a>
+                </li>
+                <li>
+                  <a href="#">Derbies and Oxfords</a>
+                </li>
+                <li>
+                  <a href="#">Lace Up Boots</a>
+                </li>
+                <li>
+                  <a href="#">Sneakers</a>
+                </li>
+                <li>
+                  <a href="#">Loafers</a>
+                </li>
+                <li>
+                  <a href="#">Mid Boots</a>
+                </li>
+                <li>
+                  <a href="#">Sandals</a>
+                </li>
+              </ul>
+            </div>
+            <div class="depthmenu">
+              <h3>Accessories</h3>
+              <ul>
+                <li>
+                  <a href="#">Sunglasses</a>
+                </li>
+                <li>
+                  <a href="#">Backpacks</a>
+                </li>
+                <li>
+                  <a href="#">Belts</a>
+                </li>
+                <li>
+                  <a href="#">Hats</a>
+                </li>
+                <li>
+                  <a href="#">Jewelry</a>
+                </li>
+                <li>
+                  <a href="#">Scarves and Gloves</a>
+                </li>
+                <li>
+                  <a href="#">Tote and Duffle Bags</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div><!--sub2--><!--sub3-->
+        <div class="dropdown woman">
+          <div class="dropdown_inner">
+            <div class="depthmenu">
+              <h3>New Arrivals</h3>
+              <ul>
+                <li>
+                  <a href="#">Clothing</a>
+                </li>
+                <li>
+                  <a href="#">Shoes</a>
+                </li>
+                <li>
+                  <a href="#">Accessories</a>
+                </li>
+                <li>
+                  <a href="#">Signature</a>
+                </li>
+                <li>
+                  <a href="#">Back in Stock</a>
+                </li>
+              </ul>
+            </div>
+            <div class="depthmenu">
+              <h3>Clothing</h3>
+              <ul>
+                <li>
+                  <a href="#">Tops</a>
+                </li>
+                <li>
+                  <a href="#">Bottoms</a>
+                </li>
+                <li>
+                  <a href="#">Dresses</a>
+                </li>
+                <li>
+                  <a href="#">Jumpsuits</a>
+                </li>
+                <li>
+                  <a href="#">Denim</a>
+                </li>
+                <li>
+                  <a href="#">Jackets</a>
+                </li>
+                <li>
+                  <a href="#">Knitwear</a>
+                </li>
+              </ul>
+            </div>
+            <div class="depthmenu">
+              <h3>Shoes</h3>
+              <ul>
+                <li>
+                  <a href="#">Ankle</a>
+                </li>
+                <li>
+                  <a href="#">Boots</a>
+                </li>
+                <li>
+                  <a href="#">Sandals</a>
+                </li>
+                <li>
+                  <a href="#">Clogs</a>
+                </li>
+                <li>
+                  <a href="#">Derbies and Oxfords</a>
+                </li>
+                <li>
+                  <a href="#">Flats</a>
+                </li>
+                <li>
+                  <a href="#">Heels</a>
+                </li>
+                <li>
+                  <a href="#">Sneakers</a>
+                </li>
+              </ul>
+            </div>
+            <div class="depthmenu">
+              <h3>Accessories</h3>
+              <ul>
+                <li>
+                  <a href="#">Jewelry</a>
+                </li>
+                <li>
+                  <a href="#">Sunglasses</a>
+                </li>
+                <li>
+                  <a href="#">Hats</a>
+                </li>
+                <li>
+                  <a href="#">Scarves and Gloves</a>
+                </li>
+                <li>
+                  <a href="#">Belts</a>
+                </li>
+                <li>
+                  <a href="#">Hair</a>
+                </li>
+                <li>
+                  <a href="#">Opticals</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div><!--sub3--><!--account-->
+        <div class="accountmenu">
+          <ul>
+            <li>
+              <a href="./myaccount/messages">MESSAGES</a>
+            </li>
+            <li>
+              <a href="./myaccount/myitems">MY ITEMS</a>
+            </li>
+            <li>
+              <a href="./myaccount/history">HISTORY</a>
+            </li>
+            <li>
+              <a href="./myaccount/settings">SETTINGS</a>
+            </li>
+          </ul>
+        </div><!--account-->
+      </div>
+    </div>
+  </div>
+  <script src="../js/mtree.js">
+  </script>
+  <div id="container">
+    <div id="content">
+      <div class="mypage_content_wrapper">
+        <div class="sell_form_container">
+          <form action="" enctype="multipart/form-data" method="post">
+            <fieldset>
+              <input name="gender" type="hidden" value="">
+              <div class="sell_form_section_row" id="gender">
+                <h2 class="section_subject">Gender</h2>
+                <div class="sell_form_market_section sell_form_gender_section">
+                  <ol>
+                    <li onClick="button(this, 'gender')" class="genderCheck" id="genderCheck_male">
+                      <input name="market_row_col" type="hidden" value="man">
+                      <dl class="market_content gender_con clear-fix">
+                        <dt><span class="check"><i aria-hidden="true" class="fa fa-check fa-2x"></i></span> <span class="market gender">MAN</span></dt>
+                      </dl>
+                    </li>
+                    <li onClick="button(this, 'gender')" class="genderCheck" id="genderCheck_female">
+                      <input name="market_row_col" type="hidden" value="woman">
+                      <dl class="market_content gender_con clear-fix">
+                        <dt><span class="check"><i aria-hidden="true" class="fa fa-check fa-2x"></i></span> <span class="market gender">WOMAN</span></dt>
+                      </dl>
+                    </li>
+                    <li onClick="button(this, 'gender')" class="genderCheck" id="genderCheck_unisex">
+                      <input name="market_row_col" type="hidden" value="unisex">
+                      <dl class="market_content gender_con clear-fix">
+                        <dt><span class="check"><i aria-hidden="true" class="fa fa-check fa-2x"></i></span> <span class="market gender">UNISEX</span></dt>
+                      </dl>
+                    </li>
+                  </ol>
+                </div>
+              </div><input name="market" type="hidden" value="">
+              <div class="sell_form_section_row" id="market">
+                <h2 class="section_subject">Market</h2>
+                <div class="sell_form_market_section sell_real_market_section">
+                  <ol>
+                    <li onclick="button(this, 'market')" class="marketCheck" id="market_grails">
+                      <input name="market_row_col" type="hidden" value="inventory">
+                      <dl class="market_content clear-fix">
+                        <dt><span class="check"><i aria-hidden="true" class="fa fa-check fa-2x"></i></span> <span class="market">Inventory</span></dt>
+                        <dd class="market_description">For highly anticipated new releases like Supreme, Jordan, Yeezy, Palace, Bape, BBC, F.O.G., Artist Merch, New Collaborations, New Drops/Releases, etc.</dd>
+                      </dl>
+                    </li>
+                    <li onclick="button(this, 'market')" class="marketCheck" id="market_hype">
+                      <input name="market_row_col" type="hidden" value="inventory">
+                      <dl class="market_content clear-fix">
+                        <dt><span class="check"><i aria-hidden="true" class="fa fa-check fa-2x"></i></span> <span class="market">Inventory</span></dt>
+                        <dd class="market_description">For highly anticipated new releases like Supreme, Jordan, Yeezy, Palace, Bape, BBC, F.O.G., Artist Merch, New Collaborations, New Drops/Releases, etc.</dd>
+                      </dl>
+                    </li>
+                    <li onclick="button(this, 'market')" class="marketCheck" id="market_core">
+                      <input name="market_row_col" type="hidden" value="inventory">
+                      <dl class="market_content clear-fix">
+                        <dt><span class="check"><i aria-hidden="true" class="fa fa-check fa-2x"></i></span> <span class="market">Inventory</span></dt>
+                        <dd class="market_description">For highly anticipated new releases like Supreme, Jordan, Yeezy, Palace, Bape, BBC, F.O.G., Artist Merch, New Collaborations, New Drops/Releases, etc.</dd>
+                      </dl>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="sell_form_section_row">
+                <div class="clear-fix">
+                  <div class="sell_form_detail_section">
+                    <div class="detail_padding_container">
+                      <h2 class="section_subject">Details</h2>
+                      <ul class="select_list">
+                        <li><select name="category">
+						  <option selected="selected">Category</option>
+						  <option>Tops</option>
+						  <option>Bottoms</option>
+						  <option>Outwear</option>
+						  <option>Footwear</option>
+						  <option>Tailoring</option>
+						  <option>Accessories</option>
+                        </select></li>
+                        <li><select name="size">
+                          <option>
+                            Size
+                          </option>
+                        </select></li>
+						<li style="
+						border-top-width: 0px;
+						border-right-width: 0px;
+						border-left-width: 0px;
+						border-bottom-width: 0px;
+						"><input name="item_name" placeholder="Item name" type="text" style="margin-bottom: 0px;"></li>
+                        <li style="
+						border-top-width: 0px;
+						border-right-width: 0px;
+						border-left-width: 0px;
+						border-bottom-width: 0px;
+						"><input name="designer_name" placeholder="Designer" type="text" style="margin-bottom: 0px;"></li>
+                        <li style="list-style: none; display: inline">
+                          <div class="input_fields_wrap">
+                            <div></div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="detail_message_box add_field_button">
+                        <i aria-hidden="true" class="fa fa-plus"></i><span>Add Another Designer (for Collaborations)</span>
+                        <p>Please select a designer from the drop down<br>
+                        Please email us to help@inventory.com if there's no designer you are trying to add.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sell_form_description_section">
+                    <div class="detail_padding_container">
+                      <h2 class="section_subject">Description</h2>
+                      <div class="textarea">
+                        <textarea class="description" name="description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sell_form_section_row">
+                <div class="clear-fix">
+                  <div class="sell_form_payment_section">
+                    <div class="detail_padding_container">
+                      <h2 class="section_subject">Payment</h2>
+                      <ul>
+                        <li><input name="price" placeholder="Price" type="text"></li>
+                        <li><input name="paypal_account" placeholder="Paypal account" type="text"></li>
+                        <li>
+                          <label></label>
+                          <dl class="payment_list">
+                            <dd class="payment_name"><label><span>Buy it now</span></label></dd>
+                            <dt><label></label></dt>
+                            <dt><label><input name="buy_it_now" type="checkbox"></label></dt>
+                            <dt><label></label></dt>
+                          </dl>
+                        </li>
+                        <li>
+                          <label></label>
+                          <dl class="payment_list">
+                            <dd class="payment_name"><label><span>Accept offers?</span></label></dd>
+                            <dt><label></label></dt>
+                            <dt><label><input name="accept_offes" type="checkbox" value="accept_offes"></label></dt>
+                            <dt><label></label></dt>
+                          </dl>
+                        </li>
+                        <li><select name="currency">
+						  <option>Currency</option>
+						  <option>USD</option>
+                        </select></li>
+                        <li style="list-style: none; display: inline">
+                          <p class="bottom_desc">All prices on Inventory are in USD. If you specify an additional currency here<br>
+                          buyers will also have the option to pay with that.</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="sell_form_shipping_section">
+                    <div class="detail_padding_container">
+                      <h2 class="section_subject">Shipping</h2>
+                      <ul>
+                        <li>
+                          <label></label>
+                          <dl class="shipping_list">
+                            <dt><label><input name="shipping[]" type="checkbox" value="u.s.a"></label></dt>
+                            <dt><label></label></dt>
+                            <dd class="location"><label><span>USA</span></label></dd>
+                            <dt><label></label></dt>
+                            <dd class="delivery_price"><label><input name="delivery_price" type="number" value="20"></label></dd>
+                            <dt><label></label></dt>
+                          </dl>
+                        </li>
+                        <li>
+                          <label></label>
+                          <dl class="shipping_list">
+                            <dt><label><input name="shipping[]" type="checkbox" value="u.s.a"></label></dt>
+                            <dt><label></label></dt>
+                            <dd class="location"><label><span>Canada</span></label></dd>
+                            <dt><label></label></dt>
+                            <dd class="delivery_price"><label><input name="delivery_price" type="number" value="20"></label></dd>
+                            <dt><label></label></dt>
+                          </dl>
+                        </li>
+                        <li>
+                          <label></label>
+                          <dl class="shipping_list">
+                            <dt><label><input name="shipping[]" type="checkbox" value="u.s.a"></label></dt>
+                            <dt><label></label></dt>
+                            <dd class="location"><label><span>United Kingdom</span></label></dd>
+                            <dt><label></label></dt>
+                            <dd class="delivery_price"><label><input name="delivery_price" type="number" value="20"></label></dd>
+                            <dt><label></label></dt>
+                          </dl>
+                        </li>
+                        <li>
+                          <label></label>
+                          <dl class="shipping_list">
+                            <dt><label><input name="shipping[]" type="checkbox" value="u.s.a"></label></dt>
+                            <dt><label></label></dt>
+                            <dd class="location"><label><span>U.S.A</span></label></dd>
+                            <dt><label></label></dt>
+                            <dd class="delivery_price"><label><input name="delivery_price" type="number" value="20"></label></dd>
+                            <dt><label></label></dt>
+                          </dl>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sell_form_section_row">
+                <h2 class="section_subject">Photos</h2>
+                <div class="clear-fix">
+                  <div id="title_pic" class="sell_form_photo_left_section">
+                    <strong class="sell_form_top_desc">Cover Photo</strong>
+                    <div class="image_box">
+					  <input type="file" id="coverPhoto">
+                      <span class="photo">Photo</span>
+                    </div>
+				  </div>
+                  <div class="sell_form_photo_right_section">
+                    <strong class="sell_form_top_desc">Drag Images Here or Click To Upload</strong>
+                    <ul class="shipping_box">
+                      <li class="sub_pic" onclick="subButton(this)">
+                        <div class="image_box">
+						  <input type="file" class="subPhoto">
+                          <span class="photo">Photo</span>
+                        </div>
+                      </li>
+                      <li class="sub_pic" onclick="subButton(this)">
+                        <div class="image_box">
+						  <input type="file" class="subPhoto">
+                          <span class="photo">Photo</span>
+                        </div>
+                      </li>
+                      <li class="sub_pic" onclick="subButton(this)">
+                        <div class="image_box">
+						  <input type="file" class="subPhoto">
+                          <span class="photo">Photo</span>
+                        </div>
+                      </li>
+                      <li class="sub_pic" onclick="subButton(this)">
+                        <div class="image_box">
+						  <input type="file" class="subPhoto">
+                          <span class="photo">Photo</span>
+                        </div>
+                      </li>
+                      <li class="sub_pic" onclick="subButton(this)">
+                        <div class="image_box">
+						  <input type="file" class="subPhoto">
+                          <span class="photo">Photo</span>
+                        </div>
+                      </li>
+                      <li class="sub_pic" onclick="subButton(this)">
+                        <div class="image_box">
+					      <input type="file" class="subPhoto">
+                          <span class="photo">Photo</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="next_btn_area">
+                <a id="sellSubmit" href="#">SUBMIT</a>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footer_inner">
+      <div class="left_footer_box">
+        <ul class="social_nav">
+          <li>
+            <a href="#"><img alt="FACE BOOK" src="../images/fk_ico.png"></a>
+          </li>
+          <li>
+            <a href="#"><img alt="INSTAGRAM" src="../images/it_ico.png"></a>
+          </li>
+          <li>
+            <a href="#"><img alt="TWITTER" src="../images/tw_ico.png"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="cetner_desc_box">
+        <p>&copy; 2017 INVENTORY All right Reserved</p>
+      </div>
+      <div class="right_footer_box">
+        <ul class="footer_nav">
+          <li>
+            <a href="#">TERMS &amp; CONDITIONS</a>
+          </li>
+          <li>
+            <a href="#">PRIVACY POLICY</a>
+          </li>
+          <li>
+            <a href="#">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </div><span class="shadow"></span>
+  </div>
+  <div class="black_shadow"></div>
+</body>
+</html>

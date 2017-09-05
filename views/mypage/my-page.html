@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<title>inventory</title>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+	<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/swiper.min.css">
+	<link rel="stylesheet" href="../css/reset.css">
+     <link rel="stylesheet" href="../css/css.css">
+	<link rel="stylesheet" href="../css/layout.css">
+	<link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/mtree.css" >
+    <link rel="stylesheet" href="../css/flexslider.css">
+   <link rel="stylesheet" href="../css/slider.css">
+   <link rel="stylesheet" href="../css/jquery.fancybox.css">
+
+	<script src="../js/jquery.js"></script>  
+	<script src="../js/jquery.form.min.js"></script>
+	<script src="../js/jquery.swiper.min.js"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/script.mobile.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/mypage.js"></script>
+    <script src="../js/about.js"></script>
+     <script src="../js/click-page.js"></script>
+     <script src="../js/features.js"></script>
+    <script src="../js/jquery.ulslide.js"></script>          
+	<script src="../js/jquery.form.min.js"></script>
+	<script src="../js/jquery.swiper.min.js"></script> 
+   	<script src="../js/jquery.flexslider-min.js"></script>
+     <script src="../js/jquery.flexslider.js"></script>	
+      <script src="../js/buy-sell-page.js"></script>
+    <script src="../js/jquery.glide.js"></script>
+    <script src="../js/jquery.glide2.js"></script>
+    <script src="../js/form.js"></script>
+     <script src="../js/my-page.js"></script>
+    <script src="../js/designers.js"></script>
+     <script src="../js/sell.js"></script>
+     <script src="../js/jquery.fancybox.js"></script>
+    
+
+</head>
+<body>
+<!--mypage-->
+<div  class="mypage_container_cover" id="mypage_wrap"></div>
+<!--mypage//-->
+
+	<div id="hamburger">
+		<div class="hamburger_inner">
+			<a href="#" class="close"><i class="fa fa-times fa-1x" aria-hidden="true"></i></a>
+                       
+            <!--탭-->
+              <div class="tab" >
+                <ul  class="category-tab">
+                    <li class="active menu menutab1" >
+                        <a href="#" ><span>INVENTORY</span></a>
+                    </li>
+                    <li class="menu menutab2">
+                        <a href="#" ><span>FILTER</span></a>
+                    </li>
+                </ul>
+              </div> 
+            
+            <!--탭-->
+             <!--탭1-->
+            <div id="tab1">
+                <ul class="mtree transit">              
+                <li><a href="#">MY PAGE</a>
+                  <ul>
+                    <li><a href="./mypage/login.html">login</a></li>
+                    <li><a href="./mypage/join.html#">join</a></li>
+                  </ul>
+                </li>
+                 <li><a href="#">ACCOUNT</a>
+                  <ul>
+                    <li><a href="./myaccount/messages">Messages</a></li>
+                    <li><a href="./myaccount/myitems">My items</a></li>
+                    <li><a href="./myaccount/history">History</a></li>
+                    <li><a href="./myaccount/settings">Settings</a></li>
+                   
+                  </ul>
+                </li>
+                <li class="nocss"><a href="./features/features.html">FEATURES</a>
+                 <!-- <ul>
+                    <li><a href="./features/news.html">News</a></li>
+                    <li><a href="./features/streestyles.html">StreetStyles</a></li>
+                    <li><a href="./features/lookbook.html">Lookbook</a></li>
+                    <li><a href="./features/shopping.html">Shopping</a></li>
+                   
+                  </ul>-->
+                </li>
+                <li class="nocss"><a href="./form/form.html">FORUM</a>
+                                                  
+                </li>
+                <li class="nocss"><a href="/about.html">ABOUT</a>
+                 
+                </li>
+               
+            </ul>    
+            </div>
+            
+            <!--탭2-->
+           
+            <div id="tab2">
+                <ul class="mtree transit">              
+                    <li><a href="#">GENDER</a>
+                    <ul>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Man</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Woman</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Unisex</span>
+								</label>
+							</li>
+						</ul>
+                     
+                    </li>
+                    <li><a href="#">MARKET</a>
+                      <ul>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Inventory</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Classic</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Inventory</span>
+								</label>
+							</li>
+						</ul>
+                    </li>
+                    <li><a href="#">DESIGNER</a>
+                      <ul class="mdesigner">                         
+                         <li><span class="searchtitle">Search</span><input type="text" ></li>
+                                                 
+                         <a href="./designers.html" style="cursor: pointer;">View all designers </a>
+                        
+                      </ul>
+                      
+                      
+                      
+                      
+                    </li>
+                     <li><a href="#">CATEGORY</a>
+                      <ul class="mcategory">
+                        <li><a href="#">Tops</a>
+                        <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Bottoms</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Outerweea</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Footweer</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Tailoring</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Accessories</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                      </ul>
+                      
+                    </li>
+                    <li><a href="#">SIZE</a>
+                      <ul class="msize">
+                        <li>
+                          <a href="#">Tops &amp; Outerwear</a></li>
+                        <li><a href="#">Bottoms &amp; Pants </a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Tailoring</a></li>
+                       <li><a href="#" class="on">Accessories</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">PRICE</a>
+                    <ul class="mprice">
+                      <li><span class="searchtitle">Min</span><input type="text" ><span class="mprice2" >~</span></li>
+                      <li><span class="searchtitle">Max</span><input type="text"></li>
+                    </ul>
+                    <li><a href="#">LOCATION</a>
+                    <ul class="mlocation">
+							<li>
+                               <a href="#">
+								<label>
+                                   <span>U.S.A</span>
+									<input type="radio" name="market_name">
+									
+								</label>
+                                </a>
+							</li>
+							<li>
+                              <a href="#">
+								<label>
+                                    <span>Canada</span>
+									<input type="radio" name="market_name">									
+								</label>
+                                </a>
+							</li>
+							<li>
+                             <a href="#">
+								<label>
+                                    <span>UK</span>
+									<input type="radio" name="market_name">
+									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                             <a href="#">
+								<label>
+                                    <span>EU</span>
+									<input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                             <a href="#">
+								<label>
+                                <span>Asia</span>
+   							    <input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                               <a href="#">
+								<label>
+                                   <span>AU / NZ</span>
+									<input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                             <li>
+                              <a href="#">
+								<label>
+                                    <span>Other</span>
+									<input type="radio" name="market_name">									
+								</label>
+                                </a>
+							</li>
+						</ul>
+                    </li>
+                   
+                </ul>  
+            </div>
+             <!--탭2-->
+            
+		</div>
+	</div>
+	<div id="wrap" class="index">
+		<div id="header">
+			<div class="header_inner">
+				<div class="header_row">
+					<div class="header_top_box">
+						<span class="top_string">FREE STANDARD SHIPPING ON ORDERS OVER $150</span>
+						<ul class="header_top_nav">
+							<li>
+								<a href="/about.html">About</a>
+							</li>
+							<li>
+								<a href="./features/features.html">Features</a>
+							</li>
+                            <li>
+								<a href="./form/form.html">Fourm</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="header_row">
+					<div class="right_header_box">
+						<a href="#" class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></a>
+						<ul class="member_category">
+							<li><a href="#" class="sell">SELL</a></li>
+							<li><a href="#" class="enter">MY PAGE</a></li>                          
+							<li><a href="mypage/login.html" class="mypage" >ENTER</a></li>
+						</ul>
+					</div>					
+					<div class="left_header_box">
+						<h1 id="logo"><a href="/">INVENTORY</a></h1>                      
+						<ul class="category">
+							<li><a href="./designers.html" class="m1">DESIGNERS</a></li>
+							<li><a href="#" class="m2">MAN</a></li>
+							<li><a href="#" class="m3">WOMAN</a></li>
+							<li><a href="#searchbar" class="m4" >SEARCH</a></li>
+						</ul>
+					</div>
+				</div>
+                
+                <!--sub1-->
+                <div class="dropdown designers"> 
+                  <div class="dropdown_inner">                  
+                   <ul>                    
+                    <li><a href="#">Acne Studios</a></li>
+                    <li><a href="#">Adidas</a></li>
+                    <li><a href="#">Alexander McQueen</a></li>
+                    <li><a href="#">Alexander Wang</a></li>
+                    <li><a href="#">Balenciaga</a></li>
+                    <li><a href="#"> Balmain</a></li>
+                    <li><a href="#">Bape</a></li>
+                    <li><a href="#">Burberry</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Comme des Garcons</a></li>
+                     <li><a href="#"> Common Projects</a></li>
+                     <li><a href="#">Dior</a></li>
+                     <li><a href="#">Dries Van Noten</a></li>
+                     <li><a href="#">Fear of God</a></li>
+                     <li><a href="#">Givenchy</a></li>
+                     <li><a href="#">Gucci</a></li>
+                     <li><a href="#">Julius</a></li>
+                     <li><a href="#">Junya Watanabe</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Lanvin</a></li>
+                     <li><a href="#"> Louis Vuitton</a></li>
+                     <li><a href="#">Maison Margiela</a></li>
+                     <li><a href="#">Nike</a></li>
+                     <li><a href="#"> Number (N)ine</a></li>
+                     <li><a href="#"> Off-White</a></li>
+                     <li><a href="#">Prada</a></li>
+                     <li><a href="#">Raf Simons</a></li>
+                     <li><a href="#">Rick Owens</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Saint Laurent Paris</a></li>
+                     <li><a href="#">  Stone Island</a></li>
+                     <li><a href="#">Supreme</a></li>
+                     <li><a href="#">Thom Browne</a></li>
+                     <li><a href="#"> Number (N)ine</a></li>
+                     <li><a href="#"> Undercover</a></li>
+                     <li><a href="#"> Visvim</a></li>
+                     <li><a href="#">Raf Simons</a></li>
+                     <li><a href="#">Rick Owens</a></li>
+                </ul>
+                <div class="viewall"><a href="./designers.html">VIEW ALL</a></div>
+               </div>
+                </div>
+                <!--sub1-->   
+                
+                 <!--sub2-->
+                <div class="dropdown man"> 
+                  <div class="dropdown_inner">    
+                  <div class="depthmenu">
+                      <h3>New Arrivals</h3>             
+                       <ul>
+                       <li><a href="#">Clothing </a></li>
+                       <li><a href="#">Shoes </a></li>
+                       <li><a href="#"> Accessories </a></li>
+                       <li><a href="#">Signature </a></li>
+                       <li><a href="#">Back in Stock </a></li>
+                    </ul>
+                </div>
+                 <div class="depthmenu">
+                      <h3>Clothing</h3>    
+                    <ul>
+                        <li><a href="#">Button Ups </a></li>
+                        <li><a href="#">Coats and Jackets </a></li>
+                        <li><a href="#">Denim </a></li>
+                       <li><a href="#"> Knitwear</a></li> 
+                        <li><a href="#">Shorts </a></li>
+                        <li><a href="#">Suits </a></li>
+                        <li><a href="#">Trousers</a></li>                     
+                    </ul>
+                   </div>
+                   <div class="depthmenu">
+                     <h3>Shoes</h3>          
+                    <ul>
+                       <li><a href="#">Ankle Boots </a></li>
+                       <li><a href="#">Derbies and Oxfords</a></li>
+                       <li><a href="#"> Lace Up Boots</a></li> 
+                       <li><a href="#"> Sneakers </a></li>
+                       <li><a href="#">Loafers </a></li>
+                       <li><a href="#"> Mid Boots </a></li>
+                       <li><a href="#">Sandals </a></li>                  
+                   </ul>
+                   </div>
+                    <div class="depthmenu">
+                     <h3>Accessories</h3>        
+                    <ul>                    
+                      <li><a href="#">Sunglasses </a></li>
+                     <li><a href="#"> Backpacks </a></li>
+                      <li><a href="#">Belts </a></li>
+                      <li><a href="#">Hats </a></li>
+                      <li><a href="#">Jewelry</a></li> 
+                      <li><a href="#">Scarves and Gloves </a></li>
+                      <li><a href="#">Tote and Duffle Bags</a></li>
+                    </ul>
+                    </div>
+               </div>
+                </div>
+                <!--sub2--> 
+                
+                 <!--sub3-->
+                <div class="dropdown woman"> 
+                  <div class="dropdown_inner">    
+                  <div class="depthmenu">
+                      <h3>New Arrivals</h3>              
+                       <ul>
+                       <li><a href="#">Clothing </a></li>
+                       <li><a href="#">Shoes</a></li>
+                       <li><a href="#">Accessories </a></li>
+                       <li><a href="#">Signature</a></li>
+                       <li><a href="#">Back in Stock </a></li>
+                    </ul>
+                </div>
+                 <div class="depthmenu">
+                      <h3>Clothing</h3>    
+                    <ul>                    
+                         <li><a href="#">Tops </a></li>
+                        <li><a href="#"> Bottoms </a></li>
+                        <li><a href="#"> Dresses </a></li>
+                        <li><a href="#">Jumpsuits </a></li>
+                        <li><a href="#"> Denim </a></li>
+                        <li><a href="#"> Jackets </a></li>
+                         <li><a href="#">Knitwear </a></li>
+                    </ul>
+                   </div>
+                   <div class="depthmenu">
+                     <h3>Shoes</h3>          
+                    <ul>
+                        <li><a href="#">Ankle </a></li>
+                        <li><a href="#"> Boots </a></li>
+                        <li><a href="#">Sandals </a></li>
+                        <li><a href="#">Clogs </a></li>
+                       <li><a href="#"> Derbies and Oxfords </a></li>
+                       <li><a href="#"> Flats </a></li>
+                       <li><a href="#"> Heels </a></li>
+                       <li><a href="#"> Sneakers </a></li>
+                   </ul>
+                   </div>
+                    <div class="depthmenu">
+                     <h3>Accessories</h3>        
+                    <ul>
+                       <li><a href="#">Jewelry </a></li>
+                       <li><a href="#"> Sunglasses </a></li>
+                       <li><a href="#"> Hats </a></li>
+                       <li><a href="#">Scarves and Gloves </a></li>
+                       <li><a href="#">Belts </a></li>
+                       <li><a href="#"> Hair </a></li>
+                       <li><a href="#">Opticals</a></li>
+                    </ul>
+                    </div>
+                 </div>
+                </div>
+                <!--sub3-->  
+                
+                <!--account-->
+                <div class="accountmenu">
+                  <ul>
+                    <li><a href="./myaccount/messages">MESSAGES</a></li>
+                    <li><a href="./myaccount/myitems">MY ITEMS</a></li>
+                    <li><a href="./myaccount/history">HISTORY</a></li>
+                    <li><a href="./myaccount/settings">SETTINGS</a></li>
+                  </ul>
+                </div>        
+                <!--account--> 
+			</div>
+		</div>	
+      </div>	
+      
+    <script src="../js/mtree.js"></script> 
+<div id="containermain">
+<div id="content">
+<div class="main_contents_wrapper">
+	<div class="main_top_indiv_banner">
+		<ul class="clear-fix">
+			<li>
+				<a href="click_page.html">
+					<img src="../images/main_banner_1.jpg" alt="메인배너">
+					<div class="main_top_layer">
+						<div class="layer_inner">
+							<strong>SHOP NEW ARRIVALS</strong>
+							<span class="typhoon"></span>
+							<span class="category_name">MAN</span>
+						</div>
+						<span class="shadow"></span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="click_page.html">
+					<img src="../images/main_banner_2.jpg" alt="메인배너">
+					<div class="main_top_layer">
+						<div class="layer_inner">
+							<strong>SHOP NEW ARRIVALS</strong>
+							<span class="typhoon"></span>
+							<span class="category_name">MAN</span>
+						</div>
+						<span class="shadow"></span>				
+					</div>	
+				</a>				
+			</li>
+		</ul>
+	</div>
+	<div class="main_category_row_banner swiper-container">
+		<div id="main_category_banner" class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="category_col">
+					<a href="click_page.html">
+						<img src="../images/temp_small_banner.jpg" alt="">
+						<div class="main_top_layer">
+							<div class="layer_inner">
+								<strong>SHOP NEW ARRIVALS</strong>
+								<span class="typhoon"></span>
+								<span class="category_name">MAN</span>
+							</div>
+							<span class="shadow"></span>
+						</div>					
+					</a>
+				</div>
+								
+				<div class="category_col">
+					<a href="click_page.html">
+						<img src="../images/temp_small_banner.jpg" alt="">
+						<div class="main_top_layer">
+							<div class="layer_inner">
+								<strong>SHOP NEW ARRIVALS</strong>
+								<span class="typhoon"></span>
+								<span class="category_name">MAN</span>
+							</div>
+							<span class="shadow"></span>
+						</div>					
+					</a>
+				</div>
+								
+			<div class="category_col">
+					<a href="click_page.html">
+						<img src="../images/temp_small_banner.jpg" alt="">
+						<div class="main_top_layer">
+							<div class="layer_inner">
+								<strong>SHOP NEW ARRIVALS</strong>
+								<span class="typhoon"></span>
+								<span class="category_name">MAN</span>
+							</div>
+							<span class="shadow"></span>
+						</div>					
+					</a>
+				</div>
+								
+				</div>
+                <div class="swiper-slide">
+				 <div class="category_col">
+					<a href="#">
+						<img src="../images/temp_small_banner.jpg" alt="">
+						<div class="main_top_layer">
+							<div class="layer_inner">
+								<strong>SHOP NEW ARRIVALS</strong>
+								<span class="typhoon"></span>
+								<span class="category_name">MAN</span>
+							</div>
+							<span class="shadow"></span>
+						</div>					
+					</a>
+				</div>
+								
+				<div class="category_col">
+					<a href="#">
+						<img src="../images/temp_small_banner.jpg" alt="">
+						<div class="main_top_layer">
+							<div class="layer_inner">
+								<strong>SHOP NEW ARRIVALS</strong>
+								<span class="typhoon"></span>
+								<span class="category_name">MAN</span>
+							</div>
+							<span class="shadow"></span>
+						</div>					
+					</a>
+				</div>
+								
+											<div class="category_col">
+					<a href="#">
+						<img src="../images/temp_small_banner.jpg" alt="">
+						<div class="main_top_layer">
+							<div class="layer_inner">
+								<strong>SHOP NEW ARRIVALS</strong>
+								<span class="typhoon"></span>
+								<span class="category_name">MAN</span>
+							</div>
+							<span class="shadow"></span>
+						</div>					
+					</a>
+				</div>
+								</div>
+								
+					</div>
+		<a href="#" class="nav main_visual_prev">
+			<img src="../images/main_visual_prev.png" alt="PREV">
+		</a>
+		<a href="#" class="nav main_visual_next">
+			<img src="../images/main_visual_next.png" alt="NEXT">
+		</a>		
+	</div>
+	<div class="main_search_area" id="searchbar" >
+		<strong class="top_string">BROWSE THE FEED</strong>
+		<span class="typoon"></span>
+		<div id="search">
+			<div class="search_row" >
+				<span class="search_ico"></span>
+				<form method="post">
+					<fieldset>
+                        <!--<span class="searchtitle">Search</span>-->
+						<input type="text" name="keyword" id="keyword" required placeholder="Search Category , name and more">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+					</fieldset>
+				</form>
+			</div>
+			<div class="search_row last">
+                 	<ul class="clear-fix">
+					<li>
+						<a href="#" class="refresh"><span class="fa fa-refresh" aria-hidden="true"></span>REFRESH</a>
+					</li>
+					<li>
+						<a href="#" class="sortby">Sort by<span class="fa fa-caret-down" aria-hidden="true"></span></a>
+					</li>
+				</ul>
+				<div class="filter-toggle">HIDE FILTERS<span class="fa fa-caret-left" aria-hidden="true"></span></div>
+			
+                <div class="orderlist">
+             	 <ul>
+                     <li><a href="#">DEFAULT</a></li>
+                     <li><a href="#">NEW</a></li>
+                     <li><a href="#">LOW PRICE</a></li>
+                     <li><a href="#">HIGH PIRCE</a></li>
+                     <li><a href="#">POPULAR</a></li>
+             	 </ul>
+            </div>
+			</div>
+            
+		</div>
+	</div>
+	<div class="main_product_wrap">
+		<div class="clear-fix">
+			<div class="left_filter_box">
+				<div class="left_filter_inner">
+                  <div class="indiv_filter_box">
+						<strong class="title">Gender</strong>
+						<ul>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Man</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Woman</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Unisex</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+					<div class="indiv_filter_box">
+						<strong class="title">MARKET</strong>
+						<ul>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Inventory</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Classic</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Basics</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+					<div class="indiv_filter_box">
+						<strong class="title">DESIGNER</strong>
+						<div class="left_search">
+							<div class="left_search_row">
+								<div class="left_search_inner"> 
+									<div class="left_search_display">
+										<input type="text" name="designer_keyword" placeholder="Search Category , name and more">
+									</div>
+									<div class="left_search_layer">
+										<!-- ajax search designer list -->
+									</div>
+								</div>
+							</div>
+							<div class="left_search_row">
+								<div class="all_designer_btn_box">
+									View all Designers<span class="fa fa-caret-right" aria-hidden="true"></span>
+								</div>
+                                <div class="designers-popover logged-in">
+                                <button class="close">✕</button>								
+                                <div class="designer-group scrollbar">
+                                 <div class="all_designer_title">ALL</div>
+                                  <div class="alpabet">C</div>
+                                  <label><input type="radio" name="C.P. Company "><span>C.P. Company </span></label><br>
+                                  <label><input type="radio" name="C2h4 "><span>C2h4 </span></label><br>
+                                  <label><input type="radio" name="Cabane De Zucca "><span>Cabane De Zucca </span></label><br>
+                                  <label><input type="radio" name="Cactus Plant Flea Market "><span>Cactus Plant Flea Market </span></label><br>
+                                  <label><input type="radio" name="Call Me 917 "><span>Call Me 917 </span></label><br>
+                                  <label><input type="radio" name="Calvin Klein "><span>Calvin Klein </span></label><br>
+                                  <label><input type="radio" name="Camper"><span>Camper</span></label><br>
+                                  <label><input type="radio" name="Canada Goose"><span> Canada Goose</span></label><br>
+                                  <label><input type="radio" name="Canali"><span>Canali</span></label><br>
+                                  <label><input type="radio" name="Carhartt"><span>Carhartt</span></label><br>
+                                  <label><input type="radio" name="Carmina"><span>Carmina</span></label><br>
+                                  <label><input type="radio" name="Carol"><span>Carol</span></label><br>
+                                  <label><input type="radio" name="Christian Poell"><span>Christian Poell</span></label><br>
+                                  <label><input type="radio" name="Carpe Diem"><span>Carpe Diem</span></label><br>
+                                  <label><input type="radio" name="Carrera"><span>Carrera</span></label><br>
+                                  <label><input type="radio" name="Cartier"><span>Cartier</span></label><br>
+                                  <label><input type="radio" name="Carven"><span>Carven</span></label><br>
+                                  <label><input type="radio" name="Casbia"><span>Casbia</span></label><br>
+                                  <label><input type="radio" name="Casely Hayford"><span>Casely Hayford</span></label><br>
+                                  <label><input type="radio" name="Casey"><span>Casey</span></label><br>
+                                  <label><input type="radio" name="Casey"><span>Casey</span></label><br>
+                                  <label><input type="radio" name="Cash Ca"><span>Cash Ca</span></label><br>
+                                  <label><input type="radio" name="Casio"><span>Casio</span></label><br>
+                                  <label><input type="radio" name="Cav Empt"><span>Cav Empt</span></label><br>
+                                  <label><input type="radio" name="Cazal"><span>Cazal</span></label><br>
+                                  <label><input type="radio" name="Cease And Desist"><span>Cease And Desist</span></label><br>
+                                  <label><input type="radio" name="Cedric Jacquemyn"><span>Cedric Jacquemyn</span></label><br>
+                                  <label><input type="radio" name="Celine"><span>Celine</span></label><br>
+                                  <label><input type="radio" name="Cerruti 1881"><span>Cerruti 1881</span></label><br>
+                                  <label><input type="radio" name="Cesare Paciotti"><span>Cesare Paciotti</span></label><br>
+                                  <label><input type="radio" name="Champion"><span>Champion</span></label><br>
+                                  <label><input type="radio" name="Chance The Rapper"><span>Chance The Rapper</span></label><br>
+                                  <label><input type="radio" name="Chanel"><span>Chanel</span></label><br>
+                                  <label><input type="radio" name="Chapter"><span>Chapter</span></label><br>
+                                  <label><input type="radio" name="Charvet"><span>Charvet</span></label><br>
+                                  <label><input type="radio" name="Chevignon"><span>Chevignon</span></label><br>
+                                  <label><input type="radio" name="Chimala"><span>Chimala</span></label><br>
+                                  <label><input type="radio" name="Chippewa"><span>Chippewa</span></label><br>
+                                  <label><input type="radio" name="Chloe"><span>Chloe</span></label><br>
+                                  <label><input type="radio" name="Cottweiler"><span>Cottweiler</span></label><br>
+                                  <label><input type="radio" name="Craig Green"><span>Craig Green</span></label><br>
+                                  <label><input type="radio" name="Creative Recreation"><span>Creative Recreation</span></label><br>
+                                  <label><input type="radio" name="Creep Crescent Down Works"><span>Creep Crescent Down Works</span></label><br>
+                                  <label><input type="radio" name="Crockett & Jones"><span>Crockett &amp; Jones</span></label><br>
+                                  <label><input type="radio" name="Cutler And Gross"><span>Cutler And Gross</span></label><br>
+                                  <label><input type="radio" name="Cwst"><span>Cwst</span></label><br>
+                                  <label><input type="radio" name="Cypress"><span>Cypress</span></label>                                
+                                 </div>
+                                 <div class="designer-selected">
+                                    <div class="all_designer_title">SELECTED</div>
+                                    <div class="selectbtnwrap">
+                                        <div class="selectbtn clearall"><span>Clear All</span></div>
+                                        <div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>Allsaints</span></div>
+                                        <div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>Ami</span></div>
+                                        <div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>Allsaints</span></div>
+                                        <div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>Ami</span></div>
+                                    </div>
+                                 </div>
+                                 
+                                </div>
+							</div>
+						</div>
+					</div>
+					<div class="indiv_filter_box">
+						<strong class="title">CATEGORY</strong>
+						<ul class="category_list">
+							<li>
+								<a href="#">Tops</a>
+								<div class="category_all_btn_box">
+									<label>
+										<span class="checkbox"></span>
+										<span class="all">All</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<a href="#">Bottoms</a>
+								<div class="category_all_btn_box">
+									<label>
+										<span class="checkbox"></span>
+										<span class="all">All</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<a href="#">Outerwear</a>
+								<div class="category_all_btn_box">
+									<label>
+										<span class="checkbox"></span>
+										<span class="all">All</span>
+									</label>
+								</div>
+							</li>
+                            <li>
+								<a href="#">Footweer</a>
+								<div class="category_all_btn_box">
+									<label>
+										<span class="checkbox"></span>
+										<span class="all">All</span>
+									</label>
+								</div>
+							</li>
+                            <li>
+								<a href="#">Tailoring</a>
+								<div class="category_all_btn_box">
+									<label>
+										<span class="checkbox"></span>
+										<span class="all">All</span>
+									</label>
+								</div>
+							</li>
+                            <li>
+								<a href="#">Accessories</a>
+								<div class="category_all_btn_box">
+									<label>
+										<span class="checkbox"></span>
+										<span class="all">All</span>
+									</label>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="indiv_filter_box">
+						<strong class="title">SIZE</strong>
+						<ul class="size_list">
+							<li>
+								<a href="#">Tops &amp; Outerwear<span class="fa fa-caret-right" aria-hidden="true"></span></a>
+							</li>
+							<li>
+								<a href="#">Bottoms &amp; Pants<span class="fa fa-caret-right" aria-hidden="true"></span></a>
+							</li>
+							<li>
+								<a href="#">Footwear<span class="fa fa-caret-right" aria-hidden="true"></span></a>
+							</li>
+							<li>
+								<a href="#">Tailoring<span class="fa fa-caret-right" aria-hidden="true"></span></a>
+							</li>
+							<li>
+								<a href="#">Accessories<span class="fa fa-caret-right" aria-hidden="true"></span></a>
+							</li>							
+						</ul>
+					</div>
+					<div class="indiv_filter_box">
+						<strong class="title">PRICE</strong>
+						<div class="filter_price_box">
+							<div class="price_row">
+								<input type="text" name="min_price" placeholder="MIN">
+							</div>
+							<div class="price_row">
+								<input type="text" name="max_price" placeholder="MAX">
+							</div>
+						</div>
+					</div>
+					<div class="indiv_filter_box">
+						<strong class="title">LOCATION</strong>
+						<ul class="location_list">
+							<li>
+								<label>
+									<span class="location_name">U.S.A</span>
+									<span class="checkbox"></span>
+								</label>
+							</li>
+							<li>
+								<a href="#">
+									<span class="location_name">Canada</span>
+									<span class="checkbox"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="location_name">UK</span>
+									<span class="checkbox"></span>
+								</a>
+							</li>
+                            <li>
+								<a href="#">
+									<span class="location_name">EU</span>
+									<span class="checkbox"></span>
+								</a>
+							</li>
+                            <li>
+								<a href="#">
+									<span class="location_name">Asia</span>
+									<span class="checkbox"></span>
+								</a>
+							</li>
+                            <li>
+								<a href="#">
+									<span class="location_name">AU / NZ</span>
+									<span class="checkbox"></span>
+								</a>
+							</li>
+                              <li>
+								<a href="#">
+									<span class="location_name">Other</span>
+									<span class="checkbox"></span>
+								</a>
+							</li>
+						</ul>
+					</div>				
+				</div>
+			</div>
+            
+			<div class="right_product_box mini">
+				<div class="product_wrap">
+					<div class="over_view">
+							<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+						<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+							<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+						<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+						<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+						<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+						<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+						<div class="product">
+							<a data="" href="./click_page.html">
+								<div class="thumbnail">
+									<img src="../images/product_thumbnail.png" alt="Thumnail">
+								</div>
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">                                                   
+                                                    <span class="goodtog">
+                                                    <img src="../images/product_good_ico.png" alt="GOOD" class="goodico">
+                                                    <img style="display:none;" src="../images/product_good_ico2.png" />
+                                                    </span>
+                                                    
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>							
+                              <div class="main_top_layer">
+                                 <span class="shadow"></span>		
+                               </div>	
+                            </a>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			</div>
+		</div>
+        
+		<div id="footer">
+			<div class="footer_inner">
+				<div class="left_footer_box">
+					<ul class="social_nav">
+						<li>
+							<a href="#">
+								<img src="./../images/fk_ico.png" alt="FACE BOOK">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="./../images/it_ico.png" alt="INSTAGRAM">
+							</a>
+						</li>					
+					</ul>
+				</div>
+				<div class="cetner_desc_box">
+					<p>&copy; 2017 INVENTORY All right Reserved</p>
+				</div>
+				<div class="right_footer_box">
+					<ul class="footer_nav">
+						<li>
+							<a href="#">TERMS &amp; CONDITIONS</a>
+						</li>
+						<li>
+							<a href="#">PRIVACY POLICY</a>
+						</li>
+						<li>
+							<a href="#">CONTACT</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<span class="shadow"></span>
+		</div>
+	</div>
+	<div class="black_shadow"></div>
+		<div id="container" >
+          <div id="content" class="my-page">           
+             <!--subcon-->
+              <div class="my-page-title">
+                <h1 class="align-center">objectseoul's Inventory </h1>
+                <ul>
+                  <li>objectseoul</li>
+                  <li>99</li>                  
+                </ul>                
+               </div>
+               <div class="copy-share-links-wrapper">
+                 To stop receiving price drops for a specific item, hover over that item and toggle the speaker icon. <br>Note: If you remove an item from your Grails you will not be notified when it is reposted
+               </div>                          
+               
+                <div class="myfeed-listing-wrapper">
+                    <div class="listing-metadata-wrapper">
+                        <div class="metadata">
+                        <div class="metadata-item">
+                            <p>My Feed</p>
+                        </div>
+                        </div>
+                        <h3 class="social-share-widget">
+                        <div class="social-share-widget-item twitter">
+                            <a href="#" target="_blank">
+                             <img src="../../images/2.click_page_3.png" alt="Twittericon">
+                            </a>
+                        
+                        </div>
+                        <div class="social-share-widget-item facebook">
+                            <a href="" target="_blank">
+                            <img src="../../images/2.click_page_4.png" alt="Facebookicon">
+                            </a>
+                        </div>
+                        </h3>                
+                        </div>
+                   
+                  <!--product-->
+                  <div class="productw my-pagetw">                    
+                    <div class="product">
+                               <div class="bellon"></div>	
+                                 <a href="/inventory/click_page.html">						
+								<div class="thumbnail">									
+                                    <img src="../../images/product_thumbnail.png" alt="Thumnail">
+								</div>                              
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>
+							</a>
+						</div>
+                         <div class="product">
+							<div class="bellon"></div>	
+                                 <a href="/inventory/click_page.html">						
+								<div class="thumbnail">									
+                                    <img src="../../images/product_thumbnail.png" alt="Thumnail">
+								</div>            
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>
+							</a>
+						</div>  
+                         <div class="product">
+							<div class="bellon"></div>	
+                                 <a href="/inventory/click_page.html">						
+								<div class="thumbnail">									
+                                    <img src="../../images/product_thumbnail.png" alt="Thumnail">
+								</div>            
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>
+							</a>
+						</div>  
+                        <div class="product">
+							<div class="bellon"></div>	
+                                 <a href="/inventory/click_page.html">						
+								<div class="thumbnail">									
+                                    <img src="../../images/product_thumbnail.png" alt="Thumnail">
+								</div>            
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>
+							</a>
+						</div>
+                        <div class="product">
+							<div class="bellon"></div>	
+                                 <a href="/inventory/click_page.html">						
+								<div class="thumbnail">									
+                                    <img src="../../images/product_thumbnail.png" alt="Thumnail">
+								</div>            
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../../images/product_dollar_ico.png" alt="DOLLAR">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>
+							</a>
+						</div>
+                        <div class="product">
+							<div class="bellon"></div>	
+                                 <a href="/inventory/click_page.html">						
+								<div class="thumbnail">									
+                                    <img src="../../images/product_thumbnail.png" alt="Thumnail">
+								</div>            
+								<div class="information">
+									<ol>
+										<li>
+											<span class="product_name">Y - 3</span>
+										</li>
+										<li>
+											<span class="short_desc">product short descrition</span>
+										</li>
+										<li>
+											<span class="product_size">Size L</span>
+										</li>
+										<li class="price_row">
+                                           <div class="price_row1">
+                                                <div class="product_good">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">100</span>
+                                                </div>
+                                                <div class="product_price">
+                                                    <img src="../../images/product_good_ico.png" alt="GOOD">
+                                                    <span class="count">103</span>
+                                                </div>	
+                                           </div>	
+                                           <div class="price_row2">
+											<span class="write_date">7 mins ago</span>
+									       </div>									
+										</li>										
+									</ol>
+								</div>
+							</a>
+						</div>
+                                         
+                 </div>
+                 
+                 
+                  
+                  
+                  <!--product-->
+                </div> 
+               </div>   
+             <!--subcon-->
+		</div>
+		</div>
+		<div id="footer">
+			<div class="footer_inner">
+				<div class="left_footer_box">
+					<ul class="social_nav">
+						<li>
+							<a href="#">
+								<img src="/inventory/../images/fk_ico.png" alt="FACE BOOK">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="/inventory/../images/it_ico.png" alt="INSTAGRAM">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="/inventory/../images/tw_ico.png" alt="TWITTER">
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="cetner_desc_box">
+					<p>&copy; 2017 INVENTORY All right Reserved</p>
+				</div>
+				<div class="right_footer_box">
+					<ul class="footer_nav">
+						<li>
+							<a href="#">TERMS &amp; CONDITIONS</a>
+						</li>
+						<li>
+							<a href="#">PRIVACY POLICY</a>
+						</li>
+						<li>
+							<a href="#">CONTACT</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<span class="shadow"></span>
+		</div>
+	</div>
+	<div class="black_shadow"></div>
+</body>
+</html>

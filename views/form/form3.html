@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<title>inventory</title>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+	<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/swiper.min.css">
+	<link rel="stylesheet" href="../css/reset.css">
+     <link rel="stylesheet" href="../css/css.css">
+	<link rel="stylesheet" href="../css/layout.css">
+	<link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/mtree.css" >
+    <link rel="stylesheet" href="../css/flexslider.css">
+   <link rel="stylesheet" href="../css/slider.css">
+   <link rel="stylesheet" href="../css/jquery.fancybox.css">
+
+	<script src="../js/jquery.js"></script>  
+	<script src="../js/jquery.form.min.js"></script>
+	<script src="../js/jquery.swiper.min.js"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/script.mobile.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/mypage.js"></script>
+    <script src="../js/about.js"></script>
+     <script src="../js/click-page.js"></script>
+     <script src="../js/features.js"></script>
+    <script src="../js/jquery.ulslide.js"></script>          
+	<script src="../js/jquery.form.min.js"></script>
+	<script src="../js/jquery.swiper.min.js"></script> 
+   	<script src="../js/jquery.flexslider-min.js"></script>
+     <script src="../js/jquery.flexslider.js"></script>	
+      <script src="../js/buy-sell-page.js"></script>
+    <script src="../js/jquery.glide.js"></script>
+    <script src="../js/jquery.glide2.js"></script>
+    <script src="../js/form.js"></script>
+     <script src="../js/my-page.js"></script>
+    <script src="../js/designers.js"></script>
+     <script src="../js/sell.js"></script>
+     <script src="../js/jquery.fancybox.js"></script>
+    
+
+</head>
+<body>
+<!--mypage-->
+<div  class="mypage_container_cover" id="mypage_wrap"></div>
+<!--mypage//-->
+
+	<div id="hamburger">
+		<div class="hamburger_inner">
+			<a href="#" class="close"><i class="fa fa-times fa-1x" aria-hidden="true"></i></a>
+                       
+            <!--탭-->
+              <div class="tab" >
+                <ul  class="category-tab">
+                    <li class="active menu menutab1" >
+                        <a href="#" ><span>INVENTORY</span></a>
+                    </li>
+                    <li class="menu menutab2">
+                        <a href="#" ><span>FILTER</span></a>
+                    </li>
+                </ul>
+              </div> 
+            
+            <!--탭-->
+             <!--탭1-->
+            <div id="tab1">
+                <ul class="mtree transit">              
+                <li><a href="#">MY PAGE</a>
+                  <ul>
+                    <li><a href="./mypage/login.html">login</a></li>
+                    <li><a href="./mypage/join.html#">join</a></li>
+                 
+                  </ul>
+                </li>
+                 <li><a href="#">ACCOUNT</a>
+                  <ul>
+                    <li><a href="./myaccount/messages">Messages</a></li>
+                    <li><a href="./myaccount/myitems">My items</a></li>
+                    <li><a href="./myaccount/history">History</a></li>
+                    <li><a href="./myaccount/settings">Settings</a></li>
+                   
+                  </ul>
+                </li>
+                <li class="nocss"><a href="./features/features.html">FEATURES</a>
+                 <!-- <ul>
+                    <li><a href="./features/news.html">News</a></li>
+                    <li><a href="./features/streestyles.html">StreetStyles</a></li>
+                    <li><a href="./features/lookbook.html">Lookbook</a></li>
+                    <li><a href="./features/shopping.html">Shopping</a></li>
+                   
+                  </ul>-->
+                </li>
+                <li class="nocss"><a href="./form/form.html">FORUM</a>
+                                                  
+                </li>
+                <li class="nocss"><a href="/about.html">ABOUT</a>
+                 
+                </li>
+               
+            </ul>    
+            </div>
+            
+            <!--탭2-->
+           
+            <div id="tab2">
+                <ul class="mtree transit">              
+                    <li><a href="#">GENDER</a>
+                    <ul>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Man</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Woman</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Unisex</span>
+								</label>
+							</li>
+						</ul>
+                     
+                    </li>
+                    <li><a href="#">MARKET</a>
+                      <ul>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Inventory</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Classic</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Inventory</span>
+								</label>
+							</li>
+						</ul>
+                    </li>
+                    <li><a href="#">DESIGNER</a>
+                      <ul class="mdesigner">                         
+                         <li><span class="searchtitle">Search</span><input type="text" ></li>
+                                                 
+                         <a href="./designers.html" style="cursor: pointer;">View all designers </a>
+                        
+                      </ul>
+                      
+                      
+                      
+                      
+                    </li>
+                     <li><a href="#">CATEGORY</a>
+                      <ul class="mcategory">
+                        <li><a href="#">Tops</a>
+                        <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Bottoms</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Outerweea</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Footweer</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Tailoring</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Accessories</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                      </ul>
+                      
+                    </li>
+                    <li><a href="#">SIZE</a>
+                      <ul class="msize">
+                        <li>
+                          <a href="#">Tops &amp; Outerwear</a></li>
+                        <li><a href="#">Bottoms &amp; Pants </a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Tailoring</a></li>
+                       <li><a href="#" class="on">Accessories</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">PRICE</a>
+                    <ul class="mprice">
+                      <li><span class="searchtitle">Min</span><input type="text" ><span class="mprice2" >~</span></li>
+                      <li><span class="searchtitle">Max</span><input type="text"></li>
+                    </ul>
+                    <li><a href="#">LOCATION</a>
+                    <ul class="mlocation">
+							<li>
+                               <a href="#">
+								<label>
+                                   <span>U.S.A</span>
+									<input type="radio" name="market_name">
+									
+								</label>
+                                </a>
+							</li>
+							<li>
+                              <a href="#">
+								<label>
+                                    <span>Canada</span>
+									<input type="radio" name="market_name">									
+								</label>
+                                </a>
+							</li>
+							<li>
+                             <a href="#">
+								<label>
+                                    <span>UK</span>
+									<input type="radio" name="market_name">
+									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                             <a href="#">
+								<label>
+                                    <span>EU</span>
+									<input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                             <a href="#">
+								<label>
+                                <span>Asia</span>
+   							    <input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                               <a href="#">
+								<label>
+                                   <span>AU / NZ</span>
+									<input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                             <li>
+                              <a href="#">
+								<label>
+                                    <span>Other</span>
+									<input type="radio" name="market_name">									
+								</label>
+                                </a>
+							</li>
+						</ul>
+                    </li>
+                   
+                </ul>  
+            </div>
+             <!--탭2-->
+            
+		</div>
+	</div>
+	<div id="wrap" class="index">
+		<div id="header">
+			<div class="header_inner">
+				<div class="header_row">
+					<div class="header_top_box">
+						<span class="top_string">FREE STANDARD SHIPPING ON ORDERS OVER $150</span>
+						<ul class="header_top_nav">
+							<li>
+								<a href="/about.html">About</a>
+							</li>
+							<li>
+								<a href="./features/features.html">Features</a>
+							</li>
+                            <li>
+								<a href="./form/form.html">Fourm</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="header_row">
+					<div class="right_header_box">
+						<a href="#" class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></a>
+						<ul class="member_category">
+							<li><a href="#" class="sell">SELL</a></li>
+							<li><a href="#" class="enter">MY PAGE</a></li>                          
+							<li><a href="http://alldesigns.co.kr./mypage/login.html" class="mypage" >ENTER</a></li>
+						</ul>
+					</div>					
+					<div class="left_header_box">
+						<h1 id="logo"><a href="/">INVENTORY</a></h1>                      
+						<ul class="category">
+							<li><a href="./designers.html" class="m1">DESIGNERS</a></li>
+							<li><a href="#" class="m2">MAN</a></li>
+							<li><a href="#" class="m3">WOMAN</a></li>
+							<li><a href="#searchbar" class="m4" >SEARCH</a></li>
+						</ul>
+					</div>
+				</div>
+                
+                <!--sub1-->
+                <div class="dropdown designers"> 
+                  <div class="dropdown_inner">                  
+                   <ul>                    
+                    <li><a href="#">Acne Studios</a></li>
+                    <li><a href="#">Adidas</a></li>
+                    <li><a href="#">Alexander McQueen</a></li>
+                    <li><a href="#">Alexander Wang</a></li>
+                    <li><a href="#">Balenciaga</a></li>
+                    <li><a href="#"> Balmain</a></li>
+                    <li><a href="#">Bape</a></li>
+                    <li><a href="#">Burberry</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Comme des Garcons</a></li>
+                     <li><a href="#"> Common Projects</a></li>
+                     <li><a href="#">Dior</a></li>
+                     <li><a href="#">Dries Van Noten</a></li>
+                     <li><a href="#">Fear of God</a></li>
+                     <li><a href="#">Givenchy</a></li>
+                     <li><a href="#">Gucci</a></li>
+                     <li><a href="#">Julius</a></li>
+                     <li><a href="#">Junya Watanabe</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Lanvin</a></li>
+                     <li><a href="#"> Louis Vuitton</a></li>
+                     <li><a href="#">Maison Margiela</a></li>
+                     <li><a href="#">Nike</a></li>
+                     <li><a href="#"> Number (N)ine</a></li>
+                     <li><a href="#"> Off-White</a></li>
+                     <li><a href="#">Prada</a></li>
+                     <li><a href="#">Raf Simons</a></li>
+                     <li><a href="#">Rick Owens</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Saint Laurent Paris</a></li>
+                     <li><a href="#">  Stone Island</a></li>
+                     <li><a href="#">Supreme</a></li>
+                     <li><a href="#">Thom Browne</a></li>
+                     <li><a href="#"> Number (N)ine</a></li>
+                     <li><a href="#"> Undercover</a></li>
+                     <li><a href="#"> Visvim</a></li>
+                     <li><a href="#">Raf Simons</a></li>
+                     <li><a href="#">Rick Owens</a></li>
+                </ul>
+                <div class="viewall"><a href="./designers.html">VIEW ALL</a></div>
+               </div>
+                </div>
+                <!--sub1-->   
+                
+                 <!--sub2-->
+                <div class="dropdown man"> 
+                  <div class="dropdown_inner">    
+                  <div class="depthmenu">
+                      <h3>New Arrivals</h3>             
+                       <ul>
+                       <li><a href="#">Clothing </a></li>
+                       <li><a href="#">Shoes </a></li>
+                       <li><a href="#"> Accessories </a></li>
+                       <li><a href="#">Signature </a></li>
+                       <li><a href="#">Back in Stock </a></li>
+                    </ul>
+                </div>
+                 <div class="depthmenu">
+                      <h3>Clothing</h3>    
+                    <ul>
+                        <li><a href="#">Button Ups </a></li>
+                        <li><a href="#">Coats and Jackets </a></li>
+                        <li><a href="#">Denim </a></li>
+                       <li><a href="#"> Knitwear</a></li> 
+                        <li><a href="#">Shorts </a></li>
+                        <li><a href="#">Suits </a></li>
+                        <li><a href="#">Trousers</a></li>                     
+                    </ul>
+                   </div>
+                   <div class="depthmenu">
+                     <h3>Shoes</h3>          
+                    <ul>
+                       <li><a href="#">Ankle Boots </a></li>
+                       <li><a href="#">Derbies and Oxfords</a></li>
+                       <li><a href="#"> Lace Up Boots</a></li> 
+                       <li><a href="#"> Sneakers </a></li>
+                       <li><a href="#">Loafers </a></li>
+                       <li><a href="#"> Mid Boots </a></li>
+                       <li><a href="#">Sandals </a></li>                  
+                   </ul>
+                   </div>
+                    <div class="depthmenu">
+                     <h3>Accessories</h3>        
+                    <ul>                    
+                      <li><a href="#">Sunglasses </a></li>
+                     <li><a href="#"> Backpacks </a></li>
+                      <li><a href="#">Belts </a></li>
+                      <li><a href="#">Hats </a></li>
+                      <li><a href="#">Jewelry</a></li> 
+                      <li><a href="#">Scarves and Gloves </a></li>
+                      <li><a href="#">Tote and Duffle Bags</a></li>
+                    </ul>
+                    </div>
+               </div>
+                </div>
+                <!--sub2--> 
+                
+                 <!--sub3-->
+                <div class="dropdown woman"> 
+                  <div class="dropdown_inner">    
+                  <div class="depthmenu">
+                      <h3>New Arrivals</h3>              
+                       <ul>
+                       <li><a href="#">Clothing </a></li>
+                       <li><a href="#">Shoes</a></li>
+                       <li><a href="#">Accessories </a></li>
+                       <li><a href="#">Signature</a></li>
+                       <li><a href="#">Back in Stock </a></li>
+                    </ul>
+                </div>
+                 <div class="depthmenu">
+                      <h3>Clothing</h3>    
+                    <ul>                    
+                         <li><a href="#">Tops </a></li>
+                        <li><a href="#"> Bottoms </a></li>
+                        <li><a href="#"> Dresses </a></li>
+                        <li><a href="#">Jumpsuits </a></li>
+                        <li><a href="#"> Denim </a></li>
+                        <li><a href="#"> Jackets </a></li>
+                         <li><a href="#">Knitwear </a></li>
+                    </ul>
+                   </div>
+                   <div class="depthmenu">
+                     <h3>Shoes</h3>          
+                    <ul>
+                        <li><a href="#">Ankle </a></li>
+                        <li><a href="#"> Boots </a></li>
+                        <li><a href="#">Sandals </a></li>
+                        <li><a href="#">Clogs </a></li>
+                       <li><a href="#"> Derbies and Oxfords </a></li>
+                       <li><a href="#"> Flats </a></li>
+                       <li><a href="#"> Heels </a></li>
+                       <li><a href="#"> Sneakers </a></li>
+                   </ul>
+                   </div>
+                    <div class="depthmenu">
+                     <h3>Accessories</h3>        
+                    <ul>
+                       <li><a href="#">Jewelry </a></li>
+                       <li><a href="#"> Sunglasses </a></li>
+                       <li><a href="#"> Hats </a></li>
+                       <li><a href="#">Scarves and Gloves </a></li>
+                       <li><a href="#">Belts </a></li>
+                       <li><a href="#"> Hair </a></li>
+                       <li><a href="#">Opticals</a></li>
+                    </ul>
+                    </div>
+                 </div>
+                </div>
+                <!--sub3-->  
+                
+                <!--account-->
+                <div class="accountmenu">
+                  <ul>
+                    <li><a href="./myaccount/messages">MESSAGES</a></li>
+                    <li><a href="./myaccount/myitems">MY ITEMS</a></li>
+                    <li><a href="./myaccount/history">HISTORY</a></li>
+                    <li><a href="./myaccount/settings">SETTINGS</a></li>
+                  </ul>
+                </div>        
+                <!--account--> 
+			</div>
+		</div>	
+      </div>	
+      
+    <script src="../js/mtree.js"></script> 	
+		<div id="container">
+       <!--subcon-->
+       <div class="forum-wrapper">  
+        <div class="forum-title" >     
+        <h2>Form</h2><span></span>
+        
+         <!--search-->
+            
+         <div class="formsearch">  
+         <div class="allcontents">
+              <span> All Content</span>
+              <i class="fa fa-caret-down"></i>
+         </div>    
+         
+         <ul class="ipsmenu" >
+          <li class="ipsMenu_item ipsMenu_itemChecked" data-ipsmenuvalue="all">
+              <a href="#" title="All Content">All Content</a>
+          </li>
+          <li class="ipsMenu_sep"><hr></li>
+          
+          <li class="ipsMenu_item" >
+        <a href="#">Topics</a>
+        </li>
+        
+        <li class="ipsMenu_item">
+        <a href="#">Events</a>
+        </li>
+        
+        <li class="ipsMenu_item">
+        <a href="#">Adverts</a>
+        </li>
+        
+         <li class="ipsMenu_item">
+          <a href="#">Members</a>
+        </li>
+        </ul>
+         <div class="searchbox">
+         <form method="get" id="search" action="#">
+                <input type="text" class="search" placeholder="search...">
+                <button type="submit"><i class="fa fa-search"></i></button>
+          </form>	
+        </div> 
+        </div>
+         
+         
+         <!--search-->
+        
+        
+        </div>
+       <!--subcon-->
+       <div class="forum-wrapper form3">  
+         <div class="form3-nav" >     
+           <span>Home &gt; supertalk &gt;   superjetset  &gt;  australia :: brisbane :: general </span>
+           <div class="form3-navimg">
+                <p class="cover"><img src="../images/6.-forum_3-_9.png"><span class="shadow"></span></p>  
+                <p class="cover nopic"><img src="../images/6.-forum_3-10.png"><span class="shadow"></span></p>            
+            </div>         
+         </div> 
+         <!--username-->
+         <div class="form3-user">
+             <div class="username">
+                <div class="userimg"><img src="../images/9.-forum_2_3.png"></div>
+                <div class="userstar">
+                    <ul>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-o"></i>
+                   </ul>
+                </div>
+                <div class="post-topic">220 posts in this topic </div>
+             </div>
+             <div class="usertitle">
+                 <h3>australia * brisbane * general</h3>
+                 <div class="day">By simcoo, April 14, 2008 </div>
+             </div>
+             <div class="form3-follow">
+                <div class="form3-follower"><a href="#">Followers<span>7</span></a></div>
+                <div class="post-topic"> Sign in to follow this</div>
+             </div>
+         </div>
+         <!--username-->
+         <!--form3 general 1--->
+         <div class="form3-general">
+           <div class="form3-general-name">
+              <div class="name">Chan</div>
+              <div class="subname">member</div>
+              <div class="form3-general-img"><img src="../images/9.-forum_2_3.png"></div>
+              <div>member</div>
+              <div class="splus"><a href="#">722</a></div>
+              <div class="post-topic">502 posts</div>
+              <div class="location">location: Melbourne </div>
+              <div class="occupation">occupation: Consultant</div>
+              <div class="currum">
+                <ul>
+                  <li class="bplus"><a href="#">12</a></li>
+                  <li class="bmin"><a href="#">34</a></li>
+                  <li class="bmux"><a href="#">03</a></li>
+                </ul>
+              </div>           
+           </div>
+           <div class="form3-general-des">
+             <div class="day">By simcoo, April 14, 2008 </div>
+             <div class="descrpiton">
+              <p>really loving the campos coffee store on wandoo street in the valley.  probably the best coffee i have ever had, plus the food is top notch as well - their fry up, and BLT is amazing. as is their selection of sweets, cakes, etc. check it out. been waiting for a thread on brisbane fo rever, but didn't think there was really enough people on here to get one started.</p>
+              <p>really loving the campos coffee store on wandoo street in the valley.  probably the best coffee i have ever had, plus the food is top notch as well - their fry up, and BLT is amazing. as is their selection of sweets, cakes, etc. check it out. been waiting for a thread on brisbane fo rever, but didn't think there was really enough people on here to get one started.
+</p>
+ 			</div>
+           <div class="form3-like">
+                <div class="form3-follower">Like<span>7</span></div>             
+             </div>
+           
+           </div>
+         </div>         
+         <!--form3 general 1--->
+           <!--form3 general2 --->
+         <div class="form3-general">
+           <div class="form3-general-name">
+              <div class="name">Chan</div>
+              <div class="subname">member</div>
+              <div class="form3-general-img"><img src="../images/9.-forum_2_3.png"></div>
+              <div>member</div>
+              <div class="splus"><a href="#">722</a></div>
+              <div class="post-topic">502 posts</div>
+              <div class="location">location: Melbourne </div>
+              <div class="occupation">occupation: Consultant</div>
+              <div class="currum">
+                <ul>
+                 <li class="bplus"><a href="#">12</a></li>
+                  <li class="bmin"><a href="#">34</a></li>
+                  <li class="bmux"><a href="#">03</a></li>
+                </ul>
+              </div>           
+           </div>
+           <div class="form3-general-des">
+             <div class="day">By simcoo, April 14, 2008 </div>
+             <div class="descrpiton">
+              <p>really loving the campos coffee store on wandoo street in the valley.  probably the best coffee i have ever had, plus the food is top notch as well - their fry up, and BLT is amazing. as is their selection of sweets, cakes, etc. check it out. been waiting for a thread on brisbane fo rever, but didn't think there was really enough people on here to get one started.</p>
+              <p>really loving the campos coffee store on wandoo street in the valley.  probably the best coffee i have ever had, plus the food is top notch as well - their fry up, and BLT is amazing. as is their selection of sweets, cakes, etc. check it out. been waiting for a thread on brisbane fo rever, but didn't think there was really enough people on here to get one started.
+</p>
+ 			</div>
+           <div class="form3-like">
+                <div class="form3-follower">Like<span>7</span></div>             
+             </div>
+           
+           </div>
+         </div>
+         
+         <!--form3 general 2--->
+                
+        </div>              
+       <!--subcon-->
+		</div>
+		</div>
+		<div id="footer">
+			<div class="footer_inner">
+				<div class="left_footer_box">
+					<ul class="social_nav">
+						<li>
+							<a href="#">
+								<img src="/../images/fk_ico.png" alt="FACE BOOK">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="/../images/it_ico.png" alt="INSTAGRAM">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="/../images/tw_ico.png" alt="TWITTER">
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="cetner_desc_box">
+					<p>&copy; 2017 INVENTORY All right Reserved</p>
+				</div>
+				<div class="right_footer_box">
+					<ul class="footer_nav">
+						<li>
+							<a href="#">TERMS &amp; CONDITIONS</a>
+						</li>
+						<li>
+							<a href="#">PRIVACY POLICY</a>
+						</li>
+						<li>
+							<a href="#">CONTACT</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<span class="shadow"></span>
+		</div>
+	</div>
+	<div class="black_shadow"></div>
+</body>
+</html>

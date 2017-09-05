@@ -1,0 +1,217 @@
+@import url("http://hello.myfonts.net/count/330575");
+@font-face {
+	font-family: ProximaNovaA-Bold;
+	src: url(../fonts/330575_0_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_0_0.woff2) format("woff2"), url(../fonts/330575_0_0.woff) format("woff"), url(../fonts/330575_0_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNovaS-Bold;
+	src: url(../fonts/330575_1_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_1_0.woff2) format("woff2"), url(../fonts/330575_1_0.woff) format("woff"), url(../fonts/330575_1_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNova-Bold;
+	src: url(../fonts/330575_2_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_2_0.woff2) format("woff2"), url(../fonts/330575_2_0.woff) format("woff"), url(../fonts/330575_2_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNovaA-Semibold;
+	src: url(../fonts/330575_3_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_3_0.woff2) format("woff2"), url(../fonts/330575_3_0.woff) format("woff"), url(../fonts/330575_3_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNovaS-Semibold;
+	src: url(../fonts/330575_4_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_4_0.woff2) format("woff2"), url(../fonts/330575_4_0.woff) format("woff"), url(../fonts/330575_4_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNova-Semibold;
+	src: url(../fonts/330575_5_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_5_0.woff2) format("woff2"), url(../fonts/330575_5_0.woff) format("woff"), url(../fonts/330575_5_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNovaA-Regular;
+	src: url(../fonts/330575_6_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_6_0.woff2) format("woff2"), url(../fonts/330575_6_0.woff) format("woff"), url(../fonts/330575_6_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNovaS-Regular;
+	src: url(../fonts/330575_7_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_7_0.woff2) format("woff2"), url(../fonts/330575_7_0.woff) format("woff"), url(../fonts/330575_7_0.ttf) format("truetype");
+}
+@font-face {
+	font-family: ProximaNova-Regular;
+	src: url(../fonts/330575_8_0.eot?#iefix) format("embedded-opentype"), url(../fonts/330575_8_0.woff2) format("woff2"), url(../fonts/330575_8_0.woff) format("woff"), url(../fonts/330575_8_0.ttf) format("truetype");
+}
+html {
+	width: 100%; height: 100%;
+}
+body {
+	width: 100%; height: 100%;
+}
+html {
+	-ms-overflow-y: scroll;
+}
+html.active {
+	overflow: hidden;
+}
+body {
+	margin: 0px; padding: 0px;
+}
+div {
+	margin: 0px; padding: 0px;
+}
+dl {
+	margin: 0px; padding: 0px;
+}
+dt {
+	margin: 0px; padding: 0px;
+}
+dd {
+	margin: 0px; padding: 0px;
+}
+ul {
+	margin: 0px; padding: 0px;
+}
+ol {
+	margin: 0px; padding: 0px;
+}
+li {
+	margin: 0px; padding: 0px;
+}
+h1 {
+	margin: 0px; padding: 0px;
+}
+h2 {
+	margin: 0px; padding: 0px;
+}
+h3 {
+	margin: 0px; padding: 0px;
+}
+h4 {
+	margin: 0px; padding: 0px;
+}
+h5 {
+	margin: 0px; padding: 0px;
+}
+form {
+	margin: 0px; padding: 0px;
+}
+fieldset {
+	margin: 0px; padding: 0px;
+}
+p {
+	margin: 0px; padding: 0px;
+}
+button {
+	margin: 0px; padding: 0px;
+}
+body {
+	color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;
+}
+/*h1 {
+	color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;
+}
+h2 {
+	color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;
+}
+h3 {
+	color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;
+}
+h4 {
+	color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;
+}
+input {
+	color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;
+}*/
+button {
+	color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;
+}
+body {
+	-ms-word-break: break-all; 
+}
+img {
+	border: 0px currentColor; border-image: none;
+}
+fieldset {
+	border: 0px currentColor; border-image: none;
+}
+iframe {
+	border: 0px currentColor; border-image: none;
+}
+li {
+	list-style: none;
+}
+input {
+	vertical-align: middle;
+}
+select {
+	vertical-align: middle;
+}
+button {
+	vertical-align: middle;
+}
+img {
+	border: 0px currentColor; border-image: none; vertical-align: top; max-width: 100%;
+}
+i {
+	font-style: normal;
+}
+em {
+	font-style: normal;
+}
+address {
+	font-style: normal;
+}
+label {
+	cursor: pointer;
+}
+button {
+	cursor: pointer;
+}
+button {
+	margin: 0px; padding: 0px;
+}
+a {
+	transition:0.3s ease-in-out; color: rgb(56, 61, 65); font-family: ProximaNova-Regular,Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px; text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+button * {
+	position: relative;
+}
+button img {
+	left: -3px;
+}
+option {
+	padding-right: 6px;
+}
+hr {
+	display: none;
+}
+legend {
+	
+}
+table {
+	width: 100%; border-collapse: collapse; table-layout: fixed; border-spacing: 0;
+}
+input::-ms-clear {
+	display: none;
+}
+select {
+	background: url("../images/select_arrow.png") no-repeat 97% 50%; font-family: ProximaNova-Regular; -moz-appearance: none; -webkit-appearance: none; -o-appearance: none; appearance:none;  
+}
+select::-ms-expand { 
+  display: none;
+}
+input[type='text'] {
+	border: 1px solid rgb(221, 221, 221); border-image: none; font-family: ProximaNova-Regular;
+}
+input[type='password'] {
+	border: 1px solid rgb(221, 221, 221); border-image: none; font-family: ProximaNova-Regular;
+}
+input[type='number'] {
+	border: 1px solid rgb(221, 221, 221); border-image: none; font-family: ProximaNova-Regular;
+}
+.clear-fix::after {
+	clear: both; display: block; content: "";
+}
+.black_shadow {
+	left: 0px; top: 0px; width: 100%; height: 100%; display: none; position: fixed; z-index: 10; opacity: 0.7; background-color: rgb(0, 0, 0);
+}
+.white_shadow {
+	left: 0px; top: 0px; width: 100%; height: 100%; display: none; position: fixed; z-index: 100; opacity: 0.8; background-color: rgb(255, 255, 255);
+}
