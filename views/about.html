@@ -7,43 +7,501 @@
 	<title>inventory</title>
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
 	<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
-	<link rel="stylesheet" href="./css/font-awesome.min.css">
-	<link rel="stylesheet" href="./css/swiper.min.css">
-	<link rel="stylesheet" href="./css/reset.css">
-     <link rel="stylesheet" href="./css/css.css">
-	<link rel="stylesheet" href="./css/layout.css">
-	<link rel="stylesheet" href="./css/media.css">
-    <link rel="stylesheet" href="./css/mtree.css" >
-    <link rel="stylesheet" href="./css/flexslider.css">
-   <link rel="stylesheet" href="./css/slider.css">
-   <link rel="stylesheet" href="./css/jquery.fancybox.css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/swiper.min.css">
+	<link rel="stylesheet" href="/css/reset.css">
+     <link rel="stylesheet" href="/css/css.css">
+	<link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/media.css">
+    <link rel="stylesheet" href="/css/mtree.css" >
+    <link rel="stylesheet" href="/css/flexslider.css">
+   <link rel="stylesheet" href="/css/slider.css">
+   <link rel="stylesheet" href="/css/jquery.fancybox.css">
 
-	<script src="./js/jquery.js"></script>  
-	<script src="./js/jquery.form.min.js"></script>
-	<script src="./js/jquery.swiper.min.js"></script>
-	<script src="./js/script.js"></script>
-	<script src="./js/script.mobile.js"></script>
-    <script src="./js/menu.js"></script>
-    <script src="./js/mypage.js"></script>
-    <script src="./js/about.js"></script>
-     <script src="./js/click-page.js"></script>
-     <script src="./js/features.js"></script>
-    <script src="./js/jquery.ulslide.js"></script>          
-	<script src="./js/jquery.form.min.js"></script>
-	<script src="./js/jquery.swiper.min.js"></script> 
-   	<script src="./js/jquery.flexslider-min.js"></script>
-     <script src="./js/jquery.flexslider.js"></script>	
-      <script src="./js/buy-sell-page.js"></script>
-    <script src="./js/jquery.glide.js"></script>
-    <script src="./js/jquery.glide2.js"></script>
-    <script src="./js/form.js"></script>
-     <script src="./js/my-page.js"></script>
-    <script src="./js/designers.js"></script>
-     <script src="./js/sell.js"></script>
-     <script src="./js/jquery.fancybox.js"></script>
+	<script src="/js/jquery.js"></script>  
+	<script src="/js/jquery.form.min.js"></script>
+	<script src="/js/jquery.swiper.min.js"></script>
+	<script src="/js/script.js"></script>
+	<script src="/js/script.mobile.js"></script>
+    <script src="/js/menu.js"></script>
+    <script src="/js/mypage.js"></script>
+    <script src="/js/about.js"></script>
+     <script src="/js/click-page.js"></script>
+     <script src="/js/features.js"></script>
+    <script src="/js/jquery.ulslide.js"></script>          
+	<script src="/js/jquery.form.min.js"></script>
+	<script src="/js/jquery.swiper.min.js"></script> 
+   	<script src="/js/jquery.flexslider-min.js"></script>
+     <script src="/js/jquery.flexslider.js"></script>	
+      <script src="/js/buy-sell-page.js"></script>
+    <script src="/js/jquery.glide.js"></script>
+    <script src="/js/jquery.glide2.js"></script>
+    <script src="/js/form.js"></script>
+     <script src="/js/my-page.js"></script>
+    <script src="/js/designers.js"></script>
+     <script src="/js/sell.js"></script>
+     <script src="/js/jquery.fancybox.js"></script>
+    
 
 </head>
 <body>
+<!--mypage-->
+<div  class="mypage_container_cover" id="mypage_wrap"></div>
+<!--mypage//-->
+
+	<div id="hamburger">
+		<div class="hamburger_inner">
+			<a href="#" class="close"><i class="fa fa-times fa-1x" aria-hidden="true"></i></a>
+                       
+            <!--탭-->
+              <div class="tab" >
+                <ul  class="category-tab">
+                    <li class="active menu menutab1" >
+                        <a href="#" ><span>INVENTORY</span></a>
+                    </li>
+                    <li class="menu menutab2">
+                        <a href="#" ><span>FILTER</span></a>
+                    </li>
+                </ul>
+              </div> 
+            
+            <!--탭-->
+             <!--탭1-->
+            <div id="tab1">
+                <ul class="mtree transit">              
+                <li><a href="#">MY PAGE</a>
+                  <ul>
+                    <li><a href="/mypage/login.html">login</a></li>
+                    <li><a href="/mypage/join.html#">join</a></li>
+                 
+                  </ul>
+                </li>
+                 <li><a href="#">ACCOUNT</a>
+                  <ul>
+                    <li><a href="/myaccount/messages">Messages</a></li>
+                    <li><a href="/myaccount/myitems">My items</a></li>
+                    <li><a href="/myaccount/history">History</a></li>
+                    <li><a href="/myaccount/settings">Settings</a></li>
+                   
+                  </ul>
+                </li>
+                <li class="nocss"><a href="/features/features.html">FEATURES</a>
+                 <!-- <ul>
+                    <li><a href="/features/news.html">News</a></li>
+                    <li><a href="/features/streestyles.html">StreetStyles</a></li>
+                    <li><a href="/features/lookbook.html">Lookbook</a></li>
+                    <li><a href="/features/shopping.html">Shopping</a></li>
+                   
+                  </ul>-->
+                </li>
+                <li class="nocss"><a href="/form/form.html">FORUM</a>
+                                                  
+                </li>
+                <li class="nocss"><a href="/about.html">ABOUT</a>
+                 
+                </li>
+               
+            </ul>    
+            </div>
+            
+            <!--탭2-->
+           
+            <div id="tab2">
+                <ul class="mtree transit">              
+                    <li><a href="#">GENDER</a>
+                    <ul>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Man</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Woman</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="gender_name">
+									<span>Unisex</span>
+								</label>
+							</li>
+						</ul>
+                     
+                    </li>
+                    <li><a href="#">MARKET</a>
+                      <ul>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Inventory</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Classic</span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="radio" name="market_name">
+									<span>Inventory</span>
+								</label>
+							</li>
+						</ul>
+                    </li>
+                    <li><a href="#">DESIGNER</a>
+                      <ul class="mdesigner">                         
+                         <li><span class="searchtitle">Search</span><input type="text" ></li>
+                                                 
+                         <a href="/designers.html" style="cursor: pointer;">View all designers </a>
+                        
+                      </ul>
+                      
+                      
+                      
+                      
+                    </li>
+                     <li><a href="#">CATEGORY</a>
+                      <ul class="mcategory">
+                        <li><a href="#">Tops</a>
+                        <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Bottoms</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Outerweea</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Footweer</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Tailoring</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                           <li><a href="#">Accessories</a>
+                           <label>
+									<input type="radio" name="category_name">
+									<span>ALL</span>
+								</label>                             
+                          </li>
+                      </ul>
+                      
+                    </li>
+                    <li><a href="#">SIZE</a>
+                      <ul class="msize">
+                        <li>
+                          <a href="#">Tops &amp; Outerwear</a></li>
+                        <li><a href="#">Bottoms &amp; Pants </a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Tailoring</a></li>
+                       <li><a href="#" class="on">Accessories</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">PRICE</a>
+                    <ul class="mprice">
+                      <li><span class="searchtitle">Min</span><input type="text" ><span class="mprice2" >~</span></li>
+                      <li><span class="searchtitle">Max</span><input type="text"></li>
+                    </ul>
+                    <li><a href="#">LOCATION</a>
+                    <ul class="mlocation">
+							<li>
+                               <a href="#">
+								<label>
+                                   <span>U.S.A</span>
+									<input type="radio" name="market_name">
+									
+								</label>
+                                </a>
+							</li>
+							<li>
+                              <a href="#">
+								<label>
+                                    <span>Canada</span>
+									<input type="radio" name="market_name">									
+								</label>
+                                </a>
+							</li>
+							<li>
+                             <a href="#">
+								<label>
+                                    <span>UK</span>
+									<input type="radio" name="market_name">
+									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                             <a href="#">
+								<label>
+                                    <span>EU</span>
+									<input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                             <a href="#">
+								<label>
+                                <span>Asia</span>
+   							    <input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                            <li>
+                               <a href="#">
+								<label>
+                                   <span>AU / NZ</span>
+									<input type="radio" name="market_name">									
+								</label>
+                               </a>
+							</li>
+                             <li>
+                              <a href="#">
+								<label>
+                                    <span>Other</span>
+									<input type="radio" name="market_name">									
+								</label>
+                                </a>
+							</li>
+						</ul>
+                    </li>
+                   
+                </ul>  
+            </div>
+             <!--탭2-->
+            
+		</div>
+	</div>
+	<div id="wrap" class="index">
+		<div id="header">
+			<div class="header_inner">
+				<div class="header_row">
+					<div class="header_top_box">
+						<span class="top_string">FREE STANDARD SHIPPING ON ORDERS OVER $150</span>
+						<ul class="header_top_nav">
+							<li>
+								<a href="/about.html">About</a>
+							</li>
+							<li>
+								<a href="/features/features.html">Features</a>
+							</li>
+                            <li>
+								<a href="/form/form.html">Fourm</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="header_row">
+					<div class="right_header_box">
+						<a href="#" class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></a>
+						<ul class="member_category">
+							<li><a href="#" class="sell">SELL</a></li>
+							<li><a href="#" class="enter">MY PAGE</a></li>                          
+							<li><a href="http://alldesigns.co.kr./mypage/login.html" class="mypage" >ENTER</a></li>
+						</ul>
+					</div>					
+					<div class="left_header_box">
+						<h1 id="logo"><a href="/">INVENTORY</a></h1>                      
+						<ul class="category">
+							<li><a href="/designers.html" class="m1">DESIGNERS</a></li>
+							<li><a href="#" class="m2">MAN</a></li>
+							<li><a href="#" class="m3">WOMAN</a></li>
+							<li><a href="#searchbar" class="m4" >SEARCH</a></li>
+						</ul>
+					</div>
+				</div>
+                
+                <!--sub1-->
+                <div class="dropdown designers"> 
+                  <div class="dropdown_inner">                  
+                   <ul>                    
+                    <li><a href="#">Acne Studios</a></li>
+                    <li><a href="#">Adidas</a></li>
+                    <li><a href="#">Alexander McQueen</a></li>
+                    <li><a href="#">Alexander Wang</a></li>
+                    <li><a href="#">Balenciaga</a></li>
+                    <li><a href="#"> Balmain</a></li>
+                    <li><a href="#">Bape</a></li>
+                    <li><a href="#">Burberry</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Comme des Garcons</a></li>
+                     <li><a href="#"> Common Projects</a></li>
+                     <li><a href="#">Dior</a></li>
+                     <li><a href="#">Dries Van Noten</a></li>
+                     <li><a href="#">Fear of God</a></li>
+                     <li><a href="#">Givenchy</a></li>
+                     <li><a href="#">Gucci</a></li>
+                     <li><a href="#">Julius</a></li>
+                     <li><a href="#">Junya Watanabe</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Lanvin</a></li>
+                     <li><a href="#"> Louis Vuitton</a></li>
+                     <li><a href="#">Maison Margiela</a></li>
+                     <li><a href="#">Nike</a></li>
+                     <li><a href="#"> Number (N)ine</a></li>
+                     <li><a href="#"> Off-White</a></li>
+                     <li><a href="#">Prada</a></li>
+                     <li><a href="#">Raf Simons</a></li>
+                     <li><a href="#">Rick Owens</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Saint Laurent Paris</a></li>
+                     <li><a href="#">  Stone Island</a></li>
+                     <li><a href="#">Supreme</a></li>
+                     <li><a href="#">Thom Browne</a></li>
+                     <li><a href="#"> Number (N)ine</a></li>
+                     <li><a href="#"> Undercover</a></li>
+                     <li><a href="#"> Visvim</a></li>
+                     <li><a href="#">Raf Simons</a></li>
+                     <li><a href="#">Rick Owens</a></li>
+                </ul>
+                <div class="viewall"><a href="/designers.html">VIEW ALL</a></div>
+               </div>
+                </div>
+                <!--sub1-->   
+                
+                 <!--sub2-->
+                <div class="dropdown man"> 
+                  <div class="dropdown_inner">    
+                  <div class="depthmenu">
+                      <h3>New Arrivals</h3>             
+                       <ul>
+                       <li><a href="#">Clothing </a></li>
+                       <li><a href="#">Shoes </a></li>
+                       <li><a href="#"> Accessories </a></li>
+                       <li><a href="#">Signature </a></li>
+                       <li><a href="#">Back in Stock </a></li>
+                    </ul>
+                </div>
+                 <div class="depthmenu">
+                      <h3>Clothing</h3>    
+                    <ul>
+                        <li><a href="#">Button Ups </a></li>
+                        <li><a href="#">Coats and Jackets </a></li>
+                        <li><a href="#">Denim </a></li>
+                       <li><a href="#"> Knitwear</a></li> 
+                        <li><a href="#">Shorts </a></li>
+                        <li><a href="#">Suits </a></li>
+                        <li><a href="#">Trousers</a></li>                     
+                    </ul>
+                   </div>
+                   <div class="depthmenu">
+                     <h3>Shoes</h3>          
+                    <ul>
+                       <li><a href="#">Ankle Boots </a></li>
+                       <li><a href="#">Derbies and Oxfords</a></li>
+                       <li><a href="#"> Lace Up Boots</a></li> 
+                       <li><a href="#"> Sneakers </a></li>
+                       <li><a href="#">Loafers </a></li>
+                       <li><a href="#"> Mid Boots </a></li>
+                       <li><a href="#">Sandals </a></li>                  
+                   </ul>
+                   </div>
+                    <div class="depthmenu">
+                     <h3>Accessories</h3>        
+                    <ul>                    
+                      <li><a href="#">Sunglasses </a></li>
+                     <li><a href="#"> Backpacks </a></li>
+                      <li><a href="#">Belts </a></li>
+                      <li><a href="#">Hats </a></li>
+                      <li><a href="#">Jewelry</a></li> 
+                      <li><a href="#">Scarves and Gloves </a></li>
+                      <li><a href="#">Tote and Duffle Bags</a></li>
+                    </ul>
+                    </div>
+               </div>
+                </div>
+                <!--sub2--> 
+                
+                 <!--sub3-->
+                <div class="dropdown woman"> 
+                  <div class="dropdown_inner">    
+                  <div class="depthmenu">
+                      <h3>New Arrivals</h3>              
+                       <ul>
+                       <li><a href="#">Clothing </a></li>
+                       <li><a href="#">Shoes</a></li>
+                       <li><a href="#">Accessories </a></li>
+                       <li><a href="#">Signature</a></li>
+                       <li><a href="#">Back in Stock </a></li>
+                    </ul>
+                </div>
+                 <div class="depthmenu">
+                      <h3>Clothing</h3>    
+                    <ul>                    
+                         <li><a href="#">Tops </a></li>
+                        <li><a href="#"> Bottoms </a></li>
+                        <li><a href="#"> Dresses </a></li>
+                        <li><a href="#">Jumpsuits </a></li>
+                        <li><a href="#"> Denim </a></li>
+                        <li><a href="#"> Jackets </a></li>
+                         <li><a href="#">Knitwear </a></li>
+                    </ul>
+                   </div>
+                   <div class="depthmenu">
+                     <h3>Shoes</h3>          
+                    <ul>
+                        <li><a href="#">Ankle </a></li>
+                        <li><a href="#"> Boots </a></li>
+                        <li><a href="#">Sandals </a></li>
+                        <li><a href="#">Clogs </a></li>
+                       <li><a href="#"> Derbies and Oxfords </a></li>
+                       <li><a href="#"> Flats </a></li>
+                       <li><a href="#"> Heels </a></li>
+                       <li><a href="#"> Sneakers </a></li>
+                   </ul>
+                   </div>
+                    <div class="depthmenu">
+                     <h3>Accessories</h3>        
+                    <ul>
+                       <li><a href="#">Jewelry </a></li>
+                       <li><a href="#"> Sunglasses </a></li>
+                       <li><a href="#"> Hats </a></li>
+                       <li><a href="#">Scarves and Gloves </a></li>
+                       <li><a href="#">Belts </a></li>
+                       <li><a href="#"> Hair </a></li>
+                       <li><a href="#">Opticals</a></li>
+                    </ul>
+                    </div>
+                 </div>
+                </div>
+                <!--sub3-->  
+                
+                <!--account-->
+                <div class="accountmenu">
+                  <ul>
+                    <li><a href="/myaccount/messages">MESSAGES</a></li>
+                    <li><a href="/myaccount/myitems">MY ITEMS</a></li>
+                    <li><a href="/myaccount/history">HISTORY</a></li>
+                    <li><a href="/myaccount/settings">SETTINGS</a></li>
+                  </ul>
+                </div>        
+                <!--account--> 
+			</div>
+		</div>	
+      </div>	
+      
+    <script src="/js/mtree.js"></script>
              <!--about-->
              <div class="about-wrapper">
                <div class="about">
