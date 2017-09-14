@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import Router from 'koa-router'
 import Post from '../models/post'
+import Comment from '../models/comment'
 import User from '../models/user'
 import Convo from '../models/convo'
 import rp from 'request-promise'
@@ -117,16 +118,52 @@ router.get('/listings/:id', async (ctx, next) => {
     try {
         let postData = await Post.findOne({productURL: ctx.params.id})
         let sellerInfo = await User.findOne({username: postData.seller})
-        let itemCounts = await rp(`http://localhost:3000/post/count/${postData.seller}`)
+        let itemCounts = await rp(`http://50.116.7.88/post/count/${postData.seller}`)
+        let commentArr = []
+
+        for(let comment of postData.comments) {
+            let object = await Comment.findOne({_id: comment})
+            commentArr.push(object)
+        }
 
         let timeAgo = {
             uploadDate: timeago().format(postData.uploadDate.getTime()),
             editDate: (postData.editDate) ? timeago().format(postData.editDate.getTime()) : ""
         }
-
-        await ctx.render('post', {"data": postData, "timeAgo": timeAgo, "itemCount": sellerInfo.itemCount})
+        
+        console.log("commentArr", commentArr)
+        await ctx.render('post', {"data": postData, "comments": commentArr, "timeAgo": timeAgo, "itemCount": sellerInfo.itemCount})
     } catch (e) {
         console.error("failed to get post", e)
+    }
+})
+
+router.post('/post/comment', async (ctx, next) => {
+    let data = ctx.request.body
+    let jwtToken = ctx.request.headers.authorization
+    let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+    let userInfo = await User.findOne({username: decoded.username})
+
+    console.log(jwtToken)
+    let param = {
+        authorProfilePic: userInfo.profilePic,
+        author: userInfo.username,
+        description: data.description,
+        postURL: data.postURL
+    }
+
+    console.log("data", data)
+    let comment = new Comment(param)
+    let res = await comment.save()
+    let post = await Post.findOne({productURL: data.postURL})
+
+    try {
+        console.log("res_id", res._id)
+        await Post.update({_id: post._id}, {$push : {"comments": res._id}})
+        ctx.body = {success: true}
+    } catch (e) {
+        console.error(e)
+        ctx.body = {success: false}
     }
 })
 

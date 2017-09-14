@@ -7,43 +7,43 @@ html(lang='en')
     title inventory
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans')
     link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/nanumgothic.css')
-    link(rel='stylesheet', href='../css/font-awesome.min.css')
-    link(rel='stylesheet', href='../css/swiper.min.css')
-    link(rel='stylesheet', href='../css/reset.css')
-    link(rel='stylesheet', href='../css/css.css')
-    link(rel='stylesheet', href='../css/layout.css')
-    link(rel='stylesheet', href='../css/media.css')
-    link(rel='stylesheet', href='../css/mtree.css')
-    link(rel='stylesheet', href='../css/flexslider.css')
-    link(rel='stylesheet', href='../css/slider.css')
-    link(rel='stylesheet', href='../css/jquery.fancybox.css')
-    script(src='../js/jquery.js')
-    script(src='../js/jquery.form.min.js')
-    script(src='../js/jquery.swiper.min.js')
-    script(src='../js/lib/store.min.js')
-    script(src='../js/lib/axios.min.js')
-    script(src='../js/loginCheck.js')
-    script(src='../js/script.js')
-    script(src='../js/script.mobile.js')
-    script(src='../js/menu.js')
-    script(src='../js/mypage.js')
-    script(src='../js/about.js')
-    script(src='../js/click-page.js')
-    script(src='../js/features.js')
-    script(src='../js/jquery.ulslide.js')
-    script(src='../js/jquery.form.min.js')
-    script(src='../js/jquery.swiper.min.js')
-    script(src='../js/jquery.flexslider-min.js')
-    script(src='../js/jquery.flexslider.js')
-    script(src='../js/buy-sell-page.js')
-    script(src='../js/jquery.glide.js')
-    script(src='../js/jquery.glide2.js')
-    script(src='../js/form.js')
-    script(src='../js/my-page.js')
-    script(src='../js/designers.js')
-    script(src='../js/sell.js')
-    script(src='../js/jquery.fancybox.js')
-    script(src='../js/imageHandle.js')
+    link(rel='stylesheet', href='/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/swiper.min.css')
+    link(rel='stylesheet', href='/css/reset.css')
+    link(rel='stylesheet', href='/css/css.css')
+    link(rel='stylesheet', href='/css/layout.css')
+    link(rel='stylesheet', href='/css/media.css')
+    link(rel='stylesheet', href='/css/mtree.css')
+    link(rel='stylesheet', href='/css/flexslider.css')
+    link(rel='stylesheet', href='/css/slider.css')
+    link(rel='stylesheet', href='/css/jquery.fancybox.css')
+    script(src='/js/jquery.js')
+    script(src='/js/jquery.form.min.js')
+    script(src='/js/jquery.swiper.min.js')
+    script(src='/js/lib/store.min.js')
+    script(src='/js/lib/axios.min.js')
+    script(src='/js/loginCheck.js')
+    script(src='/js/script.js')
+    script(src='/js/script.mobile.js')
+    script(src='/js/menu.js')
+    script(src='/js/mypage.js')
+    script(src='/js/about.js')
+    script(src='/js/click-page.js')
+    script(src='/js/features.js')
+    script(src='/js/jquery.ulslide.js')
+    script(src='/js/jquery.form.min.js')
+    script(src='/js/jquery.swiper.min.js')
+    script(src='/js/jquery.flexslider-min.js')
+    script(src='/js/jquery.flexslider.js')
+    script(src='/js/buy-sell-page.js')
+    script(src='/js/jquery.glide.js')
+    script(src='/js/jquery.glide2.js')
+    script(src='/js/form.js')
+    script(src='/js/my-page.js')
+    script(src='/js/designers.js')
+    script(src='/js/sell.js')
+    script(src='/js/jquery.fancybox.js')
+    script(src='/js/imageHandle.js')
   body
     // mypage
     #mypage_wrap.mypage_container_cover
@@ -69,9 +69,9 @@ html(lang='en')
               a(href='#') MY PAGE
               ul
                 li
-                  a(href='../mypage/login.html') login
+                  a(href='/mypage/login.html') login
                 li
-                  a(href='../mypage/join.html#') join
+                  a(href='/mypage/join.html#') join
             li
               a(href='#') ACCOUNT
               ul
@@ -83,6 +83,8 @@ html(lang='en')
                   a(href='./myaccount/history') History
                 li
                   a(href='./myaccount/settings') Settings
+                li
+                  a.logout(href='#') LOGOUT
             li.nocss
               a(href='./features/features.html') FEATURES
               //
@@ -254,10 +256,10 @@ html(lang='en')
                 li
                   a.enter(href='#') MY PAGE
                 li
-                  a.mypage(href='../mypage/login.html') ENTER
+                  a.mypage(href='/mypage/login.html') ENTER
             .left_header_box
               h1#logo
-                a(href='../') INVENTORY
+                a(href='/') INVENTORY
               ul.category
                 li
                   a.m1(href='./designers.html') DESIGNERS
@@ -496,8 +498,10 @@ html(lang='en')
                 a(href='./myaccount/history') HISTORY
               li
                 a(href='./myaccount/settings') SETTINGS
+              li
+                a.logout(href='#') LOGOUT
           // account
-    script(src='../js/mtree.js')
+    script(src='/js/mtree.js')
     #container
       // subcon
       .forum-wrapper.form4
@@ -510,7 +514,7 @@ html(lang='en')
               img#coverPic(src=coverPic)
             p.icoplus
               a(href='#')
-                img#coverPicSelect(src='../images/form4_icoplus.png')
+                img#coverPicSelect(src='/images/form4_icoplus.png')
               input(type="file", style="display:none")#coverPicInput
             .title
               p
@@ -535,22 +539,6 @@ html(lang='en')
                 | Feedback 
                 span N/A
           .traderfeedback
-            .traderleft
-              .title Trader Feedback
-              .currum
-                ul
-                  li.bplus
-                    a(href='#')
-                      img(src='../images/6.-forum_3-_3.png')
-                    | 12
-                  li.bmin
-                    a(href='#')
-                      img(src='../images/6.-forum_3-_2.png')
-                    | 34
-                  li.bmux
-                    a(href='#')
-                      img(src='../images/6.-forum_3-_1.png')
-                    | 56
             .traderright
               a(href='#') See their activity
           // username
@@ -580,18 +568,18 @@ html(lang='en')
                   h3.social-share-widget
                     .social-share-widget-item.twitter
                       a(href='#', target='_blank')
-                        img(src='../images/2.click_page_3.png', alt='Twittericon')
+                        img(src='/images/2.click_page_3.png', alt='Twittericon')
                     .social-share-widget-item.facebook
                       a(href='', target='_blank')
-                        img(src='../images/2.click_page_4.png', alt='Facebookicon')
+                        img(src='/images/2.click_page_4.png', alt='Facebookicon')
                 // product
-                .productw.my-pagetw.form4product
+                .productw.my-pagetw.form4product#product-list
                  each val in posts
                   .product
                     .bellon
                     a(href='/listings/' + val.productURL)
                       .thumbnail
-                        img(src='..' + val.productImage.cover, alt='Thumnail')
+                        img(src=val.productImage.cover, alt='Thumnail')
                       .information
                         ol
                           li
@@ -604,11 +592,11 @@ html(lang='en')
                             .price_row1
                               .product_good
                                 span.goodtog
-                                  img.goodico(src='../images/product_good_ico.png', alt='GOOD')
-                                  img(style='display:none;', src='../images/product_good_ico2.png')
+                                  img.goodico(src='/images/product_good_ico.png', alt='GOOD')
+                                  img(style='display:none;', src='/images/product_good_ico2.png')
                                 span.count #{val.likes}
                               .product_price
-                                img(src='../images/product_dollar_ico.png', alt='DOLLAR')
+                                img(src='/images/product_dollar_ico.png', alt='DOLLAR')
                                 span.count #{val.productPrice}
                             .price_row2
                               span.write_date #{val.timeAgo}
@@ -622,7 +610,7 @@ html(lang='en')
                 .form4-general-name
                   .form4-general-img
                     a(href='#')
-                      img(src='../images/1.mesege_1.png')
+                      img(src='/images/1.mesege_1.png')
                   .form4-general-title objectseoul's
                   .currum
                     ul
@@ -653,7 +641,7 @@ html(lang='en')
                 .form4-general-name
                   .form4-general-img
                     a(href='#')
-                      img(src='../images/1.mesege_1.png')
+                      img(src='/images/1.mesege_1.png')
                   .form4-general-title objectseoul's
                   .currum
                     ul
@@ -684,7 +672,7 @@ html(lang='en')
                 .form4-general-name
                   .form4-general-img
                     a(href='#')
-                      img(src='../images/1.mesege_1.png')
+                      img(src='/images/1.mesege_1.png')
                   .form4-general-title objectseoul's
                   .currum
                     ul
@@ -814,13 +802,13 @@ html(lang='en')
           ul.social_nav
             li
               a(href='#')
-                img(src='../images/fk_ico.png', alt='FACE BOOK')
+                img(src='/images/fk_ico.png', alt='FACE BOOK')
             li
               a(href='#')
-                img(src='../images/it_ico.png', alt='INSTAGRAM')
+                img(src='/images/it_ico.png', alt='INSTAGRAM')
             li
               a(href='#')
-                img(src='../images/tw_ico.png', alt='TWITTER')
+                img(src='/images/tw_ico.png', alt='TWITTER')
         .cetner_desc_box
           p © 2017 INVENTORY All right Reserved
         .right_footer_box
@@ -833,3 +821,8 @@ html(lang='en')
               a(href='#') CONTACT
       span.shadow
     .black_shadow
+    script.
+      $('.logout').click(() => {
+        store.clearAll()
+        location.reload()
+      })

@@ -1,10 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 
 const ConvoSchema = mongoose.Schema({
-    convoId: {
-        type: String,
-        required: true
-    },
     starter: {
         type: String
     },

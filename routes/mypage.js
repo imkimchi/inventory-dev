@@ -19,8 +19,8 @@ router.get('/:userName', async (ctx, next) => {
     let jwtToken = ctx.header.authorization
 
     let userName = ctx.params.userName
-    let itemReqOpt = optGenerator(`http://localhost:3000/post/count/${userName}`)
-    let userReqOpt = optGenerator(`http://localhost:3000/u/get/${userName}`)
+    let itemReqOpt = optGenerator(`http://50.116.7.88/post/count/${userName}`)
+    let userReqOpt = optGenerator(`http://50.116.7.88/u/get/${userName}`)
 
     let itemCount = await rp(itemReqOpt)
     let userData = await rp(userReqOpt)

@@ -87,6 +87,7 @@ jQuery(document).ready(function($) {
                 alert(res.data.message)
             } else {
                 await store.set('jwtToken', res.data.token)
+                await store.set('userInfo', await getUserInfo())
                 window.location = '/'
             }
         } catch (e) {
@@ -94,6 +95,17 @@ jQuery(document).ready(function($) {
         }
     })
 })
+
+async function getUserInfo () {
+    let reqOpt = {
+        url: '/auth/decode',
+        method: "POST",
+        data: { jwt: store.get('jwtToken') }
+    }
+
+    let res = await axios(reqOpt)
+    return res.data
+}
 
 function newsLetter() {
     let receive = $('#checkbox_want')

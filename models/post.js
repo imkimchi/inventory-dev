@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 import User from './user'
 
 const PostSchema = mongoose.Schema({
@@ -80,7 +80,8 @@ const PostSchema = mongoose.Schema({
     },
     sellerCountry: {
         type: String
-    }
+    },
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 })
 
 export default mongoose.model('post', PostSchema)

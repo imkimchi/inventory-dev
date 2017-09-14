@@ -40,7 +40,7 @@ function startApp() {
 	  .use(views(__dirname+'/views', { extension: 'pug'}))
 	  .use(routes())
 	
-	let server = app.listen(port, () => console.log(`[!] Server is Running on ${port}`))
+	let server = app.listen(port, () => console.log(`[!] Server is Running on  ${port}`))
 	let io = socketIO(server)
 
 	chatfeature(io)

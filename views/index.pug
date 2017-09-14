@@ -1045,6 +1045,6 @@ html(lang='en')
     script(src='./js/filter.js')
     script.
       $('.logout').click(() => {
-        store.remove('jwtToken')
+        store.clearAll()
         location.reload()
       })

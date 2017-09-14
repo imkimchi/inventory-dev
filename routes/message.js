@@ -83,7 +83,6 @@ async function messageHandler (ctx, next) {
 
 async function makeconvoParam (data, decoded) {
     return {
-        convoId: await makemessageId(data),
         seller: data.recipient,
         buyer: decoded.username
     }
@@ -95,19 +94,11 @@ async function makeMsgParam (data, decoded) {
     return {
         profilePic: user.profilePic,
         productURL: data.productURL,
-        messageId: await makemessageId(data),
         sender: decoded.username,
         recipient: data.recipient,
         description: data.description,
         offerPrice: data.offerPrice
     }
-}
-
-async function makemessageId (data) {
-    let message = await Message.find({sender: data.sender, recipient: data.recipient})
-    console.log("message", message)
-    if(message.length) return message.messageId
-    else return uuidv4()
 }
 
 export default router

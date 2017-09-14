@@ -7,48 +7,16 @@ html(lang='en')
     title inventory
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans')
     link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/nanumgothic.css')
-    link(rel='stylesheet', href='../css/font-awesome.min.css')
-    link(rel='stylesheet', href='../css/swiper.min.css')
-    link(rel='stylesheet', href='../css/reset.css')
-    link(rel='stylesheet', href='../css/css.css')
-    link(rel='stylesheet', href='../css/layout.css')
-    link(rel='stylesheet', href='../css/media.css')
-    link(rel='stylesheet', href='../css/mtree.css')
-    link(rel='stylesheet', href='../css/flexslider.css')
-    link(rel='stylesheet', href='../css/slider.css')
-    link(rel='stylesheet', href='../css/jquery.fancybox.css')
-    script(src='../js/jquery.js')
-    script(src='../js/jquery.form.min.js')
-    script(src='../js/jquery.swiper.min.js')
-    script(src='../js/lib/store.min.js')
-    script(src='../js/lib/axios.min.js')
-    script(src='../js/loginCheck.js')
-    script(src='../js/jquery.fancybox.js')
-    script(src='../js/script.js')
-    script(src='../js/script.mobile.js')
-    script(src='../js/lib/store.min.js')
-    script(src='../js/lib/axios.min.js')
-    script(src='../js/menu.js')
-    script(src='../js/mypage.js')
-    script(src='../js/about.js')
-    script(src='../js/click-page.js')
-    script(src='../js/features.js')
-    script(src='../js/jquery.ulslide.js')
-    script(src='../js/jquery.form.min.js')
-    script(src='../js/jquery.swiper.min.js')
-    script(src='../js/jquery.flexslider-min.js')
-    script(src='../js/jquery.flexslider.js')
-    script(src='../js/buy-sell-page.js')
-    script(src='../js/jquery.glide.js')
-    script(src='../js/jquery.glide2.js')
-    script(src='../js/form.js')
-    script(src='../js/my-page.js')
-    script(src='../js/designers.js')
-    script(src='../js/sell.js')
-    script(src='../js/jquery.fancybox.js')
-    script(src='../js/post.js')
-    script(src='//paypalobjects.com/api/checkout.js')
-    script(src='/js/paypal.js')
+    link(rel='stylesheet', href='/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/swiper.min.css')
+    link(rel='stylesheet', href='/css/reset.css')
+    link(rel='stylesheet', href='/css/css.css')
+    link(rel='stylesheet', href='/css/layout.css')
+    link(rel='stylesheet', href='/css/media.css')
+    link(rel='stylesheet', href='/css/mtree.css')
+    link(rel='stylesheet', href='/css/flexslider.css')
+    link(rel='stylesheet', href='/css/slider.css')
+    link(rel='stylesheet', href='/css/jquery.fancybox.css')
   body
   #mypage_wrap.mypage_container_cover
 // mypage//
@@ -73,22 +41,24 @@ html(lang='en')
           a(href='#') MY PAGE
           ul
             li
-              a(href='./mypage/login.html') login
+              a(href='/mypage/login.html') login
             li
-              a(href='./mypage/join.html#') join
+              a(href='/mypage/join.html#') join
         li
           a(href='#') ACCOUNT
           ul
             li
-              a(href='../myaccount/messages') Messages
+              a(href='/myaccount/messages') Messages
             li
-              a(href='../myaccount/myitems') My items
+              a(href='/myaccount/myitems') My items
             li
-              a(href='../myaccount/history') History
+              a(href='/myaccount/history') History
             li
-              a(href='../myaccount/settings') Settings
+              a(href='/myaccount/settings') Settings
+            li
+              a.logout(href='#') LOGOUT
         li.nocss
-          a(href='./features/features.html') FEATURES
+          a(href='/features/features.html') FEATURES
           //
             <ul>
             <li><a href="./features/news.html">News</a></li>
@@ -97,7 +67,7 @@ html(lang='en')
             <li><a href="./features/shopping.html">Shopping</a></li>
             </ul>
         li.nocss
-          a(href='./form/form.html') FORUM
+          a(href='/form/form.html') FORUM
         li.nocss
           a(href='/about.html') ABOUT
     // 탭2
@@ -139,7 +109,7 @@ html(lang='en')
             li
               span.searchtitle Search
               input(type='text')
-            a(href='./designers.html', style='cursor: pointer;') View all designers 
+            a(href='/designers.html', style='cursor: pointer;') View all designers 
         li
           a(href='#') CATEGORY
           ul.mcategory
@@ -245,9 +215,9 @@ html(lang='en')
             li
               a(href='/about.html') About
             li
-              a(href='./features/features.html') Features
+              a(href='/features/features.html') Features
             li
-              a(href='./form/form.html') Fourm
+              a(href='/form/form.html') Fourm
       .header_row
         .right_header_box
           a.hamburger(href='#')
@@ -258,13 +228,13 @@ html(lang='en')
             li
               a.enter(href='#') MY PAGE
             li
-              a.mypage(href='http://alldesigns.co.kr./mypage/login.html') ENTER
+              a.mypage(href='/mypage/login.html') ENTER
         .left_header_box
           h1#logo
             a(href='/') INVENTORY
           ul.category
             li
-              a.m1(href='./designers.html') DESIGNERS
+              a.m1(href='/designers.html') DESIGNERS
             li
               a.m2(href='#') MAN
             li
@@ -349,7 +319,7 @@ html(lang='en')
             li
               a(href='#') Rick Owens
           .viewall
-            a(href='./designers.html') VIEW ALL
+            a(href='/designers.html') VIEW ALL
       // sub1
       // sub2
       .dropdown.man
@@ -493,15 +463,17 @@ html(lang='en')
       .accountmenu
         ul
           li
-            a(href='../myaccount/messages') MESSAGES
+            a(href='/myaccount/messages') MESSAGES
           li
-            a(href='../myaccount/myitems') MY ITEMS
+            a(href='/myaccount/myitems') MY ITEMS
           li
-            a(href='../myaccount/history') HISTORY
+            a(href='/myaccount/history') HISTORY
           li
-            a(href='../myaccount/settings') SETTINGS
+            a(href='/myaccount/settings') SETTINGS
+          li
+            a.logout(href='#') LOGOUT
       // account
-    script(src='../js/mtree.js') 
+    script(src='/js/mtree.js') 
     #container
       #content
         // subcon
@@ -517,10 +489,10 @@ html(lang='en')
             h3.social-share-widget
               .social-share-widget-item.twitter
                 a(href='#', target='_blank')
-                  img(src='../images/2.click_page_3.png', alt='Twittericon')
+                  img(src='/images/2.click_page_3.png', alt='Twittericon')
               .social-share-widget-item.facebook
                 a(href='', target='_blank')
-                  img(src='../images/2.click_page_4.png', alt='Facebookicon')
+                  img(src='/images/2.click_page_4.png', alt='Facebookicon')
           .show-listing
             .listing-photos-wrapper
               ul.listing-photos
@@ -539,12 +511,12 @@ html(lang='en')
               .listing-price
                 p
                   span(style="font-size: 14px;")
-                    img(src='../images/2.click_page_1.png')
+                    img(src='/images/2.click_page_1.png')
                   span.ptxt(style="font-size: 14px;") #{data.productPrice}
                 p
                   span.goodtog(style="font-size: 14px;")
-                    img.goodico(src='../images/2.click_page_2.png', alt='GOOD')
-                    img(style='display:none;', src='../images/2.click_page_2on.png')
+                    img.goodico(src='/images/2.click_page_2.png', alt='GOOD')
+                    img(style='display:none;', src='/images/2.click_page_2on.png')
                   span.ptxt(style="font-size: 14px;") #{data.like}
                 p.price-comparison
                   a(href='#') price comparison
@@ -576,10 +548,10 @@ html(lang='en')
                   .feedback
                     .feedbackwrap
                       ul
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
-                        i.fa.fa-star
+                        i.fa.fa-star-o
+                        i.fa.fa-star-o
+                        i.fa.fa-star-o
+                        i.fa.fa-star-o
                         i.fa.fa-star-o
                       p Feedback
                   .user-widget-bottom
@@ -590,7 +562,8 @@ html(lang='en')
                   .bought-and-soldwrap
                     .bought-and-sold
                       h2.sub-title.seller-item-title
-                        span #{itemCount} Items for Sale
+                        a.sales-item(href="#")
+                          span #{itemCount} Items for Sale
                     .seller-score-wrapper
                       p.seller-score-top
                         a.green(href='/inventory/mypage/feedback.html') 5/5 Feedback
@@ -602,7 +575,7 @@ html(lang='en')
                   .product
                     a(href='#')
                       .thumbnail
-                        img(src='../images/product_thumbnail.png', alt='Thumnail')
+                        img(src='/images/product_thumbnail.png', alt='Thumnail')
                       .information
                         ol
                           li
@@ -615,18 +588,18 @@ html(lang='en')
                             .price_row1
                               .product_good
                                 span.goodtog
-                                  img.goodico(src='../images/product_good_ico.png', alt='GOOD')
-                                  img(style='display:none;', src='../images/product_good_ico2.png')
+                                  img.goodico(src='/images/product_good_ico.png', alt='GOOD')
+                                  img(style='display:none;', src='/images/product_good_ico2.png')
                                 span.count #{data.like}
                               .product_price
-                                img(src='../images/product_dollar_ico.png', alt='DOLLAR')
+                                img(src='/images/product_dollar_ico.png', alt='DOLLAR')
                                 span.count #{data.productPrice}
                             .price_row2
                               span.write_date 7 mins ago
                   .product
                     a(href='#')
                       .thumbnail
-                        img(src='../images/product_thumbnail.png', alt='Thumnail')
+                        img(src='/images/product_thumbnail.png', alt='Thumnail')
                       .information
                         ol
                           li
@@ -638,10 +611,10 @@ html(lang='en')
                           li.price_row
                             .price_row1
                               .product_good
-                                img(src='../images/product_good_ico.png', alt='GOOD')
+                                img(src='/images/product_good_ico.png', alt='GOOD')
                                 span.count 100
                               .product_price
-                                img(src='../images/product_dollar_ico.png', alt='DOLLAR')
+                                img(src='/images/product_dollar_ico.png', alt='DOLLAR')
                                 span.count 103
                             .price_row2
                               span.write_date 7 mins ago
@@ -650,10 +623,19 @@ html(lang='en')
                 .comments-top
                   h3.section-header
                     | comments
+                each comment in comments
+                  .comment-box
+                      .comment-profile_pic
+                          img(src=comment.authorProfilePic)
+                      .comment-profile_name
+                          span #{comment.author}
+                      .comment-text
+                          span #{comment.description}
                 p.no-comments
-                  | There are no comments yet.
-                p.report-this-item
-                  a(href='#') Report this item
+                  | There are no comments yet
+                p.comment-this-item
+                  input(type="text", placeholder="leave comment")
+                button.submit-this-comment Submit
         // subcon
     #footer
       .footer_inner
@@ -661,13 +643,13 @@ html(lang='en')
           ul.social_nav
             li
               a(href='#')
-                img(src='../../images/fk_ico.png', alt='FACE BOOK')
+                img(src='/../images/fk_ico.png', alt='FACE BOOK')
             li
               a(href='#')
-                img(src='../../images/it_ico.png', alt='INSTAGRAM')
+                img(src='/../images/it_ico.png', alt='INSTAGRAM')
             li
               a(href='#')
-                img(src='../../images/tw_ico.png', alt='TWITTER')
+                img(src='/../images/tw_ico.png', alt='TWITTER')
         .cetner_desc_box
           p © 2017 INVENTORY All right Reserved
         .right_footer_box
@@ -680,6 +662,39 @@ html(lang='en')
               a(href='#') CONTACT
       span.shadow
     .black_shadow
+    script(src='/js/jquery.js')
+    script(src='/js/jquery.form.min.js')
+    script(src='/js/jquery.swiper.min.js')
+    script(src='/js/lib/store.min.js')
+    script(src='/js/lib/axios.min.js')
+    script(src='/js/loginCheck.js')
+    script(src='/js/jquery.fancybox.js')
+    script(src='/js/script.js')
+    script(src='/js/script.mobile.js')
+    script(src='/js/lib/store.min.js')
+    script(src='/js/lib/axios.min.js')
+    script(src='/js/menu.js')
+    script(src='/js/mypage.js')
+    script(src='/js/about.js')
+    script(src='/js/click-page.js')
+    script(src='/js/features.js')
+    script(src='/js/jquery.ulslide.js')
+    script(src='/js/jquery.form.min.js')
+    script(src='/js/jquery.swiper.min.js')
+    script(src='/js/jquery.flexslider-min.js')
+    script(src='/js/jquery.flexslider.js')
+    script(src='/js/buy-sell-page.js')
+    script(src='/js/jquery.glide.js')
+    script(src='/js/jquery.glide2.js')
+    script(src='/js/form.js')
+    script(src="/js/comment.js")
+    script(src='/js/my-page.js')
+    script(src='/js/designers.js')
+    script(src='/js/sell.js')
+    script(src='/js/jquery.fancybox.js')
+    script(src='/js/post.js')
+    script(src='//paypalobjects.com/api/checkout.js')
+    script(src='/js/paypal.js')  
     script.
       let productURL = window.location.href.split('listings/')[1]
       $('.offer').click(e => {
@@ -690,4 +705,15 @@ html(lang='en')
       $('.question').click(e => {
         e.preventDefault()
         window.location = `/message/question/#{data.seller}/${productURL}`
+      })
+
+      $('.logout').click(() => {
+          store.clearAll()
+      location.reload()
+      })
+
+      $('.sales-item').click((e) => {
+          e.preventDefault()
+          let seller = $('h1.sub-title.semi-bold a').text()
+          window.location = `/u/${seller}/#product-list`
       })
