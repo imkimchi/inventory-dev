@@ -81,7 +81,7 @@ async function makeMsgParam (data, convo, decoded, recipient) {
     const makeRecipient = (convo, sender) => convo.buyer === sender ? convo.seller : convo.buyer
 
     let user = await User.findOne({username: decoded.username})
-    let post = await rp(`http://localhost:3000/post/get/id/${convo._id}`)
+    let post = await rp(`http://50.116.7.88/post/get/id/${convo._id}`)
 
     console.log("profilePic in makemsgParam", user.profilePic)
     return {
