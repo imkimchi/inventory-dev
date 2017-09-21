@@ -11,6 +11,9 @@ let router = new Router()
 const findConvo = async (convoId, choice) => await Convo.findOne({_id: convoId}).select({"messages": {"$slice": choice}})
 const findMessage = async convo => await Message.findOne({_id: convo.messages[0]})
 
+router.get('/convo/get/:id', async (ctx, next) =>
+    (ctx.body = await Convo.findOne({_id: ctx.params.id})))
+
 router.get('/message/latest/:id', async (ctx, next) => {
     let convoId = ctx.params.id
     let convo = await findConvo(convoId, -1)

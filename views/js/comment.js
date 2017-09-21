@@ -1,21 +1,29 @@
-$(() => {
+
+
+$(function() {
+    const ifTheresComment = () => $('.comment-box').length
+    if(ifTheresComment()) $('p.no-comments').remove()
     $('.comment-this-item input').keypress(function (e) {
-    let key = e.which || e.keyCode;
-    if (key === 13) submitHandler()
-})
-$('.submit-this-comment').click(submitHandler())
+        let key = e.which || e.keyCode;
+        if (key === 13) submitHandler()
+    })
+    $('.submit-this-comment').click(function () {
+        submitHandler()
+    })
 })
 
 function submitHandler (e) {
+    console.log("clicked nigga")
     let text = $('.comment-this-item input').val()
     if(text.length > 0) {
         appendMsg()
         sendMsgToServer()
     }
 }
-const ifTheresComment = () => $('.comment-box').length
 
 function appendMsg () {
+    const ifTheresComment = () => $('.comment-box').length
+
     let data = store.get('userInfo')
     let profileURL = data.profilePic
     let username = data.username

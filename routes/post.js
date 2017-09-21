@@ -19,8 +19,9 @@ mongoose.connection.on('error', (err) => {
 router.get('/post/get/id/:id', async (ctx, next) => {
     let id = ctx.params.id
     let convo = await Convo.findOne({_id: ctx.params.id})
+console.log("convo", convo)
     let post = await Post.findOne({_id: convo.product[0]})
-
+console.log("post", post, convo.product[0])
     ctx.body = post
 })
 
@@ -54,6 +55,7 @@ router.post('/post/upload', async (ctx, next) => {
     let data = ctx.request.body
     let jwtToken = ctx.request.headers.authorization
 
+    console.log(ctx.request.files)
     let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
     const param = await makeParam(data, decoded)
 
@@ -195,6 +197,7 @@ async function fixedImageObj(data, ismodify) {
     let coverURL = data.cover
     let subURL = data.subpics
 
+    console.log("coverURL", coverURL)
     let duplicated = await Post.findOne({"productImage.cover": data.cover}) 
     if(!duplicated) newObj.cover = coverURL.split('views')[1]
     else newObj.cover = coverURL

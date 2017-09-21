@@ -3,7 +3,14 @@ let imageObject = {
 }
 
 jQuery(document).ready(function($) {
-    $("#sellSubmit").click(async() => {
+    $("#sellSubmit").click(async(e) => {
+        e.preventDefault()
+    
+        if(!imageObject.cover) {
+            alert("Try it again Later!")
+            return false;
+        }
+
         let payload = {
             productTitle: $("input[name*='item_name']").val(),
             productSubTitle: $("input[name*='designer_nam']").val(),
