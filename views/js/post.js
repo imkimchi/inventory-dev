@@ -8,15 +8,19 @@ $(document).ready(() => {
     let seller = $('h1.semi-bold a').text()
 
     if(jwtToken) isSeller(jwtToken, seller)
-    else console.log("no token")
-    
+    else removeCommentSubmit()
+
     $(document).on('click', '.logintxt3', redirect)
     $(document).on('click', '.logintxt4', deletePost)
 })  
 
+function removeCommentSubmit () {
+    $('.comment-this-item').remove()
+    $('.submit-this-comment').remove()
+}
+
 async function deletePost () {
     let confirmed = confirm("Are you sure you want to delete this post?")
-    
 
     if(confirmed) {
         let reqOpt = {

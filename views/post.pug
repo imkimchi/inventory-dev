@@ -572,52 +572,31 @@ html(lang='en')
                   h3.section-header.sub-title
                     | related items
                 .productw
-                  .product
-                    a(href='#')
-                      .thumbnail
-                        img(src='/images/product_thumbnail.png', alt='Thumnail')
-                      .information
-                        ol
-                          li
-                            span.product_name Y-3
-                          li
-                            span.short_desc description
-                          li
-                            span.product_size Size L
-                          li.price_row
-                            .price_row1
-                              .product_good
-                                span.goodtog
-                                  img.goodico(src='/images/product_good_ico.png', alt='GOOD')
-                                  img(style='display:none;', src='/images/product_good_ico2.png')
-                                span.count #{data.like}
-                              .product_price
-                                img(src='/images/product_dollar_ico.png', alt='DOLLAR')
-                                span.count #{data.productPrice}
-                            .price_row2
-                              span.write_date 7 mins ago
-                  .product
-                    a(href='#')
-                      .thumbnail
-                        img(src='/images/product_thumbnail.png', alt='Thumnail')
-                      .information
-                        ol
-                          li
-                            span.product_name Y - 3
-                          li
-                            span.short_desc product short descrition
-                          li
-                            span.product_size Size L
-                          li.price_row
-                            .price_row1
-                              .product_good
-                                img(src='/images/product_good_ico.png', alt='GOOD')
-                                span.count 100
-                              .product_price
-                                img(src='/images/product_dollar_ico.png', alt='DOLLAR')
-                                span.count 103
-                            .price_row2
-                              span.write_date 7 mins ago
+                  each product in moreItems
+                    .product
+                      a(href='#')
+                        .thumbnail
+                          img(src=product.productImage.cover, alt='Thumbnail')
+                        .information
+                          ol
+                            li
+                              span.product_name #{product.productSubTitle}
+                            li
+                              span.short_desc #{product.description}
+                            li
+                              span.product_size #{product.productSize}
+                            li.price_row
+                              .price_row1
+                                .product_good
+                                  span.goodtog
+                                    img.goodico(src='/images/product_good_ico.png', alt='GOOD')
+                                    img(style='display:none;', src='/images/product_good_ico2.png')
+                                  span.count #{product.like}
+                                .product_price
+                                  img(src='/images/product_dollar_ico.png', alt='DOLLAR')
+                                  span.count #{product.productPrice}
+                              .price_row2
+                                span.write_date #{product.timeAgo}
                 .view-more View More
               .listing-comments
                 .comments-top
@@ -663,6 +642,8 @@ html(lang='en')
       span.shadow
     .black_shadow
     script(src='/js/jquery.js')
+    script.
+        if($('.comment-box').length) $('.no-comments').remove()
     script(src='/js/jquery.form.min.js')
     script(src='/js/jquery.swiper.min.js')
     script(src='/js/lib/store.min.js')
@@ -712,7 +693,7 @@ html(lang='en')
       location.reload()
       })
 
-      $('.sales-item').click((e) => {
+      $('.sales-item, .view-more').click((e) => {
           e.preventDefault()
           let seller = $('h1.sub-title.semi-bold a').text()
           window.location = `/u/${seller}/#product-list`

@@ -1,11 +1,18 @@
 $(() => {
-    $('.submit-this-comment').click(async (e) => {
-        e.preventDefault()
-        appendMsg()
-        sendMsgToServer()
-    })
+    $('.comment-this-item input').keypress(function (e) {
+    let key = e.which || e.keyCode;
+    if (key === 13) submitHandler()
+})
+$('.submit-this-comment').click(submitHandler())
 })
 
+function submitHandler (e) {
+    let text = $('.comment-this-item input').val()
+    if(text.length > 0) {
+        appendMsg()
+        sendMsgToServer()
+    }
+}
 const ifTheresComment = () => $('.comment-box').length
 
 function appendMsg () {
@@ -15,8 +22,10 @@ function appendMsg () {
     let text = $('.comment-this-item input').val()
     let element = $(`<div class="comment-box"><div class="comment-profile_pic"><img src=${profileURL}></div><div class="comment-profile_name"><span>${username}</span></div><div class="comment-text"><span>${text}</span></div></div>`)
 
-    if(ifTheresComment()) $('.comment-box').after(element)
+    if(ifTheresComment()) $('.comment-box').last().after(element)
     else $('.comments-top').after(element)
+
+    $("html, body").animate({ scrollTop: $(document).height()-$(window).height() })
 }
 
 async function sendMsgToServer () {
@@ -35,6 +44,6 @@ async function sendMsgToServer () {
     }
     $('.comment-this-item input').val('')
     let data = await axios(reqOpt)
-    
+
     return data
 }

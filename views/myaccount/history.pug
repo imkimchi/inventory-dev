@@ -736,7 +736,16 @@ html(lang='en')
       span.shadow
     .black_shadow
     script.
-      $('.logout').click(() => {
-        store.remove('jwtToken')
-        location.reload()
-      })
+        $(".history .productw .product .box").css("display", "none");
+        $(".history .productw .product a").mouseover(function () {
+            $(this).parent().find(".box").css("display", "block");
+        })
+
+        $(".history .productw .product .box").mouseleave(function () {
+            $(this).css("display", "none");
+        })
+
+        $('.logout').click(() => {
+          store.remove('jwtToken')
+          location.reload()
+        })

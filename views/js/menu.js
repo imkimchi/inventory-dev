@@ -140,9 +140,17 @@ $(".clearall").css("display","none")
 //    $(".clearall").css("display","none")
 //}
 
-$('.designer-group label').click(function(){
+$('.designer-group label').click(function(e){
+    e.preventDefault();
+
 	$(".clearall").css("display","block");
-	
+	let brandName = $(this).text()
+    $(".clearall").after($(`<div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>${brandName}</span></div>`))
+})
+
+$('i.fa.fa-times.fa-x').click(function(e) {
+	e.preventDefault()
+	$(this).closest('.selectbtn').remove()
 })
 
 $(".clearall").click(function(){

@@ -119,6 +119,8 @@ router.get('/listings/:id', async (ctx, next) => {
         let postData = await Post.findOne({productURL: ctx.params.id})
         let sellerInfo = await User.findOne({username: postData.seller})
         let itemCounts = await rp(`http://50.116.7.88/post/count/${postData.seller}`)
+        let allPosts = await Post.find({productTitle: { $ne: ctx.params.id }}).limit(2).sort({$natural:-1})
+
         let commentArr = []
 
         for(let comment of postData.comments) {
@@ -126,13 +128,24 @@ router.get('/listings/:id', async (ctx, next) => {
             commentArr.push(object)
         }
 
+        for(let post of allPosts) {
+            post.timeAgo = timeago().format(post.uploadDate.getTime())
+        }
+
         let timeAgo = {
             uploadDate: timeago().format(postData.uploadDate.getTime()),
             editDate: (postData.editDate) ? timeago().format(postData.editDate.getTime()) : ""
         }
-        
-        console.log("commentArr", commentArr)
-        await ctx.render('post', {"data": postData, "comments": commentArr, "timeAgo": timeAgo, "itemCount": sellerInfo.itemCount})
+
+        let renderData = {
+            "data": postData,
+            "moreItems": allPosts,
+            "comments": commentArr,
+            "timeAgo": timeAgo,
+            "itemCount": sellerInfo.itemCount
+        }
+        console.log("moreitems", allPosts)
+        await ctx.render('post', renderData)
     } catch (e) {
         console.error("failed to get post", e)
     }
