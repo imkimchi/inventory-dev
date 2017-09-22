@@ -1387,7 +1387,7 @@ body {
     -webkit-transition: background-color 100ms linear;
     -ms-transition: background-color 100ms linear;
     transition: background-color 100ms linear;}
-.conversation-cta .offer-cover .offertxt{ float:left; border-left:1px solid rgba(204,204,204,1); height:60px; padding-left:30px; padding-top:10px}
+.conversation-cta .offer-cover .offertxt{ border-top: 1px solid rgba(204,204,204,1); width: 60%; float:left; border-left:1px solid rgba(204,204,204,1); height:60px; padding-left:30px; padding-top:10px}
 .conversation-cta .offer-cover .submitbtn{ float:right; margin:30px  0 0px 0;}
 .conversation-cta .offer-cover .submitbtn a{border:1px solid #c6c2c2;  padding:7px 0px; text-transform:uppercase; text-align:center; display:block;  width:135px}
 .conversation-cta .offer-cover .submitbtn a:hover{  background-color: #f3f3f3; cursor:pointer;

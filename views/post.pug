@@ -31,6 +31,7 @@ html(lang='en')
     script(src='/js/lib/store.min.js')
     script(src='/js/lib/axios.min.js')
     script(src='/js/menu.js')
+    script(src='/js/sendingMsg.js')
     script(src='/js/mypage.js')
     script(src='/js/about.js')
     script(src='/js/click-page.js')
@@ -677,17 +678,6 @@ html(lang='en')
       span.shadow
     .black_shadow
     script.
-      let productURL = window.location.href.split('listings/')[1]
-      $('.offer').click(e => {
-        e.preventDefault()
-        window.location = `/message/offer/#{data.seller}/${productURL}`
-      })
-
-      $('.question').click(e => {
-        e.preventDefault()
-        window.location = `/message/question/#{data.seller}/${productURL}`
-      })
-
       $('.logout').click(() => {
           store.clearAll()
       location.reload()

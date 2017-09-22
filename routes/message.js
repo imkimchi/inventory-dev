@@ -14,6 +14,21 @@ const findMessage = async convo => await Message.findOne({_id: convo.messages[0]
 router.get('/convo/get/:id', async (ctx, next) =>
     (ctx.body = await Convo.findOne({_id: ctx.params.id})))
 
+router.post('/message/dup', async (ctx, next) => {
+    let data = ctx.request.body
+    let jwtToken = ctx.request.headers.authorization
+
+    let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+    let thePost = await Post.findOne({productURL: data.url})
+
+    let foundConvo = await Convo.findOne({seller: thePost.seller, buyer: decoded.username})
+    console.log(thePost.seller, decoded.username)
+
+    console.log("foundConvo", foundConvo)
+    if(foundConvo) ctx.body = true
+    else ctx.body = false
+})
+
 router.get('/message/latest/:id', async (ctx, next) => {
     let convoId = ctx.params.id
     let convo = await findConvo(convoId, -1)
