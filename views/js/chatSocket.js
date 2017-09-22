@@ -15,7 +15,7 @@ async function a() {
 
 function socketChat (username, jwtToken) {
     const isSenderMe = sender => sender === username ? "right" : "left"
-    const sendChat = (inputText, convoId) => socket.emit('chat', {desc: inputText, id: convoId, jwt: jwtToken})
+    const sendChat = (inputText, convoId, offerPrice) => socket.emit('chat', {offerPrice: offerPrice, desc: inputText, id: convoId, jwt: jwtToken})
     
     let convoHistory = []
     let socket = io().connect()
@@ -40,22 +40,30 @@ function socketChat (username, jwtToken) {
         let inputText = $(this).closest('.conversation-cta').find('input').val()
         let convoId = $(this).closest('.mix').attr('data-id')
         if(inputText.length > 0) sendChat(inputText, convoId)
-        else return false
+        $(this).closest('.conversation-cta').find('input').val('')
     })
     
     $(document).on('click', ".offerSubmit", function (e) {
         e.preventDefault()
-        let inputText = $('.message').val()
-        let offerPrice = $('#offer').val()
+        let inputText = $(this).closest('.offer-wrapper').find('.message').val()
+        let offerPrice = $(this).closest('.offer-wrapper').find('.offer').val()
         let convoId = $(this).closest('.mix').attr('data-id')
-        if(inputText.length > 0 && offerPrice.length > 0) sendChat(inputText, convoId)
-        else return false
+        if(inputText.length > 0 && offerPrice.length > 0) sendChat(inputText, convoId, offerPrice)
+
+        $(this).closest('.offer-wrapper').find('.message').val('')
+        $(this).closest('.offer-wrapper').find('.offer').val('')
     })
 
     socket.on('message', data => {
         console.log("incoming message:", data)
-        let $message = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div class="messagestxt"> ${data.description} </div> <div class="date"> ${data.sent_date} </div> </div> </div>`)
         let lastConvo = $(`[data-id=${data.convoId}]`).find('.conversation').last()
-        lastConvo.after($message)
+
+        if(data.offerPrice) {
+            let $offermessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div class="messagestxt"> ${data.description} </div><div id="offerprice">Sent Offer $${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
+            lastConvo.after($offermessage)
+        } else {
+            let $message = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div class="messagestxt"> ${data.description} </div> <div class="date"> ${data.sent_date} </div> </div> </div>`)
+            lastConvo.after($message)
+        }
     })
 }  

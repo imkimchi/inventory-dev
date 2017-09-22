@@ -1395,6 +1395,15 @@ body {
     -ms-transition: background-color 100ms linear;
     transition: background-color 100ms linear;
 }
+
+#offerprice {
+	color: red;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 0.8rem;
+	margin-bottom: 10px;
+}
+
 .cover-conversation{position:absolute;  z-index:1; width:960px;}
 .offer-wrapper{ background:#f6f7f8; border:1px solid #dcdcdd; padding:40px 40px 20px 40px; position:relative; margin-top:6px;  -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
     box-shadow: 0px 1px 2px rgba(0,0,0,0.1);}

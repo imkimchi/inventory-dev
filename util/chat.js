@@ -41,6 +41,7 @@ async function chatFeature (io) {
         })
         
         socket.on('chat', async data => {
+            console.log("data", data)
             let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
             let convo = await Convo.findOne({_id: data.id})
             let param = await makeMsgParam(data, convo, decoded)
@@ -56,9 +57,9 @@ async function chatFeature (io) {
                 "sender": decoded.username,
                 "profilePic": param.profilePic,
                 "description": data.desc,
-                "sent_date": m(new Date()).format('LT')
+                "sent_date": m(new Date()).format('LT'),
+                "offerPrice": param.offerPrice
             }
-            console.log(msgInfo, msgInfo.convoId, data.id)
 
             io.sockets.in(data.id).emit('message', msgInfo)
         })
@@ -73,8 +74,6 @@ async function chatFeature (io) {
             })
         })
     })
-
-
 }
 
 async function makeMsgParam (data, convo, decoded, recipient) {
@@ -83,7 +82,8 @@ async function makeMsgParam (data, convo, decoded, recipient) {
     let user = await User.findOne({username: decoded.username})
     let post = await rp(`http://50.116.7.88/post/get/id/${convo._id}`)
 
-    console.log("profilePic in makemsgParam", user.profilePic)
+    console.log("offerprice", data.offerPrice)
+
     return {
         profilePic: user.profilePic,
         productURL: JSON.parse(post).productURL,
