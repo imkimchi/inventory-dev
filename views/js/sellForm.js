@@ -3,12 +3,26 @@ let imageObject = {
 }
 
 jQuery(document).ready(function($) {
+    let itemElements = {
+        productTitle: $("input[name*='item_name']"),
+        productSubTitle: $("input[name*='designer_nam']"),
+        productImage: $('.image_box')[0],
+        productPrice: $("input[name*='price']").closest('li')[0],
+        productCategory: $("select[name*='category']").closest('li'),
+        shipping: $('.sell_form_shipping_section').find('dl'),
+        description: $('.description'),
+        gender: $('.gender_con').closest('li'),
+        market: $('.marketCheck').closest('li'),
+        paypalAccount: $("input[name*='paypal_account']").closest('li'),
+        buyItNow: $('.payment_list').closest('li')[0],
+        acceptOffers: $("input[name*='accept_offes']").closest('li')
+    }
+
     $("#sellSubmit").click(async(e) => {
         e.preventDefault()
-    
-        if(!imageObject.cover) {
-            alert("Try it again Later!")
-            return false;
+        for(element in itemElements) {
+            $(itemElements[element]).css('border', '1px solid rgb(221, 221, 221)')
+            $('span.market.gender').css("border-left-color", "rgb(221, 221, 221)")
         }
 
         let payload = {
@@ -27,22 +41,61 @@ jQuery(document).ready(function($) {
             buyItNow: $("input[name*='buy_it_now']")[0].checked,
             acceptOffers: $("input[name*='accept_offes']")[0].checked,
         }
+        let isAnythingEmpty = checkEmpty(itemElements, payload)
 
-        let option = {
-            method: "POST",
-            url: '/post/upload',
-            headers: {'Authorization': store.get('jwtToken')},
-		    data: payload
+        if(!imageObject.cover) {
+            if($('.image_box').css('background-image') === 'none') {
+                alert("Try it again")
+                return false;
+            }
         }
-        
-        try {
-            let res = await axios(option)
-            window.location = `/listings/${res.data.url}`
-        } catch (e) {
-            console.error("failed to send signup request", e)
+
+        if(!isAnythingEmpty) {
+            let option = {
+                method: "POST",
+                url: '/post/upload',
+                headers: {'Authorization': store.get('jwtToken')},
+                data: payload
+            }
+            console.log("option", option)
+            
+            try {
+                let res = await axios(option)
+                window.location = `/listings/${res.data.url}`
+            } catch (e) {
+                console.error("failed to send signup request", e)
+            }
+        } else {
+            return false;
         }
     })
 })
+
+
+
+function checkEmpty(itemElements, payload) {
+    let emptyCounts = 0
+    if(payload.productCategory === 'Category') payload.productCategory = ''
+
+    for(item in payload) {
+        if(!payload[item]) {
+            $(itemElements[item]).css("border", "1px solid #c1272d")
+            if(item === 'gender' || item === 'market') {
+                $('span.market.gender').css("border-left-color", "#c1272d")
+            }
+            emptyCounts++
+        }
+
+        if(typeof payload[item] === 'object') {
+            if(!Object.keys(payload[item]).length) {
+                $(itemElements[item]).css("border", "1px solid #c1272d")
+                emptyCounts++
+            }
+
+        }
+    }
+    return emptyCounts
+}
 
 async function checkVal(choice) {
     let $genderIcons = $('.sell_form_gender_section').find('.fa')

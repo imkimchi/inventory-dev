@@ -636,10 +636,10 @@ html.active #wrap {
 }
 
 .main_product_wrap .right_product_box .product .thumbnail {
-	
+	height: 284px;  background-color: #f5f5f5;
 }
 .main_product_wrap .right_product_box .product .thumbnail img {
-	width: 100%;
+	width: 100%;   max-height: 284px; position: relative; top: 50%;  transform: translateY(-50%);
 }
 
 .main_product_wrap .right_product_box .product .information {
@@ -1224,7 +1224,20 @@ h1.jumbo a{
 .forum-wrapper .feedbackscore h3{border-bottom:none;}
 .productw .product a { display: block;}
 .productw .product a:hover{background-color: #f3f3f3; cursor:pointer;  -webkit-transition: background-color 100ms linear;  -ms-transition: background-color 100ms linear;  transition: background-color 100ms linear;}
-.productw .product a .thumbnail img {width: 100%; opacity:1}
+.productw .product a .thumbnail img {width: 100%; opacity:1 }
+.listings-thumbnail img {
+	width: 100%;
+	opacity: 1;
+	max-height: calc(784px / 3);
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.listings-thumbnail {
+	height: calc(784px / 3);
+	background-color: #f5f5f5;
+}
 .productw .product a .information {padding: 5px; border: 1px solid rgb(221, 221, 221); border-image: none; overflow:hidden}
 .productw .product a .information:hover{background-color: #f3f3f3; cursor:pointer; -webkit-transition: background-color 100ms linear;  -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 .productw .product a .information .write_date{ font-size:10px; }
@@ -1273,7 +1286,11 @@ body {
 .myitemsmb200{margin-bottom:100px;}
 /*myitem*/
  .my-pagetw .product {width: 32.5%; margin-bottom:70px; position:relative; overflow:hidden; margin: 0px 3px 8px 3px;}
- .my-pagetw .product .thumbnail{}
+ .my-pagetw .product .thumbnail{ height: 432px; width: 324px; background-color: #f5f5f5;}
+.my-pagetw .product .thumbnail img { max-height: 432px;      width: 100%;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);}
   .my-pagetw .product .bellon{position:absolute; top:0; left:0; background:#464545 url(../images/bellon.png) no-repeat center center; color:rgba(255,255,255,1); width:100%; text-align:center; height:40px; ; box-sizing:border-box;     display:none}
 .my-pagetw .product  .belloff{background:#ea645e url(../images/belloff.png) no-repeat center center; }
  .my-pagetw .product .thumbnail .hug-top{display:none;}
@@ -2006,7 +2023,10 @@ div.form-group > button {
 #formtab3 .item li.item2{text-align:center;}
 #formtab3 .item li.item3{text-align:right;}
 #formtab3 .feedbackscore {overflow:hidden; /*padding:15px 0*/}
-#formtab3 .feedbackscore div{float:left;}
+.feedbackscore-item {
+	width: 100%;
+}
+#formtab3 .feedbackscore div{float:left; }
 #formtab3 .feedbackname{}
 #formtab3 .feedbackimg img{width:80%;}
 #formtab3 .feedbackimg{ padding:0 10px;}
@@ -2104,7 +2124,7 @@ div.form-group > button {
 
 
 .street_row .first-child{margin-left:0}
-.street_row .product a .thumbnail{border-bottom:1px solid rgb(221, 221, 221)}
+.street_row .product a .thumbnail{border-bottom:1px solid rgb(221, 221, 221); }
 .street_row .product a .thumbnail img{width:100%}
 .street_row .product a .information{padding:12px;border-image:none}
 

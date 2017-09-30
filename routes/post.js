@@ -55,7 +55,7 @@ router.post('/post/upload', async (ctx, next) => {
     let data = ctx.request.body
     let jwtToken = ctx.request.headers.authorization
 
-    console.log(ctx.request.files)
+    console.log("data", data)
     let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
     const param = await makeParam(data, decoded)
 
@@ -121,7 +121,9 @@ router.get('/listings/:id', async (ctx, next) => {
         let postData = await Post.findOne({productURL: ctx.params.id})
         let sellerInfo = await User.findOne({username: postData.seller})
         let itemCounts = await rp(`http://50.116.7.88/post/count/${postData.seller}`)
-        let allPosts = await Post.find({productTitle: { $ne: ctx.params.id }}).limit(2).sort({$natural:-1})
+        let allPosts = await Post.find({productURL: { $ne: ctx.params.id }}).limit(2).sort({$natural:-1})
+
+        console.log("ctx.params.id", ctx.params.id)
 
         let commentArr = []
 
@@ -146,7 +148,6 @@ router.get('/listings/:id', async (ctx, next) => {
             "timeAgo": timeAgo,
             "itemCount": sellerInfo.itemCount
         }
-        console.log("moreitems", allPosts)
         await ctx.render('post', renderData)
     } catch (e) {
         console.error("failed to get post", e)

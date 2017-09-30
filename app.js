@@ -20,7 +20,7 @@ mongoose
    
 function startApp() {
 	const app = new Koa()
-	const port = process.env.PORT || 3000
+	const port = process.env.PORT || 80
 	const dist = __dirname + '/views/'
 	const bpOption = {
 		fields: 'body',
@@ -31,7 +31,6 @@ function startApp() {
 	require('./util/passport')
 
 	app
-	  .use(logger())
 	  .use(serve(dist))
 	  .use(session({}, app))
 	  .use(bodyParser(bpOption))

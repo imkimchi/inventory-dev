@@ -18,11 +18,12 @@ html(lang='en')
     link(rel='stylesheet', href='/css/slider.css')
     link(rel='stylesheet', href='/css/jquery.fancybox.css')
     script(src='/js/jquery.js')
-    script(src='/js/jquery.form.min.js')
-    script(src='/js/jquery.swiper.min.js')
     script(src='/js/lib/store.min.js')
     script(src='/js/lib/axios.min.js')
+    script(src='/js/checkifItsown.js')
     script(src='/js/loginCheck.js')
+    script(src='/js/jquery.form.min.js')
+    script(src='/js/jquery.swiper.min.js')
     script(src='/js/script.js')
     script(src='/js/script.mobile.js')
     script(src='/js/menu.js')
@@ -76,13 +77,13 @@ html(lang='en')
               a(href='#') ACCOUNT
               ul
                 li
-                  a(href='./myaccount/messages') Messages
+                  a(href='/myaccount/messages') Messages
                 li
-                  a(href='./myaccount/myitems') My items
+                  a(href='/myaccount/myitems') My items
                 li
-                  a(href='./myaccount/history') History
+                  a(href='/myaccount/history') History
                 li
-                  a(href='./myaccount/settings') Settings
+                  a(href='/myaccount/settings') Settings
                 li
                   a.logout(href='#') LOGOUT
             li.nocss
@@ -491,13 +492,13 @@ html(lang='en')
           .accountmenu
             ul
               li
-                a(href='./myaccount/messages') MESSAGES
+                a(href='/myaccount/messages') MESSAGES
               li
-                a(href='./myaccount/myitems') MY ITEMS
+                a(href='/myaccount/myitems') MY ITEMS
               li
-                a(href='./myaccount/history') HISTORY
+                a(href='/myaccount/history') HISTORY
               li
-                a(href='./myaccount/settings') SETTINGS
+                a(href='/myaccount/settings') SETTINGS
               li
                 a.logout(href='#') LOGOUT
           // account
