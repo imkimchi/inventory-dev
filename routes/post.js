@@ -183,6 +183,35 @@ router.post('/post/comment', async (ctx, next) => {
     }
 })
 
+const isInclude = (arr, obj) => (arr.indexOf(obj) != -1)
+
+
+router.post('/post/like/', async (ctx, next) => {
+    let data = ctx.request.body
+    let jwtToken = ctx.request.headers.authorization
+
+    let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+
+    let post = await Post.findOne({productURL: data.productURL})
+    let usersArray = post.like.likedUsers
+
+    if(!isInclude(usersArray, decoded.username)) {
+        await Post.update({ _id: post._id }, {
+            $push : { "like.likedUsers" : decoded.username },
+            $inc: { "like.likedCounts" : 1 } },
+            { upsert: true })
+
+        ctx.body = { history: false }
+    } else {
+        await Post.update({ _id: post._id }, {
+                $pull : { "like.likedUsers" : decoded.username },
+                $inc: { "like.likedCounts" : -1 } },
+            { upsert: true })
+        
+        ctx.body = { history: true}
+    }
+})
+
 async function getPost(ctx) {
     let data = postURL(ctx)
     let jwtToken = ctx.request.headers.authorization

@@ -123,12 +123,6 @@ $(".all_designer_btn_box").click(function(){
           $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
    });
 	
-	
-$(".goodtog").click(function(e){
-  $(this).removeAttr("href");
-  $('img',this).toggle();
-   e.preventDefault();
-});
 
 $(".clearall").css("display","none")
 //

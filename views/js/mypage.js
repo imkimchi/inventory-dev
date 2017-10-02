@@ -88,6 +88,7 @@ jQuery(document).ready(function($) {
             } else {
                 await store.set('jwtToken', res.data.token)
                 await store.set('userInfo', await getUserInfo())
+                document.cookie = `jwtToken=${store.get('jwtToken')};path=/`
                 window.location = '/'
             }
         } catch (e) {

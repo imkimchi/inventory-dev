@@ -996,9 +996,13 @@ html(lang='en')
                                 .price_row1
                                   .product_good
                                     span.goodtog
-                                      img.goodico(src='images/product_good_ico.png', alt='GOOD')
-                                      img(style='display:none;', src='images/product_good_ico2.png')
-                                    span.count #{val.like}
+                                      if val.liked
+                                        img.goodico(style='display:none;', src='images/product_good_ico.png', alt='GOOD')
+                                        img(src='images/product_good_ico2.png')
+                                      else
+                                        img.goodico(src='images/product_good_ico.png', alt='GOOD')
+                                        img(style='display:none;', src='images/product_good_ico2.png')
+                                    span.count #{val.like.likedCounts}
                                   .product_price
                                     img(src='images/product_dollar_ico.png', alt='DOLLAR')
                                     span.count #{val.productPrice}
@@ -1031,7 +1035,15 @@ html(lang='en')
     script(src='./js/lib/mixitup.min.js')
     script(src='./js/lib/mixitup_multifilter.min.js')
     script(src='./js/filter.js')
+    script(src='/js/like.js')
     script.
+
+      $('.logout').click(() => {
+        store.clearAll()
+        document.cookie = 'jwtToken='
+        location.reload()
+      })
+
       $('.logout').click(() => {
         store.clearAll()
         location.reload()

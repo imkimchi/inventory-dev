@@ -43,12 +43,12 @@ async function isSeller (jwtToken, seller) {
         method: "POST",
         data: { jwt: jwtToken }
     }
-    
+
     let decodedData = await axios(reqOpt)
     let username = decodedData.data.username
     console.log("username:", username, "seller", seller)
 
     if(username === seller) {
-        $('.pricebtnw').after('<div class="logintxt"><div class="logintxt3">Edit this posting</div><div class="logintxt4">Delete this posting now</div></div>')
+        $('.pricebtnw').after('<div class="logintxt"><div class="bump logintxt3">Bump With Original Price</div><div class="dropPrice logintxt3">Drop Price By 10%</div><div class="logintxt3">Edit this posting</div><div class="logintxt4">Delete this posting now</div></div>')
     }
 }

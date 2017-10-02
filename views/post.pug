@@ -678,9 +678,15 @@ html(lang='en')
       span.shadow
     .black_shadow
     script.
+      if(!jwtToken) {
+          $('.comment-this-item').remove()
+          $('.submit-this-comment').remove()
+      }
+
       $('.logout').click(() => {
           store.clearAll()
-      location.reload()
+          document.cookie = 'jwtToken='
+          location.reload()
       })
 
       $('.sales-item, .view-more').click((e) => {

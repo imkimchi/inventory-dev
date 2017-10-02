@@ -15,7 +15,6 @@ async function chatFeature (io) {
         let jwtToken = socket.handshake.query.jwt
         let decoded = jwtToken ? await jwt.verify(jwtToken, 'RESTFULAPIs') : ""
 
-        console.log("Decoded", decoded)
         io.emit('users', {
             onlineUsers: onlineUsers.length,
             jwt: decoded,
