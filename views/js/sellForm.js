@@ -43,13 +43,6 @@ jQuery(document).ready(function($) {
         }
         let isAnythingEmpty = checkEmpty(itemElements, payload)
 
-        if(!imageObject.cover) {
-            if($('.image_box').css('background-image') === 'none') {
-                alert("Try it again")
-                return false;
-            }
-        }
-
         if(!isAnythingEmpty) {
             let option = {
                 method: "POST",
@@ -58,7 +51,7 @@ jQuery(document).ready(function($) {
                 data: payload
             }
             console.log("option", option)
-            
+
             try {
                 let res = await axios(option)
                 window.location = `/listings/${res.data.url}`
@@ -66,11 +59,64 @@ jQuery(document).ready(function($) {
                 console.error("failed to send signup request", e)
             }
         } else {
+            $('html, body').animate({
+                scrollTop: $("fieldset").offset().top
+            }, 500)
+
             return false;
+        }
+
+        if(!imageObject.cover) {
+            if($('.image_box').css('background-image') != 'none') {
+                alert("Try it again")
+            }
+            return false
         }
     })
 })
 
+const isRedLined = element => element.css('border') === '1px solid rgb(193, 39, 45)'
+const backToOriginal = element => element.css('border', '1px solid rgb(221, 221, 221)')
+const unRedLineThisElem = elem => isRedLined(elem) && backToOriginal(elem)
+
+$(document).on('click', '.genderCheck', function() {
+    if(isRedLined($(this))) {
+        backToOriginal($('.genderCheck'))
+        $('.genderCheck').find('span.market.gender').css('border-left-color', 'rgb(221, 221, 221)')
+    }
+})
+
+$(document).on('click', '.marketCheck', function() {
+    unRedLineThisElem($('.marketCheck'))
+})
+
+$(document).on('keyup', 'input[type="text"]', function() {
+    unRedLineThisElem($(this).closest('li'))
+})
+
+$(document).on('change', '.select_list select', function() {
+    unRedLineThisElem($(this).closest('li'))
+})
+
+$(document).on('keyup', 'textarea', function() {
+    unRedLineThisElem($(this))
+})
+
+$(document).on('keyup', 'input[name="item_name"], input[name="designer_name"]', function() {
+    unRedLineThisElem($(this))
+})
+
+$(document).on('change', 'input[name="buy_it_now"], input[name="accept_offes"]', function() {
+    unRedLineThisElem($(this).closest('li'))
+})
+
+$(document).on('change', 'input[name="shipping[]"]', function() {
+    unRedLineThisElem($(this).closest('dl'))
+})
+
+$(document).on('change', 'textarea', function() {
+    unRedLineThisElem($(this).closest('li'))
+})
 
 
 function checkEmpty(itemElements, payload) {
@@ -100,7 +146,7 @@ function checkEmpty(itemElements, payload) {
 async function checkVal(choice) {
     let $genderIcons = $('.sell_form_gender_section').find('.fa')
     let $marketIcons = $('.sell_real_market_section').find('.fa')
-    
+
     if(choice === 'gender') {
         let $parentSelector = '.genderCheck'
         let checked = await returnChecked($genderIcons, $parentSelector)
@@ -127,7 +173,7 @@ function returnChecked(iconsElem, parentElem) {
 async function shippingVal() {
     let allowedCountry = {}
     let $shipBox = $('.shipping_list input[type="checkbox"]')
-    
+
     await $shipBox.each(function (i) {
         let isChecked = $shipBox.eq(i)[0].checked
 
