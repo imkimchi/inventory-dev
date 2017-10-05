@@ -869,6 +869,9 @@ html(lang='en')
                             .selectbtnwrap
                               .selectbtn.clearall
                                 span Clear All
+
+
+                    .designer-wrapper
                   .indiv_filter_box
                     strong.title CATEGORY
                     ul.category_list
@@ -1036,9 +1039,29 @@ html(lang='en')
     script(src='./js/lib/mixitup_multifilter.min.js')
     script(src='./js/filter.js')
     script(src='/js/like.js')
-    script.
 
-      $('.logout').click(() => {
+    script.
+        $(document).on('click', '.selectbtn i', function () {
+            let brandName = $(this).closest('.sbox').find('span').text()
+
+            $('.designer-wrapper div').each(function(i) {
+                if($(this).find('span').text() === brandName) $(this).remove()
+            })
+
+            $(this).closest('.selectbtn').remove()
+        });
+
+        $(document).on('click', '.designer-wrapper div .fa', function () {
+            let brandName = $(this).closest('div').find('span').text()
+
+            $('.selectbtnwrap .sbox').each(function (i) {
+                if ($(this).find('span').text() === brandName) $(this).remove()
+            })
+
+            $(this).closest('div').remove()
+        })
+
+        $('.logout').click(() => {
         store.clearAll()
         document.cookie = 'jwtToken='
         location.reload()

@@ -10,6 +10,7 @@ import timeago from 'timeago.js'
 
 const router = new Router()
 const postURL = ctx => ctx.request ? ctx.request.body.url : ctx.params.id
+const isInclude = (arr, obj) => (arr.indexOf(obj) != -1)
 
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (err) => {
@@ -19,9 +20,9 @@ mongoose.connection.on('error', (err) => {
 router.get('/post/get/id/:id', async (ctx, next) => {
     let id = ctx.params.id
     let convo = await Convo.findOne({_id: ctx.params.id})
-console.log("convo", convo)
+    console.log("convo", convo)
     let post = await Post.findOne({_id: convo.product[0]})
-console.log("post", post, convo.product[0])
+    console.log("post", post, convo.product[0])
     ctx.body = post
 })
 
@@ -140,13 +141,37 @@ router.get('/post/edit/:id', async (ctx, next) => {
 })
 
 router.get('/listings/:id', async (ctx, next) => {
+    let cookies = ctx.headers.cookie
+    let decoded;
+
+    if(cookies) {
+        let parsedCookies = cookies.split('; ')
+
+        for (let str of parsedCookies) {
+            if(str.includes("jwtToken")) {
+                let jwtToken = str.split('=')[1]
+                if(jwtToken) {
+                    decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+                }
+            }
+        }
+    }
+
     try {
         let postData = await Post.findOne({productURL: ctx.params.id})
         let sellerInfo = await User.findOne({username: postData.seller})
         let itemCounts = await rp(`http://50.116.7.88/post/count/${postData.seller}`)
         let allPosts = await Post.find({productURL: { $ne: ctx.params.id }}).limit(2).sort({$natural:-1})
 
-        console.log("ctx.params.id", ctx.params.id)
+        if(decoded) {
+            if(isInclude(postData.like.likedUsers, decoded.username)) {
+                console.log("already clicked")
+                postData.liked = true
+            } else {
+                console.log("nah")
+                postData.liked = false
+            }
+        }
 
         let commentArr = []
 
@@ -171,6 +196,8 @@ router.get('/listings/:id', async (ctx, next) => {
             "timeAgo": timeAgo,
             "itemCount": sellerInfo.itemCount
         }
+
+        console.log("postdata", renderData.data)
         await ctx.render('post', renderData)
     } catch (e) {
         console.error("failed to get post", e)
@@ -205,9 +232,6 @@ router.post('/post/comment', async (ctx, next) => {
         ctx.body = {success: false}
     }
 })
-
-const isInclude = (arr, obj) => (arr.indexOf(obj) != -1)
-
 
 router.post('/post/like/', async (ctx, next) => {
     let data = ctx.request.body

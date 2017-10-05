@@ -10,6 +10,16 @@ jQuery(document).ready(function($){
 	   
 });
 
+$('.selectbtn i').click(function() {
+	console.log("remove")
+	$(this).closest('.selectbtn').remove()
+})
+
+    $('.designer-wrapper div .fa').click(function() {
+        console.log("remove")
+        $(this).closest('div').remove()
+    })
+
  $(".designers").mouseleave(function(){
 	 $(".designers").stop(true).fadeTo(200,0);
 	 $(".man").css("display","none");
@@ -136,10 +146,12 @@ $(".clearall").css("display","none")
 
 $('.designer-group label').click(function(e){
     e.preventDefault();
+    let designerBox = $('.designer-wrapper')
 
 	$(".clearall").css("display","block");
 	let brandName = $(this).text()
     $(".clearall").after($(`<div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>${brandName}</span></div>`))
+    designerBox.append(`<div><i class="fa fa-times fa-x" aria-hidden="true"></i><span class='brandName'>${brandName}</span></div>`)
 })
 
 $('i.fa.fa-times.fa-x').click(function(e) {

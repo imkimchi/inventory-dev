@@ -8,7 +8,6 @@ $(function() {
 
         if(isduplicated) window.location = '/myaccount/messages'
         else window.location = `/message/offer/q/${productURL}`
-        
     })
 
     $('.question').click(async e => {

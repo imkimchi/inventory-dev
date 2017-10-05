@@ -1,29 +1,38 @@
+const isMainPage = () => window.location.pathname.length === 1
+
 $(".goodtog").click(async function (e) {
     e.preventDefault()
     $('img', this).toggle()
+
+    let productURL = $(this).closest('a').prop('href') && $(this).closest('a').prop('href').split('/')[4]
+    let currentURL = window.location.href.split('/')[4]
 
     let reqOpt = {
         url: '/post/like',
         method: 'post',
         headers: {'Authorization': store.get('jwtToken')},
-        data: { productURL : $(this).closest('a').prop('href').split('/')[4]}
+        data: { productURL : isMainPage() ? productURL : currentURL}
     }
 
     let res = await axios(reqOpt)
 
     let likedCount = $(this).eq(0).closest('.product_good').eq(0).find('.count')
-    console.log("likedCount", likedCount)
+    let countInListing = $(this).closest('.listing-price').find('.ptxt').eq(1)
+    let currentPage = isMainPage() ? likedCount : countInListing
 
-    if(res.data.history) {
-        console.log("true")
-        let addedNum = Number(likedCount.text()) - 1
-        console.log(likedCount.text(), addedNum)
-        likedCount.text(addedNum)
-    } else {
-        console.log("false")
-        let addedNum = Number(likedCount.text()) + 1
-        console.log(likedCount.text(), addedNum)
-        likedCount.text(addedNum)
-    }
+    changeNumText(res, currentPage)
     e.preventDefault()
 })
+
+function changeNumText(res, countElem) {
+    console.log(countElem, countElem.text(), Number(countElem.text()))
+    if(res.data.history) {
+        let addedNum = Number(countElem.text()) - 1
+        console.log(countElem.text(), "added", addedNum)
+        countElem.text(addedNum)
+    } else {
+        let addedNum = Number(countElem.text()) + 1
+        console.log(countElem.text(), "added", addedNum)
+        countElem.text(addedNum)
+    }
+}

@@ -1179,6 +1179,16 @@ h1.jumbo a{
 .show-listing .listing-details-wrapper .bump{background:#aaaaaa}
 .show-listing .listing-details-wrapper .logintxt4{background:#aaaaaa}
 
+.designer-wrapper {
+	margin-top: 30px;
+}
+.designer-wrapper > div {
+	cursor: pointer;
+}
+
+.brandName {
+	margin-left: 10px;
+}
 .show-listing .listing-details-wrapper .bump:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 
 .show-listing .listing-details-wrapper .logintxt1:hover{ background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}

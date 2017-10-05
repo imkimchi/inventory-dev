@@ -551,8 +551,12 @@ html(lang='en')
                   span.ptxt(style="font-size: 14px;") #{data.productPrice}
                 p
                   span.goodtog(style="font-size: 14px;")
-                    img.goodico(src='/images/2.click_page_2.png', alt='GOOD')
-                    img(style='display:none;', src='/images/2.click_page_2on.png')
+                    if data.liked
+                      img.goodico(style='display:none;', src='/images/2.click_page_2.png', alt='GOOD')
+                      img(src='/images/2.click_page_2on.png')
+                    else
+                      img.goodico(src='/images/2.click_page_2.png', alt='GOOD')
+                      img(style='display:none;', src='/images/2.click_page_2on.png')
                   span.ptxt(style="font-size: 14px;") #{data.like.likedCounts}
                 p.price-comparison
                   a(href='#') price comparison
@@ -625,8 +629,12 @@ html(lang='en')
                               .price_row1
                                 .product_good
                                   span.goodtog
-                                    img.goodico(src='/images/product_good_ico.png', alt='GOOD')
-                                    img(style='display:none;', src='/images/product_good_ico2.png')
+                                    if data.liked
+                                      img.goodico(style='display:none;', src='/images/product_good_ico.png', alt='GOOD')
+                                      img(src='/images/product_good_ico2.png')
+                                    else
+                                      img.goodico(src='/images/product_good_ico.png', alt='GOOD')
+                                      img(style='display:none;', src='/images/product_good_ico2.png')
                                   span.count #{product.like.likedCounts}
                                 .product_price
                                   img(src='/images/product_dollar_ico.png', alt='DOLLAR')
@@ -677,6 +685,7 @@ html(lang='en')
               a(href='#') CONTACT
       span.shadow
     .black_shadow
+    script(src="/js/like.js")
     script.
       if(!jwtToken) {
           $('.comment-this-item').remove()

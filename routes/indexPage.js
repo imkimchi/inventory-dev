@@ -37,8 +37,14 @@ async function fixedData(posts, decoded) {
         post.classes.push(post.gender, post.market)
 
         if(decoded) {
-            if(isInclude(post.like.likedUsers, decoded.username)) post.liked = true
-            post.liked = false
+            if(isInclude(post.like.likedUsers, decoded.username)) {
+                console.log(true)
+                post.liked = true
+            } else {
+                console.log("asdfasdfadfasdfasdf", false)
+                post.liked = false
+            }
+
         }
     }
 

@@ -1,6 +1,6 @@
 let URL = window.location.href
 let isOffer = () => URL.split('/')[1] ? URL.split('offer/')[1] : URL.split('question/')[1]
-
+let whatIsThis = window.location.href.split('/')[4]
 
 $(document).on('click', '.button', () => {
     let payload = {
@@ -12,8 +12,10 @@ $(document).on('click', '.button', () => {
 
     for(let q in payload) {
         if(!payload[q]) {
-            alert("Please enter" + q)
-            return false
+            if(whatIsThis === 'offer') {
+                alert("Please enter" + q)
+                return false
+            }
         }
     }
 

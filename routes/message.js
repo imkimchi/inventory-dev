@@ -21,6 +21,8 @@ router.post('/message/dup', async (ctx, next) => {
     let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
     let thePost = await Post.findOne({productURL: data.url})
 
+    console.log("thePost", thePost, "data.url", data.url)
+
     let foundConvo = await Convo.findOne({seller: thePost.seller, buyer: decoded.username})
     console.log(thePost.seller, decoded.username)
 
