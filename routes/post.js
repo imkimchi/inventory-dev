@@ -36,6 +36,29 @@ router.get('/post/get/username/:username', async (ctx, next) => {
     ctx.body = posts
 })
 
+
+router.post('/post/bump', async (ctx, next) => {
+    let data = ctx.request.body
+    let jwtToken = ctx.request.headers.authorization
+    let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+    let savedDoc
+
+    let post = await Post.findOne({productURL: data.url})
+    post.remove()
+
+    try {
+        savedDoc = post
+        savedDoc._id = mongoose.Types.ObjectId()
+        savedDoc.uploadDate = Date.now()
+        savedDoc.isNew = true
+        savedDoc.save()
+
+        ctx.body = { data: "success"}
+    } catch (e) {
+        console.log("failed", e)
+    }
+})
+
 router.get('/post/count/:id', async (ctx, next) => {
     let findQuery = {"seller": ctx.params.id}
     try {

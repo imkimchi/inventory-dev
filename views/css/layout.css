@@ -1176,7 +1176,10 @@ h1.jumbo a{
 .show-listing .listing-details-wrapper .logintxt1{ background:#5a7769; }
 .show-listing .listing-details-wrapper .logintxt2{background:#aaaaaa}
 .show-listing .listing-details-wrapper .logintxt3{background:#aaaaaa}
+.show-listing .listing-details-wrapper .bump{background:#aaaaaa}
 .show-listing .listing-details-wrapper .logintxt4{background:#aaaaaa}
+
+.show-listing .listing-details-wrapper .bump:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 
 .show-listing .listing-details-wrapper .logintxt1:hover{ background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 .show-listing .listing-details-wrapper .logintxt2:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}

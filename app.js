@@ -15,7 +15,7 @@ import mongoose from 'mongoose'
 mongoose.Promise = global.Promise
 
 mongoose
-   .connect(config.MONGODB_URI)
+    .connect(config.MONGODB_URI)
    .then(startApp).catch(::console.error)
    
 function startApp() {
@@ -30,14 +30,15 @@ function startApp() {
 	app.keys = ['secret', 'key'];
 	require('./util/passport')
 
-	app
-	  .use(serve(dist))
-	  .use(session({}, app))
-	  .use(bodyParser(bpOption))
-	  .use(passport.initialize())
-	  .use(passport.session())
-	  .use(views(__dirname+'/views', { extension: 'pug'}))
-	  .use(routes())
+    app
+        .use(logger())
+        .use(serve(dist))
+        .use(session({}, app))
+        .use(bodyParser(bpOption))
+        .use(passport.initialize())
+        .use(passport.session())
+        .use(views(__dirname+'/views', { extension: 'pug'}))
+        .use(routes())
 	
 	let server = app.listen(port, () => console.log(`[!] Server is Running on  ${port}`))
 	let io = socketIO(server)

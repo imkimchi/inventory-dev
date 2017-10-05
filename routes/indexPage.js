@@ -10,8 +10,20 @@ const isInclude = (arr, obj) => (arr.indexOf(obj) != -1)
 //gotta add a check if user's logged in, for head-login
 router.get('/', async (ctx, next) => {
     let cookies = ctx.headers.cookie
-    let jwtToken = cookies.split('; ')[2].split('=')[1]
-    let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+    let decoded;
+
+    if(cookies) {
+        let parsedCookies = cookies.split('; ')
+
+        for (let str of parsedCookies) {
+            if(str.includes("jwtToken")) {
+                let jwtToken = str.split('=')[1]
+                if(jwtToken) {
+                    decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+                }
+            }
+        }
+    }
 
     let renderData = await Post.find({}).sort({$natural:-1})
     let final = await fixedData(renderData, decoded)
@@ -24,9 +36,8 @@ async function fixedData(posts, decoded) {
         post.timeAgo = timeago().format(uploadDate.getTime())
         post.classes.push(post.gender, post.market)
 
-        if(isInclude(post.like.likedUsers, decoded.username)) {
-            post.liked = true
-        } else {
+        if(decoded) {
+            if(isInclude(post.like.likedUsers, decoded.username)) post.liked = true
             post.liked = false
         }
     }
