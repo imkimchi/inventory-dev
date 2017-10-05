@@ -10,12 +10,22 @@ jQuery(document).ready(function($){
 	   
 });
 
+    $('.category_list li span.tb').click(function(){
+
+        $(this).parent().find('.moremenu').toggle();
+
+
+    });
+    $('.size_list li p.tb').click(function(){
+        $(this).find('span').toggleClass("disnone");
+        $(this).parent().find('.moremenu').toggle();
+    });
+
 $('.selectbtn i').click(function() {
 	console.log("remove")
 	$(this).closest('.selectbtn').remove()
 })
-
-    $('.designer-wrapper div .fa').click(function() {
+	$('.designer-wrapper div .fa').click(function() {
         console.log("remove")
         $(this).closest('div').remove()
     })
