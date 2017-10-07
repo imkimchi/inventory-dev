@@ -12,6 +12,10 @@ const ConvoSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    sold: {
+        type: Boolean,
+        default: false
+    },
     offer: {
         offered: {
             type: Boolean,

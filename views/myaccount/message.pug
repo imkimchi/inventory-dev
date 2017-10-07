@@ -556,6 +556,25 @@ html(lang='en')
             li
               a(href='#') CONTACT
       span.shadow
+      .modal
+        .counter_container.makeanoffer-wrapper
+          h1 Make a Counter
+          i.fa.fa-times(aria-hidden='true')
+          p.italic
+            | Do not send payments offsite. If you do not pay through Grailed
+            br
+            |  you are not eligible for Grailed or PayPal Fraud Protection.
+          .vanilla-offer
+            div
+              .form-field.offer-and-shipping
+                label
+                  span offer + shipping cost
+                  input#offer(type='number', name='offer', min='0', value='0')
+              .form-field
+                textarea#message(name='message', placeholder='All offers must include shipping cost. Shipping WILL NOT be added at checkout.', cols='40', rows='5')
+              .form-field
+                button.button#counter-button
+                  span Offer
     .black_shadow
     script(src='/js/appendMsg.js')
     script(src='/js/lib/mixitup.min.js')

@@ -40,22 +40,21 @@ async function chatFeature (io) {
         })
 
         socket.on('offer', async data => {
-            let identifier = data.offerPrice ? "counter" : "accept"
-
-            console.log("data.offerPrice", data.offerPrice, "identifier", identifier)
+            console.log("identifier", data.identifier)
 
             let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
             let convo = await Convo.findOne({_id: data.id})
-            let param = await makeMsgParam(data, convo, decoded, identifier)
+            let param = await makeMsgParam(data, convo, decoded, data.identifier)
 
             let message = new Message(param)
             let res = await message.save()
 
-            if(identifier === 'accept') {
-                await Convo.update({_id: convo._id}, {
-                    $push : {"messages": res._id},
-                    $set : { "offered" : false }
-                })
+            if(data.identifier) {
+                await Convo.update(
+                    {_id: convo._id},
+                    { $set : { "offered":false, "sold":true }, $push : {"messages": res._id} },
+                    {strict: false}
+                )
             } else {
                 await Convo.update({_id: convo._id}, {$push : {"messages": res._id}})
             }
@@ -72,6 +71,7 @@ async function chatFeature (io) {
                 "counterOffer": param.counterOffer ? param.counterOffer : false
             }
 
+            console.log("counter", data.id)
             io.sockets.in(data.id).emit('offerHandle', msgInfo)
         })
 
@@ -84,7 +84,15 @@ async function chatFeature (io) {
             let message = new Message(param)
             let res = await message.save()
 
-            await Convo.update({_id: convo._id}, {$push : {"messages": res._id}})
+            if(param.offerPrice) {
+                await Convo.update(
+                    {_id: convo._id},
+                    { $set : { "offered" : true }, $push : {"messages": res._id} },
+                    {strict: false}
+                )
+            } else {
+                await Convo.update({_id: convo._id}, {$push : {"messages": res._id}})
+            }
 
             let msgInfo = {
                 "convoId": data.id,
@@ -95,6 +103,7 @@ async function chatFeature (io) {
                 "offerPrice": param.offerPrice
             }
 
+            console.log("message", data.id)
             io.sockets.in(data.id).emit('message', msgInfo)
         })
         
