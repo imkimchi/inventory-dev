@@ -29,11 +29,11 @@ $(function() {
     $clearFilters.on('click', e => {
         mixer.filter('all')
         e.preventDefault()
- 
+
         $('input[type="radio"]').each(function() {
             if($(this).is(':checked')) $(this).prop('checked', false)
         })
- 
+
         $('input[type="text"]').each(function() {
             if($(this).val()) $(this).val('')
         })
@@ -75,6 +75,14 @@ $(function() {
 
     $countryFilter.on('change', radioFilters)
 
+    $('.checkbox').click(function() {
+        if($(this).css('background-color') === 'rgb(221, 221, 221)') {
+            $(this).css('background-color', 'rgb(255, 255, 255)')
+        } else {
+            $(this).css('background-color', 'rgb(221, 221, 221)')
+        }
+    })
+
     function findPrice(minPrice, maxPrice) {
         let $show = $container.find('.mix').filter(function() {
             let price = Number($(this).attr('data-price'))
@@ -82,7 +90,7 @@ $(function() {
         })
         mixer.filter($show)
     }
-    
+
     function radioFilters(value) {
         let clickedCategory = $(this).attr('value')
 

@@ -38,14 +38,49 @@ async function chatFeature (io) {
             console.log("channel quit", id)
             socket.leave('quit')
         })
-        
+
+        socket.on('offer', async data => {
+            let identifier = data.offerPrice ? "counter" : "accept"
+
+            console.log("data.offerPrice", data.offerPrice, "identifier", identifier)
+
+            let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
+            let convo = await Convo.findOne({_id: data.id})
+            let param = await makeMsgParam(data, convo, decoded, identifier)
+
+            let message = new Message(param)
+            let res = await message.save()
+
+            if(identifier === 'accept') {
+                await Convo.update({_id: convo._id}, {
+                    $push : {"messages": res._id},
+                    $set : { "offered" : false }
+                })
+            } else {
+                await Convo.update({_id: convo._id}, {$push : {"messages": res._id}})
+            }
+
+
+            let msgInfo = {
+                "convoId": data.id,
+                "sender": decoded.username,
+                "profilePic": param.profilePic,
+                "description": data.desc ? data.desc : "",
+                "sent_date": m(new Date()).format('LT'),
+                "offerPrice": param.offerPrice ? param.offerPrice : "",
+                "acceptOffer": param.acceptOffer ? param.acceptOffer : false,
+                "counterOffer": param.counterOffer ? param.counterOffer : false
+            }
+
+            io.sockets.in(data.id).emit('offerHandle', msgInfo)
+        })
+
         socket.on('chat', async data => {
             console.log("data", data)
             let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
             let convo = await Convo.findOne({_id: data.id})
             let param = await makeMsgParam(data, convo, decoded)
 
-            console.log("profilePic after param", param.profilePic)
             let message = new Message(param)
             let res = await message.save()
 
@@ -75,13 +110,11 @@ async function chatFeature (io) {
     })
 }
 
-async function makeMsgParam (data, convo, decoded, recipient) {
+async function makeMsgParam (data, convo, decoded, acceptOrCounter) {
     const makeRecipient = (convo, sender) => convo.buyer === sender ? convo.seller : convo.buyer
 
     let user = await User.findOne({username: decoded.username})
     let post = await rp(`http://50.116.7.88/post/get/id/${convo._id}`)
-
-    console.log("offerprice", data.offerPrice)
 
     return {
         profilePic: user.profilePic,
@@ -89,7 +122,9 @@ async function makeMsgParam (data, convo, decoded, recipient) {
         sender: decoded.username,
         recipient: makeRecipient(convo, decoded.user),
         description: data.desc,
-        offerPrice: data.offerPrice
+        offerPrice: data.offerPrice,
+        acceptOffer: acceptOrCounter === "accept" && true,
+        counterOffer: acceptOrCounter === "counter" && true
     }
 }
 

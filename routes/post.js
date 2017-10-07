@@ -11,6 +11,8 @@ import timeago from 'timeago.js'
 const router = new Router()
 const postURL = ctx => ctx.request ? ctx.request.body.url : ctx.params.id
 const isInclude = (arr, obj) => (arr.indexOf(obj) != -1)
+const getLastest = arr => arr[arr.length - 1]
+const dropBy10Per = n => n - n/10
 
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (err) => {
@@ -37,20 +39,52 @@ router.get('/post/get/username/:username', async (ctx, next) => {
     ctx.body = posts
 })
 
+router.post('/post/drop', async (ctx, body) => {
+    let data = ctx.request.body
+    let jwtToken = ctx.request.headers.authorization
+    let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+
+    let post = await Post.findOne({productURL: data.url})
+    let droppedPrice = Math.floor(dropBy10Per(post.productPrice))
+
+    repost(ctx, post, droppedPrice)
+})
+
 
 router.post('/post/bump', async (ctx, next) => {
     let data = ctx.request.body
     let jwtToken = ctx.request.headers.authorization
     let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
-    let savedDoc
 
     let post = await Post.findOne({productURL: data.url})
+    let lastBumpedDate = getLastest(post.bumpedDates)
+
+    if(lastBumpedDate) {
+        let today = Date.now()
+        let dateDiff = today - lastBumpedDate
+        console.log("dateDiff", dateDiff)
+
+        if(dateDiff > 604800000) repost(ctx, post)
+        else ctx.body = { data : "failed" }
+    } else {
+        repost(ctx, post)
+    }
+})
+
+function repost(ctx, post, fixedPrice) {
     post.remove()
 
+    let identifier = ctx.url.split('/')[2]
+    let savedDoc = post
+
     try {
-        savedDoc = post
+        if(identifier === 'bump') savedDoc.bumpedDates.push(Date.now())
+        if(identifier === 'drop') {
+            savedDoc.productPrice = fixedPrice
+            savedDoc.droppedDate = Date.now()
+            savedDoc.priceHistory.push(fixedPrice)
+        }
         savedDoc._id = mongoose.Types.ObjectId()
-        savedDoc.uploadDate = Date.now()
         savedDoc.isNew = true
         savedDoc.save()
 
@@ -58,7 +92,7 @@ router.post('/post/bump', async (ctx, next) => {
     } catch (e) {
         console.log("failed", e)
     }
-})
+}
 
 router.get('/post/count/:id', async (ctx, next) => {
     let findQuery = {"seller": ctx.params.id}
@@ -140,6 +174,7 @@ router.get('/post/edit/:id', async (ctx, next) => {
     }
 })
 
+
 router.get('/listings/:id', async (ctx, next) => {
     let cookies = ctx.headers.cookie
     let decoded;
@@ -175,7 +210,11 @@ router.get('/listings/:id', async (ctx, next) => {
 
         let commentArr = []
 
+        console.log("postData.comments", postData.comments)
+        
         for(let comment of postData.comments) {
+            console.log("comment", comment)
+
             let object = await Comment.findOne({_id: comment})
             commentArr.push(object)
         }
@@ -189,20 +228,29 @@ router.get('/listings/:id', async (ctx, next) => {
             editDate: (postData.editDate) ? timeago().format(postData.editDate.getTime()) : ""
         }
 
+        postData.priceHistory.reverse().shift()
+
+        console.log("comments", commentArr)
+
         let renderData = {
             "data": postData,
             "moreItems": allPosts,
             "comments": commentArr,
             "timeAgo": timeAgo,
-            "itemCount": sellerInfo.itemCount
+            "itemCount": sellerInfo.itemCount,
+            "bumpAvailable": checkBumpAvailability(postData),
+            "priceHistory": postData.priceHistory
         }
 
-        console.log("postdata", renderData.data)
+        console.log(1, postData.priceHistory)
+
         await ctx.render('post', renderData)
     } catch (e) {
         console.error("failed to get post", e)
     }
 })
+
+
 
 router.post('/post/comment', async (ctx, next) => {
     let data = ctx.request.body
@@ -259,6 +307,20 @@ router.post('/post/like/', async (ctx, next) => {
     }
 })
 
+function checkBumpAvailability (post) {
+    let lastBumpedDate = getLastest(post.bumpedDates)
+
+    if(lastBumpedDate) {
+        let today = Date.now()
+        let dateDiff = today - lastBumpedDate
+
+        if(dateDiff > 604800000) return true
+        else return false
+    } else {
+        return true
+    }
+}
+
 async function getPost(ctx) {
     let data = postURL(ctx)
     let jwtToken = ctx.request.headers.authorization
@@ -307,7 +369,8 @@ async function makeParam(data, decodeJWT, originPost = false) {
         buyItNow: data.buyItNow,
         acceptOffers: data.acceptOffers,
         sellerCountry: decodeJWT.username,
-        editDate: editDate(originPost)
+        editDate: editDate(originPost),
+        priceHistory: [Number(data.productPrice)]
 	}
 }
 

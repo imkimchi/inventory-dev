@@ -6,8 +6,44 @@
 }
 
 p.comment-this-item {
-    margin-bottom: 10px;
+    margin-bottom: 10px;w
 }
+
+.main_product_wrap .left_filter_box .indiv_filter_box .size_list li.w50 {
+	width: 280px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.main_product_wrap .left_filter_box .indiv_filter_box .size_list li label {
+	display: inline-block;
+	padding-right: 5px;
+}
+
+.main_product_wrap .left_filter_box .size_list .moremenu li span {
+	position: relative;
+}
+
+.checkbox:hover {
+	background-color: rgb(221, 221, 221);
+}
+
+.main_product_wrap .left_filter_box .indiv_filter_box .size_list li.w25 {
+	width: 280px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.main_product_wrap .left_filter_box .indiv_filter_box .size_list li.w25 .moremenu li {
+	width: 23%;
+	float: left;
+}
+
+.main_product_wrap .left_filter_box .indiv_filter_box .size_list li.w50 .moremenu li {
+	width: 43%;
+	float: left;
+	margin-right: 3%;
+}
+
 
 .submit-this-comment {
     border: 1px solid #fb7474!important;
@@ -1177,6 +1213,7 @@ h1.jumbo a{
 .show-listing .listing-details-wrapper .logintxt2{background:#aaaaaa}
 .show-listing .listing-details-wrapper .logintxt3{background:#aaaaaa}
 .show-listing .listing-details-wrapper .bump{background:#aaaaaa}
+.show-listing .listing-details-wrapper .drop{background:#aaaaaa}
 .show-listing .listing-details-wrapper .logintxt4{background:#aaaaaa}
 
 .main_product_wrap .left_filter_box .indiv_filter_box .size_list li .tb {
@@ -1213,11 +1250,50 @@ h1.jumbo a{
 	cursor: pointer;
 }
 
+.listing-prices {
+	float: right;
+	margin-bottom: 10px!important;
+}
+
+.handleButton {
+	background: #a2a3a2;
+	color: rgba(255,255,255,1);
+	text-align: center;
+	display: block;
+	padding: 7px 0px;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	width: 135px;
+	cursor: pointer;
+}
+
+.buttons {
+	max-width: 135px;
+	padding-top: 0px;
+	display: inline-block;
+	float: left;
+	margin-right: 30px;
+}
+
+h1.current-price {
+	display: inline-block;
+	margin-right: 8px;
+	letter-spacing: .075em;
+}
+
+h3.price-drop {
+	display: inline-block;
+	margin-right: 6px;
+	text-decoration: line-through;
+}
+
+
 .brandName {
 	margin-left: 10px;
 }
-.show-listing .listing-details-wrapper .bump:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 
+.show-listing .listing-details-wrapper .bump:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
+.show-listing .listing-details-wrapper .drop:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 .show-listing .listing-details-wrapper .logintxt1:hover{ background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 .show-listing .listing-details-wrapper .logintxt2:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
 .show-listing .listing-details-wrapper .logintxt3:hover{background:#666666; -webkit-transition: background-color 100ms linear;   -ms-transition: background-color 100ms linear;   transition: background-color 100ms linear;}
@@ -1439,7 +1515,11 @@ body {
 .conversation-cta .conversation-right  .conversation-wrap{float:right; margin-left:35px;     margin-right: 0px;}
 .conversation-cta .conversation-right .messages{float:right; text-align:right}
 .conversation-cta .offer-cover .offerbtn{ float:left;}
-.conversation-cta .offer-cover .offerbtn{background:#a2a3a2; color:rgba(255,255,255,1); text-align:center; display:block; padding:7px 0px; text-transform:uppercase; margin:30px 30px 0 0; box-sizing:border-box; width:135px; cursor:pointer}
+.conversation-cta .offer-cover .handleButton:nth-child(2) {
+	margin-top: 12px!important;
+}
+
+.conversation-cta .offer-cover .offerbtn{background:#a2a3a2; color:rgba(255,255,255,1); text-align:center; display:block; padding:7px 0px; text-transform:uppercase; box-sizing:border-box; width:135px; cursor:pointer}
 .conversation-cta .offer-cover .offerbtn:hover{background-color: #000; cursor:pointer;
     -webkit-transition: background-color 100ms linear;
     -ms-transition: background-color 100ms linear;

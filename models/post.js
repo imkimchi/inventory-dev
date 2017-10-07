@@ -91,6 +91,17 @@ const PostSchema = mongoose.Schema({
     sellerCountry: {
         type: String
     },
+    bumpedDates: {
+        type: Array,
+        default: []
+    },
+    droppedDate: {
+        type: Date
+    },
+    priceHistory: {
+        type: Array,
+        default: []
+    },
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 })
 

@@ -20,6 +20,7 @@ html(lang='en')
     script(src='/js/jquery.js')
     script.
         if ($('.comment-box').length) $('.no-comments').remove()
+        let bumpavailable = #{bumpAvailable}
     script(src='/js/jquery.form.min.js')
     script(src='/js/jquery.swiper.min.js')
     script(src='/js/lib/store.min.js')
@@ -544,20 +545,25 @@ html(lang='en')
                 | #{data.productTitle}
               h2.listing-size.sub-title
                 | #{data.productSize}
+              if priceHistory.length > 0
+                .listing-prices
+                  h1.current-price $#{data.productPrice}
+                  each price in priceHistory
+                    h3.price-drop $#{price}
               .listing-price
                 p
-                  span(style="font-size: 14px;")
+                  span
                     img(src='/images/2.click_page_1.png')
-                  span.ptxt(style="font-size: 14px;") #{data.productPrice}
+                  span.ptxt #{data.productPrice}
                 p
-                  span.goodtog(style="font-size: 14px;")
+                  span.goodtog
                     if data.liked
                       img.goodico(style='display:none;', src='/images/2.click_page_2.png', alt='GOOD')
                       img(src='/images/2.click_page_2on.png')
                     else
                       img.goodico(src='/images/2.click_page_2.png', alt='GOOD')
                       img(style='display:none;', src='/images/2.click_page_2on.png')
-                  span.ptxt(style="font-size: 14px;") #{data.like.likedCounts}
+                  span.ptxt #{data.like.likedCounts}
                 p.price-comparison
                   a(href='#') price comparison
               .pricebtnw

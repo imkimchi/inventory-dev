@@ -10,7 +10,16 @@ const ConvoSchema = mongoose.Schema({
     },
     buyer: {
         type: String,
-        require: true
+        required: true
+    },
+    offer: {
+        offered: {
+            type: Boolean,
+            default: false
+        },
+        offeredPrice: {
+            type: Number
+        }
     },
     product: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
     messages: [{ type: Schema.Types.ObjectId, ref: 'Message' }]

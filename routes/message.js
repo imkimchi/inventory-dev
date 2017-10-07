@@ -83,15 +83,21 @@ async function messageHandler (ctx, next) {
     const msgParam = await makeMsgParam(data, decoded)
     const convoParam = await makeconvoParam(data, decoded)
     const post = await Post.findOne({productURL: data.productURL})
- 
+    const identifier = ctx.url.split('/')[2]
+
 	try {
         const convo = new Convo(convoParam)
         const message = new Message(msgParam)
         
         let res = await message.save()
-        
+
         convo.messages.push(res._id)
         convo.product.push(post._id)
+
+        if(identifier === 'offer') {
+            convo.offer.offered = true
+            convo.offer.offeredPrice = data.offerPrice
+        }
 
         await convo.save()
         ctx.body = {"success": true}

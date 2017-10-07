@@ -1,5 +1,3 @@
-
-
 $(function() {
     const ifTheresComment = () => $('.comment-box').length
     if(ifTheresComment()) $('p.no-comments').remove()
@@ -13,7 +11,6 @@ $(function() {
 })
 
 function submitHandler (e) {
-    console.log("clicked nigga")
     let text = $('.comment-this-item input').val()
     if(text.length > 0) {
         appendMsg()
@@ -31,7 +28,7 @@ function appendMsg () {
     let element = $(`<div class="comment-box"><div class="comment-profile_pic"><img src=${profileURL}></div><div class="comment-profile_name"><span>${username}</span></div><div class="comment-text"><span>${text}</span></div></div>`)
 
     if(ifTheresComment()) $('.comment-box').last().after(element)
-    else $('.comments-top').after(element)
+    else $('.comments-top').eq(1).after(element)
 
     $("html, body").animate({ scrollTop: $(document).height()-$(window).height() })
 }

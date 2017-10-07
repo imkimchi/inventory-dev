@@ -14,8 +14,7 @@ const MessageSchema = mongoose.Schema({
         required: true
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
     offerPrice: {
         type: Number
@@ -23,6 +22,12 @@ const MessageSchema = mongoose.Schema({
     createdDate: {
         type: Date,
         default: Date.now
+    },
+    acceptOffer: {
+        type: Boolean,
+    },
+    counterOffer: {
+        type: Boolean
     },
     profilePic: {
         type: String,

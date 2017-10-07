@@ -66,4 +66,11 @@ function socketChat (username, jwtToken) {
             lastConvo.after($message)
         }
     })
-}  
+
+    socket.on('offerHandle', data => {
+        console.log("incoming offerhandle", data)
+        let lastConvo = $(`[data-id=${data.convoId}]`).find('.conversation').last()
+        let $offermessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div id="offerprice">Accept Offer $${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
+        lastconvo.after($offermessage)
+    })
+}
