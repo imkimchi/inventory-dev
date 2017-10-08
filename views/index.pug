@@ -17,35 +17,6 @@ html(lang='en')
     link(rel='stylesheet', href='./css/flexslider.css')
     link(rel='stylesheet', href='./css/slider.css')
     link(rel='stylesheet', href='./css/jquery.fancybox.css')
-    script(src='./js/lib/store.min.js')
-    script(src='./js/lib/socket.min.js')
-    script.
-        let socket = io.connect(`http://50.116.7.88/?jwt=${store.get('jwtToken')}`)
-    script(src='./js/jquery.js')
-    script(src='./js/jquery.form.min.js')
-    script(src='./js/jquery.swiper.min.js')
-    script(src='./js/script.js')
-    script(src='./js/script.mobile.js')
-    script(src='./js/mypage.js')
-    script(src='./js/about.js')
-    script(src='./js/click-page.js')
-    script(src='./js/features.js')
-    script(src='./js/jquery.ulslide.js')
-    script(src='./js/jquery.form.min.js')
-    script(src='./js/jquery.swiper.min.js')
-    script(src='./js/jquery.flexslider-min.js')
-    script(src='./js/jquery.flexslider.js')
-    script(src='./js/buy-sell-page.js')
-    script(src='./js/jquery.glide.js')
-    script(src='./js/jquery.glide2.js')
-    script(src='./js/form.js')
-    script(src='./js/my-page.js')
-    script(src='./js/designers.js')
-    script(src='./js/sell.js')
-    script(src='./js/lib/axios.min.js')
-    script(src='./js/loginCheck.js')
-    script(src='./js/jquery.fancybox.js')
-    script(src='./js/menu.js')
   body
     // mypage
     #mypage_wrap.mypage_container_cover
@@ -108,15 +79,15 @@ html(lang='en')
               ul
                 li
                   label
-                    input(type='radio', name='gender_name')
+                    input(type='checkbox', name='gender_name')
                     span Man
                 li
                   label
-                    input(type='radio', name='gender_name')
+                    input(type='checkbox', name='gender_name')
                     span Woman
                 li
                   label
-                    input(type='radio', name='gender_name')
+                    input(type='checkbox', name='gender_name')
                     span Unisex
             li
               a(href='#') MARKET
@@ -638,26 +609,26 @@ html(lang='en')
                     fieldset(data-filter-group)
                       ul
                         li
-                          input(type='radio', name='gender_name', value='.genderCheck_male')
+                          input(type='checkbox', name='gender_name', value='.genderCheck_male')
                           label Man
                         li
-                          input(type='radio', name='gender_name', value='.genderCheck_female')
+                          input(type='checkbox', name='gender_name', value='.genderCheck_female')
                           label Woman
                         li
-                          input(type='radio', name='gender_name', value='.genderCheck_unisex')
+                          input(type='checkbox', name='gender_name', value='.genderCheck_unisex')
                           label Unisex  
                   .indiv_filter_box
                     strong.title MARKET
                     fieldset(data-filter-group)
                       ul
                         li
-                          input(type='radio', name='productCategory', value='.market_grails')
+                          input(type='checkbox', name='productCategory', value='.market_grails')
                           label Inventory
                         li
-                          input(type='radio', name='productCategory', value='.market_hype')
+                          input(type='checkbox', name='productCategory', value='.market_hype')
                           label Classic
                         li
-                          input(type='radio', name='productCategory', value='.market_core')
+                          input(type='checkbox', name='productCategory', value='.market_core')
                           label Basics
                   .indiv_filter_box
                     strong.title DESIGNER
@@ -1298,43 +1269,43 @@ html(lang='en')
                       li
                         a(href='#')
                           span.location_name U.S.A
-                          input(type='radio', name='seller_country', value="US").checkbox.country_filters
+                          input(type='checkbox', name='seller_country', value="US").checkbox.country_filters
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name Canada
-                          input(type='radio', name='seller_country', value="CA").checkbox.country_filters
+                          input(type='checkbox', name='seller_country', value="CA").checkbox.country_filters
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name UK
-                          input(type='radio', name='seller_country', value="UK").checkbox.country_filters
+                          input(type='checkbox', name='seller_country', value="UK").checkbox.country_filters
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name EU
-                          input(type='radio', name='seller_country', value="EU").checkbox.country_filters
+                          input(type='checkbox', name='seller_country', value="EU").checkbox.country_filters
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name Asia
-                          input(type='radio', name='seller_country', value="AS").checkbox.country_filters
+                          input(type='checkbox', name='seller_country', value="AS").checkbox.country_filters
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name AU / NZ
-                          input(type='radio', name='seller_country', value="AU/NZ").checkbox.country_filters
+                          input(type='checkbox', name='seller_country', value="AU/NZ").checkbox.country_filters
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name Other
-                          input(type='radio', name='seller_country', value="ETC").checkbox.country_filters
+                          input(type='checkbox', name='seller_country', value="ETC").checkbox.country_filters
                           span.countryHelper
               .right_product_box.mini
                 .product_wrap
                   #over_view
                     each val in data
-                      .product.mix(class=val.classes, data-title=val.productSubTitle, data-category=val.productCategory, data-price=val.productPrice, data-country=val.sellerCountry)
+                      .product.mix(class=val.classes, data-designer=val.productSubTitle, data-title=val.productSubTitle, data-category=val.productCategory, data-price=val.productPrice, data-country=val.sellerCountry)
                         a(href="/listings/" + val.productURL)
                           .thumbnail
                             img(src="." + val.productImage.cover)
@@ -1386,6 +1357,35 @@ html(lang='en')
               a(href='#') CONTACT
       span.shadow
     .black_shadow
+    script(src='./js/lib/store.min.js')
+    script(src='./js/lib/socket.min.js')
+    script.
+        let socket = io.connect(`http://50.116.7.88/?jwt=${store.get('jwtToken')}`)
+    script(src='./js/jquery.js')
+    script(src='./js/jquery.form.min.js')
+    script(src='./js/jquery.swiper.min.js')
+    script(src='./js/script.js')
+    script(src='./js/script.mobile.js')
+    script(src='./js/mypage.js')
+    script(src='./js/about.js')
+    script(src='./js/click-page.js')
+    script(src='./js/features.js')
+    script(src='./js/jquery.ulslide.js')
+    script(src='./js/jquery.form.min.js')
+    script(src='./js/jquery.swiper.min.js')
+    script(src='./js/jquery.flexslider-min.js')
+    script(src='./js/jquery.flexslider.js')
+    script(src='./js/buy-sell-page.js')
+    script(src='./js/jquery.glide.js')
+    script(src='./js/jquery.glide2.js')
+    script(src='./js/form.js')
+    script(src='./js/my-page.js')
+    script(src='./js/designers.js')
+    script(src='./js/sell.js')
+    script(src='./js/lib/axios.min.js')
+    script(src='./js/loginCheck.js')
+    script(src='./js/jquery.fancybox.js')
+    script(src='./js/menu.js')
     script(src='./js/lib/mixitup.min.js')
     script(src='./js/lib/mixitup_multifilter.min.js')
     script(src='./js/filter.js')

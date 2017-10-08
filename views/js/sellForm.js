@@ -75,7 +75,7 @@ jQuery(document).ready(function($) {
     })
 })
 
-const isRedLined = element => element.css('border') === '1px solid rgb(193, 39, 45)'
+const isRedLined = element => element.css('border-color') === 'rgb(193, 39, 45)'
 const backToOriginal = element => element.css('border', '1px solid rgb(221, 221, 221)')
 const unRedLineThisElem = elem => isRedLined(elem) && backToOriginal(elem)
 

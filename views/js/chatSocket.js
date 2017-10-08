@@ -35,6 +35,14 @@ function socketChat (username, jwtToken) {
         }
     })
 
+
+    $(document).on('click', ".buy-now", function (e) {
+        e.preventDefault()
+        $(this).off()
+        window.location.href = `/listings/${$(this).closest('.mix').attr('data-url')}`
+        e.preventDefault()
+    })
+
     $(document).on('click', ".submitbtn a", function (e) {
         e.preventDefault()
         let inputText = $(this).closest('.conversation-cta').find('input').val()

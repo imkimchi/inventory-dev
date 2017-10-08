@@ -8,6 +8,12 @@
 p.comment-this-item {
     margin-bottom: 10px;w
 }
+input[name="gender_name"], input[name="productCategory"], input[name="seller_country"] {
+	-webkit-appearance: radio;
+	-moz-appearance: checkbox;
+	-ms-appearance: checkbox;
+}
+
 
 .main_product_wrap .left_filter_box .indiv_filter_box .size_list li.w50 {
 	width: 280px;

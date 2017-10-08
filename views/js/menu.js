@@ -134,7 +134,12 @@ $(".designers-popover button.close").click(function(){
   $(this).parent().css("display","none")	
 })
 $(".all_designer_btn_box").click(function(){
-	$(".designers-popover").css("display","block")
+	if($(".designers-popover").css('display') === 'block') {
+            console.log("its blocked")
+            $(".designers-popover").css('display', 'none')
+	} else {
+        $(".designers-popover").css("display","block")
+	}
 })
 
 
