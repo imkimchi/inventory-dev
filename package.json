@@ -46,9 +46,10 @@
     "cross-env": "^5.0.5"
   },
   "scripts": {
-    "start": "cross-env nodemon --ignore 'views/js/*' --exec babel-node .",
-    "on": "pm2 start app.js --interpreter ./node_modules/.bin/babel-node",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "export NODE_ENV=production && pm2 start lib/app.js -i 0",
+    "debug": "export NODE_ENV=development && cross-env nodemon --ignore 'views/js/*' --exec babel-node src/app.js",
+    "build": "babel src --out-dir lib --plugins=transform-function-bind,transform-regenerator",
+    "on": "pm2 start app.js --interpreter ./node_modules/.bin/babel-node"
   },
   "author": "",
   "license": "ISC"

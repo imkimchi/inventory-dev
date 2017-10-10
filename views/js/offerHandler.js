@@ -1,4 +1,4 @@
-let socket = io().connect()
+let socket = io.connect({'transports': ['websocket', 'polling']})
 let jwtToken = store.get('jwtToken')
 
 const sendToServer = (convoId, inputText, offerPrice, identifier) => socket.emit('offer', {desc: inputText, offerPrice: offerPrice, id: convoId, identifier: identifier,jwt: jwtToken})

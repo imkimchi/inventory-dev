@@ -8,17 +8,17 @@ async function a() {
         method: "POST",
         data: { jwt: jwtToken }
     }
-    
+
     let decodedData = await axios(authOpt)
     $(document).ready(socketChat(decodedData.data.username, jwtToken))
-} 
+}
 
 function socketChat (username, jwtToken) {
     const isSenderMe = sender => sender === username ? "right" : "left"
     const sendChat = (inputText, convoId, offerPrice) => socket.emit('chat', {offerPrice: offerPrice, desc: inputText, id: convoId, jwt: jwtToken})
-    
+
     let convoHistory = []
-    let socket = io().connect()
+    let socket = io.connect({'transports': ['websocket', 'polling']})
 
     $(document).on('click', '.toggleElem', function(e) {
         e.preventDefault()
@@ -50,7 +50,7 @@ function socketChat (username, jwtToken) {
         if(inputText.length > 0) sendChat(inputText, convoId)
         $(this).closest('.conversation-cta').find('input').val('')
     })
-    
+
     $(document).on('click', ".offerSubmit", function (e) {
         e.preventDefault()
         let inputText = $(this).closest('.offer-wrapper').find('.message').val()
