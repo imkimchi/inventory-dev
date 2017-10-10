@@ -19,7 +19,12 @@ $(function() {
         $maxPriceFilter = $('input[name="max_price"]'),
         $countryFilter = $('.country_filter'),
         $designerFilter = $('.designer-group label'),
-        $designerUnFilter = $('.selectbtn .fa-times')
+        $designerUnFilter = $('.selectbtn .fa-times'),
+        $sort_default = $('.orderlist li').eq(0),
+        $sort_new = $('.orderlist li').eq(1),
+        $sort_lowPrice = $('.orderlist li').eq(2),
+        $sort_highPrice = $('.orderlist li').eq(3),
+        $sort_popular = $('.orderlist li').eq(4)
 
     let mixer = mixitup($container, config)
 
@@ -30,7 +35,7 @@ $(function() {
 
     $clearFilters.on('click', e => {
         mixer.filter('all')
-    e.preventDefault()
+        e.preventDefault()
 
     $('input[type="checkbox"]').each(function () {
         if ($(this).is(':checked')) $(this).prop('checked', false)
@@ -100,6 +105,32 @@ $(function() {
     })
 
     $countryFilter.on('change', radioFilters)
+
+
+    $sort_default.click(function (e) {
+        e.preventDefault()
+        mixer.sort('default')
+    })
+
+    $sort_new.click(function (e) {
+        e.preventDefault()
+        mixer.sort('default')
+    })
+
+    $sort_lowPrice.on('click', function (e) {
+        e.preventDefault()
+        mixer.sort('price:asc')
+    })
+
+    $sort_highPrice.on('click', function (e) {
+        e.preventDefault()
+        mixer.sort('price:desc')
+    })
+
+    $sort_popular.on('click', function (e) {
+        e.preventDefault()
+        mixer.sort('like:desc')
+    })
 
     $('.moremenu .checkbox').click(function () {
         if ($(this).css('background-color') === 'rgb(221, 221, 221)') {

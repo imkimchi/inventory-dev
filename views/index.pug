@@ -1305,7 +1305,7 @@ html(lang='en')
                 .product_wrap
                   #over_view
                     each val in data
-                      .product.mix(class=val.classes, data-designer=val.productSubTitle, data-title=val.productSubTitle, data-category=val.productCategory, data-price=val.productPrice, data-country=val.sellerCountry)
+                      .product.mix(class=val.classes, data-designer=val.productSubTitle, data-title=val.productSubTitle, data-category=val.productCategory, data-price=val.productPrice, data-country=val.sellerCountry data-like=val.like.likedCounts)
                         a(href="/listings/" + val.productURL)
                           .thumbnail
                             img(src="." + val.productImage.cover)
