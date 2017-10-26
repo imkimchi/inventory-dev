@@ -46,10 +46,12 @@ html(lang='en')
                 li
                   a(href='./mypage/join.html#') join
             li
-              a(href='./myaccount') ACCOUNT
+              a(href='./myaccount') #{username}
+                .unread-big #{unReadMsg}
               ul
                 li
                   a(href='./myaccount/messages') Messages
+                  .unread-small #{unReadMsg}
                 li
                   a(href='./myaccount/myitems') My items
                 li
@@ -57,7 +59,7 @@ html(lang='en')
                 li
                   a(href='./myaccount/settings') Settings
                 li
-                  a.logout(href='#') Logout                    
+                  a.logout(href='#') Logout
             li.nocss
               a(href='./features/features.html') FEATURES
               //
@@ -110,7 +112,7 @@ html(lang='en')
                 li
                   span.searchtitle Search
                   input(type='text')
-                a(href='./designers.html', style='cursor: pointer;') View all designers 
+                a(href='./designers.html', style='cursor: pointer;') View all designers
             li
               a(href='#') CATEGORY
               ul.mcategory
@@ -150,7 +152,7 @@ html(lang='en')
                 li
                   a(href='#') Tops & Outerwear
                 li
-                  a(href='#') Bottoms & Pants 
+                  a(href='#') Bottoms & Pants
                 li
                   a(href='#') Footwear
                 li
@@ -229,7 +231,11 @@ html(lang='en')
                 li
                   a.enter(href='#') MY PAGE
                 li
-                  a.mypage(href='mypage/login.html') ENTER
+                  if username
+                    a.account(href='#') #{username}
+                    .unread-big #{unReadMsg}
+                  else
+                    a.mypage(href="/mypage/login.html") ENTER
             .left_header_box
               h1#logo
                 a(href='/') INVENTORY
@@ -329,64 +335,64 @@ html(lang='en')
                 h3 New Arrivals
                 ul
                   li
-                    a(href='#') Clothing 
+                    a(href='#') Clothing
                   li
-                    a(href='#') Shoes 
+                    a(href='#') Shoes
                   li
-                    a(href='#')  Accessories 
+                    a(href='#')  Accessories
                   li
-                    a(href='#') Signature 
+                    a(href='#') Signature
                   li
-                    a(href='#') Back in Stock 
+                    a(href='#') Back in Stock
               .depthmenu
                 h3 Clothing
                 ul
                   li
-                    a(href='#') Button Ups 
+                    a(href='#') Button Ups
                   li
-                    a(href='#') Coats and Jackets 
+                    a(href='#') Coats and Jackets
                   li
-                    a(href='#') Denim 
+                    a(href='#') Denim
                   li
                     a(href='#')  Knitwear
                   li
-                    a(href='#') Shorts 
+                    a(href='#') Shorts
                   li
-                    a(href='#') Suits 
+                    a(href='#') Suits
                   li
                     a(href='#') Trousers
               .depthmenu
                 h3 Shoes
                 ul
                   li
-                    a(href='#') Ankle Boots 
+                    a(href='#') Ankle Boots
                   li
                     a(href='#') Derbies and Oxfords
                   li
                     a(href='#')  Lace Up Boots
                   li
-                    a(href='#')  Sneakers 
+                    a(href='#')  Sneakers
                   li
-                    a(href='#') Loafers 
+                    a(href='#') Loafers
                   li
-                    a(href='#')  Mid Boots 
+                    a(href='#')  Mid Boots
                   li
-                    a(href='#') Sandals 
+                    a(href='#') Sandals
               .depthmenu
                 h3 Accessories
                 ul
                   li
-                    a(href='#') Sunglasses 
+                    a(href='#') Sunglasses
                   li
-                    a(href='#')  Backpacks 
+                    a(href='#')  Backpacks
                   li
-                    a(href='#') Belts 
+                    a(href='#') Belts
                   li
-                    a(href='#') Hats 
+                    a(href='#') Hats
                   li
                     a(href='#') Jewelry
                   li
-                    a(href='#') Scarves and Gloves 
+                    a(href='#') Scarves and Gloves
                   li
                     a(href='#') Tote and Duffle Bags
           // sub2
@@ -397,66 +403,66 @@ html(lang='en')
                 h3 New Arrivals
                 ul
                   li
-                    a(href='#') Clothing 
+                    a(href='#') Clothing
                   li
                     a(href='#') Shoes
                   li
-                    a(href='#') Accessories 
+                    a(href='#') Accessories
                   li
                     a(href='#') Signature
                   li
-                    a(href='#') Back in Stock 
+                    a(href='#') Back in Stock
               .depthmenu
                 h3 Clothing
                 ul
                   li
-                    a(href='#') Tops 
+                    a(href='#') Tops
                   li
-                    a(href='#')  Bottoms 
+                    a(href='#')  Bottoms
                   li
-                    a(href='#')  Dresses 
+                    a(href='#')  Dresses
                   li
-                    a(href='#') Jumpsuits 
+                    a(href='#') Jumpsuits
                   li
-                    a(href='#')  Denim 
+                    a(href='#')  Denim
                   li
-                    a(href='#')  Jackets 
+                    a(href='#')  Jackets
                   li
-                    a(href='#') Knitwear 
+                    a(href='#') Knitwear
               .depthmenu
                 h3 Shoes
                 ul
                   li
-                    a(href='#') Ankle 
+                    a(href='#') Ankle
                   li
-                    a(href='#')  Boots 
+                    a(href='#')  Boots
                   li
-                    a(href='#') Sandals 
+                    a(href='#') Sandals
                   li
-                    a(href='#') Clogs 
+                    a(href='#') Clogs
                   li
-                    a(href='#')  Derbies and Oxfords 
+                    a(href='#')  Derbies and Oxfords
                   li
-                    a(href='#')  Flats 
+                    a(href='#')  Flats
                   li
-                    a(href='#')  Heels 
+                    a(href='#')  Heels
                   li
-                    a(href='#')  Sneakers 
+                    a(href='#')  Sneakers
               .depthmenu
                 h3 Accessories
                 ul
                   li
-                    a(href='#') Jewelry 
+                    a(href='#') Jewelry
                   li
-                    a(href='#')  Sunglasses 
+                    a(href='#')  Sunglasses
                   li
-                    a(href='#')  Hats 
+                    a(href='#')  Hats
                   li
-                    a(href='#') Scarves and Gloves 
+                    a(href='#') Scarves and Gloves
                   li
-                    a(href='#') Belts 
+                    a(href='#') Belts
                   li
-                    a(href='#')  Hair 
+                    a(href='#')  Hair
                   li
                     a(href='#') Opticals
           // sub3
@@ -465,6 +471,7 @@ html(lang='en')
             ul
               li
                 a(href='./myaccount/messages') MESSAGES
+                .unread-small #{unReadMsg}
               li
                 a(href='./myaccount/myitems') MY ITEMS
               li
@@ -842,6 +849,9 @@ html(lang='en')
                                 span Clear All
 
 
+
+                      .clear-all
+                        span Clear All
                     .designer-wrapper
                   .indiv_filter_box
                     strong.title CATEGORY
@@ -1410,12 +1420,12 @@ html(lang='en')
         })
 
         $('.logout').click(() => {
-        store.clearAll()
+            store.clearAll()
         document.cookie = 'jwtToken='
         location.reload()
-      })
+        })
 
-      $('.logout').click(() => {
+        $('.logout').click(() => {
         store.clearAll()
         location.reload()
-      })
+        })

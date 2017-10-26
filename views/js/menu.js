@@ -126,9 +126,14 @@ $("#tab2").css("display","none");
 	
 <!--hide filter-->	
 $(".filter-toggle").click(function(){
-	$(".left_filter_box").toggleClass("hide");
+	if($(".left_filter_box").hasClass('hide')) {
+
+	}
+
+	$(".left_filter_box").toggleClass("hide")
 	$(".right_product_box").toggleClass("mini")
 })
+
 
 $(".designers-popover button.close").click(function(){
   $(this).parent().css("display","none")	
@@ -159,25 +164,51 @@ $(".clearall").css("display","none")
 //    $(".clearall").css("display","none")
 //}
 
-$('.designer-group label').click(function(e){
-    e.preventDefault();
-    let designerBox = $('.designer-wrapper')
 
-	$(".clearall").css("display","block");
-	let brandName = $(this).text()
-    $(".clearall").after($(`<div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>${brandName}</span></div>`))
-    designerBox.append(`<div><i class="fa fa-times fa-x" aria-hidden="true"></i><span class='brandName'>${brandName}</span></div>`)
+function isDuplicated (brandName) {
+	let isDuplicated = false
+
+    $('.sbox span').each(function() {
+        if(brandName === $(this).text()) isDuplicated = true
+    })
+
+    return isDuplicated
+}
+
+$('.designer-group label').click(function(e){
+    e.preventDefault()
+
+    let brandName = $(this).text()
+    if(!isDuplicated(brandName)) {
+        let designerBox = $('.designer-wrapper')
+
+        $(".clearall").css("display","block");
+        $('.clear-all').css('display', "block");
+        $(".clearall").after($(`<div class="selectbtn sbox"><i class="fa fa-times fa-x" aria-hidden="true"></i><span>${brandName}</span></div>`))
+        designerBox.append(`<div><i class="fa fa-times fa-x" aria-hidden="true"></i><span class='brandName'>${brandName}</span></div>`)
+	}
+
 })
+
+    $('.designer-group label').click(function(e){
+        e.preventDefault();
+        let brandName = $(this).text()
+        $('.sbox span').each(function() {
+            if($(this).text() === brandName) console.log("sex")
+        })
+    })
+
 
 $('i.fa.fa-times.fa-x').click(function(e) {
 	e.preventDefault()
+	$('.designer-wrapper div').remove()
 	$(this).closest('.selectbtn').remove()
 })
 
-$(".clearall").click(function(){
+$(".clearall, .clear-all").click(function(){
    $( ".designer-group  input" ).prop( "checked", false );
-   $(".selectbtnwrap .sbox").css("display","none");
-
+   $(".selectbtnwrap .sbox").remove()
+    $('.designer-wrapper div').remove()
 });
 
 $(".main_search_area .orderlist").css("display","none");

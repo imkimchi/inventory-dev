@@ -5,17 +5,6 @@ $(document).ready(() => {
     if(jwtToken) isLoggedin = true
     
     console.log(jwtToken, isLoggedin)
-    
-    if(isLoggedin) {
-        let $elem = $('.member_category li').eq(2).find('a')
-        $elem[0].innerHTML = "ACCOUNT"
-        $('.member_category li').eq(2).find('a').attr({
-            'class': 'account',
-            'href': '#'
-        })
-    }
-
-    
 
     $('.sell').click(() => {
         if(jwtToken) window.location = '/mypage/sell.html'

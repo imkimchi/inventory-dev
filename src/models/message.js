@@ -29,6 +29,9 @@ const MessageSchema = mongoose.Schema({
     counterOffer: {
         type: Boolean
     },
+    isRead: {
+        type: Array
+    },
     profilePic: {
         type: String,
         default: "/images/1.mesege_1.png"

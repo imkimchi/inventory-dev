@@ -26,7 +26,12 @@ function socketChat (username, jwtToken) {
         let isHidden = $(this).closest('.mix').find('.conversation-item-cta').css('display')
         let latestConvo = [...convoHistory].pop()
 
-        if(convoHistory.length) socket.emit('quit', latestConvo)
+        if(convoHistory.length) {
+            let lastMessage = $(this).closest('.mix').find('.conversation-right').last().find('.messages').attr('data-id')
+            console.log("last message nigga", lastMessage)
+            socket.emit('quit', {convoId: latestConvo, username: username, lastMessage: lastMessage})
+        }
+
         if(latestConvo === convoId) {
             return false
         } else {
@@ -73,10 +78,10 @@ function socketChat (username, jwtToken) {
                 buttonParents.prepend($('<div class="buttons"><div class="handleButton" id="accept"><div> Accept the offer </div></div><div class="handleButton" id="counter"><div> Counter </div></div></div>'))
             }
 
-            let $offermessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div class="messagestxt"> ${data.description} </div><div id="offerprice">Sent Offer $${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
+            let $offermessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages" data-id="${data.messageId}"> <div class="messagestxt"> ${data.description} </div><div id="offerprice">Sent Offer $${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
             lastConvo.after($offermessage)
         } else {
-            let $message = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div class="messagestxt"> ${data.description} </div> <div class="date"> ${data.sent_date} </div> </div> </div>`)
+            let $message = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages" data-id="${data.messageId}"> <div class="messagestxt"> ${data.description} </div> <div class="date"> ${data.sent_date} </div> </div> </div>`)
             lastConvo.after($message)
         }
     })
@@ -86,12 +91,12 @@ function socketChat (username, jwtToken) {
         let lastConvo = $(`[data-id=${data.convoId}]`).find('.conversation').last()
 
         if(data.acceptOffer) {
-            let $acceptMessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div id="acceptOffer">Accept Offer ${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
+            let $acceptMessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages" data-id="${data.messageId}"> <div id="acceptOffer">Accept Offer ${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
             lastConvo.after($acceptMessage)
         }
 
         if(data.counterOffer) {
-            let $counterMessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages"> <div id="offerprice">Sent Offer ${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
+            let $counterMessage = $(`<div class="conversation conversation-${isSenderMe(data.sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${data.profilePic}"></div> <div class="sub-title"> ${data.sender} </div> </div> <div class="messages" data-id="${data.messageId}"> <div id="offerprice">Sent Offer ${data.offerPrice}</div><div class="date"> ${data.sent_date} </div> </div> </div>`)
             lastConvo.after($counterMessage)
         }
     })

@@ -6,9 +6,9 @@ $(function() {
         callbacks: {
             onMixStart: (state, futureState) => {
             console.log(futureState.activeFilter.selector)
+            }
+        }
     }
-}
-}
 
     let $container = $('#over_view'),
         $filterSelector = $('input[name="gender_name"]'),
@@ -24,7 +24,8 @@ $(function() {
         $sort_new = $('.orderlist li').eq(1),
         $sort_lowPrice = $('.orderlist li').eq(2),
         $sort_highPrice = $('.orderlist li').eq(3),
-        $sort_popular = $('.orderlist li').eq(4)
+        $sort_popular = $('.orderlist li').eq(4),
+        $clearDesigner = $(".clearall")
 
     let mixer = mixitup($container, config)
 
@@ -80,9 +81,9 @@ $(function() {
 
         if (maxPrice) setTimeout(findPrice(minPrice, maxPrice, 250))
         if (!minPrice && !maxPrice) {
-            findPrice(0, 10000000)
-        }
-    })
+        findPrice(0, 10000000)
+    }
+})
 
     $designerFilter.on('click', function () {
         let selectedDesigner = $(this).find('span').text()
@@ -102,6 +103,11 @@ $(function() {
         if (!minPrice && !maxPrice) {
             findPrice(0, 10000000)
         }
+    })
+
+    $clearDesigner.on('click', function(e){
+      mixer.filter('all')
+      e.preventDefault()
     })
 
     $countryFilter.on('change', radioFilters)

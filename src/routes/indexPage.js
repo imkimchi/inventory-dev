@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import Router from 'koa-router'
 import Post from '../models/post'
+import Message from '../models/message'
 import timeago from 'timeago.js'
 import jwt from 'jsonwebtoken'
 
@@ -10,7 +11,8 @@ const isInclude = (arr, obj) => (arr.indexOf(obj) != -1)
 //gotta add a check if user's logged in, for head-login
 router.get('/', async (ctx, next) => {
     let cookies = ctx.headers.cookie
-    let decoded;
+    let unReadMsg = 0
+    let decoded = {}
 
     if(cookies) {
         let parsedCookies = cookies.split('; ')
@@ -20,14 +22,20 @@ router.get('/', async (ctx, next) => {
                 let jwtToken = str.split('=')[1]
                 if(jwtToken) {
                     decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+                    let message = await Message.find({recipient: decoded.username, isRead: { $nin : [decoded.username]}})
+                    console.log("messsage", message, message.length)
+                    unReadMsg = message.length
                 }
             }
         }
-    }
+}
 
-    let renderData = await Post.find({}).sort({$natural:-1})
-    let final = await fixedData(renderData, decoded)
-    await ctx.render('index', {data: final})
+console.log("decoded1", decoded)
+let renderData = await Post.find({}).sort({$natural:-1})
+let final = await fixedData(renderData, decoded)
+console.log("decoded2", decoded)
+
+await ctx.render('index', {data: final, username: decoded.username, unReadMsg: unReadMsg})
 })
 
 async function fixedData(posts, decoded) {
@@ -44,7 +52,6 @@ async function fixedData(posts, decoded) {
                 console.log("asdfasdfadfasdfasdf", false)
                 post.liked = false
             }
-
         }
     }
 

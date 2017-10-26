@@ -8,7 +8,6 @@ import m from 'moment'
 async function chatFeature (io) {
     let onlineUsers = []
 
-
     io.on('connection', async socket => {
         let isIploggedIn = onlineUsers.find(x => x == socket.handshake.address)
         if(!isIploggedIn) onlineUsers.push(socket.handshake.address)
@@ -35,9 +34,27 @@ async function chatFeature (io) {
             socket.join(id)
         })
         
-        socket.on('quit', id => {
-            console.log("channel quit", id)
-            socket.leave('quit')
+        socket.on('quit', async data => {
+            console.log("channel quit", data.convoId)
+            console.log("last message id", data.lastMessage)
+
+                try {
+                    let allMessages = await Convo.findOne({_id: data.convoId})
+                    let newArr = allMessages.messages
+                    console.log(newArr, typeof newArr)
+
+                    let res = await Message.update(
+                        { _id: { $in: newArr }, isRead: { $nin: [data.username]} },
+                        { $push: { isRead:  data.username }},
+                        { multi: true }
+                    )
+
+                    console.log("res", res)
+            } catch (e) {
+                console.error("failed to update all messages", e)
+            }
+
+            socket.leave(data.convoId)
         })
 
         socket.on('offer', async data => {
@@ -49,6 +66,8 @@ async function chatFeature (io) {
 
             let message = new Message(param)
             let res = await message.save()
+
+            console.log("message id in util/msg", message._id)
 
             if(data.identifier) {
                 await Convo.update(
@@ -63,6 +82,7 @@ async function chatFeature (io) {
 
             let msgInfo = {
                 "convoId": data.id,
+                "messageId": message._id,
                 "sender": decoded.username,
                 "profilePic": param.profilePic,
                 "description": data.desc ? data.desc : "",
@@ -97,6 +117,7 @@ async function chatFeature (io) {
 
             let msgInfo = {
                 "convoId": data.id,
+                "messageId": message._id,
                 "sender": decoded.username,
                 "profilePic": param.profilePic,
                 "description": data.desc,
@@ -104,7 +125,6 @@ async function chatFeature (io) {
                 "offerPrice": param.offerPrice
             }
 
-            console.log("message", data.id)
             io.sockets.in(data.id).emit('message', msgInfo)
         })
         
@@ -130,7 +150,7 @@ async function makeMsgParam (data, convo, decoded, acceptOrCounter) {
         profilePic: user.profilePic,
         productURL: JSON.parse(post).productURL,
         sender: decoded.username,
-        recipient: makeRecipient(convo, decoded.user),
+        recipient: makeRecipient(convo, decoded.username),
         description: data.desc,
         offerPrice: data.offerPrice,
         acceptOffer: acceptOrCounter === "accept" && true,
