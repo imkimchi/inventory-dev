@@ -50,11 +50,10 @@ async function myitem() {
             let productTitle = posts.data[i].productTitle
             let productSubTitle = posts.data[i].productSubTitle
             let productSize = posts.data[i].productSize
-            let like = posts.data[i].like
+            let like = posts.data[i].like.likedCounts
             let productPrice = posts.data[i].productPrice
             let timeago = posts.data[i].timeAgo
             let context = `<div class="product"><a href="#"><div class="thumbnail"><img src="${productCover}" alt="Thumnail"><div class="hug-top"><div class="seller-buttons"><button>Bump</button><button>Price Drop 10%</button></div></div></div><div class="information"><ol><li><span class="product_name">${productSubTitle}</span></li><li><span class="short_desc">${productTitle}</span></li><li><span class="product_size">Size L</span></li><li class="price_row"><div class="price_row1"><div class="product_good"><span class="goodtog"><img class="goodico" src="../images/product_good_ico.png" alt="GOOD"><img style="display:none;" src="../images/product_good_ico2.png"></span><span class="count">${like}</span></div><div class="product_price"><img src="../images/product_dollar_ico.png" alt="GOOD"><span class="count">${productPrice}</span></div></div><div class="price_row2"><span class="write_date">${timeago}</span></div></li></ol></div></a></div>`
-
             $postWrapper.append(context)
         }
     })

@@ -89,8 +89,13 @@ $(".left_header_box").mouseover(function(){
 	 
 });
 
+
+ $(document).on('hover', '.account', function(){
+     $(".accountmenu").stop(true).fadeTo(200,1);
+ })
+
 $(".account").hover(function(){
-	$(".accountmenu").stop(true).fadeTo(200,1);
+    $(".accountmenu").stop(true).fadeTo(200,1);
 })
 
 $(".accountmenu").mouseleave(function(){

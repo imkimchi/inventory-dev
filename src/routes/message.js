@@ -75,6 +75,16 @@ router.get('/message/question/:seller/:productURL', async (ctx, next) =>
 router.post('/message/offer', messageHandler)
 router.post('/message/question', messageHandler)
 
+router.post('/message/unread', async (ctx, next) => {
+    let data = ctx.request.body
+    let jwtToken = data.jwt
+
+    let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+    let message = await Message.find({recipient: decoded.username, isRead: { $nin : [decoded.username]}})
+    ctx.body = {username: decoded.username, unreadCount: message.length}
+})
+
+
 async function messageHandler (ctx, next) {
     let data = ctx.request.body
     let jwtToken = ctx.request.headers.authorization

@@ -1477,7 +1477,7 @@ body {
 .myitemsmb200{margin-bottom:100px;}
 /*myitem*/
  .my-pagetw .product {width: 32.5%; margin-bottom:70px; position:relative; overflow:hidden; margin: 0px 3px 8px 3px;}
- .my-pagetw .product .thumbnail{ height: 432px; width: 324px; background-color: #f5f5f5;}
+ .my-pagetw .product .thumbnail{ height: 432px; background-color: #f5f5f5;}
 .my-pagetw .product .thumbnail img { max-height: 432px;      width: 100%;
 	position: relative;
 	top: 50%;
