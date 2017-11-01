@@ -617,26 +617,38 @@ html(lang='en')
                       ul
                         li
                           input(type='checkbox', name='gender_name', value='.genderCheck_male')
-                          label Man
+                          label
+                            span
+                            | Man
                         li
                           input(type='checkbox', name='gender_name', value='.genderCheck_female')
-                          label Woman
+                          label
+                            span
+                            | Woman
                         li
                           input(type='checkbox', name='gender_name', value='.genderCheck_unisex')
-                          label Unisex  
+                          label
+                            span
+                            | Unisex
                   .indiv_filter_box
                     strong.title MARKET
                     fieldset(data-filter-group)
                       ul
                         li
                           input(type='checkbox', name='productCategory', value='.market_grails')
-                          label Inventory
+                          label
+                            span
+                            | Inventory
                         li
                           input(type='checkbox', name='productCategory', value='.market_hype')
-                          label Classic
+                          label
+                            span
+                            | Classic
                         li
                           input(type='checkbox', name='productCategory', value='.market_core')
-                          label Basics
+                          label
+                            span
+                            | Basics
                   .indiv_filter_box
                     strong.title DESIGNER
                     .left_search
@@ -1428,4 +1440,8 @@ html(lang='en')
         $('.logout').click(() => {
         store.clearAll()
         location.reload()
+        })
+
+        $('fieldset label').click(function () {
+            $(this).closest('li').find('input').click()
         })

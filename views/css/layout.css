@@ -1491,6 +1491,28 @@ body {
     background-color: #d6d6d7;   cursor: pointer;  box-sizing: border-box;   line-height: 35px; float:left; font-family: "ProximaNova-Regular"; }
  .my-pagetw .product .seller-buttons button:hover{background:#507C6E }
 
+li > input[type="checkbox"] {
+	display:none;
+}
+
+li > input[type="checkbox"] + label span {
+	border-radius: 50%;
+	border: 1px solid rgb(221, 221, 221);
+	transition: background 0.25s ease-in-out;
+	border-image: none;
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+}
+
+li > input[type="checkbox"]:checked + label span {
+	background-color:rgb(221, 221, 221)
+}
+
+
+label span {
+	margin-right: 5px;
+}
 
 /*buy-sell-page*/
 .conversations-wrapper { padding-top:90px; width:960px; margin:0 auto; min-height:1300px}
