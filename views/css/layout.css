@@ -1491,11 +1491,11 @@ body {
     background-color: #d6d6d7;   cursor: pointer;  box-sizing: border-box;   line-height: 35px; float:left; font-family: "ProximaNova-Regular"; }
  .my-pagetw .product .seller-buttons button:hover{background:#507C6E }
 
-li > input[type="checkbox"] {
+input[type="checkbox"] {
 	display:none;
 }
 
-li > input[type="checkbox"] + label span {
+input[type="checkbox"] + label span {
 	border-radius: 50%;
 	border: 1px solid rgb(221, 221, 221);
 	transition: background 0.25s ease-in-out;
@@ -1505,13 +1505,29 @@ li > input[type="checkbox"] + label span {
 	display: inline-block;
 }
 
-li > input[type="checkbox"]:checked + label span {
+input[type="checkbox"]:checked + label span {
 	background-color:rgb(221, 221, 221)
 }
 
 
 label span {
 	margin-right: 5px;
+}
+
+.country-label {
+	display: inline-block;
+}
+
+.country-span {
+	top: 50%;
+	right: 0px;
+	margin-top: -6px;
+	position: absolute;
+	border-radius: 50%;
+}
+
+.country-span:hover {
+	background-color:rgb(221, 221, 221);
 }
 
 /*buy-sell-page*/
@@ -1789,7 +1805,7 @@ label span {
 
 .seller-feedback-wrapper .seller-feedback form { margin: 0;}
 #buyer_feedback .feedback-item, #seller_feedback .feedback-item {margin-bottom: 1.3rem;}
-.seller-feedback-wrapper .slider {  height: 10px;  background-color: #b3b3b3;    position: relative;}
+.seller-feedback-wrapper .slider {  height: 10px;   position: relative;}
 .seller-feedback-wrapper{overflow:hidden; border:1px solid rgba(204,204,204,1); background:#f6f7f8; padding:50px 0px 0 0; margin-bottom:50px;}
 .seller-feedback-wrapper .seller-product{border:1px solid #e8e8e8; margin-bottom:50px;}
 .seller-feedback-wrapper .seller-product .seller-productxt{padding:25px; }
@@ -1846,7 +1862,12 @@ label span {
     background: #e6e6e6 url(https://ds6dnbdlsnuyn.cloudfront.net/assets/jquery-ui/ui-bg_glass_75_e6e6e6_1x400-28aee47814241c2891cc80ea03821971.png) 50% 50% repeat-x;
     font-weight: normal; color: #555;}
 .ui-widget-content a {color: #222;}
-.buyer-feedback-wrapper .slider, .seller-feedback-wrapper .slider { height: 10px; background-color: #b3b3b3;  position: relative;}
+.feedback-item .jumsu {
+	position: relative;
+}
+.buyer-feedback-wrapper .slider, .seller-feedback-wrapper .slider { height: 10px;
+	background: none;
+	overflow: visible; position: relative;}
 .ui-slider-horizontal {  height: .8em;}
 .ui-slider { position: relative; text-align: left;}
 .buyer-feedback-wrapper .slider .ui-slider-handle, .seller-feedback-wrapper .slider .ui-slider-handle { position: absolute; background-color: #000; height: 16px; width: 5px;  top: -3px; margin-left: -5px;}

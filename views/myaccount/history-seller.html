@@ -1,47 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-	<title>inventory</title>
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
-	<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
-	<link rel="stylesheet" href="../css/font-awesome.min.css">
-	<link rel="stylesheet" href="../css/swiper.min.css">
-	<link rel="stylesheet" href="../css/reset.css">
-     <link rel="stylesheet" href="../css/css.css">
-	<link rel="stylesheet" href="../css/layout.css">
-	<link rel="stylesheet" href="../css/media.css">
-    <link rel="stylesheet" href="../css/mtree.css" >
-    <link rel="stylesheet" href="../css/flexslider.css">
-   <link rel="stylesheet" href="../css/slider.css">
-   <link rel="stylesheet" href="../css/jquery.fancybox.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>inventory</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/css.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/media.css">
+    <link rel="stylesheet" href="/css/mtree.css" >
+    <link rel="stylesheet" href="/css/flexslider.css">
+    <link rel="stylesheet" href="/css/slider.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery.form.min.js"></script>
+    <script src="/js/jquery.swiper.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/script.mobile.js"></script>
+    <script src="/js/menu.js"></script>
+    <script src="/js/mypage.js"></script>
+    <script src="/js/about.js"></script>
+    <script src="/js/click-page.js"></script>
+    <script src="/js/features.js"></script>
+    <script src="/js/jquery.ulslide.js"></script>
+    <script src="/js/jquery.form.min.js"></script>
+    <script src="/js/jquery.swiper.min.js"></script>
+    <script src="/js/jquery.flexslider-min.js"></script>
+    <script src="/js/jquery.flexslider.js"></script>
+    <script src="/js/buy-sell-page.js"></script>
+    <script src="/js/jquery.glide.js"></script>
+    <script src="/js/jquery.glide2.js"></script>
+    <script src="/js/form.js"></script>
+    <script src="/js/my-page.js"></script>
+    <script src="/js/designers.js"></script>
+    <script src="/js/mtree.js"></script>
 
-	<script src="../js/jquery.js"></script>  
-	<script src="../js/jquery.form.min.js"></script>
-	<script src="../js/jquery.swiper.min.js"></script>
-	<script src="../js/script.js"></script>
-	<script src="../js/script.mobile.js"></script>
-    <script src="../js/menu.js"></script>
-    <script src="../js/mypage.js"></script>
-    <script src="../js/about.js"></script>
-     <script src="../js/click-page.js"></script>
-     <script src="../js/features.js"></script>
-    <script src="../js/jquery.ulslide.js"></script>          
-	<script src="../js/jquery.form.min.js"></script>
-	<script src="../js/jquery.swiper.min.js"></script> 
-   	<script src="../js/jquery.flexslider-min.js"></script>
-     <script src="../js/jquery.flexslider.js"></script>	
-      <script src="../js/buy-sell-page.js"></script>
-    <script src="../js/jquery.glide.js"></script>
-    <script src="../js/jquery.glide2.js"></script>
-    <script src="../js/form.js"></script>
-     <script src="../js/my-page.js"></script>
-    <script src="../js/designers.js"></script>
-     <script src="../js/sell.js"></script>
-     <script src="../js/jquery.fancybox.js"></script>
-    
 
 </head>
 <body>
@@ -49,885 +46,914 @@
 <div  class="mypage_container_cover" id="mypage_wrap"></div>
 <!--mypage//-->
 
-	<div id="hamburger">
-		<div class="hamburger_inner">
-			<a href="#" class="close"><i class="fa fa-times fa-1x" aria-hidden="true"></i></a>
-                       
-            <!--탭-->
-              <div class="tab" >
-                <ul  class="category-tab">
-                    <li class="active menu menutab1" >
-                        <a href="#" ><span>INVENTORY</span></a>
-                    </li>
-                    <li class="menu menutab2">
-                        <a href="#" ><span>FILTER</span></a>
-                    </li>
-                </ul>
-              </div> 
-            
-            <!--탭-->
-             <!--탭1-->
-            <div id="tab1">
-                <ul class="mtree transit">              
+<div id="hamburger">
+    <div class="hamburger_inner">
+        <a href="#" class="close"><i class="fa fa-times fa-1x" aria-hidden="true"></i></a>
+
+        <!--탭-->
+        <div class="tab" >
+            <ul  class="category-tab">
+                <li class="active menu menutab1" >
+                    <a href="#" ><span>INVENTORY</span></a>
+                </li>
+                <li class="menu menutab2">
+                    <a href="#" ><span>FILTER</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <!--탭-->
+        <!--탭1-->
+        <div id="tab1">
+            <ul class="mtree transit">
                 <li><a href="#">MY PAGE</a>
-                  <ul>
-                    <li><a href="./mypage/login.html">login</a></li>
-                    <li><a href="./mypage/join.html#">join</a></li>
-                 
-                  </ul>
-                </li>
-                 <li><a href="#">ACCOUNT</a>
-                  <ul>
-                    <li><a href="./myaccount/messages">Messages</a></li>
-                    <li><a href="./myaccount/myitems">My items</a></li>
-                    <li><a href="./myaccount/history">History</a></li>
-                    <li><a href="./myaccount/settings">Settings</a></li>
-                   
-                  </ul>
-                </li>
-                <li class="nocss"><a href="./features/features.html">FEATURES</a>
-                 <!-- <ul>
-                    <li><a href="./features/news.html">News</a></li>
-                    <li><a href="./features/streestyles.html">StreetStyles</a></li>
-                    <li><a href="./features/lookbook.html">Lookbook</a></li>
-                    <li><a href="./features/shopping.html">Shopping</a></li>
-                   
-                  </ul>-->
-                </li>
-                <li class="nocss"><a href="./form/form.html">FORUM</a>
-                                                  
-                </li>
-                <li class="nocss"><a href="/about.html">ABOUT</a>
-                 
-                </li>
-               
-            </ul>    
-            </div>
-            
-            <!--탭2-->
-           
-            <div id="tab2">
-                <ul class="mtree transit">              
-                    <li><a href="#">GENDER</a>
                     <ul>
-							<li>
-								<label>
-									<input type="radio" name="gender_name">
-									<span>Man</span>
-								</label>
-							</li>
-							<li>
-								<label>
-									<input type="radio" name="gender_name">
-									<span>Woman</span>
-								</label>
-							</li>
-							<li>
-								<label>
-									<input type="radio" name="gender_name">
-									<span>Unisex</span>
-								</label>
-							</li>
-						</ul>
-                     
-                    </li>
-                    <li><a href="#">MARKET</a>
-                      <ul>
-							<li>
-								<label>
-									<input type="radio" name="market_name">
-									<span>Inventory</span>
-								</label>
-							</li>
-							<li>
-								<label>
-									<input type="radio" name="market_name">
-									<span>Classic</span>
-								</label>
-							</li>
-							<li>
-								<label>
-									<input type="radio" name="market_name">
-									<span>Inventory</span>
-								</label>
-							</li>
-						</ul>
-                    </li>
-                    <li><a href="#">DESIGNER</a>
-                      <ul class="mdesigner">                         
-                         <li><span class="searchtitle">Search</span><input type="text" ></li>
-                                                 
-                         <a href="./designers.html" style="cursor: pointer;">View all designers </a>
-                        
-                      </ul>
-                      
-                      
-                      
-                      
-                    </li>
-                     <li><a href="#">CATEGORY</a>
-                      <ul class="mcategory">
-                        <li><a href="#">Tops</a>
-                        <label>
-									<input type="radio" name="category_name">
-									<span>ALL</span>
-								</label>                             
-                          </li>
-                           <li><a href="#">Bottoms</a>
-                           <label>
-									<input type="radio" name="category_name">
-									<span>ALL</span>
-								</label>                             
-                          </li>
-                           <li><a href="#">Outerweea</a>
-                           <label>
-									<input type="radio" name="category_name">
-									<span>ALL</span>
-								</label>                             
-                          </li>
-                           <li><a href="#">Footweer</a>
-                           <label>
-									<input type="radio" name="category_name">
-									<span>ALL</span>
-								</label>                             
-                          </li>
-                           <li><a href="#">Tailoring</a>
-                           <label>
-									<input type="radio" name="category_name">
-									<span>ALL</span>
-								</label>                             
-                          </li>
-                           <li><a href="#">Accessories</a>
-                           <label>
-									<input type="radio" name="category_name">
-									<span>ALL</span>
-								</label>                             
-                          </li>
-                      </ul>
-                      
-                    </li>
-                    <li><a href="#">SIZE</a>
-                      <ul class="msize">
+                        <li><a href="/mypage/login.html">login</a></li>
+                        <li><a href="/mypage/join.html#">join</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#">ACCOUNT</a>
+                    <ul>
+                        <li><a href="/myaccount/messages.html">Messages</a></li>
+                        <li><a href="/myaccount/myitems.html">My items</a></li>
+                        <li><a href="/myaccount/history.html">History</a></li>
+                        <li><a href="/myaccount/settings.html">Settings</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#">FEATURES</a>
+                    <ul>
+                        <li><a href="/features/news.html">News</a></li>
+                        <li><a href="/features/streestyles.html">StreetStyles</a></li>
+                        <li><a href="/features/lookbook.html">Lookbook</a></li>
+                        <li><a href="/features/shopping.html">Shopping</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="/form/form.html">FORUM</a>
+                    <ul>
+                        <li><a href="/form/form.html">forum</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about.html">ABOUT</a>
+                    <ul>
+                        <li><a href="/about.html">about</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+        <!--탭2-->
+
+        <div id="tab2">
+            <ul class="mtree transit">
+                <li><a href="#">GENDER</a>
+                    <ul>
                         <li>
-                          <a href="#">Tops &amp; Outerwear</a></li>
+                            <label>
+                                <input type="radio" name="gender_name">
+                                <span>Man</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="gender_name">
+                                <span>Woman</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="gender_name">
+                                <span>Unisex</span>
+                            </label>
+                        </li>
+                    </ul>
+
+                </li>
+                <li><a href="#">MARKET</a>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" name="market_name">
+                                <span>Inventory</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="market_name">
+                                <span>Classic</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="market_name">
+                                <span>Inventory</span>
+                            </label>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">DESIGNER</a>
+                    <ul class="mdesigner">
+                        <li><span class="searchtitle">Search</span><input type="text" ></li>
+
+                        <a href="/designers.html" style="cursor: pointer;">View all designers </a>
+
+                    </ul>
+
+
+
+
+                </li>
+                <li><a href="#">CATEGORY</a>
+                    <ul class="mcategory">
+                        <li><a href="#">Tops</a>
+                            <label>
+                                <input type="radio" name="category_name">
+                                <span>ALL</span>
+                            </label>
+                        </li>
+                        <li><a href="#">Bottoms</a>
+                            <label>
+                                <input type="radio" name="category_name">
+                                <span>ALL</span>
+                            </label>
+                        </li>
+                        <li><a href="#">Outerweea</a>
+                            <label>
+                                <input type="radio" name="category_name">
+                                <span>ALL</span>
+                            </label>
+                        </li>
+                        <li><a href="#">Footweer</a>
+                            <label>
+                                <input type="radio" name="category_name">
+                                <span>ALL</span>
+                            </label>
+                        </li>
+                        <li><a href="#">Tailoring</a>
+                            <label>
+                                <input type="radio" name="category_name">
+                                <span>ALL</span>
+                            </label>
+                        </li>
+                        <li><a href="#">Accessories</a>
+                            <label>
+                                <input type="radio" name="category_name">
+                                <span>ALL</span>
+                            </label>
+                        </li>
+                    </ul>
+
+                </li>
+                <li><a href="#">SIZE</a>
+                    <ul class="msize">
+                        <li>
+                            <a href="#">Tops &amp; Outerwear</a></li>
                         <li><a href="#">Bottoms &amp; Pants </a></li>
                         <li><a href="#">Footwear</a></li>
                         <li><a href="#">Tailoring</a></li>
-                       <li><a href="#" class="on">Accessories</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">PRICE</a>
+                        <li><a href="#" class="on">Accessories</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">PRICE</a>
                     <ul class="mprice">
-                      <li><span class="searchtitle">Min</span><input type="text" ><span class="mprice2" >~</span></li>
-                      <li><span class="searchtitle">Max</span><input type="text"></li>
+                        <li><span class="searchtitle">Min</span><input type="text" ><span class="mprice2" >~</span></li>
+                        <li><span class="searchtitle">Max</span><input type="text"></li>
                     </ul>
-                    <li><a href="#">LOCATION</a>
+                <li><a href="#">LOCATION</a>
                     <ul class="mlocation">
-							<li>
-                               <a href="#">
-								<label>
-                                   <span>U.S.A</span>
-									<input type="radio" name="market_name">
-									
-								</label>
-                                </a>
-							</li>
-							<li>
-                              <a href="#">
-								<label>
+                        <li>
+                            <a href="#">
+                                <label>
+                                    <span>U.S.A</span>
+                                    <input type="radio" name="market_name">
+
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <label>
                                     <span>Canada</span>
-									<input type="radio" name="market_name">									
-								</label>
-                                </a>
-							</li>
-							<li>
-                             <a href="#">
-								<label>
+                                    <input type="radio" name="market_name">
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <label>
                                     <span>UK</span>
-									<input type="radio" name="market_name">
-									
-								</label>
-                               </a>
-							</li>
-                            <li>
-                             <a href="#">
-								<label>
+                                    <input type="radio" name="market_name">
+
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <label>
                                     <span>EU</span>
-									<input type="radio" name="market_name">									
-								</label>
-                               </a>
-							</li>
-                            <li>
-                             <a href="#">
-								<label>
-                                <span>Asia</span>
-   							    <input type="radio" name="market_name">									
-								</label>
-                               </a>
-							</li>
-                            <li>
-                               <a href="#">
-								<label>
-                                   <span>AU / NZ</span>
-									<input type="radio" name="market_name">									
-								</label>
-                               </a>
-							</li>
-                             <li>
-                              <a href="#">
-								<label>
+                                    <input type="radio" name="market_name">
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <label>
+                                    <span>Asia</span>
+                                    <input type="radio" name="market_name">
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <label>
+                                    <span>AU / NZ</span>
+                                    <input type="radio" name="market_name">
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <label>
                                     <span>Other</span>
-									<input type="radio" name="market_name">									
-								</label>
-                                </a>
-							</li>
-						</ul>
-                    </li>
-                   
-                </ul>  
+                                    <input type="radio" name="market_name">
+                                </label>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!--탭2-->
+
+    </div>
+</div>
+<div id="wrap" class="index">
+    <div id="header">
+        <div class="header_inner">
+            <div class="header_row">
+                <div class="header_top_box">
+                    <span class="top_string">FREE STANDARD SHIPPING ON ORDERS OVER $150</span>
+                    <ul class="header_top_nav">
+                        <li>
+                            <a href="/about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="/features/features.html">Features</a>
+                        </li>
+                        <li>
+                            <a href="/form/form.html">Fourm</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-             <!--탭2-->
-            
-		</div>
-	</div>
-	<div id="wrap" class="index">
-		<div id="header">
-			<div class="header_inner">
-				<div class="header_row">
-					<div class="header_top_box">
-						<span class="top_string">FREE STANDARD SHIPPING ON ORDERS OVER $150</span>
-						<ul class="header_top_nav">
-							<li>
-								<a href="/about.html">About</a>
-							</li>
-							<li>
-								<a href="./features/features.html">Features</a>
-							</li>
-                            <li>
-								<a href="./form/form.html">Fourm</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="header_row">
-					<div class="right_header_box">
-						<a href="#" class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></a>
-						<ul class="member_category">
-							<li><a href="#" class="sell">SELL</a></li>
-							<li><a href="#" class="enter">MY PAGE</a></li>                          
-							<li><a href="http://alldesigns.co.kr./mypage/login.html" class="mypage" >ENTER</a></li>
-						</ul>
-					</div>					
-					<div class="left_header_box">
-						<h1 id="logo"><a href="/">INVENTORY</a></h1>                      
-						<ul class="category">
-							<li><a href="./designers.html" class="m1">DESIGNERS</a></li>
-							<li><a href="#" class="m2">MAN</a></li>
-							<li><a href="#" class="m3">WOMAN</a></li>
-							<li><a href="#searchbar" class="m4" >SEARCH</a></li>
-						</ul>
-					</div>
-				</div>
-                
-                <!--sub1-->
-                <div class="dropdown designers"> 
-                  <div class="dropdown_inner">                  
-                   <ul>                    
-                    <li><a href="#">Acne Studios</a></li>
-                    <li><a href="#">Adidas</a></li>
-                    <li><a href="#">Alexander McQueen</a></li>
-                    <li><a href="#">Alexander Wang</a></li>
-                    <li><a href="#">Balenciaga</a></li>
-                    <li><a href="#"> Balmain</a></li>
-                    <li><a href="#">Bape</a></li>
-                    <li><a href="#">Burberry</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">Comme des Garcons</a></li>
-                     <li><a href="#"> Common Projects</a></li>
-                     <li><a href="#">Dior</a></li>
-                     <li><a href="#">Dries Van Noten</a></li>
-                     <li><a href="#">Fear of God</a></li>
-                     <li><a href="#">Givenchy</a></li>
-                     <li><a href="#">Gucci</a></li>
-                     <li><a href="#">Julius</a></li>
-                     <li><a href="#">Junya Watanabe</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">Lanvin</a></li>
-                     <li><a href="#"> Louis Vuitton</a></li>
-                     <li><a href="#">Maison Margiela</a></li>
-                     <li><a href="#">Nike</a></li>
-                     <li><a href="#"> Number (N)ine</a></li>
-                     <li><a href="#"> Off-White</a></li>
-                     <li><a href="#">Prada</a></li>
-                     <li><a href="#">Raf Simons</a></li>
-                     <li><a href="#">Rick Owens</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">Saint Laurent Paris</a></li>
-                     <li><a href="#">  Stone Island</a></li>
-                     <li><a href="#">Supreme</a></li>
-                     <li><a href="#">Thom Browne</a></li>
-                     <li><a href="#"> Number (N)ine</a></li>
-                     <li><a href="#"> Undercover</a></li>
-                     <li><a href="#"> Visvim</a></li>
-                     <li><a href="#">Raf Simons</a></li>
-                     <li><a href="#">Rick Owens</a></li>
-                </ul>
-                <div class="viewall"><a href="./designers.html">VIEW ALL</a></div>
-               </div>
-                </div>
-                <!--sub1-->   
-                
-                 <!--sub2-->
-                <div class="dropdown man"> 
-                  <div class="dropdown_inner">    
-                  <div class="depthmenu">
-                      <h3>New Arrivals</h3>             
-                       <ul>
-                       <li><a href="#">Clothing </a></li>
-                       <li><a href="#">Shoes </a></li>
-                       <li><a href="#"> Accessories </a></li>
-                       <li><a href="#">Signature </a></li>
-                       <li><a href="#">Back in Stock </a></li>
+            <div class="header_row">
+                <div class="right_header_box">
+                    <a href="#" class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                    <ul class="member_category">
+                        <li><a href="/mypage/sell.html" class="sell">SELL</a></li>
+                        <li><a href="/form/form4.html" class="enter">MY PAGE</a></li>
+                        <li><a href="#" class="account">ACCOUNT</a></li>
                     </ul>
                 </div>
-                 <div class="depthmenu">
-                      <h3>Clothing</h3>    
-                    <ul>
-                        <li><a href="#">Button Ups </a></li>
-                        <li><a href="#">Coats and Jackets </a></li>
-                        <li><a href="#">Denim </a></li>
-                       <li><a href="#"> Knitwear</a></li> 
-                        <li><a href="#">Shorts </a></li>
-                        <li><a href="#">Suits </a></li>
-                        <li><a href="#">Trousers</a></li>                     
+                <div class="left_header_box">
+                    <h1 id="logo"><a href="/">INVENTORY</a></h1>
+                    <ul class="category">
+                        <li><a href="/designers.html" class="m1">DESIGNERS</a></li>
+                        <li><a href="#" class="m2">MAN</a></li>
+                        <li><a href="#" class="m3">WOMAN</a></li>
+                        <li><a href="#searchbar" class="m4" >SEARCH</a></li>
                     </ul>
-                   </div>
-                   <div class="depthmenu">
-                     <h3>Shoes</h3>          
+                </div>
+            </div>
+
+            <!--sub1-->
+            <div class="dropdown designers">
+                <div class="dropdown_inner">
                     <ul>
-                       <li><a href="#">Ankle Boots </a></li>
-                       <li><a href="#">Derbies and Oxfords</a></li>
-                       <li><a href="#"> Lace Up Boots</a></li> 
-                       <li><a href="#"> Sneakers </a></li>
-                       <li><a href="#">Loafers </a></li>
-                       <li><a href="#"> Mid Boots </a></li>
-                       <li><a href="#">Sandals </a></li>                  
-                   </ul>
-                   </div>
+                        <li><a href="#">Acne Studios</a></li>
+                        <li><a href="#">Adidas</a></li>
+                        <li><a href="#">Alexander McQueen</a></li>
+                        <li><a href="#">Alexander Wang</a></li>
+                        <li><a href="#">Balenciaga</a></li>
+                        <li><a href="#"> Balmain</a></li>
+                        <li><a href="#">Bape</a></li>
+                        <li><a href="#">Burberry</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Comme des Garcons</a></li>
+                        <li><a href="#"> Common Projects</a></li>
+                        <li><a href="#">Dior</a></li>
+                        <li><a href="#">Dries Van Noten</a></li>
+                        <li><a href="#">Fear of God</a></li>
+                        <li><a href="#">Givenchy</a></li>
+                        <li><a href="#">Gucci</a></li>
+                        <li><a href="#">Julius</a></li>
+                        <li><a href="#">Junya Watanabe</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Lanvin</a></li>
+                        <li><a href="#"> Louis Vuitton</a></li>
+                        <li><a href="#">Maison Margiela</a></li>
+                        <li><a href="#">Nike</a></li>
+                        <li><a href="#"> Number (N)ine</a></li>
+                        <li><a href="#"> Off-White</a></li>
+                        <li><a href="#">Prada</a></li>
+                        <li><a href="#">Raf Simons</a></li>
+                        <li><a href="#">Rick Owens</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Saint Laurent Paris</a></li>
+                        <li><a href="#">  Stone Island</a></li>
+                        <li><a href="#">Supreme</a></li>
+                        <li><a href="#">Thom Browne</a></li>
+                        <li><a href="#"> Number (N)ine</a></li>
+                        <li><a href="#"> Undercover</a></li>
+                        <li><a href="#"> Visvim</a></li>
+                        <li><a href="#">Raf Simons</a></li>
+                        <li><a href="#">Rick Owens</a></li>
+                    </ul>
+                    <div class="viewall"><a href="/designers.html">VIEW ALL</a></div>
+                </div>
+            </div>
+            <!--sub1-->
+
+            <!--sub2-->
+            <div class="dropdown man">
+                <div class="dropdown_inner">
                     <div class="depthmenu">
-                     <h3>Accessories</h3>        
-                    <ul>                    
-                      <li><a href="#">Sunglasses </a></li>
-                     <li><a href="#"> Backpacks </a></li>
-                      <li><a href="#">Belts </a></li>
-                      <li><a href="#">Hats </a></li>
-                      <li><a href="#">Jewelry</a></li> 
-                      <li><a href="#">Scarves and Gloves </a></li>
-                      <li><a href="#">Tote and Duffle Bags</a></li>
-                    </ul>
+                        <h3>New Arrivals</h3>
+                        <ul>
+                            <li><a href="#">Clothing </a></li>
+                            <li><a href="#">Shoes </a></li>
+                            <li><a href="#"> Accessories </a></li>
+                            <li><a href="#">Signature </a></li>
+                            <li><a href="#">Back in Stock </a></li>
+                        </ul>
                     </div>
-               </div>
-                </div>
-                <!--sub2--> 
-                
-                 <!--sub3-->
-                <div class="dropdown woman"> 
-                  <div class="dropdown_inner">    
-                  <div class="depthmenu">
-                      <h3>New Arrivals</h3>              
-                       <ul>
-                       <li><a href="#">Clothing </a></li>
-                       <li><a href="#">Shoes</a></li>
-                       <li><a href="#">Accessories </a></li>
-                       <li><a href="#">Signature</a></li>
-                       <li><a href="#">Back in Stock </a></li>
-                    </ul>
-                </div>
-                 <div class="depthmenu">
-                      <h3>Clothing</h3>    
-                    <ul>                    
-                         <li><a href="#">Tops </a></li>
-                        <li><a href="#"> Bottoms </a></li>
-                        <li><a href="#"> Dresses </a></li>
-                        <li><a href="#">Jumpsuits </a></li>
-                        <li><a href="#"> Denim </a></li>
-                        <li><a href="#"> Jackets </a></li>
-                         <li><a href="#">Knitwear </a></li>
-                    </ul>
-                   </div>
-                   <div class="depthmenu">
-                     <h3>Shoes</h3>          
-                    <ul>
-                        <li><a href="#">Ankle </a></li>
-                        <li><a href="#"> Boots </a></li>
-                        <li><a href="#">Sandals </a></li>
-                        <li><a href="#">Clogs </a></li>
-                       <li><a href="#"> Derbies and Oxfords </a></li>
-                       <li><a href="#"> Flats </a></li>
-                       <li><a href="#"> Heels </a></li>
-                       <li><a href="#"> Sneakers </a></li>
-                   </ul>
-                   </div>
                     <div class="depthmenu">
-                     <h3>Accessories</h3>        
-                    <ul>
-                       <li><a href="#">Jewelry </a></li>
-                       <li><a href="#"> Sunglasses </a></li>
-                       <li><a href="#"> Hats </a></li>
-                       <li><a href="#">Scarves and Gloves </a></li>
-                       <li><a href="#">Belts </a></li>
-                       <li><a href="#"> Hair </a></li>
-                       <li><a href="#">Opticals</a></li>
-                    </ul>
+                        <h3>Clothing</h3>
+                        <ul>
+                            <li><a href="#">Button Ups </a></li>
+                            <li><a href="#">Coats and Jackets </a></li>
+                            <li><a href="#">Denim </a></li>
+                            <li><a href="#"> Knitwear</a></li>
+                            <li><a href="#">Shorts </a></li>
+                            <li><a href="#">Suits </a></li>
+                            <li><a href="#">Trousers</a></li>
+                        </ul>
                     </div>
-                 </div>
+                    <div class="depthmenu">
+                        <h3>Shoes</h3>
+                        <ul>
+                            <li><a href="#">Ankle Boots </a></li>
+                            <li><a href="#">Derbies and Oxfords</a></li>
+                            <li><a href="#"> Lace Up Boots</a></li>
+                            <li><a href="#"> Sneakers </a></li>
+                            <li><a href="#">Loafers </a></li>
+                            <li><a href="#"> Mid Boots </a></li>
+                            <li><a href="#">Sandals </a></li>
+                        </ul>
+                    </div>
+                    <div class="depthmenu">
+                        <h3>Accessories</h3>
+                        <ul>
+                            <li><a href="#">Sunglasses </a></li>
+                            <li><a href="#"> Backpacks </a></li>
+                            <li><a href="#">Belts </a></li>
+                            <li><a href="#">Hats </a></li>
+                            <li><a href="#">Jewelry</a></li>
+                            <li><a href="#">Scarves and Gloves </a></li>
+                            <li><a href="#">Tote and Duffle Bags</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <!--sub3-->  
-                
-                <!--account-->
-                <div class="accountmenu">
-                  <ul>
-                    <li><a href="./myaccount/messages">MESSAGES</a></li>
-                    <li><a href="./myaccount/myitems">MY ITEMS</a></li>
-                    <li><a href="./myaccount/history">HISTORY</a></li>
-                    <li><a href="./myaccount/settings">SETTINGS</a></li>
-                  </ul>
-                </div>        
-                <!--account--> 
-			</div>
-		</div>	
-      </div>	
-      
-    <script src="../js/mtree.js"></script> 
-		<div id="container">
-       <!--subcon-->
-       <div class="show-listing-wrapper"> 
+            </div>
+            <!--sub2-->
+
+            <!--sub3-->
+            <div class="dropdown woman">
+                <div class="dropdown_inner">
+                    <div class="depthmenu">
+                        <h3>New Arrivals</h3>
+                        <ul>
+                            <li><a href="#">Clothing </a></li>
+                            <li><a href="#">Shoes</a></li>
+                            <li><a href="#">Accessories </a></li>
+                            <li><a href="#">Signature</a></li>
+                            <li><a href="#">Back in Stock </a></li>
+                        </ul>
+                    </div>
+                    <div class="depthmenu">
+                        <h3>Clothing</h3>
+                        <ul>
+                            <li><a href="#">Tops </a></li>
+                            <li><a href="#"> Bottoms </a></li>
+                            <li><a href="#"> Dresses </a></li>
+                            <li><a href="#">Jumpsuits </a></li>
+                            <li><a href="#"> Denim </a></li>
+                            <li><a href="#"> Jackets </a></li>
+                            <li><a href="#">Knitwear </a></li>
+                        </ul>
+                    </div>
+                    <div class="depthmenu">
+                        <h3>Shoes</h3>
+                        <ul>
+                            <li><a href="#">Ankle </a></li>
+                            <li><a href="#"> Boots </a></li>
+                            <li><a href="#">Sandals </a></li>
+                            <li><a href="#">Clogs </a></li>
+                            <li><a href="#"> Derbies and Oxfords </a></li>
+                            <li><a href="#"> Flats </a></li>
+                            <li><a href="#"> Heels </a></li>
+                            <li><a href="#"> Sneakers </a></li>
+                        </ul>
+                    </div>
+                    <div class="depthmenu">
+                        <h3>Accessories</h3>
+                        <ul>
+                            <li><a href="#">Jewelry </a></li>
+                            <li><a href="#"> Sunglasses </a></li>
+                            <li><a href="#"> Hats </a></li>
+                            <li><a href="#">Scarves and Gloves </a></li>
+                            <li><a href="#">Belts </a></li>
+                            <li><a href="#"> Hair </a></li>
+                            <li><a href="#">Opticals</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--sub3-->
+
+            <!--account-->
+            <div class="accountmenu" >
+                <ul>
+                    <li><a href="/myaccount/messages.html">MESSAGES</a></li>
+                    <li><a href="/myaccount/myitems.html">MY ITEMS</a></li>
+                    <li><a href="/myaccount/history.html">HISTORY</a></li>
+                    <li><a href="/myaccount/settings.html">SETTINGS</a></li>
+
+                </ul>
+            </div>
+            <!--account-->
+        </div>
+    </div>
+</div>
+
+<script src="/js/mtree.js"></script>
+
+<script src="../js/lib/jquery-simple-slider.js"></script>
+<link href="../css/simple-slider.css" rel="stylesheet" type="text/css" />
+<link href="../css/simple-slider-volume.css" rel="stylesheet" type="text/css" />
+
+
+<div id="container">
+    <!--subcon-->
+    <div class="show-listing-wrapper">
         <div class="title">
-         <div class="account-sections horizontal-choice" >
-           <a href="/inventory/myaccount/messages"><h3><span>MESSAGES</span></h3></a>
-           <a href="/inventory/myaccount/myitems"> <h3 ><span>MY ITEMS</span></h3></a>
-           <a href="/inventory/myaccount/history" ><h3 class="active" ><span>HISTORY</span></h3></a>
-           <a href="/inventory/myaccount/settings" ><h3 ><span>SETTINGS</span></h3></a>
-          </div>       
-                            
+            <div class="account-sections horizontal-choice" >
+                <a href="/myaccount/messages.html"><h3><span>MESSAGES</span></h3></a>
+                <a href="/myaccount/myitems.html"> <h3 ><span>MY ITEMS</span></h3></a>
+                <a href="/myaccount/history.html" ><h3 class="active" ><span>HISTORY</span></h3></a>
+                <a href="/myaccount/settings.html" ><h3 ><span>SETTINGS</span></h3></a>
+            </div>
+
             <!--sellerfeedback-->
             <div class="seller-feedback-wrapper">
-            <div class="seller-product">
-               <a href="click_page.html">
-								<div class="thumbnail">
-									<img src="../images/product_thumbnail.png" alt="Thumnail">
-								</div>
-								<div class="information">
-									<ol>
-										<li>
-											<span class="product_name">Y - 3</span>
-										</li>
-										<li>
-											<span class="short_desc">product short descrition</span>
-										</li>
-										<li>
-											<span class="product_size">Size L</span>
-										</li>
-															
-									</ol>
-								</div>
-							</a>
+                <div class="seller-product">
+                    <a href="click_page.html">
+                        <div class="thumbnail">
+                            <img src="../images/product_thumbnail.png" alt="Thumnail">
+                        </div>
+                        <div class="information">
+                            <ol>
+                                <li>
+                                    <span class="product_name">Y - 3</span>
+                                </li>
+                                <li>
+                                    <span class="short_desc">product short descrition</span>
+                                </li>
+                                <li>
+                                    <span class="product_size">Size L</span>
+                                </li>
+
+                            </ol>
+                        </div>
+                    </a>
+                </div>
+                <div class="seller-feedback container">
+                    <form id="seller_feedback">
+                        <h2 class="bold">
+                            Leave Seller Feedback
+                        </h2>
+                        <div class="would-buy-from-again feedback-item">
+                            <p>
+                                Would you buy again from this user?
+                            </p>
+                            <button class="yes">
+                                Yes
+                            </button>
+                            <button class="no">
+                                No
+                            </button>
+                        </div>
+                        <ul class="star">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </ul>
+                        <div class="communication feedback-item">
+
+                            <div class="jumsu">
+                                <p><span class="vtxt">How well did the seller communicate?</span> </p>
+                                <input type="text" data-slider="true" value="1" data-slider-highlight="true" >
+                            </div>
+                        </div>
+
+                        <div class="fast-shipping feedback-item">
+                            <div class="jumsu">
+                                <p> <span class="vtxt">How quickly did the seller ship the item? </span> </p>
+                                <input type="text" data-slider="true" value="2" data-slider-highlight="true" >
+                            </div>
+                        </div>
+
+
+                        <div class="item-as-described feedback-item">
+                            <div class="jumsu">
+                                <p> <span class="vtxt"> How accurate was the description? </span> </p>
+                                <input type="text" data-slider="true" value="3" data-slider-highlight="true" >
+                            </div>
+                        </div>
+
+
+                        <div class="note feedback-item">
+                            <textarea maxlength="500" placeholder="(Required when feedback is negative. Max length of 500.)"></textarea>
+                            <div class="feedback-footer">
+                                <h2 class="avg-title">AVG</h2>
+                                <span class="avg"></span>
+                                <button class="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
-            <div class="seller-feedback container">
-             <form id="seller_feedback">
-                <h2 class="bold">
-                Leave Seller Feedback
-                </h2>
-                <div class="would-buy-from-again feedback-item">
-                <p>
-                Would you buy again from this user?
-                </p>
-                 <button class="yes">
-                  Yes                
-                </button>                
-                 <button class="no">
-                  No                
-                </button>
-                </div>
-                <ul class="star">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                   </ul>
-                <div class="communication feedback-item">
-                <p>
-                How well did the seller communicate?
-                <span class="value green">5.0</span>
-                </p>
-                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-score="5.0" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 3%;"></a></div>
-                </div>
-                <div class="fast-shipping feedback-item">
-                <p>
-                How quickly did the seller ship the item?
-                <span class="value green">5.0</span>
-                </p>
-                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-score="5.0" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%;"></a></div>
-                </div>
-                <div class="item-as-described feedback-item">
-                <p>
-                How accurate was the description?
-                <span class="value green">5.0</span>
-                </p>
-                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-score="5.0" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 98%;"></a></div>
-                </div>
-                <div class="note feedback-item">
-                <textarea maxlength="500" placeholder="(Required when feedback is negative. Max length of 500.)"></textarea>
-                <div class="feedback-footer">
-                <ul>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-o"></i>
-                   </ul>
-                <button class="submit">
-                Submit 
-                </button>
-                </div>
-                </div>
-               
-            </form>
-             </div>
-             </div>
-            <!--sellerfeedback-->            
-            <!--subconin-->            
-                   
-                <div class="listing-metadata-wrapper">
+            <!--sellerfeedback-->
+            <!--subconin-->
+
+            <div class="listing-metadata-wrapper">
                 <div class="metadata">
-                <div class="metadata-item">
-                    <p>
+                    <div class="metadata-item">
+                        <p>
                     <span class="sub-title bold">
                     16 days ago
                     </span>
-                    <span class="time">
+                            <span class="time">
                     38 minute ago
                     </span>
-                    </p>
-                </div>
+                        </p>
+                    </div>
                 </div>
                 <h3 class="social-share-widget">
-                <div class="social-share-widget-item twitter">
-                    <a href="#" target="_blank">
-                     <img src="../images/2.click_page_3.png" alt="Twittericon">
-                    </a>
-                
-                </div>
-                <div class="social-share-widget-item facebook">
-                    <a href="" target="_blank">
-                    <img src="../images/2.click_page_4.png" alt="Facebookicon">
-                    </a>
-                </div>
-                </h3>                
-                </div>
-                
-                <div class="show-listing">
-                    <div class="listing-photos-wrapper">
+                    <div class="social-share-widget-item twitter">
+                        <a href="#" target="_blank">
+                            <img src="../images/2.click_page_3.png" alt="Twittericon">
+                        </a>
+
+                    </div>
+                    <div class="social-share-widget-item facebook">
+                        <a href="" target="_blank">
+                            <img src="../images/2.click_page_4.png" alt="Facebookicon">
+                        </a>
+                    </div>
+                </h3>
+            </div>
+
+            <div class="show-listing">
+                <div class="listing-photos-wrapper">
                     <ul class="listing-photos">
-                    <li class="listing-photo-item">
-                       <img src="../images/sub_ex1.jpg">
-                    </li>
-                    <li class="listing-photo-item">
-                      <img src="../images/sub_ex2.jpg">
-                    </li>
-                    <li class="listing-photo-item">
-                      <img src="../images/sub_ex3.jpg">
-                    </li>
-                    <li class="listing-photo-item">
-                      <img src="../images/sub_ex4.jpg">
-                    </li>                   
+                        <li class="listing-photo-item">
+                            <img src="../images/sub_ex1.jpg">
+                        </li>
+                        <li class="listing-photo-item">
+                            <img src="../images/sub_ex2.jpg">
+                        </li>
+                        <li class="listing-photo-item">
+                            <img src="../images/sub_ex3.jpg">
+                        </li>
+                        <li class="listing-photo-item">
+                            <img src="../images/sub_ex4.jpg">
+                        </li>
                     </ul>
-                 </div>
+                </div>
                 <div class="listing-details-wrapper topline">
-                <h1 class="designer jumbo">
-                <a href="#">product name</a>
-                </h1>
-                <h2 class="listing-title sub-title">
-                  Venezia Piana Coat in brown and navy houndstooth. 
-                </h2>
-                <h2 class="listing-size sub-title">
-                  US 7 / EU 40
-                </h2>
-                <div class="listing-price">
-                    <h1 class="sub-title bold price">
-                        103$
+                    <h1 class="designer jumbo">
+                        <a href="#">product name</a>
                     </h1>
-                     <p class="likeico">3</p>
-                     <p class="price-comparison"><a href="#">price comparison</a></p>
-                </div>
-                <div class="pricebtnw">
-                   <div class="pricebtn">buy it now</div>
-                   <div class="pricebtn mno">make an offer</div>
-                   <p class="ask-a-question"><a href="#">Ask a question?</a></p>
-                </div>
-                
-                <div class="listing-description">
-                <h3 class="section-header">
-                  description
-                </h3>
-                <p>Worn a handful of times. Shoe was worn with insoles (now removed). Priced to sell.</p>
-                
-                <p>Comes complete with box and shoe bag. Will ship to anywhere in the world via DHL tracking.</p>
-                </div>
-                <div class="listing-shipping">
-                <h3 class="section-header">
-                  shipping
-                </h3>
-                <div class="shipping">
-                <div class="item">
-                <div class="location">United States</div>
-                <div class="dots"></div>
-                <div class="amount">$50</div>
-                </div>
-                <div class="item">
-                <div class="location">Canada</div>
-                <div class="dots"></div>
-                <div class="amount">$50</div>
-                </div>
-                <div class="item">
-                <div class="location">UK</div>
-                <div class="dots"></div>
-                <div class="amount">$50</div>
-                </div>
-                <div class="item">
-                <div class="location">Europe</div>
-                <div class="dots"></div>
-                <div class="amount">$50</div>
-                </div>
-                <div class="item">
-                <div class="location">Asia</div>
-                <div class="dots"></div>
-                <div class="amount">$50</div>
-                </div>
-                <div class="item">
-                <div class="location">Australia/NZ</div>
-                <div class="dots"></div>
-                <div class="amount">$50</div>
-                </div>
-                <div class="item">
-                <div class="location">Other</div>
-                <div class="dots"></div>
-                <div class="amount">$50</div>
-                </div>
-                </div>
-                </div>
-                <div class="listing-seller-profile">
-                <h3 class="section-header">
-                 seller
-                </h3>
-                <div class="user-widget medium">
-                <h1 class="sub-title semi-bold">
-                	<a href="/users/517294-mayastig/wardrobe">mayastig (23)</a>
-                </h1>
-                <div class="feedback">
-                   <div class="feedbackwrap">
-                       <ul>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-o"></i>
-                       </ul>
-                        <p>Feedback</p>
-                    </div>
-                </div>
-               <div class="user-widget medium">
-                <h1 class="sub-title semi-bold">
-                	<a href="/users/517294-mayastig/wardrobe">mayastig (23)</a>
-                </h1>
-                <div class="feedback">
-                   <div class="feedbackwrap">
-                       <ul>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-o"></i>
-                       </ul>
-                        <p>Feedback</p>
-                    </div>
-                </div>
-                <div class="user-widget-bottom">
-                    <p class="user-location">
-                    United States
-                    </p>
-                    <p class="dimensions">
-                    No measurements entered.
-                    </p>
-                </div>
-                <div class="bought-and-soldwrap">
-                <div class="bought-and-sold">
-                    <h2 class="sub-title seller-item-title">
-                      <span>18 Items for Sale</span>
+                    <h2 class="listing-title sub-title">
+                        Venezia Piana Coat in brown and navy houndstooth.
                     </h2>
-                </div>
-                <div class="seller-score-wrapper">              
-                <p class="seller-score-top">
-                  <a class="green" href="/inventory/mypage/feedback.html">5/5 Feedback</a>
-                </p>
-                </div>
-                </div>                
-                </div>
-                </div>                
-                </div>
-                
-                <div class="listing-related">
-                    <div class="comments-top">
-                    <h3 class="section-header sub-title">
-                      related items
-                    </h3>                    
+                    <h2 class="listing-size sub-title">
+                        US 7 / EU 40
+                    </h2>
+                    <div class="listing-price">
+                        <h1 class="sub-title bold price">
+                            103$
+                        </h1>
+                        <p class="likeico">3</p>
+                        <p class="price-comparison"><a href="#">price comparison</a></p>
                     </div>
-                    
-                    <div class="productw">                    
-                    <div class="product">
-							<a href="click_page.html">
-								<div class="thumbnail">
-									<img src="../images/product_thumbnail.png" alt="Thumnail">
-								</div>
-								<div class="information">
-									<ol>
-										<li>
-											<span class="product_name">Y - 3</span>
-										</li>
-										<li>
-											<span class="short_desc">product short descrition</span>
-										</li>
-										<li>
-											<span class="product_size">Size L</span>
-										</li>
-										<li class="price_row">
-                                           <div class="price_row1">
-                                                <div class="product_good">
-                                                    <img src="../images/product_good_ico.png" alt="GOOD">
-                                                    <span class="count">100</span>
+                    <div class="pricebtnw">
+                        <div class="pricebtn">buy it now</div>
+                        <div class="pricebtn mno">make an offer</div>
+                        <p class="ask-a-question"><a href="#">Ask a question?</a></p>
+                    </div>
+
+                    <div class="listing-description">
+                        <h3 class="section-header">
+                            description
+                        </h3>
+                        <p>Worn a handful of times. Shoe was worn with insoles (now removed). Priced to sell.</p>
+
+                        <p>Comes complete with box and shoe bag. Will ship to anywhere in the world via DHL tracking.</p>
+                    </div>
+                    <div class="listing-shipping">
+                        <h3 class="section-header">
+                            shipping
+                        </h3>
+                        <div class="shipping">
+                            <div class="item">
+                                <div class="location">United States</div>
+                                <div class="dots"></div>
+                                <div class="amount">$50</div>
+                            </div>
+                            <div class="item">
+                                <div class="location">Canada</div>
+                                <div class="dots"></div>
+                                <div class="amount">$50</div>
+                            </div>
+                            <div class="item">
+                                <div class="location">UK</div>
+                                <div class="dots"></div>
+                                <div class="amount">$50</div>
+                            </div>
+                            <div class="item">
+                                <div class="location">Europe</div>
+                                <div class="dots"></div>
+                                <div class="amount">$50</div>
+                            </div>
+                            <div class="item">
+                                <div class="location">Asia</div>
+                                <div class="dots"></div>
+                                <div class="amount">$50</div>
+                            </div>
+                            <div class="item">
+                                <div class="location">Australia/NZ</div>
+                                <div class="dots"></div>
+                                <div class="amount">$50</div>
+                            </div>
+                            <div class="item">
+                                <div class="location">Other</div>
+                                <div class="dots"></div>
+                                <div class="amount">$50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listing-seller-profile">
+                        <h3 class="section-header">
+                            seller
+                        </h3>
+                        <div class="user-widget medium">
+                            <h1 class="sub-title semi-bold">
+                                <a href="/users/517294-mayastig/wardrobe">mayastig (23)</a>
+                            </h1>
+                            <div class="feedback">
+                                <div class="feedbackwrap">
+                                    <ul>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </ul>
+                                    <p>Feedback</p>
+                                </div>
+                            </div>
+                            <div class="user-widget medium">
+                                <h1 class="sub-title semi-bold">
+                                    <a href="/users/517294-mayastig/wardrobe">mayastig (23)</a>
+                                </h1>
+                                <div class="feedback">
+                                    <div class="feedbackwrap">
+                                        <ul>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </ul>
+                                        <p>Feedback</p>
+                                    </div>
+                                </div>
+                                <div class="user-widget-bottom">
+                                    <p class="user-location">
+                                        United States
+                                    </p>
+                                    <p class="dimensions">
+                                        No measurements entered.
+                                    </p>
+                                </div>
+                                <div class="bought-and-soldwrap">
+                                    <div class="bought-and-sold">
+                                        <h2 class="sub-title seller-item-title">
+                                            <span>18 Items for Sale</span>
+                                        </h2>
+                                    </div>
+                                    <div class="seller-score-wrapper">
+                                        <p class="seller-score-top">
+                                            <a class="green" href="/mypage/feedback.html">5/5 Feedback</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="listing-related">
+                        <div class="comments-top">
+                            <h3 class="section-header sub-title">
+                                related items
+                            </h3>
+                        </div>
+
+                        <div class="productw">
+                            <div class="product">
+                                <a href="click_page.html">
+                                    <div class="thumbnail">
+                                        <img src="../images/product_thumbnail.png" alt="Thumnail">
+                                    </div>
+                                    <div class="information">
+                                        <ol>
+                                            <li>
+                                                <span class="product_name">Y - 3</span>
+                                            </li>
+                                            <li>
+                                                <span class="short_desc">product short descrition</span>
+                                            </li>
+                                            <li>
+                                                <span class="product_size">Size L</span>
+                                            </li>
+                                            <li class="price_row">
+                                                <div class="price_row1">
+                                                    <div class="product_good">
+                                                        <img src="../images/product_good_ico.png" alt="GOOD">
+                                                        <span class="count">100</span>
+                                                    </div>
+                                                    <div class="product_price">
+                                                        <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                        <span class="count">103</span>
+                                                    </div>
                                                 </div>
-                                                <div class="product_price">
-                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
-                                                    <span class="count">103</span>
-                                                </div>	
-                                           </div>	
-                                           <div class="price_row2">
-											<span class="write_date">7 mins ago</span>
-									       </div>									
-										</li>										
-									</ol>
-								</div>
-							</a>
-						</div>
-                         <div class="product">
-							<a href="click_page.html">
-								<div class="thumbnail">
-									<img src="../images/product_thumbnail.png" alt="Thumnail">
-								</div>
-								<div class="information">
-									<ol>
-										<li>
-											<span class="product_name">Y - 3</span>
-										</li>
-										<li>
-											<span class="short_desc">product short descrition</span>
-										</li>
-										<li>
-											<span class="product_size">Size L</span>
-										</li>
-										<li class="price_row">
-                                           <div class="price_row1">
-                                                <div class="product_good">
-                                                    <img src="../images/product_good_ico.png" alt="GOOD">
-                                                    <span class="count">100</span>
+                                                <div class="price_row2">
+                                                    <span class="write_date">7 mins ago</span>
                                                 </div>
-                                                <div class="product_price">
-                                                    <img src="../images/product_dollar_ico.png" alt="DOLLAR">
-                                                    <span class="count">103</span>
-                                                </div>	
-                                           </div>	
-                                           <div class="price_row2">
-											<span class="write_date">7 mins ago</span>
-									       </div>									
-										</li>										
-									</ol>
-								</div>
-							</a>
-						</div>                   
-                 </div>
-                 
-                 <div class="view-more">View More</div>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product">
+                                <a href="click_page.html">
+                                    <div class="thumbnail">
+                                        <img src="../images/product_thumbnail.png" alt="Thumnail">
+                                    </div>
+                                    <div class="information">
+                                        <ol>
+                                            <li>
+                                                <span class="product_name">Y - 3</span>
+                                            </li>
+                                            <li>
+                                                <span class="short_desc">product short descrition</span>
+                                            </li>
+                                            <li>
+                                                <span class="product_size">Size L</span>
+                                            </li>
+                                            <li class="price_row">
+                                                <div class="price_row1">
+                                                    <div class="product_good">
+                                                        <img src="../images/product_good_ico.png" alt="GOOD">
+                                                        <span class="count">100</span>
+                                                    </div>
+                                                    <div class="product_price">
+                                                        <img src="../images/product_dollar_ico.png" alt="DOLLAR">
+                                                        <span class="count">103</span>
+                                                    </div>
+                                                </div>
+                                                <div class="price_row2">
+                                                    <span class="write_date">7 mins ago</span>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="view-more">View More</div>
+                    </div>
+
+                    <div class="listing-comments">
+                        <div class="comments-top">
+                            <h3 class="section-header">
+                                comments
+                            </h3>
+                        </div>
+                        <p class="no-comments">
+                            There are no comments yet.
+                        </p>
+                        <p class="report-this-item"><a href="#">Report this item</a></p>
+                    </div>
                 </div>
-                
-                <div class="listing-comments">
-                    <div class="comments-top">               
-                    <h3 class="section-header">
-                      comments
-                    </h3>
-                    </div>                  
-                    <p class="no-comments">
-                    There are no comments yet.
-                    </p>
-                     <p class="report-this-item"><a href="#">Report this item</a></p>
-                </div>
-                </div>
-                </div>            
-             
-           
-            
+            </div>
+
+
+
             <!--subconin-->
-          
-          </div>
-          </div> 
-        </div>      
-       <!--subcon-->
-		</div>
-		</div>
-		<div id="footer">
-			<div class="footer_inner">
-				<div class="left_footer_box">
-					<ul class="social_nav">
-						<li>
-							<a href="#">
-								<img src="/../images/fk_ico.png" alt="FACE BOOK">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="/../images/it_ico.png" alt="INSTAGRAM">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="/../images/tw_ico.png" alt="TWITTER">
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="cetner_desc_box">
-					<p>&copy; 2017 INVENTORY All right Reserved</p>
-				</div>
-				<div class="right_footer_box">
-					<ul class="footer_nav">
-						<li>
-							<a href="#">TERMS &amp; CONDITIONS</a>
-						</li>
-						<li>
-							<a href="#">PRIVACY POLICY</a>
-						</li>
-						<li>
-							<a href="#">CONTACT</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<span class="shadow"></span>
-		</div>
-	</div>
-	<div class="black_shadow"></div>
+
+        </div>
+    </div>
+</div>
+<!--subcon-->
+</div>
+</div>
+<div id="footer">
+    <div class="footer_inner">
+        <div class="left_footer_box">
+            <ul class="social_nav">
+                <li>
+                    <a href="#">
+                        <img src="/images/fk_ico.png" alt="FACE BOOK">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/images/it_ico.png" alt="INSTAGRAM">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/images/tw_ico.png" alt="TWITTER">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="cetner_desc_box">
+            <p>&copy; 2017 INVENTORY All right Reserved</p>
+        </div>
+        <div class="right_footer_box">
+            <ul class="footer_nav">
+                <li>
+                    <a href="#">TERMS &amp; CONDITIONS</a>
+                </li>
+                <li>
+                    <a href="#">PRIVACY POLICY</a>
+                </li>
+                <li>
+                    <a href="#">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <span class="shadow"></span>
+</div>
+</div>
+<div class="black_shadow"></div>
+<script>
+    $("[data-slider]").each(function () {
+        var input = $(this);
+        $("<div>")
+            .addClass("output").insertAfter($(this));
+    })
+        .bind("slider:ready slider:changed", function (event, data) {
+            $(this).nextAll(".output:first").html(data.value.toFixed(1));
+            let averageNum = getAvg()
+            $('.avg').text(averageNum)
+        });
+
+    function getAvg() {
+        let total = 0
+        $('.output').each(function() {
+            total += Number($(this).text())
+        })
+        return (total/3).toFixed(1)
+    }
+</script>
 </body>
 </html>

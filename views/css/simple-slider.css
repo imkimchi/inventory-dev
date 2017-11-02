@@ -1,0 +1,49 @@
+.slider {
+    width: 100%;
+}
+
+.slider > .dragger {
+    border: 1px solid #d3d3d3;
+    background: #e6e6e6 url(https://ds6dnbdlsnuyn.cloudfront.net/assets/jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;
+    font-weight: normal;
+    color: #555;    position: absolute;
+
+    height: 16px;
+    width: 5px;
+    top: -3px;
+    margin-left: -5px;
+}
+
+.slider > .dragger:hover {
+    background: -webkit-linear-gradient(top, #8DCA09, #8DCA09);
+}
+
+.output{color:#22b573; position:absolute; top:0; right:0}
+
+.slider > .track, .slider > .highlight-track {
+    /* background: #ccc;*/
+    /*  background: -webkit-linear-gradient(top, #bbb, #ddd);
+      background: -moz-linear-gradient(top, #bbb, #ddd);
+      background: linear-gradient(top, #bbb, #ddd);
+
+      -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+      -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    border: 1px solid #aaa;
+    height: 10px;
+}
+
+.slider > .highlight-track {
+    background-color: #8DCA09;
+    background: -webkit-linear-gradient(top, #8DCA09, #72A307);
+    background: -moz-linear-gradient(top, #8DCA09, #72A307);
+    background: linear-gradient(top, #8DCA09, #72A307);
+
+    border-color: #496805;
+}
+

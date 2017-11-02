@@ -1292,36 +1292,50 @@ html(lang='en')
                         a(href='#')
                           span.location_name U.S.A
                           input(type='checkbox', name='seller_country', value="US").checkbox.country_filters
+                          label.country-label
+                            span.country-span
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name Canada
                           input(type='checkbox', name='seller_country', value="CA").checkbox.country_filters
+                          label.country-label
+                            span.country-span
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name UK
                           input(type='checkbox', name='seller_country', value="UK").checkbox.country_filters
+                          label.country-label
+                            span.country-span
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name EU
                           input(type='checkbox', name='seller_country', value="EU").checkbox.country_filters
+                          label.country-label
+                            span.country-span
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name Asia
                           input(type='checkbox', name='seller_country', value="AS").checkbox.country_filters
+                          label.country-label
+                            span.country-span
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name AU / NZ
                           input(type='checkbox', name='seller_country', value="AU/NZ").checkbox.country_filters
+                          label.country-label
+                            span.country-span
                           span.countryHelper
                       li
                         a(href='#')
                           span.location_name Other
                           input(type='checkbox', name='seller_country', value="ETC").checkbox.country_filters
+                          label.country-label
+                            span.country-span
                           span.countryHelper
               .right_product_box.mini
                 .product_wrap
@@ -1442,6 +1456,12 @@ html(lang='en')
         location.reload()
         })
 
-        $('fieldset label').click(function () {
+        $('fieldset label').click(function (e) {
+            e.preventDefault()
+            $(this).closest('li').find('input').click()
+        })
+
+        $('label span').click(function (e) {
+            e.preventDefault()
             $(this).closest('li').find('input').click()
         })
