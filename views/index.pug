@@ -1452,13 +1452,8 @@ html(lang='en')
         })
 
         $('.logout').click(() => {
-        store.clearAll()
+            store.clearAll()
         location.reload()
-        })
-
-        $('fieldset label').click(function (e) {
-            e.preventDefault()
-            $(this).closest('li').find('input').click()
         })
 
         $('label span').click(function (e) {
