@@ -1874,6 +1874,27 @@ label span {
 .ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em;}
 .ui-slider .ui-slider-handle {    position: absolute;    z-index: 2;    width: 1.2em;    height: 1.2em;    cursor: default;    -ms-touch-action: none;    touch-action: none;}
 
+#coverPhoto {
+	position: absolute;
+	width: 400px;
+	height: 484px;
+	top: 0px;
+	left: 0;
+	z-index: 2;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.subPhoto {
+	width: 200px;
+	height: 242px;
+	top: 0px;
+	left: 0;
+	z-index: 2;
+	opacity: 0;
+	cursor: pointer;
+}
+
 /*settings*/
 #user_settings { max-width: 540px;   width: 100%;    margin: 0 auto;}
 #user_settings h1{border:1px solid rgba(204,204,204,1); padding:7px 0; margin-bottom:30px;}
