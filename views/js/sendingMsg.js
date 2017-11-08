@@ -4,18 +4,17 @@ $(function() {
     $('.offer').click(async e => {
         e.preventDefault()
         let isduplicated = await checkDuplicated()
-        console.log("disc", isduplicated)
-
+        let recipient = $('.sub-title a').first().text().replace('/u/', '')
         if(isduplicated) window.location = '/myaccount/messages'
-        else window.location = `/message/offer/q/${productURL}`
+        else window.location = `/message/offer/${recipient}/${productURL}`
     })
 
     $('.question').click(async e => {
         e.preventDefault()
         let isduplicated = await checkDuplicated()
-
+        let recipient = $('.sub-title a').first().text().replace('/u/', '')
         if(isduplicated) window.location = '/myaccount/messages'
-        else window.location = `/message/question/q/${productURL}`
+        else window.location = `/message/question/${recipient}/${productURL}`
     })
 })
 

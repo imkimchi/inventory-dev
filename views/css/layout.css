@@ -14,6 +14,11 @@ input[name="gender_name"], input[name="productCategory"], input[name="seller_cou
 	-ms-appearance: checkbox;
 }
 
+.designer-search {
+	margin: 0px auto;
+	width: 100%!important;
+}
+
 
 .unread-big {
 	display: inline-block;
@@ -1058,10 +1063,6 @@ html.active #wrap {
 .mypage_container .txt{text-align:center; color:#c7c8c7; font-family:ProximaNovaA-Regular; font-size:15px; margin-bottom:40px; line-height:160%;}
 .mypage_container .txt a{color:#5e5f5f; text-decoration:underline; font-family:ProximaNovaA-Regular;  font-size:15px}
 
-.index {
-	margin-bottom: 60px;
-}
-
 .comment-box {
 	width: 100%;
 	border-bottom: 1px solid #e1e1e1;
@@ -1395,7 +1396,7 @@ h3.price-drop {
 .user-widget.medium>h1.sub-title.semi-bold a{ font-size: 0.8rem;}
 .user-widget.medium .feedbackwrap{overflow:hidden; width:200px; margin:0 auto}
 .user-widget.medium .feedback ul{float:left; width:50% }
-.user-widget.medium .feedback p{float:left; width:50%; border-left:1px solid rgba(204,204,204,1); box-sizing:border-box; font-weight:bold }
+.user-widget.medium .feedback p{float:right; width:50%; border-left:1px solid rgba(204,204,204,1); box-sizing:border-box; font-weight:bold }
 .bought-and-soldwrap {float:right; width:50%; text-align:right}
 .bought-and-soldwrap .bought-and-sold{}
 .user-widget-bottom{float:left; width:50%; margin-bottom:50px;}

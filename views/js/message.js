@@ -32,7 +32,7 @@ $(document).on('click', '.button', () => {
             headers: {'Authorization': store.get('jwtToken')},
 		    data: payload
     }
-
+    
     sendReq(option)
 })
 

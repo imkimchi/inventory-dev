@@ -593,12 +593,7 @@ html(lang='en')
                     a(href='/u/' + data.seller) #{data.seller}
                   .feedback
                     .feedbackwrap
-                      ul
-                        i.fa.fa-star-o
-                        i.fa.fa-star-o
-                        i.fa.fa-star-o
-                        i.fa.fa-star-o
-                        i.fa.fa-star-o
+                      span 0.0
                       p Feedback
                   .user-widget-bottom
                     p.user-location
@@ -709,3 +704,7 @@ html(lang='en')
           let seller = $('h1.sub-title.semi-bold a').text()
           window.location = `/u/${seller}/#product-list`
       })
+
+      if (!$('.unread-big').length) {
+          $('.header_row .right_header_box .member_category li:last-child').css("padding-top", "8px")
+      }

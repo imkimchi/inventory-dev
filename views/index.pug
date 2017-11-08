@@ -17,6 +17,7 @@ html(lang='en')
     link(rel='stylesheet', href='./css/flexslider.css')
     link(rel='stylesheet', href='./css/slider.css')
     link(rel='stylesheet', href='./css/jquery.fancybox.css')
+    link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css")
   body
     // mypage
     #mypage_wrap.mypage_container_cover
@@ -47,11 +48,9 @@ html(lang='en')
                   a(href='./mypage/join.html#') join
             li
               a(href='./myaccount') #{username}
-                .unread-big #{unReadMsg}
               ul
                 li
                   a(href='./myaccount/messages') Messages
-                  .unread-small #{unReadMsg}
                 li
                   a(href='./myaccount/myitems') My items
                 li
@@ -230,10 +229,11 @@ html(lang='en')
                   a.sell(href='#') SELL
                 li
                   a.enter(href='#') MY PAGE
-                li
+                li(style="padding-top: 8px!important;")
                   if username
                     a.account(href='#') #{username}
-                    .unread-big #{unReadMsg}
+                    if unReadMsg
+                      .unread-big #{unReadMsg}
                   else
                     a.mypage(href="/mypage/login.html") ENTER
             .left_header_box
@@ -471,7 +471,8 @@ html(lang='en')
             ul
               li
                 a(href='./myaccount/messages') MESSAGES
-                .unread-small #{unReadMsg}
+                if unReadMsg
+                  .unread-small #{unReadMsg}
               li
                 a(href='./myaccount/myitems') MY ITEMS
               li
@@ -1394,6 +1395,7 @@ html(lang='en')
       span.shadow
     .black_shadow
     script(src='./js/lib/store.min.js')
+    script(src="//code.jquery.com/jquery-1.9.1.js")
     script(src='./js/jquery.js')
     script(src='./js/jquery.form.min.js')
     script(src='./js/jquery.swiper.min.js')
@@ -1423,6 +1425,8 @@ html(lang='en')
     script(src='./js/lib/mixitup_multifilter.min.js')
     script(src='./js/filter.js')
     script(src='/js/like.js')
+    script(src='http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+    script(src='/js/autocomplete.js')
 
     script.
         $(document).on('click', '.selectbtn i', function () {
@@ -1447,14 +1451,19 @@ html(lang='en')
 
         $('.logout').click(() => {
             store.clearAll()
-        document.cookie = 'jwtToken='
-        location.reload()
+          document.cookie = 'jwtToken='
+          location.reload()
         })
 
         $('.logout').click(() => {
             store.clearAll()
         location.reload()
         })
+
+        if(!$('.unread-big').length) {
+            $('.header_row .right_header_box .member_category li:last-child').css("padding-top", "8px")
+        }
+
 
         $('label span').click(function (e) {
             e.preventDefault()

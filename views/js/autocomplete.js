@@ -1,14 +1,5 @@
 let designers = [
     "032c",
-    "10sei0otto",
-    "11ByBorisBidjanSaberi",
-    "3.1PhillipLim",
-    "3m",
-    "3sixteen",
-    "3x1",
-    "424OnFairfax",
-    "45rpm",
-    "47Brand",
     "A.Testoni",
     "A.P.C.",
     "A1923",
@@ -1069,6 +1060,10 @@ let designers = [
 
 $(function() {
     $('#keyword').autocomplete({
+        source: designers
+    })
+
+    $('#search_filter').autocomplete({
         source: designers
     })
 })

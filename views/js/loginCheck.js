@@ -7,7 +7,7 @@ $(document).ready(() => {
     else
     console.log(jwtToken, isLoggedin)
 
-    if(jwtToken && path != '/') getUnreadCount()
+    if(jwtToken && path != '/') getUnreadCount(jwtToken)
 
     $('.sell').click(() => {
         if(jwtToken) window.location = '/mypage/sell.html'
@@ -29,7 +29,7 @@ $(document).ready(() => {
     })
 })
 
-async function getUnreadCount () {
+async function getUnreadCount (jwtToken) {
     $('.mypage').remove()
 
     let reqOpt = {
@@ -39,8 +39,17 @@ async function getUnreadCount () {
     }
 
     let decodedData = await axios(reqOpt)
-    let menuWithName = $(`<a class='account' href='#'>${decodedData.data.username}</a><div class="unread-big">${decodedData.data.unreadCount}</div>`)
-    $('.member_category li').last().append(menuWithName)
+
+    if(decodedData.data.unreadCount) {
+        let menuWithName = $(`<a class='account' href='#'>${decodedData.data.username}</a><div class="unread-big">${decodedData.data.unreadCount}</div>`)
+        $('.member_category li').last().append(menuWithName)
+    } else {
+        let menuWithName = $(`<a class='account' href='#'>${decodedData.data.username}</a>`)
+        $('.member_category li').last().append(menuWithName)
+    }
+
+
+
     
     $(document).on('hover', '.account', function(){
         $(".accountmenu").stop(true).fadeTo(200,1);

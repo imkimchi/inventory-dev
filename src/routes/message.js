@@ -89,6 +89,7 @@ async function messageHandler (ctx, next) {
     let data = ctx.request.body
     let jwtToken = ctx.request.headers.authorization
 
+    console.log("data from message handler", data)
     let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
     const msgParam = await makeMsgParam(data, decoded)
     const convoParam = await makeconvoParam(data, decoded)
