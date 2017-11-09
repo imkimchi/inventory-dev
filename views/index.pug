@@ -229,7 +229,7 @@ html(lang='en')
                   a.sell(href='#') SELL
                 li
                   a.enter(href='#') MY PAGE
-                li(style="padding-top: 8px!important;")
+                li
                   if username
                     a.account(href='#') #{username}
                     if unReadMsg
@@ -1461,7 +1461,9 @@ html(lang='en')
         })
 
         if(!$('.unread-big').length) {
-            $('.header_row .right_header_box .member_category li:last-child').css("padding-top", "8px")
+            $('.header_row .right_header_box .member_category li:last-child').css("padding-top", "8px!important")
+        } else {
+            $('.header_row .right_header_box .member_category li:last-child').css("padding-top", "2px!important")
         }
 
 

@@ -1600,7 +1600,7 @@ label span {
 .conversations-wrapper .conversation-item-title .item{float:left; width:345px;}
 .conversations-wrapper .conversation-item-title .messages{float:left;}
 
-.conversation-item-cta{border:1px solid #e1e1e1;-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.2);box-shadow: 0px 1px 4px rgba(0,0,0,0.2); padding:20px 40px 20px 40px; background:rgba(255,255,255,1); display:block; width:960px; box-sizing:border-box; margin-top:-15px}
+.conversation-item-cta{border:1px solid #e1e1e1;-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.2);box-shadow: 0px 1px 4px rgba(0,0,0,0.2); background:rgba(255,255,255,1); display:block; width:960px; box-sizing:border-box; margin-top:-15px}
 .conversation-item-cta .pc{display:block;}
 .conversation-item-cta .mobile{display:none;}
 .conversation-item-cta .close { cursor: pointer;    position: absolute;    top: -5px;    right: 5px;    padding: 2px;      width: 15px;    height: 15px;}
@@ -1609,8 +1609,49 @@ label span {
 .conversation-cta{overflow:hidden;}
 .conversation-cta .conversation-left:first-child{float:left; width:100%; margin-top: 0px;}
 .conversation-cta .conversation-right:first-child{float:right; width:100%; margin-top: 0px;}
-.conversation-cta .conversation-left{float:left; width:100%; overflow:hidden}
-.conversation-cta .conversation-right{float:right; width:100%; margin-top:80px}
+.conversation-cta .conversation-left{float:left;
+	padding-left: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width:100%; overflow:hidden}
+.conversation-cta .conversation-right{float:right;
+	background-color: #eee;
+	padding-right: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width:100%;
+}
+.conversation-cta {
+	border-bottom: 1px solid #eee;
+}
+
+
+.offer-cover {
+	padding: 0 40px 0 40px;
+}
+
+.offertxt {
+	margin-bottom: 20px;
+}
+
+.buttons {
+	border-right: 1px solid rgba(204,204,204,1);
+	/* padding-right: 10px; */
+	/* padding-left: 0px; */
+	padding-right: 20px;
+	margin-right: 0px;
+}
+
+.offertxt {
+	margin-bottom: 20px;
+	padding-left: 0px;
+	margin-left: 20px;
+}
+
+.notice-item {
+	background-color: rgba(255, 138, 128, 0.4);
+}
+
 .conversation-cta .conversation-wrap {overflow:hidden; float:left; margin-right:35px}
 .conversation-cta .conversation-wrap .conversation-image{}
 .conversation-cta .conversation-wrap .sub-title{ text-align:center; margin-top:12px}
@@ -1670,9 +1711,8 @@ label span {
 	margin-top: 0px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 20px;
-	padding-bottom: 20px;
-	color: red;
-	font-style: italic;
+	padding: 10px 0;
+	letter-spacing: -1px;
 }
 
 .offer-wrapper {
