@@ -134,7 +134,8 @@ async function makeMsgParam (data, decoded) {
         sender: decoded.username,
         recipient: data.recipient,
         description: data.description,
-        offerPrice: data.offerPrice
+        offerPrice: data.offerPrice,
+        isRead: [decoded.username]
     }
 }
 

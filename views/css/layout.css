@@ -1531,6 +1531,21 @@ label span {
 	background-color:rgb(221, 221, 221);
 }
 
+.conversation {
+	border-bottom: 1px solid #ccc;
+}
+
+
+.unread-msg {
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgba(255, 82, 82, 0.8);
+}
+
 /*buy-sell-page*/
 .conversations-wrapper { padding-top:90px; width:960px; margin:0 auto; min-height:1300px}
 .conversations-wrapper  .title{width:740px;  margin:0 auto;}

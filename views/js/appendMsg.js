@@ -73,12 +73,16 @@ async function appendElements (username, AllConvos) {
                 })
             }
         }
-        
+
+
             for(let message of AllMessages.data) {
+                const isReadByMe = message.isRead.includes(username)
+                console.log(message.isRead, isReadByMe, username)
+
+
                 let description =  message.description
                 let sender = message.sender
                 let sent_date = moment(message.createdDate).format('LT')
-
                 let profilePic = message.profilePic
                 let $message = $(`<div class="conversation conversation-${isSenderMe(sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${profilePic}"></div> <div class="sub-title"> ${sender} </div> </div> <div class="messages" data-id="${message._id}"> <div class="messagestxt"> ${description} </div> <div class="date"> ${sent_date} </div> </div> </div>`)
                 let $offermessage = $(`<div class="conversation conversation-${isSenderMe(sender)}"> <div class="conversation-wrap"> <div class="conversation-image"><img src="..${profilePic}"></div> <div class="sub-title"> ${sender} </div> </div> <div class="messages" data-id="${message._id}"> <div class="messagestxt"> ${description} </div><div id="offerprice">Sent Offer $${message.offerPrice}</div><div class="date"> ${sent_date} </div> </div> </div>`)
@@ -86,6 +90,11 @@ async function appendElements (username, AllConvos) {
 
                 let lastConvos = $convo.find('.conversation')
                 let container = $convo.find('.conversation-cta')
+
+
+                if(!isReadByMe && !$convo.find('.unread-msg').length) {
+                    $convo.find('.conversation-listing-image').before('<span class="unread-msg"></span>')
+                }
 
                 if(message.offerPrice) {
                     if(lastConvos.length) lastConvos.last().after($offermessage)
@@ -99,7 +108,15 @@ async function appendElements (username, AllConvos) {
                         else $message.prependTo(container)
                     }
                 }
+
+
             }
+
+        const lastIndex = AllMessages.data.length -1
+        const isReadByMe = AllMessages.data[lastIndex].isRead.includes(username)
+        if(!isReadByMe) {
+
+        }
             $container.append($convo)
         }
 }

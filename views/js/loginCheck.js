@@ -7,7 +7,24 @@ $(document).ready(() => {
     else
     console.log(jwtToken, isLoggedin)
 
-    if(jwtToken && path != '/') getUnreadCount(jwtToken)
+    if(jwtToken && path != '/') {
+        getUnreadCount(jwtToken)
+    }
+
+    if(path != '/') {
+        console.log("yes nigg!")
+        $('.m4').replaceWith("<div class='m4'>SEARCH</div>")
+        $('.m4').css({
+            "padding" : "0px 4px",
+        "line-height" : "15px",
+        "font-size": "13px",
+        "display": "block",
+        "border-bottom": "1px solid #fff",
+        "margin": "0 10px"
+        })
+        $('.m4').hover(function(){ $(this).css('cursor', 'pointer')})
+        $('.m4').click(() => window.location = '/#keyword')
+    }
 
     $('.sell').click(() => {
         if(jwtToken) window.location = '/mypage/sell.html'

@@ -30,18 +30,14 @@ async function chatFeature (io) {
         })
 
         socket.on('channel', id => {
-            console.log("channel joined", id)
             socket.join(id)
         })
         
         socket.on('quit', async data => {
-            console.log("channel quit", data.convoId)
-            console.log("last message id", data.lastMessage)
 
                 try {
                     let allMessages = await Convo.findOne({_id: data.convoId})
                     let newArr = allMessages.messages
-                    console.log(newArr, typeof newArr)
 
                     let res = await Message.update(
                         { _id: { $in: newArr }, isRead: { $nin: [data.username]} },
@@ -49,7 +45,6 @@ async function chatFeature (io) {
                         { multi: true }
                     )
 
-                    console.log("res", res)
             } catch (e) {
                 console.error("failed to update all messages", e)
             }
@@ -58,16 +53,12 @@ async function chatFeature (io) {
         })
 
         socket.on('offer', async data => {
-            console.log("identifier", data.identifier)
-
             let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
             let convo = await Convo.findOne({_id: data.id})
             let param = await makeMsgParam(data, convo, decoded, data.identifier)
 
             let message = new Message(param)
             let res = await message.save()
-
-            console.log("message id in util/msg", message._id)
 
             if(data.identifier) {
                 await Convo.update(
@@ -92,19 +83,20 @@ async function chatFeature (io) {
                 "counterOffer": param.counterOffer ? param.counterOffer : false
             }
 
-            console.log("counter", data.id)
             io.sockets.in(data.id).emit('offerHandle', msgInfo)
         })
 
         socket.on('chat', async data => {
-            console.log("data", data)
             let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
             let convo = await Convo.findOne({_id: data.id})
             let param = await makeMsgParam(data, convo, decoded)
 
             let message = new Message(param)
-            let res = await message.save()
 
+            message.isRead.set(0, decoded.username)
+            message.markModified('propChanged')
+            
+            let res = await message.save()
             if(param.offerPrice) {
                 await Convo.update(
                     {_id: convo._id},
@@ -154,7 +146,8 @@ async function makeMsgParam (data, convo, decoded, acceptOrCounter) {
         description: data.desc,
         offerPrice: data.offerPrice,
         acceptOffer: acceptOrCounter === "accept" && true,
-        counterOffer: acceptOrCounter === "counter" && true
+        counterOffer: acceptOrCounter === "counter" && true,
+        isRead: [decoded.username]
     }
 }
 
