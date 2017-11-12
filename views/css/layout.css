@@ -1021,8 +1021,37 @@ html.active #wrap {
 .mypage_step3 .sdtitle{font-size:16px; margin-bottom:40px;}
 .mypage_step3 .setitle a{border-bottom:1px dotted #CCC; }
 
+.one {
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000000;
+	background-color: hsla(0,0%,0%,0.54)!important;
+}
 
-.mypage_container_cover{background:rgba(255,255,255,0); width:100%; position:absolute; /* z-index:20000;*/}
+
+.two {
+	position: relative;
+	z-index: 100;
+	text-align: center;
+	width: calc(100% - 88px);
+	/* margin-bottom: 15vh; */
+	padding: 16px 24px 24px;
+	background-color: #fafafa;
+	border-radius: 2px;
+	max-width: 500px;
+	min-width: 320px;
+	max-height: 500px;
+}
+
+.mypage_container_cover{background:rgba(255,255,255,0); width:100%; /* z-index:20000;*/}
 .mypage_container_cover .close{position:absolute; right:10px; top:10px; }
 .mypage_step3 .close{position:absolute; right:10px; top:10px; }
 .mypage_container_coverblue{background:rgba(80,124,110,0.8); width:100%; height:100%; position:absolute; top:0; bottom:0; z-index:20 }
@@ -2167,6 +2196,91 @@ div.form-group > button {
 .features-wrapper .instgram h3{font-size:1.2rem; padding-bottom:15px;}
 .features-wrapper .instgram li{float:left; width:245px; height:245px; background:#ebeced; margin-right:5px; margin-bottom:5px; box-sizing:border-box}
 
+.sell_form_container .sell_form_section_row .sell_form_gender_section ol li:last-child{margin-right:0;}
+.btn a{ display: inline-block; margin-bottom: 0;  font-weight: normal;  text-align: center;  vertical-align: middle; touch-action: manipulation;  cursor: pointer;    background-image: none;  border: 1px solid transparent;    white-space: nowrap;      font-size: 14px;    line-height: 1.42857;    border-radius: 0px;    -webkit-user-select: none;    -moz-user-select: none;    -ms-user-select: none;    user-select: none;	padding: 10px 12px;	box-sizing:border-box;	display:block;	color:#FFFFFF;}
+
+
+.mypage_step3{position:absolute; width:800px; border:1px solid rgb(204,204,204); background:rgba(255,255,255,1); padding:100px; box-sizing:border-box; left:50%; margin-left:-400px; top:20%;text-align:center; z-index:200; display:none}
+.mypage_step3 .saitle{text-align:center; margin-bottom:20px;}
+.mypage_step3 .sbtitle{font-size:30px; text-align:center; padding:0px 0 20px ; font-weight:bold}
+.mypage_step3 .sctitle{border:1px solid rgb(204,204,204); border-left:none; border-right:none; padding:8px 0; font-size:16px; text-align:center; margin-bottom:50px}
+.mypage_step3 .sdtitle{font-size:16px; margin-bottom:40px;}
+.mypage_step3 .setitle a{border-bottom:1px dotted #CCC; }
+
+
+.buy-now-x:hover {
+	cursor: pointer;
+}
+
+.mypage_container_cover{/* background:rgba(255,255,255,0); *//* width:100%; *//* position:absolute; *//* z-index:20000; */}
+.mypage_container_cover .close{position:absolute; right:10px; top:10px; }
+.mypage_step3 .close{position:absolute; right:10px; top:10px; }
+.mypage_container_coverblue{background:rgba(80,124,110,0.8); width:100%; height:100%; position:absolute; top:0; bottom:0; z-index:20 }
+.mypage_container ::-webkit-input-placeholder {font-style: italic;}
+.mypage_container :-moz-placeholder {font-style: italic;}
+.mypage_container ::-moz-placeholder { font-style: italic;}
+.mypage_container :-ms-input-placeholder { font-style: italic; }
+.mypage_container {margin: 130px auto 230px auto; max-width: 530px; }
+.mypage_container h1{font-size:26px; display: inline-block; font-family:Open Sans; color:#5e5f5f; text-align:center; margin-bottom:20px;}
+.complate h1{color:rgba(255,255,255,1); background:url(../images/0.-Enter_2_Forgot-your-password_2.png) no-repeat center top; padding-top:120px;}
+.complate .subtitle{color:rgba(255,255,255,1)}
+.mypage_container .subtitle{margin-bottom:70px;  text-align:center; font-size:16px; font-family:Open Sans; font-style:italic; }
+.mypage_container .form-group label{display: block; width: 0; height:0; text-indent: -9000px; overflow: hidden;}
+.mypage_container .form-control { display: block; width: 100%;  padding:5px 10px;   font-size: 14px; line-height: 1.42857; color: #b4b4b4;  background-color: #fff;
+	background-image: none;   border: 1px solid #e8e8e8;   border-radius: 0px;      -webkit-transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+	-o-transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;   transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;box-sizing:border-box;}
+.mypage_container .form-group{margin-bottom:6px; overflow:hidden;}
+.mypage_container .form-group-txt{padding-top:20px;}
+.mypage_container .btn-block { display: block; width: 100%;}
+.mypage_container .btn-login{ color: #fff; background-color: #5e5f5f;background:#5e5f5f ;text-transform:uppercase;}
+.mypage_container .btn-login span{display:inline-block;width:85px;	background:url(../images/0.-log_in_1.png) no-repeat left center;	}
+.mypage_container .resetbtn span{ background: url(../images/0.-Enter_2_Forgot-your-password.png) no-repeat right center;}
+.mypage_container .btn-login:hover{background-color: #444545;}
+.mypage_container .btn-join, .mypage_container .btn-region{color: #fff;  border-color:#484848;background:#484848; margin-top:20px;}
+.mypage_container .btn-join span {display:inline-block;	width:90px;	background:url(../images/0.-log_in_2.png) no-repeat left center;}
+.mypage_container .changpasswd span{background:url(../images/0.-log_in_2.png) no-repeat right center; width:190px}
+.mypage_container .btn-region span {	display:inline-block;	width:90px;}
+.mypage_container .btn-go{text-transform:capitalize}
+.mypage_container .btn-go span{background-image:none;}
+.mypage_container  .submit{  margin-bottom: 0;    font-weight: normal;    text-align: center;    vertical-align: middle;    touch-action: manipulation;    cursor: pointer;     padding: 10px 12px;
+	background-image: none;    border: 1px solid transparent;    white-space: nowrap;    font-size: 14px;    line-height: 1.42857;    border-radius: 0px;    -webkit-user-select: none;
+	-moz-user-select: none;    -ms-user-select: none;    user-select: none;    box-sizing: border-box;	width:100%;      color: #FFFFFF;    border-color: #507C6E;    background: #507C6E;    text-transform: uppercase; display:block}
+.mypage_container input:focus:required:invalid {border: 1px solid red;}
+.mypage_container input:required:valid { border: 1px solid black; }
+.mypage_container  .submit:hover { background-color: #32746c;}
+.mypage_container .forgetxt{float:right; margin-bottom:35px; margin-top:2px;}
+.mypage_container .forgetxt a{color:#a2a3a2; border-top:dashed #a2a3a2 1px; display:block;  border-bottom:dashed #a2a3a2 1px; padding:5px 0;  font-size:14px;}
+.mypage_container .txt{text-align:center; color:#c7c8c7; font-family:ProximaNovaA-Regular; font-size:15px; margin-bottom:40px; line-height:160%;}
+.mypage_container .txt a{color:#5e5f5f; text-decoration:underline; font-family:ProximaNovaA-Regular;  font-size:15px}
+
+/*join*/
+.join{margin: 0px auto; max-width: 440px;  min-width:320px;}
+.jointitle{font-family:ProximaNovaA-Regular; font-size:16px; margin-bottom:25px;  font-weight:bold}
+.mypage_container .formjoin-group{margin-bottom:10px; overflow:hidden; }
+
+.mypage_container .formjoin-group .star{font-size:20px; position:relative; top:4px; left:4px; display:inline-block}
+.mypage_container .formjoin-group label{width:120px; float:left; display:block; line-height:35px; font-size:14px; color:#878888}
+.mypage_container .formjoin-group .form-join{width:320px; float:left;}
+.mypage_container .btn-account{ color: #fff;  border-color: #507C6E;	background:#507C6E ;text-transform:capitalize	}
+.mypage_container .btn-account span {	display:inline-block;	width:170px;	background:url(../images/0.-log_in_3.png) no-repeat right center;	}
+.mypage_container .btn-account:hover{background-color:#32746c;}
+.mypage_container .gray-btn{background:#5e5f5f;}
+.mypage_container .gray-btn:hover{background:#444545;}
+
+
+.jointxt{color:#507C6E; text-align:center;}
+.jointxt1{padding:10px 0; font-size:14px}
+.jointxt2{ font-size:15px; font-style:italic;  font-family:ProximaNova-Semibold; }
+
+.navi{width:160px; position:absolute; left:50%; top:360px; margin-left:320px; color:#d8d9d8;  z-index:10}
+.navi .navicover .on{height:37px; position:relative; border-left:1px solid #ebecec}
+.navi .circle {	border-radius: 50%;	width: 12px;	height: 12px; display:inline-block; position:relative; left:-7px; top:1px }
+.navi .circleon{ background:#507C6E;}
+.navi .circleoff{background:#d8d9d8;}
+.navi .on{ color:#507C6E;}
+.navi .ttab{}
+.navi .navicover{padding-left:20px;  display:block; border-radius:10px; left:0px; width:160px;}
+.navi .navicover:hover{ background:url(../images/navi_hover.png) no-repeat;}
 
 /*shopinfo*/
 .shipform-wrapper {margin: 230px auto 230px auto; max-width: 500px}

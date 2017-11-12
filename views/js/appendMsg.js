@@ -54,7 +54,7 @@ async function appendElements (username, AllConvos) {
                 console.log("buy")
                 if(convo.sold) {
                     console.log('sold')
-                    $convo.find('.activity-log-item-content').prepend($('<button class="buy-now">Buy Now</button>'))
+                    $convo.find('.activity-log-item-content').prepend($('<button class="buy-noww">Buy Now</button>'))
                     $convo.find('.activity-log-item-content').css('padding-top', '7px')
                 }
             }

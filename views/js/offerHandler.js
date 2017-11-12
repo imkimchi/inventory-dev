@@ -15,6 +15,27 @@ $(document).on('click', '#counter', function() {
     $('.modal').attr('data-id', convoId)
 })
 
+$(document).on('click', '.buy-noww', function (e) {
+    e.preventDefault()
+
+    let convoId = $(this).closest('.mix').attr('data-id')
+    $('.one').css('display', 'flex')
+    $('.one').attr('data-id', convoId)
+})
+
+$(document).on('click', '.buy-now-x', function () {
+    $('.one').css('display', 'none')
+    $('.shipform-wrapper input').val('')
+    $('.shipform-wrapper option[value=""]').prop('selected', true)
+})
+
+$(document).on('click', '#shipping-btn', function (e) {
+    e.preventDefault()
+    let convoId = $(this).closest('.one').attr('data-id')
+    let productUrl = $(`.mix[data-id="${convoId}"]`).attr('data-url')
+    window.location.href = `/listings/${productUrl}`
+})
+
 $(document).on('click', '.counter_container i', function () {
     let convoId = $(this).closest('.mix').attr('data-id')
     $('.modal').css('display', 'none')
