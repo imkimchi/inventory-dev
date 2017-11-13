@@ -351,9 +351,11 @@ html.active #wrap {
 	padding-right: 0px;
 }
 
+/*
 .header_row .right_header_box .member_category li:last-child {
 	padding-top: 2px;
 }
+*/
 
 .header_row .right_header_box .member_category li a {
 	padding: 0px 24px; line-height: 13px; font-size: 13px; display: block;
@@ -362,6 +364,12 @@ html.active #wrap {
 
 
 .header_row .right_header_box .member_category li:hover{background:url(../images/dot.png) no-repeat top center; }
+
+.header_row .right_header_box .member_category li:last-child:hover{
+	background:url(../images/dot.png) no-repeat top center;
+	background-position: 70% 20%;
+}
+
 .header_row .right_header_box .member_category li a:hover {transition:none; border-bottom:1px solid #CCC}
 .header_row .right_header_box .member_category li a {padding: 0px 4px; line-height: 15px; font-size: 13px; display: block;  border-bottom:1px solid #fff ; margin:0 10px}
 

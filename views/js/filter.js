@@ -48,11 +48,7 @@ $(function() {
         }
     })
 
-    $('head').append('<style>.category_filters:checked + span.all:before {background-color:rgb(255, 255, 255)}</style>');
 })
-    $categoryFilter.each(function () {
-        $(this).css('background-color', 'rgb(255, 255, 255)')
-    })
 
     $('input[type="text"]').each(function () {
         if ($(this).val()) $(this).val('')
@@ -73,7 +69,17 @@ $(function() {
     )
     })
 
-    $categoryFilter.on('change', radioFilters)
+    $categoryFilter.on('change', function () {
+        console.log("this.value", this.value)
+        let css = $(this).closest('div').find('span.all').css('background-color')
+        console.log("css", css)
+
+        if(css === "rgb(221, 221, 221)") {
+            mixer.toggleOff(`[data-category="${this.value}"]`)
+        } else {
+            mixer.filter(`[data-category="${this.value}"]`)
+        }
+    })
 
     $minPriceFilter.on('keyup', function () {
         let minPrice = parseInt(this.value.trim())

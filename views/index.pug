@@ -117,9 +117,10 @@ html(lang='en')
               ul.mcategory
                 li
                   a(href='#') Tops
+                  input(type='radio', name='category_name')
                   label
-                    input(type='radio', name='category_name')
-                    span ALL
+                    span
+
                 li
                   a(href='#') Bottoms
                   label
@@ -872,39 +873,45 @@ html(lang='en')
                       li
                         a(href='#') Tops
                         .category_all_btn_box
+                          input(type='checkbox', value="Tops").checkbox.category_filters
                           label
-                            input(type='radio', value="Tops").checkbox.category_filters
-                            span.all All
+                            span.all
+                            | All
                       li
                         a(href='#') Bottoms
                         .category_all_btn_box
+                          input(type='checkbox', value="Bottoms").checkbox.category_filters
                           label
-                            input(type='radio', value="Bottoms").checkbox.category_filters
-                            span.all All
+                            span.all
+                            | All
                       li
                         a(href='#') Outerwear
                         .category_all_btn_box
+                          input(type='checkbox', value="Outerwear").checkbox.category_filters
                           label
-                            input(type='radio', value="Outerwear").checkbox.category_filters
-                            span.all All
+                            span.all
+                            | All
                       li
                         a(href='#') Footwear
                         .category_all_btn_box
+                          input(type='checkbox', value="Footwear").checkbox.category_filters
                           label
-                            input(type='radio', value="Footwear").checkbox.category_filters
-                            span.all All
+                            span.all
+                            | All
                       li
                         a(href='#') Tailoring
                         .category_all_btn_box
+                          input(type='checkbox', value="Tailoring").checkbox.category_filters
                           label
-                            input(type='radio', value="Tailoring").checkbox.category_filters
-                            span.all All
+                            span.all
+                            | All
                       li
                         a(href='#') Accessories
                         .category_all_btn_box
+                          input(type='checkbox', value="Accessories").checkbox.category_filters
                           label
-                            input(type='radio', value="Accessories").checkbox.category_filters
-                            span.all All
+                            span.all
+                            | All
                   .indiv_filter_box
                     strong.title SIZE
                     ul.size_list
