@@ -1,0 +1,1770 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 5.board_list
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/CSS/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/flags.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //
+      if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='/JS/underscore-min.js')
+    script(type='text/javascript', src='/JS/jquery_003.js')
+    script(type='text/javascript', src='/JS/jquery-ui.js')
+    script(type='text/javascript', src='/JS/bootstrap.js')
+    script(type='text/javascript', src='/JS/moment.js')
+    script(type='text/javascript', src='/JS/numeral.js')
+    script(type='text/javascript', src='/JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='/JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='/JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='/JS/ZeroClipboard.js')
+    script(type='text/javascript', src='/JS/clipboard.js')
+    script(type='text/javascript', src='/JS/jquery_004.js')
+    script(type='text/javascript', src='/JS/jquery_007.js')
+    script(type='text/javascript', src='/JS/jquery.js')
+    script(type='text/javascript', src='/JS/messages_ko.js')
+    script(type='text/javascript', src='/JS/additional-methods.js')
+    script(type='text/javascript', src='/JS/jquery_005.js')
+    script(type='text/javascript', src='/JS/jquery_006.js')
+    script(type='text/javascript', src='/JS/common2.js')
+    script(type='text/javascript', src='/JS/common.js')
+    script(type='text/javascript', src='/JS/schedule.js')
+    script(type='text/javascript', src='/JS/jquery_002.js')
+    script(type='text/javascript', src='/JS/admin_panel_api.js')
+    script(type='text/javascript', src='/JS/member.js')
+    script(type='text/javascript', src='/JS/sms.js')
+    script(type='text/javascript', src='/JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=board__board___board_register#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      // 툴팁 데이터
+      var tooltipData = [{"title":"기본설정","attribute":"유형","content":"필수항목. 미선택 시 등록불가. 생성 후 수정불가","cntWidth":""},{"title":"기본설정","attribute":"아이디","content":"필수항목. 2~30자\\\/영문으로 시작\/숫자 가능. 생성 후 수정불가","cntWidth":""},{"title":"기본설정","attribute":"이름","content":"필수. 최대 30자\/한글\/영문\/특수문자\/숫자 가능. 생성후수정불가","cntWidth":""},{"title":"기본설정","attribute":"게시판스킨","content":"필수항목. 유형 선택 후 스킨 선택 가능.","cntWidth":""},{"title":"기본설정","attribute":"저장위치","content":"&quot;기본설정&gt;기본 정책&gt;파일 저장소 관리&quot;에서 저장위치 추가","cntWidth":""},{"title":"기능설정","attribute":"말머리기능","content":"말머리 별 엔터로 구분. 최대 50개 등록가능","cntWidth":""}];
+      var sectionEle = null;
+      $('#content .table.table-cols th').each(function(idx){
+      if ($(this).closest('table').siblings('.table-title').length) {
+      sectionEle = $(this).closest('table').prevAll('.table-title:first');
+      } else if ($(this).closest('table').parent('div').siblings('.table-title').length) {
+      sectionEle = $(this).closest('table').parent('div').prevAll('.table-title:first');
+      } else {
+      sectionEle = $(this).closest('table').parent('div').parent('div').prevAll('.table-title:first');
+      }
+      if (typeof sectionEle[0] !== "undefined") {
+      var sectionTitle = $(sectionEle[0]).html().replace(/\\\(?<\/?[^*]+>/gi, '').trim().replace(/ /gi, '').replace(/\n/gi, '');
+      var titleName = $(this).text().trim().replace(/ /gi, '').replace(/\\\n/gi, '');
+      for (var i in tooltipData) {
+      if (tooltipData[i].title == sectionTitle) {
+      if (tooltipData[i].attribute == titleName) {
+      $(this).append('<button type="button" class="btn btn-xs js-tooltip" title="' + tooltipData[i].content + '" data-placement="right" data-width="' + tooltipData[i].cntWidth + '"><span class="icon-tooltip"></span></button>');
+      }
+      }
+      }
+      }
+      });
+      if ($('.js-tooltip').length > 0) {
+      // 툴팁 초기화
+      $(document).on({
+      'click': function() {
+      if ($(this).attr('aria-describedby')) {
+      $(this).tooltip('destroy');
+      } else {
+      var option = {
+      trigger: 'click',
+      container: '#content',
+      html: true,
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div><button class="tooltip-close">close</button></div>',
+      };
+      $(this).on('shown.bs.tooltip', function () {
+      $(".tooltip.in").css({
+      width: $(this).data('width'),
+      maxWidth: "none",
+      });
+      });
+      $(this).tooltip(option).tooltip('show');
+      }
+      }
+      }, '.js-tooltip');
+      $(document).on('click', '.tooltip.in .tooltip-close', function () {
+      $('.js-tooltip[aria-describedby=' + $(this).parent().attr('id') + ']').trigger('click');
+      });
+      }
+      });
+      //-->
+  body.board.board-register.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                     )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy(href='#', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='#', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='#', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='#', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board.active(href='#', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='#', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.board
+              h2 게시판
+            .panel
+              .panel-heading.menu-icon-minus 게시판 관리
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 게시판 리스트
+                li.list-group-item.active
+                  a(href='#') 게시판 등록
+                li.list-group-item
+                  a(href='#') 게시글 관리
+                li.list-group-item
+                  a(href='#') 게시판 스킨 관리
+          #content.row
+            .col-xs-12
+              script#templateBdAllowDomain(type='text/html').
+                <li class="mgb5">
+                <input type="text" name="bdAllowDomain[]" class="form-control" size="40"/>
+                <input type="text" name="bdAllowDomain[]" class="form-control" size="40"/>
+                <button type="button" class="btn btn-sm btn-white btn-icon-minus js-allow-domain-minus">삭제</button>
+                </li>
+              script(type='text/javascript').
+                <!--
+                // 테마별 리스트형태
+                var themes = {"default":{"sno":"150","themeNm":"\\\uc77c\ubc18\ud615(\uae30\ubcf8)","bdKind":"default"},"qa":{"sno":"151","themeNm":"1:1\ubb38\uc758(\uae30\ubcf8)","bdKind":"qa"},"event":{"sno":"152","themeNm":"\uc774\ubca4\ud2b8(\uae30\ubcf8)","bdKind":"event"},"gallery":{"sno":"153","themeNm":"\uac24\ub7ec\ub9ac(\uae30\ubcf8)","bdKind":"gallery"},"aaaaaa":{"sno":"89","themeNm":"\u3141\u3141\u3141\u3141\u3141","bdKind":"default"},"test_test":{"sno":"91","themeNm":"test_test","bdKind":"default"},"test_test238":{"sno":"92","themeNm":"test_test","bdKind":"event"},"test_test960":{"sno":"93","themeNm":"test_test","bdKind":"default"},"test_test304":{"sno":"94","themeNm":"test_test","bdKind":"default"},"test_test989":{"sno":"96","themeNm":"test_test","bdKind":"default"},"test_test977":{"sno":"97","themeNm":"test_test","bdKind":"default"},"test_skin_code69":{"sno":"98","themeNm":"test_test","bdKind":"event"},"test_skin_code594":{"sno":"99","themeNm":"test_test","bdKind":"event"},"test_skin_code377":{"sno":"100","themeNm":"test_test","bdKind":"event"},"test_skin_code_359":{"sno":"101","themeNm":"test_test","bdKind":"event"},"test_skin_code_4":{"sno":"102","themeNm":"test_test","bdKind":"event"},"test_skin_code_942":{"sno":"103","themeNm":"test_test","bdKind":"event"},"code983":{"sno":"104","themeNm":"test_test","bdKind":"event"},"code_2183":{"sno":"105","themeNm":"test_test","bdKind":"event"},"code_28":{"sno":"106","themeNm":"test_test","bdKind":"event"},"code_2723632":{"sno":"107","themeNm":"title779229","bdKind":"event"},"skin_code_test_671808":{"sno":"108","themeNm":"skin_code_title_175175","bdKind":"event"},"skin_code_test_868273":{"sno":"109","themeNm":"skin_code_title_803059","bdKind":"event"},"skin_code_test_307835":{"sno":"110","themeNm":"skin_code_title_206746","bdKind":"event"},"skin_code_test_393415":{"sno":"111","themeNm":"skin_code_title_149056","bdKind":"event"},"skin_code_test_615509":{"sno":"112","themeNm":"skin_code_title_371521","bdKind":"event"},"skin_code_test_719560":{"sno":"113","themeNm":"skin_code_title_128464","bdKind":"event"},"skin_code_test_499700":{"sno":"114","themeNm":"skin_code_title_315514","bdKind":"event"},"skin_code_test_463376":{"sno":"115","themeNm":"skin_code_title_20948","bdKind":"event"},"skin_code_test_337773":{"sno":"116","themeNm":"skin_code_title_267969","bdKind":"event"},"skin_code_test_238836":{"sno":"117","themeNm":"skin_code_title_126129","bdKind":"event"},"skin_code_test_195445":{"sno":"118","themeNm":"skin_code_title_104398","bdKind":"event"},"asd":{"sno":"119","themeNm":"skin_code_title_104398","bdKind":"gallery"},"skin_code_test_928617":{"sno":"120","themeNm":"skin_code_title_527717","bdKind":"event"},"skin_code_test_998102":{"sno":"121","themeNm":"skin_code_title_6079","bdKind":"event"},"skin_code_test_52284":{"sno":"122","themeNm":"skin_code_title_342387","bdKind":"event"},"skin_code_test_539889":{"sno":"123","themeNm":"skin_code_title_485238","bdKind":"event"},"skin_code_test_950422":{"sno":"124","themeNm":"skin_code_title_652119","bdKind":"event"},"skin_code_test_260183":{"sno":"125","themeNm":"skin_code_title_987588","bdKind":"event"},"skin_code_test_581972":{"sno":"126","themeNm":"skin_code_title_952767","bdKind":"event"},"skin_code_test_994748":{"sno":"127","themeNm":"skin_code_title_476948","bdKind":"event"},"skin_code_test_195443":{"sno":"128","themeNm":"test_\uac8c\uc2dc\ud310_\uc2a4\ud0a8\uba85","bdKind":"event"},"skin_code_test_814348":{"sno":"129","themeNm":"skin_code_title_757085","bdKind":"event"},"skin_code_test_256825":{"sno":"130","themeNm":"skin_code_title_570458","bdKind":"event"},"a11111111111111111111570203":{"sno":"131","themeNm":"title919424","bdKind":"event"},"skin_code_test_465033":{"sno":"132","themeNm":"skin_code_title_422828","bdKind":"event"},"skin_code_test_40450":{"sno":"133","themeNm":"skin_code_title_539741","bdKind":"event"},"skin_code_test_390888":{"sno":"134","themeNm":"skin_code_title_459766","bdKind":"event"},"skin_code_test_837294":{"sno":"135","themeNm":"skin_code_title_814373","bdKind":"event"},"skin_code_test_523249":{"sno":"136","themeNm":"skin_code_title_907158","bdKind":"event"},"skin_code_test_805677":{"sno":"137","themeNm":"skin_code_title_569850","bdKind":"event"},"skin_code_test_662888":{"sno":"138","themeNm":"skin_code_title_757145","bdKind":"event"},"skin_code_test_355575":{"sno":"139","themeNm":"skin_code_title_311330","bdKind":"event"},"skin_code_test_773238":{"sno":"140","themeNm":"skin_code_title_734853","bdKind":"event"},"skin_code_test_821692":{"sno":"141","themeNm":"skin_code_title_905053","bdKind":"event"},"skin_code_test_264962":{"sno":"142","themeNm":"skin_code_title_871478","bdKind":"event"},"skin_code_test_154837":{"sno":"143","themeNm":"skin_code_title_281396","bdKind":"event"},"aaaaaaaaaaaaaaaaa694030":{"sno":"144","themeNm":"skin_code_title_505501","bdKind":"event"},"skin_code_test_9365":{"sno":"145","themeNm":"skin_code_title_715966","bdKind":"event"},"skin_code_test_226801":{"sno":"146","themeNm":"skin_code_title_85733","bdKind":"event"},"skin_code_test_605925":{"sno":"147","themeNm":"skin_code_title_305309","bdKind":"event"},"skin_code_test_192095":{"sno":"148","themeNm":"skin_code_title_69232","bdKind":"event"},"skin_code_test_22221":{"sno":"149","themeNm":"skin_code_title_282612","bdKind":"event"},"skin_code_test_59418":{"sno":"154","themeNm":"skin_code_title_852826","bdKind":"event"}};
+                // 테마수정으로 이동
+                function addSkin() {
+                window.open("board_theme_register.php");
+                }
+                function layer_register(parentLayerFormID, dataInputNm, dataFormID) {
+                var addParam = {
+                "parentFormID": parentLayerFormID,
+                "dataInputNm": dataInputNm,
+                "dataFormID": dataFormID,
+                };
+                if (dataInputNm == 'bdAuthReplyGroup') {
+                if ($('input[name=bdReplyFl]:checked').val() == 'n') {
+                return;
+                }
+                }
+                else if (dataInputNm == 'bdAuthMemoGroup') {
+                if ($('input[name=bdMemoFl]:checked').val() == 'n') {
+                return;
+                }
+                }
+                else if (dataInputNm == 'bdAuthWriteGroup') {
+                if ($('input[name=bdAuthWrite][value=group]').is(':disabled')) {
+                return;
+                }
+                }
+                layer_add_info('member_group', addParam);
+                }
+                $(document).ready(function () {
+                var mode = $('#frmBoard>input[name=mode]').val();
+                var bdId = $('#frmBoard>input[name=bdId]').val();
+                var arrOnlyGoodsBdId = [];
+                function list_image_target_notice_toggle() {
+                var is_show = true;
+                $('label[class*="js-bdListImageTarget-"]').each(function (idx, item) {
+                if (item.style.display != 'none') {
+                is_show = false;
+                return false;
+                }
+                });
+                $('.js-bdListImageTarget-notice').hide();
+                if (is_show) {
+                $('.js-bdListImageTarget-notice').show();
+                }
+                }
+                $('input[name=bdUploadFl]').bind('click', function () {
+                var $target = $('.js-bdListImageTarget-upload');
+                $target.hide();
+                if ($(this).val() == 'y') {
+                $target.show();
+                } else {
+                $target.find(':radio').prop('checked', false);
+                }
+                list_image_target_notice_toggle();
+                });
+                $('input[name=bdEditorFl]').bind('click', function () {
+                var $target = $('.js-bdListImageTarget-editor');
+                $target.hide();
+                if ($(this).val() == 'y') {
+                $target.show();
+                } else {
+                $target.find(':radio').prop('checked', false);
+                }
+                list_image_target_notice_toggle();
+                });
+                $('input[name=bdGoodsFl]').bind('click', function () {
+                $('input[name=bdGoodsType]').prop('disabled', $(this).val() == 'n');
+                $('input[name=bdGoodsTypeOrderDuplication]').prop('disabled', $(this).val() == 'n');
+                var $target = $('.js-bdListImageTarget-goods');
+                $target.hide();
+                if ($(this).val() == 'y') {
+                $target.show();
+                $('input[name=bdGoodsType]:checked').trigger('click');
+                } else {
+                $target.find(':radio').prop('checked', false);
+                }
+                list_image_target_notice_toggle();
+                });
+                $('input[name=bdGoodsType]').bind('click', function () {
+                $('.js-bdGoodsTypeOrderDuplication').hide();
+                if ($(this).val() == 'order') {
+                $('.js-bdGoodsTypeOrderDuplication').show();
+                }
+                })
+                $('input[name=bdGoodsType]:checked').trigger('click')
+                $('input[name=bdGoodsFl]:checked').trigger('click');
+                if (arrOnlyGoodsBdId.indexOf(bdId) != -1) {
+                $('input[name=bdGoodsFl][value=n]').prop('disabled', true);
+                $('input[name=bdGoodsType][value=order]').prop('disabled', true);
+                $('input[name=bdGoodsType][value=bdGoodsTypeOrderDuplication]').prop('disabled', true);
+                }
+                $('input[name=bdAttachImageDisplayFl]').bind('click', function () {
+                if ($(this).val() == 'y') {
+                $('.bdAttachImageRow').show();
+                }
+                else {
+                $('.bdAttachImageRow').hide();
+                }
+                })
+                $('input[name=bdAttachImageDisplayFl]:checked').trigger('click');
+                $('.js-allow-domain-add').bind('click', function () {
+                var templateBdAllowDomain = _.template($('#templateBdAllowDomain').html())
+                if ($('#domain-allow-box>li').length == 10) {
+                alert('허용도메인은 최대 20개까지 등록가능합니다.');
+                return;
+                }
+                $('#domain-allow-box>li:last').after(templateBdAllowDomain());
+                })
+                $('body').on('click', '.js-allow-domain-minus', function () {
+                $(this).closest('li').remove();
+                })
+                $('input[name=bdReplyFl]').bind('click', function () {
+                $('input[name=bdAuthReply]').prop('disabled', $(this).val() == 'n');
+                })
+                $('input[name=bdReplyFl]:checked').trigger('click');
+                $('input[name=bdMemoFl]').bind('click', function () {
+                $('input[name=bdAuthMemo]').prop('disabled', $(this).val() == 'n');
+                })
+                $('input[name=bdMemoFl]:checked').trigger('click');
+                $('input[type=radio][name^=bdAuth]').bind('click', function () {
+                if ($(this).val() != 'group') {
+                $(this).closest('td').find('.selected-btn-group').html('');
+                }
+                })
+                $('.js-group-select').bind('click', function () {
+                $(this).closest('td').find('input[type="radio"][value="group"]').trigger('click');
+                })
+                //게시판유형
+                var oldCheckedKind = $("input:radio[name=bdKind]:checked").val();
+                $("input:radio[name=bdKind]").bind('change', function (event, isLoad) {
+                var val = $(this).val();
+                if( oldCheckedKind == 'event' && val!= 'event' ){  //유형을 이벤트에서 다른유형으로 수정하는경우 쓰기권한 전체로 변경
+                $('input:radio[name=bdAuthWrite][value=all]').prop('checked',true);
+                }
+                if (val == 'default') {
+                $(':radio[name="bdListImageFl"][value="n"]').closest('label').removeClass('display-none');
+                } else if (val == 'gallery' || val == 'event') {
+                $(':radio[name="bdListImageFl"][value="n"]').closest('label').addClass('display-none');
+                }
+                oldCheckedKind = val;
+                if (isLoad !== true) {
+                loadSkinSelectBox(val, 'n', 'story_g', 'kr');
+                loadSkinSelectBox(val, 'y', 'story_g', 'kr');
+                loadSkinSelectBox(val, 'n', 'story_g_us', 'us');
+                loadSkinSelectBox(val, 'y', 'story_g_us', 'us');
+                loadSkinSelectBox(val, 'n', 'story_g_cn', 'cn');
+                loadSkinSelectBox(val, 'y', 'story_g_cn', 'cn');
+                loadSkinSelectBox(val, 'n', 'story_g_jp', 'jp');
+                loadSkinSelectBox(val, 'y', 'story_g_jp', 'jp');
+                }
+                var isCondition = function (data, val, flag) {
+                var _tmp = data.split('_');
+                if (flag == 'is') { //or
+                for (var i = 0; i < _tmp.length; i++) {
+                if (_tmp[i] == val) {
+                return true;
+                }
+                }
+                return false;
+                }
+                else {
+                for (var i = 0; i < _tmp.length; i++) {
+                if (_tmp[i] != val) {
+                return true;
+                }
+                }
+                return false;
+                }
+                }
+                $('[class^="if-"]').each(function () {
+                className = $(this).attr('class');
+                _className = className.split('-');
+                condition = _className[1];
+                kind = _className[2];
+                actionName = _className[3];
+                arrayAction = actionName.split('_');
+                thisClassEl = $('.' + className);
+                // console.log(className, _className, condition, kind, actionName, arrayAction, thisClassEl);
+                for (var i = 0; i < arrayAction.length; i++) {
+                action = arrayAction[i];
+                if (isCondition(kind, val, condition) == true) {
+                if (action == 'show') {
+                thisClassEl.show();
+                }
+                else if (action == 'hide') {
+                thisClassEl.hide();
+                }
+                else if (action == 'disabled') {
+                thisClassEl.attr('disabled', true);
+                }
+                else if (action == 'checked') {
+                //thisClassEl.prop('checked', true);
+                thisClassEl.trigger('click');
+                }
+                }
+                else {
+                if (action == 'show') {
+                thisClassEl.hide();
+                }
+                else if (action == 'hide') {
+                thisClassEl.show();
+                }
+                else if (action == 'disabled') {
+                thisClassEl.removeAttr('disabled');
+                }
+                else if (action == 'checked') {
+                }
+                }
+                }
+                });
+                var defaultListImageSizeWidth = '178';
+                var defaultListImageSizeHeight = '227';
+                var defaultEventListImageSizeWidth = '485';
+                var defaultEventListImageSizeHeight = '251';
+                if (mode == 'regist') {
+                switch (val) {
+                case 'default' :
+                case 'gallery' :
+                $('input[name="bdListImageSize[width]"]').val(defaultListImageSizeWidth);
+                $('input[name="bdListImageSize[height]"]').val(defaultListImageSizeHeight);
+                break;
+                case 'qa' :
+                break;
+                case 'event' :
+                $('input[name="bdListImageSize[width]"]').val(defaultEventListImageSizeWidth);
+                $('input[name="bdListImageSize[height]"]').val(defaultEventListImageSizeHeight);
+                break;
+                }
+                }
+                });
+                $("input:radio[name=bdKind]:checked").trigger('change', [true]);
+                //파일 업로드
+                $("input:radio[name=bdUploadFl]").bind('change', function () {
+                $('input[name=bdUploadMaxSize]').attr('disabled', $(this).val() == 'n');
+                });
+                $("input:radio[name=bdUploadFl]:checked").trigger('change');
+                //아이디중복체크
+                $('#overlap_bdId').bind('click', function () {
+                var bdId = $('input[name=bdId]').val();
+                if (bdId.length < 2 || bdId.length > 30) {
+                alert('2~30자리까지 입력가능합니다.');
+                return false;
+                }
+                if (!validId(bdId)) {
+                alert('영문으로 시작해야하며 특수문자와 한글은 사용하실 수 없습니다.(2~30자)');
+                return false;
+                }
+                $.post('board_ps.php', {'bdId': bdId, 'mode': 'overlapBdId'},
+                function (data) {
+                alert(data['msg']);
+                if (data['result'] == 'ok') {
+                $('#chkbdId').val(bdId);
+                }
+                })
+                })
+                //스토리지 경로 변경
+                $("input[name=bdId]").bind('keyup', function () {
+                $(this).val($(this).val().replace(/[^a-z0-9]*/gi, ''));
+                var val = valThumb = $(this).val();
+                if (val != "") {
+                val += "/";
+                valThumb = val + "t/";
+                }
+                $("#bdUploadPath").val('upload/' + val);
+                $("#bdUploadThumbPath").val('upload/' + valThumb);
+                });
+                //말머리
+                $('input[name=bdCategoryFl]').bind('change', function () {
+                $('.categoryWrite').hide();
+                if ($(this).is(':checked')) {
+                $('.categoryWrite').show();
+                }
+                });
+                $('input[name=bdCategoryFl]').trigger('change');
+                //저장소
+                $("#bdUploadStorage").bind('change', function () {
+                var storageName = $(this).val();
+                $.get("board_ps.php", {mode: "getStorage", storage: storageName, pathCode: '1'})
+                .done(function (data) {
+                $("#spanFileStorage").html(data);
+                $("#spanFileThumbStorage").html(data);
+                });
+                });
+                $('#bdUploadStorage').trigger('change');
+                //마일리지
+                $('input[name=bdMileageFl]').bind('click', function () {
+                $('.bdMileageFl-area').hide();
+                if ($(this).val() == 'y') {
+                $('.bdMileageFl-area').show();
+                }
+                });
+                $('input[name=bdMileageFl]:checked').trigger('click');
+                $('input[name=bdMileageFl]').bind('click', function () {
+                $('input[name=bdMileageAmount]').attr('disabled', $(this).val() == 'n');
+                });
+                $("input:radio[name=bdMileageFl]:checked").trigger('click');
+                //비밀번호
+                $("input:radio[name=bdSecretTitleFl]").bind('click', function () {
+                $("input[name=bdSecretTitleTxt]").attr('disabled', true);
+                if ($(this).val() == 1) {
+                $("input[name=bdSecretTitleTxt]").attr('disabled', false);
+                }
+                });
+                $("input:radio[name=bdSecretTitleFl]:checked").trigger('click');
+                var validId = function (id) {
+                var regExp = /^[A-za-z][A-za-z0-9]{2,29}$/g;
+                return regExp.test(id);
+                }
+                //이벤트
+                $("input:radio[name=bdEndEventType]").bind('click', function () {
+                $("input[name=bdEndEventMsg]").attr('disabled', false);
+                if ($(this).val() == 'read') {
+                $("input[name=bdEndEventMsg]").attr('disabled', true);
+                }
+                });
+                $("input:radio[name=bdEndEventType]:checked").trigger('click');
+                $(':radio[name="bdListImageFl"]').click(function () {
+                var row = $('#trListImageSize');
+                var noticeImage = $("#trListNoticeImage");
+                var bdKind = $("input:radio[name=bdKind]:checked").val();
+                if ($(this).val() == 'y') {
+                row.show();
+                if(bdKind === 'default' || bdKind === 'qa'){
+                noticeImage.show();
+                }
+                } else {
+                row.hide();
+                if(bdKind === 'default' || bdKind === 'qa'){
+                noticeImage.hide();
+                }
+                }
+                });
+                $(':radio[name="bdListImageFl"]:checked').trigger('click');
+                $('input[name=bdIncludeReplayInSearchFl]').bind('click',function () {
+                $('.js-bdIncludeReplayInSearchFl-show').hide()
+                if($(this).val() == 'y'){
+                $('.js-bdIncludeReplayInSearchFl-show').show();
+                }
+                })
+                $(':radio[name=bdIncludeReplayInSearchFl]:checked').trigger('click')
+                $.validator.addMethod("regx", function (value, element, fl) {
+                return validId(value);
+                }, "영문으로 시작해야하며 특수문자와 한글은 사용하실 수 없습니다.(2~30자)");
+                // 폼검증
+                $("#frmBoard").validate({
+                ignore: ':hidden',
+                submitHandler: function (form) {
+                if ($(':radio[name="bdListImageFl"][value="y"]').prop('checked') && $('.js-bdListImageTarget-notice').css('display') != 'none') {
+                alert(this.settings.messages.bdListImageTarget.required);
+                return false;
+                }
+                oEditors.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+                oEditors.getById["editor2"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+                form.target = 'ifrmProcess';
+                form.submit();
+                },
+                // onclick: false, // <-- add this option
+                rules: {
+                bdId: {
+                required: true,
+                minlength: 2,
+                maxlength: 30,
+                regx: true,
+                equalTo: '#chkbdId',
+                },
+                bdUsePcFl: "required",
+                bdUseMobileFl: "required",
+                bdKind: "required",
+                bdNm: 'required',
+                themeSno: 'required',
+                mobileThemeSno: 'required',
+                bdAuthMemo: {
+                required: function () {
+                return $('input[name=bdMemoFl][value=y]').is(':checked');
+                }
+                },
+                bdAuthReply: {
+                required: function () {
+                return $('input[name=bdReplyFl][value=y]').is(':checked');
+                }
+                },
+                bdUploadMaxSize: {
+                required: "input:radio[name=bdUploadFl][value=y]:checked"
+                },
+                bdCategoryTitle: {
+                required: "input:checkbox[name=bdCategoryFl]:checked"
+                },
+                bdCategory: {
+                required: "input:checkbox[name=bdCategoryFl]:checked"
+                },
+                bdSubjectLength: {
+                max: 255,
+                number: true,
+                },
+                bdGoodsFl: 'required',
+                bdGoodsType: {
+                required: "input:radio[name=bdGoodsFl][value=y]:checked"
+                },
+                bdMileageAmount: {
+                required: "input:checkbox[name=bdMileageFl][value=y]:checked",
+                },
+                bdAttachImageMaxSize: {
+                required: "input[name=bdAttachImageDisplayFl][value=y]:checked",
+                number: "input[name=bdAttachImageDisplayFl][value=y]:checked",
+                },
+                bdListCount: {
+                required: true,
+                number: true,
+                },
+                bdListImageTarget: {
+                required: ":radio[name=bdListImageFl][value=y]:checked"
+                },
+                bdGoodsPageCountPc: {
+                required: true,
+                number: true,
+                min: 1,
+                },
+                bdGoodsPageCountMobile: {
+                required: true,
+                number: true,
+                min: 1,
+                }
+                },
+                messages: {
+                themeSno: {
+                required: "PC 쇼핑몰 스킨을 선택해주세요.",
+                },
+                mobileThemeSno: {
+                required: "모바일 쇼핑몰 스킨을 선택해주세요.",
+                },
+                bdAuthMemo: {
+                required: "댓글권한설정을 선택해주세요.",
+                },
+                bdAuthReply: {
+                required: "답변권한설정을 선택해주세요.",
+                },
+                bdKind: {
+                required: "유형을 선택하세요",
+                },
+                bdId: {
+                required: "아이디를 입력하세요.",
+                equalTo: '아이디 중복체크를 해주세요.',
+                minlength: '{0}자 이상입력해주세요.',
+                maxlength: '{0}자 이하로 입력해주세요.',
+                },
+                bdGoodsFl: {
+                required: "상품연동을 사용여부를 체크해주세요",
+                },
+                bdGoodsType: {
+                required: "상품/주문연동을 체크해주세요",
+                },
+                bdUsePcFl: {
+                required: "PC쇼핑몰 사용여부를 체크해주세요."
+                },
+                bdUseMobileFl: {
+                required: "모바일쇼핑몰 사용여부를 체크해주세요."
+                },
+                bdNm: {
+                required: "이름을 입력해주세요."
+                },
+                bdUploadMaxSize: {
+                required: "업로드 사이즈를 입려해주세요."
+                },
+                bdCategoryTitle: {
+                required: "말머리 타이틀을 입력해주세요."
+                },
+                bdCategory: {
+                required: "말머리를 입력해주세요."
+                },
+                bdSubjectLength: {
+                max: '{0} 까지 제한가능'
+                },
+                bdAttachImageMaxSize: {
+                required: '이미지 리사이즈값을 입력해주세요.',
+                number: '숫자를 입력해주세요.'
+                },
+                bdListImageTarget: {
+                required: "대표 이미지 설정이 상품연동/업로드파일사용/에디터 사용 중 1개 이상을 사용함으로 설정해야합니다."
+                },
+                bdGoodsPageCountPc: {
+                required: '상품상세 페이지 내 페이지별 게시물 수(PC)를 입력해 주세요.',
+                number: '상품상세 페이지 내 페이지별 게시물 수(PC)는 숫자로 입력해 주세요.',
+                min: '상품상세 페이지 내 페이지별 게시물 수(PC)는 0 이상 입력해 주세요.',
+                },
+                bdGoodsPageCountMobile: {
+                required: '상품상세 페이지 내 페이지별 게시물 수(모바일)를 입력해 주세요.',
+                number: '상품상세 페이지 내 페이지별 게시물 수(모바일)는 숫자로 입력해 주세요.',
+                min: '상품상세 페이지 내 페이지별 게시물 수(모바일)는 0 이상 입력해 주세요.',
+                }
+                },
+                });
+                $('.js-template-register').bind('click', function () {
+                window.open('template_write.php?mode=popup&templateType=front', 'template', 'width=850,height=600');
+                })
+                });
+                function loadSkinSelectBox(bdKind, isMobile, liveSkin, domainFl) {
+                $.ajax({
+                method: 'get',
+                url: 'board_ps.php',
+                data: {'mode': 'selectListTheme', 'bdKind': bdKind, 'mobileFl': isMobile, 'liveSkin': liveSkin},
+                dataType: 'json'
+                }).success(function (data) {
+                if (typeof domainFl != 'undefined') {
+                var domainPostfix = (domainFl == 'kr') ? '' : domainFl;
+                if (domainFl != '') {
+                domainPostfix = domainPostfix.substring(0, 1).toUpperCase() + domainPostfix.substring(1, domainPostfix.length).toLowerCase()
+                }
+                }
+                else {
+                domainPostfix = '';
+                }
+                var $themeSnoSelector = isMobile == 'y' ? $('select[name=mobileTheme' + domainPostfix + 'Sno]') : $('select[name=theme' + domainPostfix + 'Sno]');
+                $themeSnoSelector.empty();
+                $themeSnoSelector.append($('<option>', {value: 0, text: '스킨을 선택하세요.'}));
+                for (var i = 0; i < data.list.length; i++) {
+                $themeSnoSelector.append($('<option>', {value: data.list[i].sno, text: data.list[i].themeNm}));
+                }
+                if (data.selected == null) {
+                $themeSnoSelector.index(0);
+                }
+                else {
+                $themeSnoSelector.val(data.selected);
+                }
+                }).error(function (e) {
+                console.log(e);
+                alert(e);
+                });
+                /*$.ajax({
+                method: 'get',
+                url: 'board_ps.php',
+                data: {'mode': 'selectListTheme', 'bdKind': val, 'mobileFl': 'n'},
+                dataType: 'json'
+                }).success(function (data) {
+                $('select[name=themeSno]').empty();
+                $('select[name=themeSno]').append($('<option>', {value: 0, text: '스킨을 선택하세요.'}));
+                for (var i = 0; i < data.list.length; i++) {
+                $('select[name=themeSno]').append($('<option>', {value: data.list[i].sno, text: data.list[i].themeNm}));
+                }
+                $('select[name=themeSno]').val(data.selected);
+                }).error(function (e) {
+                console.log(e);
+                alert(e);
+                });
+                $.ajax({
+                method: 'get',
+                url: 'board_ps.php',
+                data: {'mode': 'selectListTheme', 'bdKind': val, 'mobileFl': 'y'},
+                dataType: 'json'
+                }).success(function (data) {
+                $('select[name=mobileThemeSno]').empty();
+                $('select[name=mobileThemeSno]').append($('<option>', {value: 0, text: '스킨을 선택하세요.'}));
+                for (var i = 0; i < data.list.length; i++) {
+                $('select[name=mobileThemeSno]').append($('<option>', {value: data.list[i].sno, text: data.list[i].themeNm}));
+                }
+                $('select[name=mobileThemeSno]').val(data.selected);
+                }).error(function (e) {
+                console.log(e);
+                alert(e);
+                });*/
+                }
+                //-->
+              .board-register
+                form#frmBoard(action='board_ps.php', method='post', enctype='multipart/form-data')
+                  input#mode(type='hidden', name='mode', value='regist')
+                  input#sno(type='hidden', name='sno', value='')
+                  .page-header.js-affix
+                    h3
+                      | 게시판 등록
+                      small 커뮤니티 메뉴에서 서비스하는 게시판을 등록합니다.
+                    input.btn.btn-red(type='submit', value='저장')
+                  .table-title.gd-help-manual 기본설정
+                  table.table.table-cols
+                    colgroup
+                      col.width-md
+                      col
+                    tr
+                      th.require PC쇼핑몰 사용여부
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdUsePcFl', value='y', checked='checked')
+                          | 사용
+                        label.radio-inline
+                          input(type='radio', name='bdUsePcFl', value='n')
+                          | 사용안함
+                        .notice-info
+                          | “사용 안함” 설정 시 쇼핑몰 회원(비회원포함)접근을 하지 못하도록 설정합니다.
+                          br
+                          |                         관리자에서 접근 시 사용여부 설정과 상관없이 접속이 가능합니다.
+                    tr
+                      th.require
+                        | 모바일쇼핑몰
+                        br
+                        |  사용여부
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdUseMobileFl', value='y', checked='checked')
+                          | 사용
+                        label.radio-inline
+                          input(type='radio', name='bdUseMobileFl', value='n')
+                          | 사용안함
+                        .notice-info
+                          | “사용 안함” 설정 시 쇼핑몰 회원(비회원포함)접근을 하지 못하도록 설정합니다.
+                          br
+                          |                         관리자에서 접근 시 사용여부 설정과 상관없이 접속이 가능합니다.
+                    tr
+                      th.require 유형
+                      td.form-inline
+                        .pull-left(style='padding-right:15px')
+                          label.radio-inline
+                            input(type='radio', name='bdKind', value='default', checked='checked')
+                            | 일반형
+                            .mgt10
+                              img(src='IMG/board/type_default.png')
+                        .pull-left(style='padding-right:15px')
+                          label.radio-inline
+                            input(type='radio', name='bdKind', value='gallery')
+                            | 갤러리형
+                            .mgt10
+                              img(src='IMG/board/type_gallery.png')
+                        .pull-left(style='padding-right:15px')
+                          label.radio-inline
+                            input(type='radio', name='bdKind', value='event')
+                            | 이벤트형
+                            .mgt10
+                              img(src='IMG/type_event.png')
+                        .pull-left(style='padding-right:15px')
+                          label.radio-inline
+                            input(type='radio', name='bdKind', value='qa')
+                            | 1:1 문의형
+                            .mgt10
+                              img(src='IMG/type_qa.png')
+                    tr
+                      th.require 아이디
+                      td.form-inline
+                        input#chkbdId(type='hidden', name='chkbdId', value='')
+                        input#bdId.form-control(type='text', name='bdId', size='31', style='ime-mode:disabled')
+                        button#overlap_bdId.btn.btn-white.btn-sm(type='button') 중복확인
+                    tr
+                      th.require 게시판명
+                      td.form-inline
+                        input.form-control(type='text', name='bdNm', value='', size='31', title='이름')
+                    tr
+                      th.require 게시판 스킨
+                      td.form-inline
+                        table.table.table-cols
+                          colgroup
+                            col.width10p
+                            col.width45p
+                            col.width45p
+                          tr
+                            th 구분
+                            th 사용중인 디자인 스킨
+                            th 게시판 디자인 스킨 선택
+                          tr
+                            th(rowspan='4') PC 쇼핑몰
+                            td
+                              span.flag.flag-16.flag-kr
+                              |  story_g
+                            td
+                              select#themeSno.form-control(name='themeSno')
+                                option(value='') 선택해주세요
+                                option(value='33', data-basic='y') 일반형(기본)                                                        (default)
+                                option(value='89', data-basic='n') ㅁㅁㅁㅁㅁ                                                        (aaaaaa)
+                                option(value='90', data-basic='n') test_test                                                        (test_test)
+                          tr
+                            td
+                              span.flag.flag-16.flag-us
+                              |  story_g_us
+                            td
+                              select#themeUsSno.form-control(name='themeUsSno')
+                                option(value='') 선택해주세요
+                                option(value='29', data-basic='y') 일반형(기본)                                                        (default)
+                          tr
+                            td
+                              span.flag.flag-16.flag-cn
+                              |  story_g_cn
+                            td
+                              select#themeCnSno.form-control(name='themeCnSno')
+                                option(value='') 선택해주세요
+                                option(value='21', data-basic='y') 일반형(기본)                                                        (default)
+                          tr
+                            td
+                              span.flag.flag-16.flag-jp
+                              |  story_g_jp
+                            td
+                              select#themeJpSno.form-control(name='themeJpSno')
+                                option(value='') 선택해주세요
+                                option(value='25', data-basic='y') 일반형(기본)                                                        (default)
+                                option(value='91', data-basic='n') test_test                                                        (test_test)
+                          tr
+                            th(rowspan='4') 모바일 쇼핑몰
+                            td
+                              span.flag.flag-16.flag-kr
+                              |  story_g
+                            td
+                              select#mobileThemeSno.form-control(name='mobileThemeSno')
+                                option(value='') 선택해주세요
+                                option(value='37') 일반형(기본)                                                        (default)
+                          tr
+                            td
+                              span.flag.flag-16.flag-us
+                              |  story_g_us
+                            td
+                              select#mobileThemeUsSno.form-control(name='mobileThemeUsSno')
+                                option(value='') 선택해주세요
+                                option(value='41') 일반형(기본)                                                        (default)
+                          tr
+                            td
+                              span.flag.flag-16.flag-cn
+                              |  story_g_cn
+                            td
+                              select#mobileThemeCnSno.form-control(name='mobileThemeCnSno')
+                                option(value='') 선택해주세요
+                                option(value='45') 일반형(기본)                                                        (default)
+                          tr
+                            td
+                              span.flag.flag-16.flag-jp
+                              |  story_g_jp
+                            td
+                              select#mobileThemeJpSno.form-control(name='mobileThemeJpSno')
+                                option(value='') 선택해주세요
+                                option(value='49') 일반형(기본)                                                        (default)
+                                option(value='93') test_test                                                        (test_test960)
+                                option(value='94') test_test                                                        (test_test304)
+                                option(value='96') test_test                                                        (test_test989)
+                                option(value='97') test_test                                                        (test_test977)
+                        button.btn.btn-white.btn-sm.pull-right(onclick='addSkin()', type='button') 게시판 스킨등록
+                        .notice-info
+                          | ※ 쇼핑몰 디자인 사용스킨 변경 시 이전에 생성한 게시판 스킨은 사용할 수 없습니다.
+                          br
+                          |                         사용 스킨 변경 시 게시판 스킨을 다시한번 확인하시기 바랍니다.
+                    tr
+                      th 리스트권한 설정
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdAuthList', value='all', checked='checked')
+                          | 전체(회원+비회원)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthList', value='admin')
+                          | 관리자 전용
+                        label.radio-inline
+                          input(type='radio', name='bdAuthList', value='member')
+                          | 회원전용(비회원제외)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthList', value='group', onclick="layer_register('member_groupLayer_list','bdAuthListGroup','info_member_list_group')")
+                          | 특정회원등급
+                        label
+                          button.btn.btn-sm.btn-gray.js-group-select(type='button') 회원등급 선택
+                        #member_groupLayer_list.selected-btn-group
+                    tr
+                      th 읽기권한 설정
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdAuthRead', value='all', checked='checked')
+                          | 전체(회원+비회원)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthRead', value='admin')
+                          | 관리자 전용
+                        label.radio-inline
+                          input(type='radio', name='bdAuthRead', value='member')
+                          | 회원전용(비회원제외)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthRead', value='group', onclick="layer_register('member_groupLayer_read','bdAuthReadGroup','info_member_read_group')")
+                          | 특정회원등급
+                        label
+                          button.btn.btn-sm.btn-gray.js-group-select(type='button') 회원등급 선택
+                        #member_groupLayer_read.selected-btn-group
+                    tr
+                      th 쓰기권한 설정
+                      td.form-inline
+                        label.radio-inline
+                          input.if-is-event-disabled(type='radio', name='bdAuthWrite', value='all', checked='checked')
+                          | 전체(회원+비회원)
+                        label.radio-inline
+                          input.if-is-event-checked(type='radio', name='bdAuthWrite', value='admin')
+                          | 관리자
+                          |                                                   전용
+                        label.radio-inline
+                          input.if-is-event-disabled(type='radio', name='bdAuthWrite', value='member')
+                          | 회원전용(비회원제외)
+                        label.radio-inline
+                          input.if-is-event-disabled(type='radio', name='bdAuthWrite', value='group', onclick="layer_register('member_groupLayer_write','bdAuthWriteGroup','info_member_write_group')")
+                          | 특정회원등급
+                        label
+                          button.btn.btn-sm.btn-gray.js-group-select(type='button') 회원등급 선택
+                        #member_groupLayer_write.selected-btn-group
+                    tr.if-is-event-hide
+                      th 답변 기능
+                      td.form-inline
+                        label.radio-inline
+                          input.if-is-event-disabled(type='radio', name='bdReplyFl', value='y', checked='checked')
+                          | 사용
+                        label.radio-inline
+                          input.if-is-event-checked(type='radio', name='bdReplyFl', value='n')
+                          | 사용안함
+                    tr.if-is-event-hide
+                      th 답변권한 설정
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdAuthReply', value='all', checked='checked')
+                          | 전체(회원+비회원)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthReply', value='admin')
+                          | 관리자 전용
+                        label.radio-inline
+                          input(type='radio', name='bdAuthReply', value='member')
+                          | 회원전용(비회원제외)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthReply', value='group', onclick="layer_register('member_groupLayer_reply','bdAuthReplyGroup','info_member_reply_group')")
+                          | 특정회원등급
+                        label
+                          button.btn.btn-sm.btn-gray.js-group-select(type='button') 회원등급 선택
+                        #member_groupLayer_reply.selected-btn-group
+                    tr.if-is-qa-hide
+                      th 댓글 기능
+                      td.form-inline
+                        label.radio-inline
+                          input#bdMemoFl.if-is-qa-disabled(type='radio', name='bdMemoFl', value='y', checked='checked')
+                          |  사용
+                        label.radio-inline
+                          input#bdMemoFl.if-is-qa-disabled(type='radio', name='bdMemoFl', value='n')
+                          |  사용안함
+                    tr.if-is-qa-hide
+                      th 댓글권한 설정
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdAuthMemo', value='all', checked='checked')
+                          | 전체(회원+비회원)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthMemo', value='admin')
+                          | 관리자 전용
+                        label.radio-inline
+                          input(type='radio', name='bdAuthMemo', value='member', checked='checked')
+                          | 회원전용(비회원제외)
+                        label.radio-inline
+                          input(type='radio', name='bdAuthMemo', value='group', onclick="layer_register('member_groupLayer_memo','bdAuthMemoGroup','info_member_memo_group')")
+                          | 특정회원등급
+                        label
+                          button.btn.btn-sm.btn-gray.js-group-select(type='button') 회원등급 선택
+                        #member_groupLayer_memo.selected-btn-group
+                    tr
+                      th 작성자 표시방법
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdUserDsp', value='name')
+                          |  이름표시
+                        label.radio-inline
+                          input(type='radio', name='bdUserDsp', value='nick', checked='checked')
+                          |  닉네임표시
+                        label.radio-inline
+                          input(type='radio', name='bdUserDsp', value='id')
+                          |  아이디표시
+                    tr
+                      th 작성자 노출제한
+                      td
+                        select.form-control(name='bdUserLimitDsp')
+                          option(value='0', selected='') 전체노출
+                          option(value='1') 1글자 노출
+                          option(value='2') 2글자 노출
+                    tr
+                      th 운영자 표시방법
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdAdminDsp', value='nick', checked='checked')
+                          |  닉네임표시
+                        label.radio-inline
+                          input(type='radio', name='bdAdminDsp', value='image')
+                          |  이미지표시
+                    tr
+                      th 저장 위치
+                      td.form-inline
+                        select#bdUploadStorage.form-control(name='bdUploadStorage')
+                          option(value='local') 기본 경로
+                        .mgt5
+                          | 파일 저장 위치 :
+                          span#spanFileStorage
+                          input#bdUploadPath.form-control(type='text', name='bdUploadPath', size='30', value='', readonly='readonly')
+                        .mgt5
+                          | 썸네일 저장위치
+                          | :
+                          span#spanFileThumbStorage
+                          input#bdUploadThumbPath.form-control(type='text', name='bdUploadThumbPath', size='30', value='', readonly='readonly')
+                    tr
+                      th 마일리지 사용유무
+                      td
+                        label.radio-inline
+                          input(name='bdMileageFl', type='radio', value='y')
+                          |                         사용
+                        label.radio-inline
+                          input(name='bdMileageFl', type='radio', value='n', checked='checked')
+                          |                         사용안함
+                    tr.bdMileageFl-area
+                      th 마일리지 지급
+                      td.form-inline
+                        | 게시글 작성 시
+                        input.form-control.js-number(type='text', name='bdMileageAmount', value='')
+                        | 원 지급
+                    tr.bdMileageFl-area
+                      th
+                        | 게시글 삭제 시
+                        br
+                        |  마일리지 차감
+                      td
+                        label.radio-inline
+                          input(name='bdMileageDeleteFl', type='radio', value='y')
+                          |                         사용함
+                        label.radio-inline
+                          input(name='bdMileageDeleteFl', type='radio', value='n', checked='checked')
+                          |                         사용안함
+                    tr.bdMileageFl-area
+                      th
+                        | 차감 마일리지
+                        br
+                        | 부족 시 처리방법
+                      td
+                        label.radio-inline
+                          input(name='bdMileageLackAction', type='radio', value='delete')
+                          |                         마이너스 차감 후 게시글 삭제
+                        label.radio-inline
+                          input(name='bdMileageLackAction', type='radio', value='nodelete', checked='checked')
+                          |                         게시글 삭제 불가
+                  .table-title.gd-help-manual 기능설정
+                  table.table.table-cols
+                    colgroup
+                      col.width-md
+                      col
+                    tr
+                      th 상품 연동
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdGoodsFl', value='y')
+                          |  사용
+                        label.radio-inline
+                          input(type='radio', name='bdGoodsFl', value='n', checked='checked')
+                          |  사용안함
+                        table.table.table-cols.mgt10
+                          tr
+                            th.width-sm 상품/주문연동
+                            td
+                              label.radio-inline
+                                input(type='radio', name='bdGoodsType', value='goods', checked='')
+                                |  상품
+                              label.radio-inline
+                                input(type='radio', name='bdGoodsType', value='order')
+                                |  주문상품
+                              label.checkbox-inline.js-bdGoodsTypeOrderDuplication.display-none
+                                input(type='checkbox', name='bdGoodsTypeOrderDuplication', value='y')
+                                |  주문내역
+                                |                                                                     중복 허용
+                              br
+                              br
+                              .notice-info
+                                | ※ 상품 / 주문상품 연동 사용 시 등록된 상품 또는 주문상품 중 1개를 선택하여 게시글을 작성 할 수 있습니다. (단 주문상품에서 입금대기는 제외됩니다.)
+                              .notice-info
+                                | ※ 주문내역 중복 사용 체크 시 주문 상품을 선택하여 게시글을 다시 선택하여 등록이 가능하도록 합니다. 미체크 시 해당 게시판에 주문상품을 1회로 제한합니다.
+                              .notice-info ※ 상품후기/상품문의 게시판은 상품만 사용이 가능합니다.
+                    tr.if-is-gallery_default-show
+                      th 게시글 작성 시 별점
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdGoodsPtFl', value='y')
+                          |  사용
+                        label.radio-inline
+                          input(type='radio', name='bdGoodsPtFl', value='n', checked='checked')
+                          |  사용안함
+                    tr
+                      th 게시글 추천
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdRecommendFl', value='y')
+                          |  사용
+                        label.radio-inline
+                          input(type='radio', name='bdRecommendFl', value='n', checked='checked')
+                          |  사용안함
+                    tr
+                      th 말머리 기능
+                      td
+                        .useCateLbl
+                          .checkbox
+                            label.checkbox-inline
+                              input(type='checkbox', name='bdCategoryFl', value='y')
+                              |  말머리 사용
+                              a.btn-link 글작성시 제목앞에 특정단어를 넣는 기능입니다
+                          .categoryWrite(style='display:none')
+                            table.table.table-cols
+                              colgroup
+                                col.width-sm
+                                col
+                              tr
+                                th 말머리 타이틀
+                                td
+                                  input.form-control(type='text', name='bdCategoryTitle', value='')
+                              tr
+                                th 말머리 입력
+                                td
+                                  textarea.form-control(name='bdCategory', rows='8')
+                                  span.snote.fixed.display-none
+                                    | 상품문의와 1:1문의의 말머리는
+                                    a.notice-ref.notice-sm(href='/policy/base_code_list.php', target='_blank')
+                                      b
+                                        | 운영정책 >
+                                        | 기본정책 > 코드관리
+                                    | 에서 확인하실 수 있습니다.
+                    tr
+                      th.require 조회당 Hit증가수
+                      td.form-inline
+                        input.form-control.js-number.wd-sm2(type='text', name='bdHitPerCnt', size='6', value='1')
+                        |  개
+                    tr
+                      th 비밀글 설정
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdSecretFl', value='0', checked='checked')
+                          |                         작성시 기본 일반글
+                        label.radio-inline
+                          input(type='radio', name='bdSecretFl', value='1')
+                          |                         작성시 기본 비밀글
+                        label.radio-inline
+                          input(type='radio', name='bdSecretFl', value='2')
+                          |                         무조건 일반글
+                        label.radio-inline
+                          input(type='radio', name='bdSecretFl', value='3')
+                          |                         무조건 비밀글
+                    tr
+                      th.require 비밀글 제목설정
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdSecretTitleFl', value='0', checked='checked')
+                          |  제목 노출
+                        label.radio-inline
+                          input(type='radio', name='bdSecretTitleFl', value='1')
+                          |  제목 지정
+                        input.form-control(type='text', name='bdSecretTitleTxt', value='', size='40')
+                    tr
+                      th.require 게시물 시작번호
+                      td
+                        input.form-control.js-number.wd-sm2(type='text', name='bdStartNum', size='6', value='1')
+                    tr
+                      th.require NEW아이콘 효력
+                      td.form-inline
+                        input#bdNewFl.form-control.js-number.wd-sm2(type='text', name='bdNewFl', size='5', value='24')
+                        |  시간
+                    tr
+                      th.require HOT아이콘 조건
+                      td.form-inline
+                        | 조회수
+                        input#bdHotFl.form-control.js-number.wd-sm2(type='text', name='bdHotFl', size='5', value='100')
+                        |  회 이상 게시글
+                  .table-title.gd-help-manual 스팸방지 설정
+                  table.table.table-cols
+                    colgroup
+                      col.width-md
+                      col
+                    tr
+                      th 허용 태그
+                      td
+                        label.checkbox-inline
+                          input(type='checkbox', name='bdAllowTags[]', value='iframe')
+                          | iframe
+                        label.checkbox-inline
+                          input(type='checkbox', name='bdAllowTags[]', value='embed')
+                          | embed
+                    tr
+                      th 허용 도메인
+                      td.form-inline
+                        ul#domain-allow-box.pd0
+                          li.mgb5
+                            input.form-control(type='text', name='bdAllowDomain[]', maxlength='60', size='40', value='')
+                            input.form-control(type='text', name='bdAllowDomain[]', size='40', value='')
+                            button.btn.btn-sm.btn-white.btn-icon-plus.js-allow-domain-add(type='button') 추가
+                        .notice-info 허용된 도메인의 컨텐츠에 대해 허용태그 사용이 가능합니다. 예) youtube.com
+                    tr.if-is-qa-hide
+                      th 댓글 스팸방지
+                      td
+                        label.checkbox-inline
+                          input(type='checkbox', name='bdSpamMemoFl[]', value='1', checked='checked')
+                          |  외부유입차단
+                    tr
+                      th 게시글 스팸방지
+                      td
+                        label.checkbox-inline
+                          input(type='checkbox', name='bdSpamBoardFl[]', value='1', checked='checked')
+                          |  외부유입차단
+                        label.checkbox-inline
+                          input(type='checkbox', name='bdSpamBoardFl[]', value='2', checked='checked')
+                          |                         자동등록방지문자
+                  .table-title.gd-help-manual 리스트화면 설정
+                  table.table.table-cols
+                    colgroup
+                      col.width-md
+                      col
+                    tr.if-is-event-hide
+                      th.require 공지사항 노출설정
+                      td.form-inline
+                        input.form-control.js-number(type='text', name='bdNoticeCount', value='3', size='5', maxlength='5')
+                        | 개
+                        label.radio-inline
+                          input(type='checkbox', name='bdListInNotice', value='y', checked='checked')
+                          |  리스트 내 노출
+                        label.radio-inline
+                          input(type='checkbox', name='bdOnlyMainNotice', value='y', checked='checked')
+                          | 첫페이지만 노출
+                        .notice-info 리스트 내 노출 설정 시 공지사항 글이 리스트 상단 이외에 본문리스트에 노출됩니다.
+                        .notice-info 첫페이지만 노출 설정 시 공지사항 글이 첫페이지만 노출됩니다.
+                    tr
+                      th.require 제목글 제한
+                      td.form-inline
+                        input.form-control.js-number(type='text', name='bdSubjectLength', value='30', size='5', maxlength='5')
+                        |  자
+                    tr.if-is-gallery-hide
+                      th.require 페이지당 게시물수
+                      td
+                        input.form-control.js-number.wd-sm2(type='text', name='bdListCount', value='15', size='5', maxlength='5')
+                        .notice-info 게시판 전체보기의 페이지별 게시글 노출 개수를 설정합니다.
+                    tr.if-is-gallery-show
+                      th.require 페이지당 노출 수
+                      td.form-inline
+                        input.form-control.js-number(type='text', name='bdListColsCount', value='4', size='5', maxlength='5')
+                        |  *
+                        input.form-control.js-number(type='text', name='bdListRowsCount', value='2', size='5', maxlength='5')
+                    tr.display-none
+                      th.require
+                        | 상품상세 페이지 내
+                        br
+                        | 페이지별 게시물 수
+                      td.form-inline
+                        table
+                          tr
+                            td PC
+                            td(style='padding:0 0 3px 3px;')
+                              input.form-control.js-number.wd-sm2(type='text', name='bdGoodsPageCountPc', value='10', maxlength='3')
+                              |  개
+                          tr
+                            td 모바일
+                            td(style='padding:0 0 0 3px;')
+                              input.form-control.js-number.wd-sm2(type='text', name='bdGoodsPageCountMobile', value='5', maxlength='3')
+                              |  개
+                        .notice-info 상품 상세화면 하단 영역에 노출되는 게시글 노출 개수를 설정합니다.
+                    tr.if-is-gallery_event_qa_default-show
+                      th 대표 이미지 노출 여부
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdListImageFl', value='y')
+                          |  사용
+                        label.radio-inline.display-none(class='?>')
+                          input(type='radio', name='bdListImageFl', value='n', checked='checked')
+                          |  사용안함
+                        table.table.table-cols.mgt10
+                          tbody
+                            tr
+                              th.width-sm 대표 이미지 설정
+                              td
+                                label.radio-inline.js-bdListImageTarget-goods
+                                  input(type='radio', name='bdListImageTarget', value='goods')
+                                  | 상품 이미지
+                                label.radio-inline.js-bdListImageTarget-upload
+                                  input(type='radio', name='bdListImageTarget', value='upload', checked='checked')
+                                  | 업로드
+                                  |                                                                       이미지
+                                label.radio-inline.js-bdListImageTarget-editor
+                                  input(type='radio', name='bdListImageTarget', value='editor')
+                                  | 에디터 이미지
+                                .notice-info.js-bdListImageTarget-notice.display-none ※ '상품연동 / 업로드 파일 사용 / 에디터 사용' 중 1개 이상을 사용함으로 설정해야 합니다.
+                    tr#trListImageSize.if-is-gallery_event_qa_default-show
+                      th.require 리스트 이미지 크기
+                      td.form-inline
+                        input.form-control.js-number(type='text', name='bdListImageSize[width]', value='178')
+                        |  *
+                        input.form-control.js-number(type='text', name='bdListImageSize[height]', value='227')
+                        .notice-info ※ 모바일에서는 리스트 이미지 크기는 화면 비율에 따라 자동 적용 됩니다.
+                    tr#trListNoticeImage.if-is-qa_default-show
+                      th 공지글 이미지 노출 여부
+                      td.form-inline
+                        label.checkbox-inline
+                          input(name='bdListNoticeImageDisplayPc', type='checkbox', value='y', checked='checked')
+                          |                         PC 쇼핑몰
+                        label.checkbox-inline
+                          input(name='bdListNoticeImageDisplayMobile', type='checkbox', value='y', checked='checked')
+                          |                         모바일 쇼핑몰
+                        .notice-info 리스트에 노출되는 공지글에 대하여 이미지를 노출시킬지에 대한 여부를 설정 하실 수 있습니다.
+                    tr
+                      th 검색 시 답변글 노출여부
+                      td.form-inline
+                        label.radio-inline
+                          input(name='bdIncludeReplayInSearchFl', type='radio', value='y')
+                          |                         사용함
+                        label.radio-inline
+                          input(name='bdIncludeReplayInSearchFl', type='radio', value='n', checked='checked')
+                          |                         사용안함
+                        .js-bdIncludeReplayInSearchFl-show(style='display:none')
+                          label.checkbox-inline
+                            input(name='bdIncludeReplayInSearchType[]', type='checkbox', value='1', checked='checked')
+                            |                             쇼핑몰 화면 적용
+                          label.checkbox-inline
+                            input(name='bdIncludeReplayInSearchType[]', type='checkbox', value='2', checked='checked')
+                            |                             관리자 화면 적용
+                        .notice-info 검색 시 원본글에 등록된 답변글도 검색결과에 노출시킬지 여부를 설정하실 수 있습니다.
+                        .notice-info 검색결과 때 노출되는 답변글은 페이지당 게시물 수에 포함되지 않습니다.
+                    tr.if-is-event-show
+                      th 종료된 이벤트
+                      td.form-inline
+                        label.radio-inline
+                          input(type='radio', name='bdEndEventType', value='read', checked='')
+                          | 읽기가능
+                        label.radio-inline
+                          input(type='radio', name='bdEndEventType', value='msg')
+                          |                         접속제한 알럿메세지
+                        input.form-control(type='text', name='bdEndEventMsg', value='')
+                  .table-title.gd-help-manual 작성자 화면 설정
+                  table.table.table-cols
+                    colgroup
+                      col.width-md
+                      col
+                    tr.if-is-event-show
+                      th 부가설명
+                      td.form-inline
+                        label.radio-inline
+                          input(name='bdSubSubjectFl', type='radio', value='y')
+                          |  사용함
+                        label.radio-inline
+                          input(name='bdSubSubjectFl', type='radio', value='n', checked='checked')
+                          |  사용안함
+                    tr
+                      th 에디터 사용
+                      td
+                        label.radio-inline
+                          input(name='bdEditorFl', type='radio', value='y', checked='checked')
+                          |  사용함
+                        label.radio-inline
+                          input(name='bdEditorFl', type='radio', value='n')
+                          |  사용안함
+                    tr
+                      th 쇼핑몰 게시글 양식 선택
+                      td.form-inline
+                        select#bdTemplateSno.form-control(name='bdTemplateSno')
+                          option(value='0') =선택없음=
+                        input.btn.btn-black.js-template-register(type='button', value='게시글 양식 등록')
+                        .notice-info 에디터 미사용 시 쇼핑몰 게시글 양식은 텍스트만 노출됩니다.
+                    tr
+                      th 휴대폰 작성
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdMobileFl', value='y')
+                          |  사용함
+                        label.radio-inline
+                          input(type='radio', name='bdMobileFl', value='n', checked='checked')
+                          |  사용안함
+                    tr
+                      th 이메일 작성
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdEmailFl', value='y')
+                          |  사용함
+                        label.radio-inline
+                          input(type='radio', name='bdEmailFl', value='n', checked='checked')
+                          |  사용안함
+                    tr
+                      th 업로드 파일 사용
+                      td
+                        label.radio-inline
+                          input(name='bdUploadFl', type='radio', value='y', checked='checked')
+                          |                         사용함
+                        label.radio-inline
+                          input(name='bdUploadFl', type='radio', value='n')
+                          |                         사용안함
+                    tr#bdUploadMaxSize_tr
+                      th.require 업로드파일 최대크기
+                      td.form-inline
+                        input#bdUploadMaxSize.form-control.js-number.wd-sm2(type='text', name='bdUploadMaxSize', value='5')
+                        |  MByte(s)
+                    tr
+                      th 링크
+                      td
+                        label.radio-inline
+                          input(type='radio', name='bdLinkFl', value='y')
+                          |  사용함
+                        label.radio-inline
+                          input(type='radio', name='bdLinkFl', value='n', checked='checked')
+                          |  사용안함
+                  div
+                    .table-title.gd-help-manual 게시글 내용 화면설정
+                    table.table.table-cols
+                      colgroup
+                        col.width-md
+                        col
+                      tr
+                        th 첨부파일 이미지 표시
+                        td
+                          label.radio-inline
+                            input(type='radio', name='bdAttachImageDisplayFl', value='y', checked='checked')
+                            | 사용함
+                          label.radio-inline
+                            input(type='radio', name='bdAttachImageDisplayFl', value='n')
+                            | 사용안함
+                          .notice-info 첨부파일로 등록된 이미지를 게시글 본문 상단에 노출할 수 있습니다.
+                      tr.bdAttachImageRow
+                        th 이미지 리사이즈
+                        td.form-inline
+                          input.form-control.js-number.wd-sm2(typ='text', name='bdAttachImageMaxSize', value='700', size='5')
+                          | px
+                          .notice-info 첨부파일 이미지 업로드 시 제한된 값보다 이미지 넓이가 클 경우 설정된 값으로 리사이즈하여 노출합니다.
+                          .notice-info 모바일은 디바이스 해상도보다 클 경우 모바일 해상도로 리사이즈하여 노출됩니다.
+                      tr.bdAttachImageRow
+                        th 노출 위치
+                        td
+                          label.radio-inline
+                            input(type='radio', name='bdAttachImagePosition', value='top', checked='checked')
+                            | 본문상단
+                          label.radio-inline
+                            input(type='radio', name='bdAttachImagePosition', value='bottom')
+                            | 본문하단
+                      tr
+                        th 리스트화면 노출
+                        td
+                          label.radio-inline
+                            input(type='radio', name='bdListInView', value='y', checked='checked')
+                            | 사용함
+                          label.radio-inline
+                            input(type='radio', name='bdListInView', value='n')
+                            | 사용안함
+                      tr
+                        th IP 노출
+                        td
+                          label.checkbox-inline
+                            input(type='checkbox', name='bdIpFl', value='y', onclick="$('#bdIpFilterFl').prop('disabled', !this.checked)")
+                            |                             글쓴이의 IP를 보여줍니다
+                          label.checkbox-inline
+                            input#bdIpFilterFl(type='checkbox', name='bdIpFilterFl', value='y', disabled='disabled')
+                            |                             IP 끝자리 암호화표기
+                    .table-title.gd-help-manual 상단 하단 꾸미기
+                    table.table.table-cols
+                      colgroup
+                        col.width-md
+                        col
+                      tr
+                        th
+                          | 상단디자인
+                          br
+                          | (Header)
+                        td
+                          // mini editor
+                          textarea#editor(name='bdHeader', style='display:none', label='상단디자인')
+                      tr
+                        th
+                          | 하단디자인
+                          br
+                          | (Footer)
+                        td
+                          // mini editor
+                          textarea#editor2(name='bdFooter', style='display:none', label='하단디자인')
+              script(type='text/javascript', src='JS/HuskyEZCreator.js', charset='utf-8')
+              script(type='text/javascript', src='JS/editorLoad.js', charset='utf-8')
+              script(type='text/javascript').
+                nhn.husky.EZCreator.createInIFrame({
+                oAppRef: oEditors,
+                elPlaceHolder: "editor2",
+                sSkinURI: "/admin/gd_share/script/smart/SmartEditor2Skin.php",
+                htParams: {
+                bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                //aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+                fOnBeforeUnload: function () {
+                //alert("완료!");
+                }
+                }, //boolean
+                fOnAppLoad: function () {
+                //예제 코드
+                //oEditors.getById["editor"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+                },
+                fCreator: "createSEditor2"
+                });
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='/blank.php', width='100%', height='200')
+    script(type='text/javascript').
+      adminPanelApiAjax('board', 'board', 'board_register');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

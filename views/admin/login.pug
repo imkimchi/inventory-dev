@@ -13,13 +13,13 @@ html(lang='en')
     |     
     title DASHGUM - Bootstrap Admin Template
     // Bootstrap core CSS
-    link(href='assets/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/bootstrap.css', rel='stylesheet')
     // external css
-    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='/font-awesome/css/font-awesome.css', rel='stylesheet')
     // Custom styles for this template
-    link(href='assets/css/style.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
     |     
-    link(href='assets/css/style-responsive.css', rel='stylesheet')
+    link(href='/css/style-responsive.css', rel='stylesheet')
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -33,44 +33,28 @@ html(lang='en')
       ***********************************************************************************************************************************************************
     #login-page
       .container
-        form.form-login(action='index.html')
-          h2.form-login-heading sign in now
+        .form-login
+          h2.form-login-heading(style="background: #111!important") 어드민 로그인
           | &#x9;&#x9;        
           .login-wrap
-            input.form-control(type='text', placeholder='User ID', autofocus='')
+            input.form-control(type='text', placeholder='아이디', autofocus='')
             | &#x9;&#x9;            
             br
             | &#x9;&#x9;            
-            input.form-control(type='password', placeholder='Password')
+            input.form-control(type='password', placeholder='비밀번호')
             | &#x9;&#x9;            
-            label.checkbox
-              span.pull-right
-                a(data-toggle='modal', href='login.html#myModal')  Forgot Password?
             | &#x9;&#x9;            
-            button.btn.btn-theme.btn-block(href='index.html', type='submit')
+            button.btn.btn-theme.btn-block(href='#', type='submit', style="border-color:#111!important; background-color:#111; margin-top:20px;")
               i.fa.fa-lock
-              |  SIGN IN
+              |  로그인
             | &#x9;&#x9;            
             hr
             | &#x9;&#x9;            
             | &#x9;&#x9;            
-            .login-social-link.centered
-              p or you can sign in via your social network
-              | &#x9;&#x9;                
-              button.btn.btn-facebook(type='submit')
-                i.fa.fa-facebook
-                |  Facebook
-              | &#x9;&#x9;                
-              button.btn.btn-twitter(type='submit')
-                i.fa.fa-twitter
-                |  Twitter
-            | &#x9;&#x9;            
             .registration
-              | Don&apos;t have an account yet?
+              | 아이디가 없는경우 마스터에게 문의하세요.
               br
-              | &#x9;&#x9;                
-              a(href='#')
-                | Create an account
+            
           // Modal
           #myModal.modal.fade(aria-hidden='true', aria-labelledby='myModalLabel', role='dialog', tabindex='-1')
             .modal-dialog
@@ -91,12 +75,14 @@ html(lang='en')
                   button.btn.btn-theme(type='button') Submit
           // modal
     // js placed at the end of the document so the pages load faster
-    script(src='assets/js/jquery.js')
-    |     
-    script(src='assets/js/bootstrap.min.js')
+    script(src='/js/jquery.js')
+    script(src='/js/lib/store.min.js')
+    script(src='/js/lib/axios.min.js')
+    script(src='/js/admin_login.js')
+    script(src='/js/bootstrap.min.js')
     // BACKSTRETCH
     // You can use an image of whatever size. This script will stretch to fit in any screen size.
-    script(type='text/javascript', src='assets/js/jquery.backstretch.min.js')
+    script(type='text/javascript', src='/js/jquery.backstretch.min.js')
     |     
     script.
-      $.backstretch("assets/img/login-bg.jpg", {speed: 500});
+      $.backstretch("https://i.imgur.com/9dGagOv.png", {speed: 500});

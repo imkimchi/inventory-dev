@@ -1,0 +1,592 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 4.hackout_list
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/CSS/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/flags.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='/JS/underscore-min.js')
+    script(type='text/javascript', src='/JS/jquery_003.js')
+    script(type='text/javascript', src='/JS/jquery-ui.js')
+    script(type='text/javascript', src='/JS/bootstrap.js')
+    script(type='text/javascript', src='/JS/moment.js')
+    script(type='text/javascript', src='/JS/numeral.js')
+    script(type='text/javascript', src='/JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='/JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='/JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='/JS/ZeroClipboard.js')
+    script(type='text/javascript', src='/JS/clipboard.js')
+    script(type='text/javascript', src='/JS/jquery_004.js')
+    script(type='text/javascript', src='/JS/jquery_007.js')
+    script(type='text/javascript', src='/JS/jquery.js')
+    script(type='text/javascript', src='/JS/messages_ko.js')
+    script(type='text/javascript', src='/JS/additional-methods.js')
+    script(type='text/javascript', src='/JS/jquery_005.js')
+    script(type='text/javascript', src='/JS/jquery_006.js')
+    script(type='text/javascript', src='/JS/common2.js')
+    script(type='text/javascript', src='/JS/common.js')
+    script(type='text/javascript', src='/JS/schedule.js')
+    script(type='text/javascript', src='/JS/jquery_002.js')
+    script(type='text/javascript', src='/JS/admin_panel_api.js')
+    script(type='text/javascript', src='/JS/member.js')
+    script(type='text/javascript', src='/JS/sms.js')
+    script(type='text/javascript', src='/JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=member__member___hackout_list#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+  body.member.hackout-list.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                     )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy(href='#', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='#', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='#', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member.active(href='#', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board(href='#', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='#', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.member
+              h2 회원
+            .panel
+              .panel-heading.menu-icon-minus 주문관리
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 회원 리스트
+                li.list-group-item.active
+                  a(href='#') 회원 탈퇴/ 삭제 관리
+                li.list-group-item
+                  a(href='#') 회원 메세지 내역
+                li.list-group-item
+                  a(href='#') 메세지 금칙어 관리
+              .panel-heading.menu-icon-minus 메일/메세지 관리
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 개별/전체 메일 발송
+                li.list-group-item
+                  a(href='#') 자동 메일 설정
+                li.list-group-item
+                  a(href='#') 메일 발송 내역 보기
+                li.list-group-item
+                  a(href='#') 개별/전체 메세지 발송
+                li.list-group-item
+                  a(href='#') 메세지 발송 내역 보기
+          #content.row
+            .col-xs-12
+              .page-header.js-affix.affix-top(style='width: 1632px;')
+                h3 회원 탈퇴 / 삭제 관리
+              .table-title.gd-help-manual
+                | 탈퇴내역 검색 
+                a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=member__member___hackout_list#%ED%83%88%ED%87%B4%EB%82%B4%EC%97%AD%EA%B2%80%EC%83%89', target='_blank') 페이지 도움말
+              form#frmSearchBase.js-form-enter-submit(method='get')
+                input(name='sort', value='regDt desc', type='hidden')
+                input(name='pageNum', value='10', type='hidden')
+                .form-inline
+                  table.table.table-cols
+                    colgroup
+                      col.width-sm
+                      col.width-3xl
+                      col.width-sm
+                      col
+                    tbody
+                      tr
+                        th 상점
+                        td(colspan='3')
+                          label.radio-inline
+                            input(name='mallSno', value='', checked='checked', type='radio')
+                            |                             전체
+                          label.radio-inline
+                            input(name='mallSno', value='1', type='radio')
+                            span.flag.flag-16.flag-kr
+                            | 기준몰
+                          label.radio-inline
+                            input(name='mallSno', value='2', type='radio')
+                            span.flag.flag-16.flag-us
+                            | 영문몰
+                          label.radio-inline
+                            input(name='mallSno', value='3', type='radio')
+                            span.flag.flag-16.flag-cn
+                            | 중문몰
+                          label.radio-inline
+                            input(name='mallSno', value='4', type='radio')
+                            span.flag.flag-16.flag-jp
+                            | 일문몰
+                      tr
+                        th 아이디
+                        td(colspan='3')
+                          input#memId.form-control(name='memId', type='text')
+                      tr
+                        th 탈퇴일
+                        td(colspan='3')
+                          .input-group.js-datepicker
+                            input.form-control(placeholder='', name='hackDt[]', type='text')
+                            span.input-group-addon
+                              span.btn-icon-calendar
+                          |                     ~
+                          .input-group.js-datepicker
+                            input.form-control(placeholder='', name='hackDt[]', type='text')
+                            span.input-group-addon
+                              span.btn-icon-calendar
+                      tr
+                        th 탈퇴유형
+                        td
+                          label.radio-inline
+                            input(name='hackType', value='done', checked='checked', type='radio')
+                            |  전체
+                          label.radio-inline
+                            input(name='hackType', value='directManager', type='radio')
+                            |  관리자삭제
+                          label.radio-inline
+                            input(name='hackType', value='directSelf', type='radio')
+                            |  본인탈퇴
+                        th 재가입여부
+                        td
+                          label.radio-inline
+                            input(name='rejoinFl', value='done', checked='checked', type='radio')
+                            |  전체
+                          label.radio-inline
+                            input(name='rejoinFl', value='y', type='radio')
+                            |  가능
+                          label.radio-inline
+                            input(name='rejoinFl', value='n', type='radio')
+                            |  불가능
+                .table-btn
+                  input#btnSearch.btn.btn-lg.btn-black(value='검색', type='submit')
+              form#frmList(action='', method='get', target='ifrmProcess')
+                input(name='mode', value='', type='hidden')
+                .table-header.form-inline
+                  .pull-left
+                    | 검색 
+                    strong.text-danger 5
+                    | 명 / 전체 
+                    strong.text-danger 5
+                    | 명
+                  .pull-right
+                    select.form-control(name='sort')
+                      | 회원가입일
+                      option(value='hackDt desc', selected='selected') 탈퇴일↓
+                      option(value='hackDt asc') 탈퇴일↑
+                      option(value='memId desc') 아이디↓
+                      option(value='memId asc') 아이디↑
+                    select#pageNum.js-page-number.form-control(name='pageNum')
+                      option(value='10', selected='selected') 10개 보기
+                      option(value='20') 20개 보기
+                      option(value='30') 30개 보기
+                      option(value='40') 40개 보기
+                      option(value='50') 50개 보기
+                      option(value='60') 60개 보기
+                      option(value='70') 70개 보기
+                      option(value='80') 80개 보기
+                      option(value='90') 90개 보기
+                      option(value='100') 100개 보기
+                      option(value='200') 200개 보기
+                      option(value='300') 300개 보기
+                      option(value='500') 500개 보기
+                table.table.table-rows
+                  thead
+                    tr
+                      th.width-xs
+                        input#chk_all.js-checkall(data-target-name='chk', type='checkbox')
+                      th.width-xs 번호
+                      th 상점 구분
+                      th 아이디
+                      th 탈퇴유형
+                      th 탈퇴일
+                      th 재가입여부
+                      th 탈퇴처리 IP
+                      th 처리자
+                      th 상세정보
+                  tbody
+                    tr.center
+                      td
+                        input(name='chk[]', value='5', type='checkbox')
+                      td.font-num 5
+                      td
+                        span.flag.flag-16.flag-kr
+                        | 기준몰
+                      td.font-eng test1
+                      td.font-kor 관리자삭제
+                      td.font-date 17-08-24
+                      td.font-kor 가능
+                      td.font-num 121.167.54.36
+                      td.font-eng
+                        br
+                        | (proad00)
+                      td
+                        a.btn.btn-sm.btn-white(href='https://gdadmin.pro.godomall.com:14002/member/hackout_register.php?sno=5') 보기
+                    tr.center
+                      td
+                        input(name='chk[]', value='4', type='checkbox')
+                      td.font-num 4
+                      td
+                        span.flag.flag-16.flag-kr
+                        | 기준몰
+                      td.font-eng mcthedm
+                      td.font-kor 관리자삭제
+                      td.font-date 17-07-31
+                      td.font-kor 가능
+                      td.font-num 14.39.181.232
+                      td.font-eng
+                        br
+                        | (proad00)
+                      td
+                        a.btn.btn-sm.btn-white(href='https://gdadmin.pro.godomall.com:14002/member/hackout_register.php?sno=4') 보기
+                    tr.center
+                      td
+                        input(name='chk[]', value='3', type='checkbox')
+                      td.font-num 3
+                      td
+                        span.flag.flag-16.flag-kr
+                        | 기준몰
+                      td.font-eng mesin
+                      td.font-kor 관리자삭제
+                      td.font-date 17-07-25
+                      td.font-kor 가능
+                      td.font-num 106.253.61.61
+                      td.font-eng
+                        br
+                        | (proad00)
+                      td
+                        a.btn.btn-sm.btn-white(href='https://gdadmin.pro.godomall.com:14002/member/hackout_register.php?sno=3') 보기
+                    tr.center
+                      td
+                        input(name='chk[]', value='2', type='checkbox')
+                      td.font-num 2
+                      td
+                        span.flag.flag-16.flag-kr
+                        | 기준몰
+                      td.font-eng lazyfrog
+                      td.font-kor 본인탈퇴
+                      td.font-date 17-07-18
+                      td.font-kor 가능
+                      td.font-num 119.192.172.221
+                      td.font-eng -
+                      td
+                        a.btn.btn-sm.btn-white(href='https://gdadmin.pro.godomall.com:14002/member/hackout_register.php?sno=2') 보기
+                    tr.center
+                      td
+                        input(name='chk[]', value='1', type='checkbox')
+                      td.font-num 1
+                      td
+                        span.flag.flag-16.flag-kr
+                        | 기준몰
+                      td.font-eng test
+                      td.font-kor 관리자삭제
+                      td.font-date 17-07-18
+                      td.font-kor 가능
+                      td.font-num 61.36.47.156
+                      td.font-eng
+                        br
+                        | (proad00)
+                      td
+                        a.btn.btn-sm.btn-white(href='https://gdadmin.pro.godomall.com:14002/member/hackout_register.php?sno=1') 보기
+                .table-action
+                  .pull-left
+                    button#btnDelete.btn.btn-white(type='button') 선택 삭제
+              .center
+                nav
+                  ul.pagination.pagination-sm
+                    li.active
+                      span 1
+              script(type='text/javascript').
+                var hackoutList = {
+                frmSearchBase: $('#frmSearchBase')
+                , frmList: $('#frmList')
+                };
+                $(document).ready(function () {
+                $('#btnSearch').on('click', function (e) {
+                e.preventDefault();
+                hackoutList.frmSearchBase.find('input[name=sort]').val($('select[name=\\'sort\']').val());
+                hackoutList.frmSearchBase.find('input[name=pageNum]').val($('select[name=\\'pageNum\']').val());
+                hackoutList.frmSearchBase.submit();
+                });
+                hackoutList.frmList.on('click', '#btnDelete', function (e) {
+                e.preventDefault();
+                if (member.alert_check(hackoutList.frmList, '선택된 탈퇴 내역이 없습니다.')) {
+                if (confirm('선택한 탈퇴 내역을 삭제하시겠습니까?\\n삭제된 탈퇴 내역은 복구하실 수 없습니다.')) {
+                hackoutList.frmList.find('input[name=mode]').val('delete');
+                hackoutList.frmList.attr('method', 'post');
+                hackoutList.frmList.attr('action', '../member/hackout_ps.php');
+                hackoutList.frmList.submit();
+                }
+                }
+                });
+                $('select[name=\\'sort\']').change({targetForm: '#frmSearchBase'}, member.page_sort);
+                $('select[name=\\'pageNum\']').change({targetForm: '#frmSearchBase'}, member.page_number);
+                });
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    #panel_popupPanel
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='./blank.html', width='100%', height='200')
+    script(type='text/javascript').
+      adminPanelApiAjax('member', 'member', 'hackout_list');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

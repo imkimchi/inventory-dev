@@ -1,0 +1,593 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 5.board_list
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/CSS/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/flags.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='/JS/underscore-min.js')
+    script(type='text/javascript', src='/JS/jquery_003.js')
+    script(type='text/javascript', src='/JS/jquery-ui.js')
+    script(type='text/javascript', src='/JS/bootstrap.js')
+    script(type='text/javascript', src='/JS/moment.js')
+    script(type='text/javascript', src='/JS/numeral.js')
+    script(type='text/javascript', src='/JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='/JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='/JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='/JS/ZeroClipboard.js')
+    script(type='text/javascript', src='/JS/clipboard.js')
+    script(type='text/javascript', src='/JS/jquery_004.js')
+    script(type='text/javascript', src='/JS/jquery_007.js')
+    script(type='text/javascript', src='/JS/jquery.js')
+    script(type='text/javascript', src='/JS/messages_ko.js')
+    script(type='text/javascript', src='/JS/additional-methods.js')
+    script(type='text/javascript', src='/JS/jquery_005.js')
+    script(type='text/javascript', src='/JS/jquery_006.js')
+    script(type='text/javascript', src='/JS/common2.js')
+    script(type='text/javascript', src='/JS/common.js')
+    script(type='text/javascript', src='/JS/schedule.js')
+    script(type='text/javascript', src='/JS/jquery_002.js')
+    script(type='text/javascript', src='/JS/admin_panel_api.js')
+    script(type='text/javascript', src='/JS/member.js')
+    script(type='text/javascript', src='/JS/sms.js')
+    script(type='text/javascript', src='/JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=board__board___article_list#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+  body.board.article-list.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                     )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy(href='#', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='#', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='#', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='#', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board.active(href='#', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='#', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.board
+              h2 게시판
+            .panel
+              .panel-heading.menu-icon-minus 게시판 관리
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 게시판 리스트
+                li.list-group-item
+                  a(href='#') 게시판 등록
+                li.list-group-item
+                  a(href='#') 게시글 관리
+                li.list-group-item.active
+                  a(href='#') 게시판 스킨 관리
+          #content.row
+            .col-xs-12
+              .page-header.js-affix
+                h3
+                  | 게시글 관리
+                  small 게시물을 수정하고 관리합니다.
+                input#btnWrite.btn.btn-red(type='button', onclick="btnWrite('fasfd');", value='등록')
+              .table-title.gd-help-manual 게시글 관리
+              form#frmSearch.frmSearch.js-form-enter-submit(name='frmSearch', action='article_list.php')
+                .search-detail-box
+                  table.table.table-cols
+                    tr
+                      th.width-xs 게시판
+                      td.width-3xl
+                        select#bdId.form-control.width-lg(name='bdId')
+                          option(value='fasfd', selected='selected', data-bdreplystatusfl='n', data-bdeventfl='n', data-bdgoodsptfl='n', data-bdgoodsfl='n') adfadf(fasfd)
+                          option(value='testttest', data-bdreplystatusfl='n', data-bdeventfl='n', data-bdgoodsptfl='n', data-bdgoodsfl='n') testtestsetset(testttest)
+                          option(value='test', data-bdreplystatusfl='y', data-bdeventfl='n', data-bdgoodsptfl='n', data-bdgoodsfl='y') 분할배송주문(test)
+                          option(value='cooperation', data-bdreplystatusfl='y', data-bdeventfl='n', data-bdgoodsptfl='n', data-bdgoodsfl='n') 광고ㆍ제휴게시판(cooperation)
+                          option(value='event', data-bdreplystatusfl='n', data-bdeventfl='y', data-bdgoodsptfl='n', data-bdgoodsfl='n') 이벤트(event)
+                          option(value='notice', data-bdreplystatusfl='n', data-bdeventfl='n', data-bdgoodsptfl='n', data-bdgoodsfl='n') 공지사항(notice)
+                          option(value='qa', data-bdreplystatusfl='y', data-bdeventfl='n', data-bdgoodsptfl='n', data-bdgoodsfl='n') 1:1문의(qa)
+                          option(value='goodsqa', data-bdreplystatusfl='y', data-bdeventfl='n', data-bdgoodsptfl='n', data-bdgoodsfl='y') 상품문의(goodsqa)
+                          option(value='goodsreview', data-bdreplystatusfl='n', data-bdeventfl='n', data-bdgoodsptfl='y', data-bdgoodsfl='y') 상품후기(goodsreview)
+                      th.width-xs 말머리
+                      td
+                        .form-inline
+                          select#category.form-control(name='category', onchange='this.form.submit();')
+                            option(value='') 진행상태
+                            option(value='검토요청') 검토요청
+                            option(value='시안확정') 시안확정
+                    tr
+                      th 일자
+                      td(colspan='3')
+                        .form-inline
+                          select.form-control(name='searchDateFl')
+                            option(value='regDt')
+                              | 등록일
+                            option(value='modDt')
+                              | 수정일
+                          .input-group.js-datepicker
+                            input.form-control.width-xs(type='text', name='rangDate[]', value='2017-08-26')
+                            span.input-group-addon
+                              span.btn-icon-calendar
+                          |                         ~
+                          .input-group.js-datepicker
+                            input.form-control.width-xs(type='text', name='rangDate[]', value='2017-09-02')
+                            span.input-group-addon
+                              span.btn-icon-calendar
+                          .btn-group.js-dateperiod(data-toggle='buttons', data-target-name='rangDate')
+                            label.btn.btn-white.btn-sm.hand
+                              input(type='radio', name='searchPeriod', value='0')
+                              | 오늘
+                            label.btn.btn-white.btn-sm.active.hand
+                              input(type='radio', name='searchPeriod', value='7', checked='checked')
+                              | 7일
+                            label.btn.btn-white.btn-sm.hand
+                              input(type='radio', name='searchPeriod', value='15')
+                              | 15일
+                            label.btn.btn-white.btn-sm.hand
+                              input(type='radio', name='searchPeriod', value='30')
+                              | 1개월
+                            label.btn.btn-white.btn-sm.hand
+                              input(type='radio', name='searchPeriod', value='90')
+                              | 3개월
+                            label.btn.btn-white.btn-sm.hand
+                              input(type='radio', name='searchPeriod', value='-1')
+                              | 전체
+                    tr
+                      th 검색어
+                      td(colspan='3')
+                        .form-inline
+                          select.form-control(name='searchField')
+                            option(value='subject')
+                              | 제목
+                            option(value='writerNick')
+                              | 닉네임
+                            option(value='writerNm')
+                              | 이름
+                            option(value='writerId')
+                              | 아이디
+                            option(value='contents')
+                              | 내용
+                            option(value='subject_contents')
+                              | 제목+내용
+                            option.js-if-bdGoodsFl(value='goodsNm')
+                              | 상품명
+                            option.js-if-bdGoodsFl(value='goodsNo')
+                              | 상품코드
+                            option.js-if-bdGoodsFl(value='goodsCd')
+                              | 자체상품코드
+                          input.form-control.width-3xl(name='searchWord', value='')
+                  .table-btn
+                    input.btn.btn-lg.btn-black(type='submit', value='검색')
+              .table-header
+                .pull-left
+                  | 검색 
+                  strong 0
+                  | 개/
+                  |         전체 
+                  strong 2
+                  | 개
+                .pull-right
+                  .form-inline
+                    select#sort.form-control(name='sort')
+                      option(value='b.groupNo asc') 번호↓
+                      option(value='b.groupNo desc') 번호↑
+                      option(value='b.regDt desc') 등록일↓
+                      option(value='b.regDt asc') 등록일↑
+                    select#pageNum.js-page-number.form-control(name='pageNum')
+                      option(value='10', selected='selected') 10개 보기
+                      option(value='20') 20개 보기
+                      option(value='30') 30개 보기
+                      option(value='40') 40개 보기
+                      option(value='50') 50개 보기
+                      option(value='60') 60개 보기
+                      option(value='70') 70개 보기
+                      option(value='80') 80개 보기
+                      option(value='90') 90개 보기
+                      option(value='100') 100개 보기
+                      option(value='200') 200개 보기
+                      option(value='300') 300개 보기
+                      option(value='500') 500개 보기
+              form#frmList(name='frmList', action='article_ps.php', method='post')
+                input(type='hidden', name='bdId', value='fasfd')
+                input(type='hidden', name='mode', value='delete')
+                table#listTbl.table.table-rows.table-fixed(cellpadding='0', cellspacing='0')
+                  thead
+                    tr
+                      th.width-2xs
+                        input.js-checkall(type='checkbox', data-target-name='sno')
+                      th.width-2xs 번호
+                      th 제목
+                      th.width-sm 작성자
+                      th.width-sm 작성일
+                      th.width-2xs 조회
+                      th.width-sm 수정/답변
+                  tr
+                    td.no-data(colspan='7', height='50') 게시물이 없습니다.
+                .table-action
+                  .pull-left.form-inline
+                    span.action-title 선택한 게시글
+                    button.btn.btn-white.js-btn-delete(type='submit')
+                      | 삭제
+                  .pull-right
+                    button.btn.btn-white.btn-icon-excel.js-excel-download(type='button', data-target-form='frmSearch', data-target-list-form='frmList', data-target-list-sno='sno', data-search-count='0', data-total-count='2') 엑셀다운로드
+                .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+                  .modal-dialog.modal-sm
+                    .modal-content
+                      .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                          span(aria-hidden='true') ×
+                        h4.modal-title 엑셀 다운로드
+                      .modal-body
+                        p  다운받을 항목을 선택해주세요.
+                        select.form-control(name='excelDownloadType')
+                          option(value='1') 게시글 전체 다운로드
+                          option(value='2') 선택한 게시글다운로드
+                          option(value='3') 댓글 전체 다운로드
+                          option(value='4') 선택한 댓글 다운로드
+                        // <a href="./board_excel.php?bdId=">다운로드</a>
+                      .modal-footer
+                        button.btn.btn-red(type='button', onclick='excelDownload(this.form)')
+                          | 확인
+                        button.btn.btn-white(type='button', data-dismiss='modal') 취소
+                script.
+                  function writeArticle(sno) {
+                  frame_popup("article_write.php?bdId=fasfd&mode=write&sno=" + ((sno) ? sno : ""), "adfadf 게시판", 'wide-lg');
+                  }
+                  function replyArticle(sno) {
+                  frame_popup("article_write.php?bdId=fasfd&mode=reply&sno=" + ((sno) ? sno : ""), "adfadf 게시판", 'wide-xlg');
+                  }
+                  function modifyArticle(sno, hasParent) {
+                  if (hasParent) {
+                  frame_popup("article_write.php?bdId=fasfd&mode=modify&sno=" + ((sno) ? sno : ""), "adfadf 게시판", 'wide-xlg');
+                  }
+                  else {
+                  frame_popup("article_write.php?bdId=fasfd&mode=modify&sno=" + ((sno) ? sno : ""), "adfadf 게시판", 'wide-lg');
+                  }
+                  }
+                  function view(bdId, sno) {
+                  location.href = "article_view.php?bdId=" + bdId + "&sno=" + sno;
+                  }
+                  $(document).ready(function () {
+                  $('select[name=\\'pageNum\']').change(function () {
+                  $('#frmSearch').submit();
+                  });
+                  $('select[name=\\'sort\']').change(function () {
+                  $('#frmSearch').submit();
+                  });
+                  $('select[name=bdId]').bind('change',function(){
+                  location.href='article_list.php?bdId='+$(this).val();
+                  })
+                  $('#frmList').validate({
+                  ignore: ':hidden',
+                  dialog: false,
+                  submitHandler: function (form) {
+                  form.target = 'ifrmProcess';
+                  dialog_confirm('선택한 글을 삭제하시겠습니까?\\n\r영구 삭제되어 복원 불가능합니다.', function (result) {
+                  if (result) {
+                  form.submit();
+                  }
+                  });
+                  },
+                  rules: {
+                  'sno[]': {
+                  required: true
+                  }
+                  },
+                  messages: {
+                  'sno[]': {
+                  required: '선택하신 글이 없습니다.'
+                  },
+                  },
+                  });
+                  });
+                  function excelDownload(frm) {
+                  var bdId = 'fasfd';
+                  var downloadtype = frm.excelDownloadType.value;
+                  var sno = [];
+                  $("input[name='sno[]']:checked").each(function () {
+                  sno.push($(this).val());
+                  });
+                  var snos = sno.join('-');
+                  if (downloadtype == '1' || downloadtype == '2') {
+                  location.href = './board_excel.php?downloadtype='+downloadtype+'&bdId=' + bdId + '&snos=' + encodeURI(snos);
+                  }
+                  else if (downloadtype == '3' || downloadtype == '4') {
+                  location.href = './memo_excel.php?downloadtype='+downloadtype+'&bdId=' + bdId + '&snos=' + encodeURI(snos);
+                  }
+                  }
+                .center
+                  nav
+                    ul.pagination.pagination-sm
+            .information
+              h4 안내
+              .content
+                p
+                  span(style='font-family: 나눔고딕, NanumGothic; font-size: 10pt;')
+                    b [게시글 관리] 게시글 이동은 어떻게 하나요?
+                p
+                  span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ이동할 게시글의 [수정]버튼 클릭 후 게시판 이동에 체크박을 선택 하신뒤 
+                  span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt; line-height: 1.5;') 이동할 게시판을 선택하여 [저장]을 통해 이동할 수 있습니다.
+                p
+                  span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ이동할 게시글은 같은 유형의 게시판으로 이동할 수 있습니다.
+                p
+                  b
+                    br
+                p
+                  span(style='font-family: 나눔고딕, NanumGothic; font-size: 10pt;')
+                    b [게시글 관리] 1:1게시판이나 상품문의 게시판 답변상태는 어떻게 변경하나요?
+                p
+                  span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ1:1게시판 또는 상품문의 게시판에서 답변할 게시글의 [답변]을 선택합니다.
+                p
+                  span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;')     해당 문의 내용을 답변템플릿 또는 직접등록 한뒤 답변상태를 답변의 내용에 따라 답변대기 또는 답변완료로 변경할 수 있습니다.
+                div
+                  br
+      script(type='text/javascript').
+        <!--
+        $(document).ready(function () {
+        $.ajax('../base/main_setting_ps.php', {
+        method: "post",
+        data: {mode: 'orderPresentationNew'},
+        global_complete: false,
+        beforeSend: function () {
+        $('.js-oder-count-new').addClass('display-none')
+        },
+        success: function () {
+        if (arguments[0].success === 'OK') {
+        var result = arguments[0].result;
+        if (result === true) {
+        $('.js-oder-count-new').removeClass('display-none');
+        }
+        }
+        }
+        });
+        });
+        //-->
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='/blank.php', width='100%', height='200')
+    script(type='text/javascript').
+      adminPanelApiAjax('board', 'board', 'article_list');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

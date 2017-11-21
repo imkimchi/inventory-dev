@@ -1,0 +1,564 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 5.board_list
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/CSS/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/flags.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='/JS/underscore-min.js')
+    script(type='text/javascript', src='/JS/jquery_003.js')
+    script(type='text/javascript', src='/JS/jquery-ui.js')
+    script(type='text/javascript', src='/JS/bootstrap.js')
+    script(type='text/javascript', src='/JS/moment.js')
+    script(type='text/javascript', src='/JS/numeral.js')
+    script(type='text/javascript', src='/JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='/JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='/JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='/JS/ZeroClipboard.js')
+    script(type='text/javascript', src='/JS/clipboard.js')
+    script(type='text/javascript', src='/JS/jquery_004.js')
+    script(type='text/javascript', src='/JS/jquery_007.js')
+    script(type='text/javascript', src='/JS/jquery.js')
+    script(type='text/javascript', src='/JS/messages_ko.js')
+    script(type='text/javascript', src='/JS/additional-methods.js')
+    script(type='text/javascript', src='/JS/jquery_005.js')
+    script(type='text/javascript', src='/JS/jquery_006.js')
+    script(type='text/javascript', src='/JS/common2.js')
+    script(type='text/javascript', src='/JS/common.js')
+    script(type='text/javascript', src='/JS/schedule.js')
+    script(type='text/javascript', src='/JS/jquery_002.js')
+    script(type='text/javascript', src='/JS/admin_panel_api.js')
+    script(type='text/javascript', src='/JS/member.js')
+    script(type='text/javascript', src='/JS/sms.js')
+    script(type='text/javascript', src='/JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=board__board___board_list#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+  body.board.board-list.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                     )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy(href='#', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='#', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='#', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='#', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board.active(href='#', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='#', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.board
+              h2 게시판
+            .panel
+              .panel-heading.menu-icon-minus 게시판 관리
+              ul.list-group
+                li.list-group-item.active
+                  a(href='#') 게시판 리스트
+                li.list-group-item
+                  a(href='#') 게시판 등록
+                li.list-group-item
+                  a(href='#') 게시글 관리
+                li.list-group-item
+                  a(href='#') 게시판 스킨 관리
+          #content.row
+            .col-xs-12
+              script(type='text/javascript').
+                $(document).ready(function () {
+                $('#frmList').validate({
+                dialog: false,
+                submitHandler: function (form) {
+                form.target = 'ifrmProcess';
+                dialog_confirm('선택한 게시판을 삭제하시겠습니까?\\n\r영구 삭제되어 복원 불가능합니다.', function (result) {
+                if (result) {
+                form.submit();
+                }
+                });
+                },
+                rules: {
+                'sno[]': {
+                required: true
+                }
+                },
+                messages: {
+                'sno[]': {
+                required: '선택한 게시판이 없습니다.'
+                },
+                },
+                });
+                // 등록
+                $('.js-register').click(function () {
+                location.href = 'board_register.php';
+                });
+                });
+              .page-header.js-affix.affix-top(style='width: 1632px;')
+                h3
+                  | 게시판 리스트
+                  small 생성된 게시판을 수정하고 관리합니다.
+                input.js-register.btn.btn-red(value='게시판 만들기', type='button')
+              .table-title.gd-help-manual
+                | 게시판 검색
+                a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=board__board___board_list#%EA%B2%8C%EC%8B%9C%ED%8C%90%EA%B2%80%EC%83%89', target='_blank') 페이지 도움말
+              form#frmSearchBase.js-form-enter-submit(method='get')
+                .search-detail-box
+                  table.table.table-cols
+                    colgroup
+                      col.width-sm
+                      col
+                    tbody
+                      tr
+                        th 검색어
+                        td
+                          .form-inline
+                            select#key.form-control(name='key')
+                              option(value='bdId', selected='selected') 아이디
+                              option(value='bdNm') 이름
+                            input.form-control(name='keyword', type='text')
+                      tr
+                        th 유형
+                        td
+                          label.checkbox-inline
+                            input(name='boardKind[all]', value='y', type='checkbox')
+                            | 전체
+                          label.checkbox-inline
+                            input(name='boardKind[default]', value='y', type='checkbox')
+                            | 일반형
+                          label.checkbox-inline
+                            input(name='boardKind[gallery]', value='y', type='checkbox')
+                            | 갤러리형
+                          label.checkbox-inline
+                            input(name='boardKind[event]', value='y', type='checkbox')
+                            | 이벤트형
+                          label.checkbox-inline
+                            input(name='boardKind[qa]', value='y', type='checkbox')
+                            | 1:1문의형
+                  .table-btn
+                    input.btn.btn-lg.btn-black(value='검색', type='submit')
+              .table-header
+                .pull-left
+                  | 검색
+                  strong 9
+                  | 개 /
+                  |         총
+                  strong 9
+                  | 개
+              form#frmList(action='../board/board_ps.php', method='post', novalidate='novalidate')
+                input(name='mode', value='delete', type='hidden')
+                table.table.table-rows.table-fixed
+                  thead
+                    tr
+                      th.width-2xs
+                        input.js-checkall(data-target-name='sno', type='checkbox')
+                      th.width-2xs 번호
+                      th.width-md 아이디
+                      th 이름
+                      th.width-2xs 신규게시글
+                      th.width-2xs 전체게시글
+                      th.width-2xs 미답변
+                      th.width-xs 유형
+                      th PC쇼핑몰 스킨
+                      th 모바일쇼핑몰 스킨
+                      th URL복사
+                      th.width-2xs 사용자화면
+                      th.width-2xs 관리자화면
+                      th.width-2xs 수정
+                  tbody
+                    for(var i = 0; i<=posts.length; i++)
+                      tr.center
+                        td
+                          input(name='sno[]', value=''+i, type='checkbox')
+                        td 9
+                        td
+                          a.btn-link(href='https://gdadmin.pro.godomall.com:14002/board/board_register.php?sno=10') fasfd
+                        td
+                          a(href='https://gdadmin.pro.godomall.com:14002/board/board_register.php?sno=10') adfadf
+                        td 0
+                        td 2
+                        td -
+                        td 일반형
+                        td
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-kr
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=33', target='_blank') 일반형(기본)
+                        td
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-kr
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=37', target='_blank') 일반형(기본)
+                        td
+                          button.js-clipboard.btn.btn-white.btn-sm.width-3xs(type='button', data-clipboard-text='http://pro.godomall.com/board/list.php?bdId=fasfd', title='adfadf')
+                            | PC
+                          button.js-clipboard.btn.btn-white.btn-sm.width-3xs(type='button', data-clipboard-text='http://m.pro.godomall.com/board/list.php?bdId=fasfd', title='adfadf')
+                            | 모바일
+                        td
+                          a.btn.btn-white.btn-sm(href='http://pro.godomall.com/board/list.php?bdId=fasfd', target='_blank') 보기
+                        td
+                          a.btn.btn-white.btn-sm(href='https://gdadmin.pro.godomall.com:14002/board/article_list.php?bdId=fasfd') 관리
+                        td
+                          a.btn.btn-white.btn-sm(href='https://gdadmin.pro.godomall.com:14002/board/board_register.php?sno=10') 수정
+                      tr.center
+                        td
+                          input(name='sno[]', value='9', type='checkbox')
+                        td 8
+                        td
+                          a.btn-link(href='https://gdadmin.pro.godomall.com:14002/board/board_register.php?sno=9') testttest
+                        td
+                          a(href='https://gdadmin.pro.godomall.com:14002/board/board_register.php?sno=9') testtestsetset
+                        td 0
+                        td 0
+                        td -
+                        td 갤러리형
+                        td
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-kr
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=36', target='_blank') 갤러리(기본)
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-us
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=32', target='_blank') 갤러리(기본)
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-cn
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=24', target='_blank') 갤러리(기본)
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-jp
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=28', target='_blank') 갤러리(기본)
+                        td
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-kr
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=40', target='_blank') 갤러리(기본)
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-us
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=44', target='_blank') 갤러리(기본)
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-cn
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=48', target='_blank') 갤러리(기본)
+                          div(style='text-align: left;padding:0 0 10px 10px')
+                            span.flag.flag-16.flag-jp
+                            a(href='https://gdadmin.pro.godomall.com:14002/board/board_theme_register.php?sno=52', target='_blank') 갤러리(기본)
+                        td
+                          button.js-clipboard.btn.btn-white.btn-sm.width-3xs(type='button', data-clipboard-text='http://pro.godomall.com/board/list.php?bdId=testttest', title='testtestsetset')
+                            | PC
+                          button.js-clipboard.btn.btn-white.btn-sm.width-3xs(type='button', data-clipboard-text='http://m.pro.godomall.com/board/list.php?bdId=testttest', title='testtestsetset')
+                            | 모바일
+                        td
+                          a.btn.btn-white.btn-sm(href='http://pro.godomall.com/board/list.php?bdId=testttest', target='_blank') 보기
+                        td
+                          a.btn.btn-white.btn-sm(href='https://gdadmin.pro.godomall.com:14002/board/article_list.php?bdId=testttest') 관리
+                        td
+                          a.btn.btn-white.btn-sm(href='https://gdadmin.pro.godomall.com:14002/board/board_register.php?sno=9') 수정
+                      }
+                .table-action
+                  .pull-left.form-inline
+                    span.action-title 선택한 게시판
+                    button.btn.btn-white(type='submit') 삭제
+                .center
+                  nav
+                    ul.pagination.pagination-sm
+                      li.active
+                        span 1
+              .information
+                h4 안내
+                .content
+                  p
+                    span(style='font-family: 나눔고딕, NanumGothic; font-size: 10pt;')
+                      b [게시판 관리] 게시판 생성 시 유형은 무엇인가요?
+                  p
+                    span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ게시판 유형은 게시판 성격에 맞춰 "일반형/갤러리형/이벤트형/1:1게시판형"을 선택하여 생성할 수 있습니다.
+                  p
+                    span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ일반형 : 게시판 리스트에 제목만 노출하는 게시판입니다.
+                  p
+                    span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ갤러리형 : 게시판 리스트에 제목이외에 이밎를 추가 노출하는 게시판입니다.
+                  p
+                    span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ이벤트형 : 게시글 등록 시 기간(시작일, 종료일)을 설정할 수 있는 게시판입니다.
+                  p
+                    span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ1:1게시판형 : 문의와 답변을 1:1로 매칭하여 확인할 수 있는 게시판입니다.
+                  p
+                    span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;')                           게시글의 "접수, 답변대기, 답변완료"의 상태 값을 제공합니다.
+                  div
+                    br
+                  div
+                    div
+                      span(style='font-family: 나눔고딕, NanumGothic; font-size: 10pt;')
+                        b [게시판 관리] 신규 생성한 게시판은 쇼핑몰에 어떻게 연결하나요?
+                    div
+                      span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;') ㆍ신규 생성된 게시판은 게시판리스트에 추가되며, 사용자화면[보기] 또는 URL복사[PC],[모바일]을
+                    div
+                      span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;')    통해 게시판 리스트 URL을 확인할 수 있습니다.
+                    div
+                      span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;')    확인된 URL을 "디자인>디자인관리>디자인페이지수정"에서 해당 페이지 내 이미지 또는 텍스트를 입력하여 연결할 게시판의 URL의 
+                    div
+                      span(style='font-family: 나눔고딕, NanumGothic; font-size: 8pt;')    링크를 삽입하여 연결할 수 있습니다.
+                  div
+                    br
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    #panel_popupPanel
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='./blank.html', width='100%', height='200')
+    script(type='text/javascript').
+      adminPanelApiAjax('board', 'board', 'board_list');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

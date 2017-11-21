@@ -1,0 +1,1861 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 2.category_tree
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    link(type='text/css', href='/CSS/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/flags.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='/JS/underscore-min.js')
+    script(type='text/javascript', src='/JS/jquery_003.js')
+    script(type='text/javascript', src='/JS/jquery-ui.js')
+    script(type='text/javascript', src='/JS/bootstrap.js')
+    script(type='text/javascript', src='/JS/moment.js')
+    script(type='text/javascript', src='/JS/numeral.js')
+    script(type='text/javascript', src='/JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='/JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='/JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='/JS/ZeroClipboard.js')
+    script(type='text/javascript', src='/JS/clipboard.js')
+    script(type='text/javascript', src='/JS/jquery_004.js')
+    script(type='text/javascript', src='/JS/jquery_007.js')
+    script(type='text/javascript', src='/JS/jquery.js')
+    script(type='text/javascript', src='/JS/messages_ko.js')
+    script(type='text/javascript', src='/JS/additional-methods.js')
+    script(type='text/javascript', src='/JS/jquery_005.js')
+    script(type='text/javascript', src='/JS/jquery_006.js')
+    script(type='text/javascript', src='/JS/common2.js')
+    script(type='text/javascript', src='/JS/common.js')
+    script(type='text/javascript', src='/JS/schedule.js')
+    script(type='text/javascript', src='/JS/category_tree.js')
+    script(type='text/javascript', src='/JS/jquery_002.js')
+    script(type='text/javascript', src='/JS/admin_panel_api.js')
+    script(type='text/javascript', src='/JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      // 툴팁 데이터
+      var tooltipData = [{"title":"카테고리정보","attribute":"카테고리명","content":"한글\\/영문 대소문자\/숫자\/특수문자 30자까지 등록가능","cntWidth":""},{"title":"카테고리정보","attribute":"카테고리이미지등록","content":"쇼핑몰에 카테고리 노출 시 &quot;카테고리명&quot; 대신 노출할 이미지 등록","cntWidth":""},{"title":"카테고리정보","attribute":"마우스오버이미지등록","content":"&quot;카테고리명&quot;에 마우스오버 시 노출할 이미지 등록","cntWidth":""}];
+      var sectionEle = null;
+      $('#content .table.table-cols th').each(function(idx){
+      if ($(this).closest('table').siblings('.table-title').length) {
+      sectionEle = $(this).closest('table').prevAll('.table-title:first');
+      } else if ($(this).closest('table').parent('div').siblings('.table-title').length) {
+      sectionEle = $(this).closest('table').parent('div').prevAll('.table-title:first');
+      } else {
+      sectionEle = $(this).closest('table').parent('div').parent('div').prevAll('.table-title:first');
+      }
+      if (typeof sectionEle[0] !== "undefined") {
+      var sectionTitle = $(sectionEle[0]).html().replace(/\\(?<\/?[^*]+>/gi, '').trim().replace(/ /gi, '').replace(/\n/gi, '');
+      var titleName = $(this).text().trim().replace(/ /gi, '').replace(/\\n/gi, '');
+      for (var i in tooltipData) {
+      if (tooltipData[i].title == sectionTitle) {
+      if (tooltipData[i].attribute == titleName) {
+      $(this).append('<button type="button" class="btn btn-xs js-tooltip" title="' + tooltipData[i].content + '" data-placement="right" data-width="' + tooltipData[i].cntWidth + '"><span class="icon-tooltip"></span></button>');
+      }
+      }
+      }
+      }
+      });
+      if ($('.js-tooltip').length > 0) {
+      // 툴팁 초기화
+      $(document).on({
+      'click': function() {
+      if ($(this).attr('aria-describedby')) {
+      $(this).tooltip('destroy');
+      } else {
+      var option = {
+      trigger: 'click',
+      container: '#content',
+      html: true,
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div><button class="tooltip-close">close</button></div>',
+      };
+      $(this).on('shown.bs.tooltip', function () {
+      $(".tooltip.in").css({
+      width: $(this).data('width'),
+      maxWidth: "none",
+      });
+      });
+      $(this).tooltip(option).tooltip('show');
+      }
+      }
+      }, '.js-tooltip');
+      $(document).on('click', '.tooltip.in .tooltip-close', function () {
+      $('.js-tooltip[aria-describedby=' + $(this).parent().attr('id') + ']').trigger('click');
+      });
+      }
+      });
+      //-->
+    style(type='text/css').
+      /* TREE LAYOUT */ .tree ul { margin:0 0 0 5px; padding:0 0 0 0; list-style-type:none; } .tree li { display:block; min-height:18px; line-height:18px; padding:0 0 0 15px; margin:0 0 0 0; /* Background fix */ clear:both; } .tree li ul { display:none; } .tree li a, .tree li span { display:inline-block;line-height:16px;height:16px;color:black;white-space:nowrap;text-decoration:none;padding:1px 4px 1px 4px;margin:0; } .tree li a:focus { outline: none; } .tree li a input, .tree li span input { margin:0;padding:0 0;display:inline-block;height:20px !important;border:1px solid white;background:white;font-size:10px;font-family:Verdana; } .tree li a input:not([class="xxx"]), .tree li span input:not([class="xxx"]) { padding:1px 0; } /* FOR DOTS */ .tree .ltr li.last { float:left; } .tree > ul li.last { overflow:visible; } /* OPEN OR CLOSE */ .tree li.open ul { display:block; } .tree li.closed ul { display:none !important; } /* FOR DRAGGING */ #jstree-dragged { position:absolute; top:-10px; left:-10px; margin:0; padding:0; } #jstree-dragged ul ul ul { display:none; } #jstree-marker { padding:0; margin:0; line-height:5px; font-size:1px; overflow:hidden; height:5px; position:absolute; left:-45px; top:-30px; z-index:1000; background-color:transparent; background-repeat:no-repeat; display:none; } #jstree-marker.marker { width:45px; background-position:-32px top; } #jstree-marker.marker_plus { width:5px; background-position:right top; } /* BACKGROUND DOTS */ .tree li li { overflow:hidden; } .tree > .ltr > li { display:table; } /* ICONS */ .tree ul ins { display:inline-block; text-decoration:none; width:16px; height:16px; } .tree .ltr ins { margin:0 4px 0 0px; }
+    link(rel='stylesheet', type='text/css', media='all', href='smart/Style_002.css')
+    style(type='text/css').
+      #jstree-contextmenu { display:none; position:absolute; z-index:2000; list-style-type:none; margin:0; padding:0; left:-2000px; top:-2000px; } .tree-context { margin:20px; padding:0; width:180px; border:1px solid #979797; padding:2px; background:#f5f5f5; list-style-type:none; }.tree-context li { height:22px; margin:0 0 0 27px; padding:0; background:#ffffff; border-left:1px solid #e0e0e0; }.tree-context li a { position:relative; display:block; height:22px; line-height:22px; margin:0 0 0 -28px; text-decoration:none; color:black; padding:0; }.tree-context li a ins { text-decoration:none; float:left; width:16px; height:16px; margin:0 0 0 0; background-color:#f0f0f0; border:1px solid #f0f0f0; border-width:3px 5px 3px 6px; line-height:16px; }.tree-context li a span { display:block; background:#f0f0f0; margin:0 0 0 29px; padding-left:5px; }.tree-context li.separator { background:#f0f0f0; height:2px; line-height:2px; font-size:1px; border:0; margin:0; padding:0; }.tree-context li.separator span { display:block; margin:0px 0 0px 27px; height:1px; border-top:1px solid #e0e0e0; border-left:1px solid #e0e0e0; line-height:1px; font-size:1px; background:white; }.tree-context li a:hover { border:1px solid #d8f0fa; height:20px; line-height:20px; }.tree-context li a:hover span { background:#e7f4f9; margin-left:28px; }.tree-context li a:hover ins { background-color:#e7f4f9; border-color:#e7f4f9; border-width:2px 5px 2px 5px; }.tree-context li a.disabled { color:gray; }.tree-context li a.disabled ins { }.tree-context li a.disabled:hover { border:0; height:22px; line-height:22px; }.tree-context li a.disabled:hover span { background:#f0f0f0; margin-left:29px; }.tree-context li a.disabled:hover ins { border-color:#f0f0f0; background-color:#f0f0f0; border-width:3px 5px 3px 6px; }
+  body.goods.category-tree.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                 )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy(href='manage_list.html', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods.active(href='#', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='#', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='#', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board(href='#', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='#', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.goods
+              h2 상품
+            .panel
+              .panel-heading.menu-icon-minus 상품 관리
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 상품 리스트
+                li.list-group-item
+                  a(href='#') 상품 등록
+              .panel-heading.menu-icon-minus.active 상품 일괄 관리
+              ul.list-group
+                li.list-group-item.active
+                  a(href='#') 상품 가격 관리
+                li.list-group-item
+                  a(href='#') 상품 마일리지/할인 관리
+          #content.row
+            .col-xs-12
+              script(type='text/javascript').
+                <!--
+                /**
+                * 에디터 callback
+                *
+                * @author sj, artherot
+                */
+                function callback_editor(response, status, xhr)
+                {
+                var browserVer	= parseInt(jQuery.browser.version);
+                if (status != 'error' && browserVer != '6' && browserVer != '7') {
+                setup_tinyMce();
+                }
+                }
+                $(document).ready(function(){
+                // 카테고리 트리의 글자수 및 카테고리 차수 설정
+                $.tree.reference('categoryTree').settings.rules.valLength	= 30;
+                $.tree.reference('categoryTree').settings.rules.max_depth	= 4;
+                //$.tree.reference('categoryTree').settings.rules.cb_select	= callback_editor;
+                config_load();
+                })
+                /**
+                * 1차 카테고리 만들기 화면
+                *
+                * @author artherot
+                */
+                function config_load()
+                {
+                $('#categoryDetail').load('category_config.php?cateType=goods', { mode:'register'}, $.tree.reference('categoryTree').settings.rules.cb_select);
+                }
+                /**
+                * 상품 자동 매핑 처리
+                */
+                jQuery.fn.goodsMappingProgress = function() {
+                var obj	= $(this);
+                obj.css('background-color', '#F0F0EE');
+                var loadingText	 = '<div id="goodsMappingLoading" style="position:relative;">';
+                loadingText		+= '<div style="position:absolute;top:50px;left:20px;border:solid 3px #676767;background-color:#FFFFFF;width:160px;text-align:center;color:#0079b6;">';
+                loadingText		+= '<div>상품 매핑 중입니다.</div>';
+                loadingText		+= '</div>';
+                loadingText		+= '</div>';
+                obj.prepend(loadingText);
+                $.post('./category_ps.php?cateType=goods', {'mode':'goods_mapping_layer'}, function(data) {
+                if (data) {
+                alert(data);
+                }
+                $("#goodsMappingLoading").remove();
+                obj.css('background-color', '');
+                });
+                };
+                $(document).ready(function(){
+                $('.save').click(function () {
+                $("#frmCateDetail").submit();
+                });
+                $('#informationTd').append($('.information'));
+                });
+                //-->
+              div
+                .page-header.js-affix.affix-top(style='width: 1634px;')
+                  h3 카테고리 관리
+                  .btn-group
+                    input.btn.btn-red.save(value='저장', type='submit')
+                .mgt0
+                  #goodsMapping.list.display-none
+                    form#frmMapping(name='frmMapping', action='./category_ps.php?cateType=goods', method='post', target='ifrmProcess')
+                      input(name='cateType', value='goods', type='hidden')
+                      input(name='mode', value='goods_mapping', type='hidden')
+                      input#mappingMode(value='', type='hidden')
+                      span.button.red
+                        input(value='상품 매핑', type='submit')
+                .pull-left.form-inline
+                  input.btn.btn-white.btn-sm(value='1차 카테고리 생성', onclick="$.tree.reference('categoryTree').deselect_check();config_load();", type='button')
+                  input.btn.btn-white.btn-sm(value='하위 카테고리 생성', onclick="$.tree.reference('categoryTree').create_check();", type='button')
+                  .category_panel
+                    .menu
+                      span.category_icon
+                        img(src='IMG/ico_tree_goods.gif', alt='카테고리')
+                      span.division
+                      a.open_all(rel='open_all', title='전체열기', onclick="$.tree.reference('categoryTree').open_all();")
+                      a.close_all(rel='close_all', title='전체닫기', onclick="$.tree.reference('categoryTree').close_all();")
+                      a.refresh(rel='refresh', title='새로고침', onclick="$.tree.reference('categoryTree').refresh();")
+                      a.rename(rel='rename', title='카테고리 이름변경', onclick="$.tree.reference('categoryTree').rename_check();")
+                      a.remove(rel='remove', title='카테고리 삭제', onclick="$.tree.reference('categoryTree').remove_check();")
+                    #categoryTree.tree.tree-summer(style='direction: ltr;')
+                      ul.ltr
+                        li#015.closed(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | 가위
+                        li#008.leaf(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | 새 카테고리
+                        li#011.closed(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | 새 카테고리
+                        li#004.closed(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | ACC
+                        li#007.leaf(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | SHOES
+                        li#010.leaf(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | 테스트
+                        li#006.leaf(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | BAG
+                        li#012.closed(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | 영업시간안내
+                        li#013.leaf(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | 가방안내
+                        li#014.last.leaf(rel='root', linktype='category')
+                          a.href='', style=''
+                            ins  
+                            | 안내
+                #categoryDetail.category-detail-info
+                  #layer-wrap
+                    script(type='text/javascript').
+                      <!--
+                      $(document).ready(function(){
+                      $("#frmCateDetail").validate({
+                      submitHandler: function (form) {
+                      oEditors.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+                      // 에디터의 내용이 textarea에 적용됩니다.
+                      oEditors.getById["editor2"].exec("UPDATE_CONTENTS_FIELD", []);	//
+                      에디터의 내용이 textarea에 적용됩니다.
+                      oEditors.getById["editor3"].exec("UPDATE_CONTENTS_FIELD", []);	//
+                      에디터의 내용이 textarea에 적용됩니다.
+                      oEditors.getById["editor4"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의
+                      내용이 textarea에 적용됩니다.
+                      oEditors.getById["editor5"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의
+                      내용이 textarea에 적용됩니다.
+                      oEditors.getById["editor6"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의
+                      내용이 textarea에 적용됩니다.
+                      if($('input[name="sortAutoFl"]:checked').val() =='y') {
+                      $(".js-sorttype-n").html('');
+                      } else {
+                      $(".js-sorttype-y").html('');
+                      }
+                      if($("input[name*='mallDisplay[]']:checked").length ==0) {
+                      alert('노출상점을 설정해주세요.');
+                      return false;
+                      }
+                      form.target='ifrmProcess';
+                      form.submit();
+                      },
+                      // onclick: false, // <-- add this option
+                      rules: {
+                      cateNm: 'required'
+                      },
+                      messages: {
+                      cateNm: {
+                      required: '카테고리명을 입력하세요.'
+                      }
+                      }
+                      });
+                      viewThemeConfig('tbl_pcThemeInfo',$('select[name="pcThemeCd"]').val());
+                      viewThemeConfig('tbl_mobileThemeInfo',$('select[name="mobileThemeCd"]').val());
+                      viewThemeConfig('tbl_recomPcThemeInfo',$('select[name="recomPcThemeCd"]').val());
+                      viewThemeConfig('tbl_recomMobileThemeInfo',$('select[name="recomMobileThemeCd"]').val());
+                      if ($('.js-clipboard').length) {
+                      if ($('.js-clipboard').length) {
+                      // https://clipboardjs.com
+                      var clipboard = new Clipboard('.js-clipboard');
+                      clipboard.on('success', function (e){
+                      var title = $(e.trigger).attr('title') ==
+                      undefined ? '' : $(e.trigger).attr('title');
+                      alert('[' + title + ' 카테고리 쇼핑몰 주소] 정보를 클립보드에
+                      복사했습니다.\\n<code>Ctrl+V</code>를 이용해서 사용하세요.');
+                      e.clearSelection();
+                      });
+                      clipboard.on('error', function (e) {
+                      console.error('Action:', e.action);
+                      console.error('Trigger:', e.trigger);
+                      });
+                      }
+                      }
+                      // 메뉴얼 링크
+                      $(".gd-help-manual").each(function() {
+                      $(this).append(' <a
+                      href="http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#'
+                      + $(this).text().trim() + '" target="_blank" class="link-help">페이지
+                      도움말</a>');
+                      });
+                      // 툴팁 데이터
+                      var tooltipData =
+                      [{"title":"카테고리정보","attribute":"카테고리명","content":"한글\\/영문 대소문자\/숫자\/특수문자
+                      30자까지
+                      등록가능","cntWidth":""},{"title":"카테고리정보","attribute":"카테고리이미지등
+                      록","content":"쇼핑몰에 카테고리 노출 시 &quot;카테고리명&quot; 대신 노출할 이미지
+                      등록","cntWidth":""},{"title":"카테고리정보","attribute":"마우스오버이미지등
+                      록","content":"&quot;카테고리명&quot;에 마우스오버 시 노출할 이미지 등록","cntWidth":""}];
+                      $(".table.table-cols th").each(function() {
+                      var titleName = $(this).text().trim().replace(/ /gi, '');
+                      for (var i in tooltipData) {
+                      if (tooltipData[i].attribute == titleName) {
+                      $(this).append('<button type="button" class="btn btn-xs
+                      js-tooltip" title="' + tooltipData[i].content + '"
+                      data-placement="right"><span class="icon-tooltip"></span></button>');
+                      }
+                      }
+                      });
+                      // 툴팁 초기화
+                      var option = {
+                      trigger: 'hover',
+                      container: '#content',
+                      };
+                      $('.js-tooltip').tooltip(option);
+                      initDepthToggle(1);//4depth 메뉴 보임안보임처리
+                      $('input[name="cateImgMobileFl"]').click(function(e){
+                      if($(this).prop( "checked" )) {
+                      $(".js-cate-img-mobile").hide();
+                      } else {
+                      $(".js-cate-img-mobile").show();
+                      }
+                      });
+                      $('input[name="sortAutoFl"]').click(function(e){
+                      if($(this).val() =='y') {
+                      $(".js-sorttype-y").show();
+                      $(".js-sorttype-n").hide();
+                      } else {
+                      $(".js-sorttype-y").hide();
+                      $(".js-sorttype-n").show();
+                      }
+                      });
+                      $('input[name="recomSortAutoFl"]').click(function(e){
+                      if($(this).val() =='y') {
+                      $(".js-sorttype-recom-y").show();
+                      $(".js-recom-auto-goods").show();
+                      $(".js-recom-manual-goods").hide();
+                      } else {
+                      $(".js-sorttype-recom-y").hide();
+                      $(".js-recom-auto-goods").hide();
+                      $(".js-recom-manual-goods").show();
+                      }
+                      });
+                      $('input[maxlength]').maxlength({
+                      showOnReady: true,
+                      alwaysShow: true
+                      });
+                      //카테고리명 기준몰 동일 여부 체크
+                      $(".js-global-catenm input[type='text']").each(function() {
+                      if($(this).val() =='') {
+                      $(this).prop("disabled",true);
+                      $(this).closest("tr").find("input[type='checkbox']").prop('checked',true);
+                      }
+                      });
+                      $(".js-global-catenm  input:checkbox").click(function () {
+                      if($(this).is(":checked")) {
+                      $(this).closest("tr").find("input[type='text']").prop('disabled',true);
+                      } else {
+                      $(this).closest("tr").find("input[type='text']").prop('disabled',false);
+                      }
+                      });
+                      if($("input[name*='mallDisplay[]']:checked").length == 4) {
+                      $("input[name*='mallDisplay[]']").prop("checked",false);
+                      $("input[name='mallDisplay[]'][value='all']").prop("checked",true);
+                      }
+                      $("input[name*='mallDisplay[]']").click(function () {
+                      if($(this).is(":checked") && $(this).val() !='all') {
+                      $("input[name='mallDisplay[]'][value='all']").prop("checked",false);
+                      }
+                      });
+                      $("#btnDescriptionNevi,
+                      #btnDescriptionNeviMobile,#btnDescriptionRecom,
+                      #btnDescriptionRecomMobile,#btnDescriptionList,
+                      #btnDescriptionListMobile").click(function () {
+                      var target = $(this).data('target');
+                      var type = $(this).data('type');
+                      if (type == 'pc') {
+                      $('#btn'+target).addClass('active');
+                      $('#btn'+target+'Mobile').removeClass('active');
+                      $('#textarea'+target).show();
+                      $('#textarea'+target+'Mobile').hide();
+                      } else {
+                      if($(this).parents("ul").find("input[type='checkbox']").prop('checked')
+                      == false) {
+                      $('#btn'+target).removeClass('active');
+                      $('#btn'+target+'Mobile').addClass('active');
+                      $('#textarea'+target).hide();
+                      $('#textarea'+target+'Mobile').show();
+                      }
+                      }
+                      return false;
+                      });
+                      $("input[name='cateHtml1SameFl'] ,
+                      input[name='cateHtml2SameFl'],
+                      input[name='cateHtml3SameFl']").click(function () {
+                      var target = $(this).data('target');
+                      if($(this).prop('checked')) {
+                      $("#btn"+target+"Mobile").addClass("nav-none");
+                      $("#btn"+target+"Mobile
+                      a").css("background","#F6F6F6");
+                      $("#btn"+target).click();
+                      } else {
+                      $("#btn"+target+"Mobile").removeClass("nav-none");
+                      $("#btn"+target+"Mobile a").css("background","");
+                      }
+                      });
+                      init_translate();
+                      });
+                      /**
+                      * 카테고리 연결하기 Ajax layer
+                      */
+                      function layer_register(typeStr, mode, isDisabled) {
+                      var addParam = {
+                      "mode": mode,
+                      };
+                      if (typeStr == 'scm') {
+                      $('input:radio[name=scmFl]:input[value=y]').prop("checked", true);
+                      }
+                      if (typeStr == 'goods') {
+                      addParam['layerTitle'] = '카테고리 추천상품에 진열할 상품 설정';
+                      addParam['dataInputNm']		= 'recomGoodsNo';
+                      addParam['callFunc']		= 'display_recom_goods';
+                      }
+                      if (typeStr == 'member_group') {
+                      addParam['layerTitle'] = '회원 등급 선택';
+                      addParam['dataInputNm'] = "memberGroupNo";
+                      }
+                      if (!_.isUndefined(isDisabled) && isDisabled == true) {
+                      addParam.disabled = 'disabled';
+                      }
+                      layer_add_info(typeStr, addParam);
+                      }
+                      function display_recom_goods(data) {
+                      data.dataInputNm = 'recomGoodsNo';
+                      $.each(data.info, function (key, val) {
+                      var addHtml = "";
+                      addHtml += '<tr id="' + data.dataFormID + '_' + val.goodsNo + '">';
+                      addHtml += '<td class="center"><input type="checkbox"
+                      id="recom_goods_' + val.goodsNo + '" name="recom_goods_' + val.goodsNo +
+                      '" value="'+val.goodsNo+'"><input type="hidden" name="' +
+                      data.dataInputNm + '[]" value="' + val.goodsNo + '" /></td>';
+                      addHtml += '<td class="center" id="recom_number_' + val.goodsNo +
+                      '">'+(key+1)+'</td>';
+                      addHtml += '<td><a
+                      href="http://pro.godomall.com/goods/goods_view.php?goodsNo=' +
+                      val.goodsNo + '" target="_blank"><img src="' + val.goodsImg + '"
+                      align="absmiddle" width="30" alt="' + val.goodsNm + '" title="' +
+                      val.goodsNm + '" /></a></td>';
+                      addHtml += '<td><a
+                      href="../goods/goods_register.php?goodsNo=' + val.goodsNo + '"
+                      target="_blank">' + val.goodsNm + '</a></td>';
+                      addHtml += '<td class="center">' + val.goodsPrice + '</td>';
+                      addHtml += '<td >' + val.scmNm + '</td>';
+                      addHtml += '<td class="center">' + val.totalStock + '</td>';
+                      addHtml += '<td class="center">' + val.stockTxt + '</td>';
+                      addHtml += '<td class="center">' + val.displayPc + '</td>';
+                      addHtml += '<td class="center">' + val.displayMobile + '</td>';
+                      addHtml += '</tr>';
+                      $("#" + data.parentFormID).append(addHtml);
+                      });
+                      $('td[id*=\\'recom_number_\']').each(function (key) {
+                      $(this).html(key+1);
+                      });
+                      $("#goodsLayer  tfoot").hide();
+                      }
+                      /**
+                      * 출력 여부
+                      *
+                      * @param string arrayID 해당 ID
+                      * @param string modeStr 출력 여부 (show or hide)
+                      */
+                      function display_toggle(modeStr)
+                      {
+                      if (modeStr == 'n') {
+                      $('.hideDivisionFl').show();
+                      $('#dv_divisionEx').hide();
+                      } else if (modeStr == 'y') {
+                      $('.hideDivisionFl').hide();
+                      $('#dv_divisionEx').show();
+                      }
+                      }
+                      /**
+                      * 테마상세 팝업창
+                      *
+                      * @author artherot
+                      * @param string orderNo 주문 번호
+                      */
+                      function theme_register_popup(themeNo)
+                      {
+                      var path = get_script_dirpath('_template/script/common.js');
+                      win = popup({
+                      url:
+                      path+'goods/category_theme_register.php?popupMode=yes&themeId='+themeNo
+                      , target: 'theme_register'
+                      , width: 860
+                      , height: 600
+                      , scrollbars: 'yes'
+                      , resizable: 'yes'
+                      });
+                      win.focus();
+                      return win;
+                      }
+                      /**
+                      * 테마보기
+                      */
+                      function viewThemeConfig(tbl,themeCd) {
+                      var parameters = {
+                      'mode': 'theme_ajax',
+                      'themeCd': themeCd
+                      };
+                      $.post("../goods/display_config_ps.php",parameters,
+                      function(data){
+                      $.each(data, function(i,item){
+                      $("#"+tbl+" .tbl_theme_"+i).html(item);
+                      });
+                      }, "json");
+                      }
+                      /**
+                      * 테마 입력
+                      *
+                      * @author artherot
+                      * @param string orderNo 주문 번호
+                      */
+                      function add_theme_popup(themeCate,themeCdNm, mobileFl)
+                      {
+                      window.open('../goods/display_config_theme_register.php?popupMode=yes&themeCate='+themeCate+'&addTheme='+themeCdNm+'&mobileFl='+mobileFl,
+                      'member_crm', 'width=1210, height=700, scrollbars=yes');
+                      };
+                      //추가상품삭제
+                      function delete_option() {
+                      if($('input[name="recomSortAutoFl"]:checked').val() == 'y') {
+                      $("[id^='recom_goods_']:checked").each(function () {
+                      field_remove('info_goods_' + $(this).val());
+                      });
+                      $('td[id*=\\'recom_number_\']').each(function (key) {
+                      $(this).html(key + 1);
+                      });
+                      } else {
+                      $('#add_goods'+activeGoodsBody+'
+                      input[name="itemGoodsNo[]"]:checked').each(function () {
+                      //field_remove('tbl_add_goods_' + $(this).val());
+                      $(this).closest("tr").remove();
+                      });
+                      var cnt = 1;
+                      $('#add_goods'+activeGoodsBody+'
+                      input[name="itemGoodsNo[]"]').each(function () {
+                      $('#add_goods'+activeGoodsBody+'
+                      .addGoodsNumber_'+$(this).val()).html(cnt);
+                      cnt++;
+                      });
+                      }
+                      }
+                      function set_cate_permission(val) {
+                      if(val =='2') {
+                      $("#btn_member_group").attr("disabled",false);
+                      layer_register('member_group');
+                      } else {
+                      $("#btn_member_group").attr("disabled",true);
+                      $("#member_groupLayer").html('');
+                      }
+                      }
+                      /*
+                      * 추천상품 선택
+                      */
+                      function select_recom_goods() {
+                      if($('input[name="recomSortAutoFl"]:checked').val() == 'y') {
+                      layer_register('goods','select');
+                      } else {
+                      var mobileFl = "";
+                      var displayPcFl =  $("input[name='recomDisplayFl']:checked").val();
+                      var displayMobileFl =
+                      $("input[name='recomDisplayMobileFl']:checked").val();
+                      if(displayPcFl =='y' && displayMobileFl =='n' ) mobileFl = "n";
+                      else if(displayPcFl =='n' && displayMobileFl =='y' ) mobileFl = "y";
+                      else mobileFl = "all";
+                      window.open('../share/popup_goods.php?mobileFl='+mobileFl,
+                      'popup_goods_search', 'width=1255, height=790, scrollbars=no');
+                      }
+                      }
+                      var activeGoodsBody = "0";
+                      /*
+                      * 추천상품 수동 선택
+                      */
+                      function setAddGoods(frmData) {
+                      var addHtml = "";
+                      var cnt = frmData.info.length;
+                      $.each(frmData.info, function (key, val) {
+                      var stockText = "";
+                      // 상품 재고
+                      if (val.stockFl == 'n') {
+                      totalStock    = '∞';
+                      } else {
+                      totalStock    = val.totalStock ;
+                      }
+                      if(val.soldOutFl =='y' || totalStock== 0) stockText = "품절";
+                      else stockText = "";
+                      if(val.sortFix == true) {
+                      sortFix = "checked = 'checked'";
+                      tableCss = "style='background:#d3d3d3' class='add_goods_fix'";
+                      } else {
+                      sortFix = '';
+                      tableCss = "class='add_goods_free'";
+                      }
+                      if(val.goodsDisplayFl =='y') goodsDisplayFlText = "노출함";
+                      else goodsDisplayFlText = "노출안함";
+                      if(val.goodsDisplayMobileFl =='y') goodsDisplayMobileFlText = "노출함";
+                      else goodsDisplayMobileFlText = "노출안함";
+                      addHtml += '<tr id="tbl_add_goods_'+val.goodsNo+'" '+tableCss+'>';
+                      addHtml += '<td class="center">';
+                      addHtml += '<input type="hidden" name="itemGoodsNm[]"
+                      value="'+val.goodsNm+'" />';
+                      addHtml += '<input type="hidden" name="itemGoodsPrice[]"
+                      value="'+val.goodsPrice+'" />';
+                      addHtml += '<input type="hidden" name="itemScmNm[]"
+                      value="'+val.scmNm+'" />';
+                      addHtml += '<input type="hidden" name="itemTotalStock[]"
+                      value="'+val.totalStock+'" />';
+                      addHtml += '<input type="hidden" name="itemBrandNm[]"
+                      value="'+val.brandNm+'" />';
+                      addHtml += '<input type="hidden" name="itemMakerNm[]"
+                      value="'+val.makerNm+'" />';
+                      addHtml += '<input type="hidden" name="itemImage[]"
+                      value="'+val.image+'" />';
+                      addHtml += '<input type="hidden" name="itemSoldOutFl[]"
+                      value="'+val.soldOutFl+'" />';
+                      addHtml += '<input type="hidden" name="itemStockFl[]"
+                      value="'+val.stockFl+'" />';
+                      addHtml += '<input type="hidden" name="itemGoodsDisplayFl[]"
+                      value="'+val.goodsDisplayFl+'" />';
+                      addHtml += '<input type="hidden" name="itemGoodsDisplayMobileFl[]"
+                      value="'+val.goodsDisplayMobileFl+'" />';
+                      addHtml += '<input type="hidden" name="itemGoodsSellFl[]"
+                      value="'+val.goodsSellFl+'" />';
+                      addHtml += '<input type="hidden" name="itemGoodsSellMobileFl[]"
+                      value="'+val.goodsSellMobileFl+'" />';
+                      addHtml += '<input type="checkbox" name="itemGoodsNo[]"
+                      id="layer_goods_'+val.goodsNo+'"  value="'+val.goodsNo+'"/></td>';
+                      addHtml += '<td class="center number
+                      addGoodsNumber_'+val.goodsNo+'">'+(cnt)+'</td>';
+                      addHtml += '<td
+                      class="center">'+decodeURIComponent(val.image)+'</td>';
+                      addHtml += '<td><a href="../goods/goods_register.php?goodsNo=' +
+                      val.goodsNo + '" target="_blank">'+val.goodsNm+'</a><input type="hidden"
+                      name="goodsNoData[]" value="'+val.goodsNo+'" />';
+                      addHtml += '<input type="checkbox" name="sortFix[]"
+                      class="layer_sort_fix_'+val.goodsNo+'"  value="'+val.goodsNo+'"
+                      '+sortFix+' style="display:none" ></td>';
+                      addHtml += '<td class="center">'+val.goodsPrice+'</td>';
+                      addHtml += '<td class="center">'+val.scmNm+'</td>';
+                      addHtml += '<td class="center">'+totalStock+'</td>';
+                      addHtml += '<td class="center">'+stockText+'</td>';
+                      addHtml += '<td class="center
+                      js-goodschoice-hide">'+goodsDisplayFlText+'</td>';
+                      addHtml += '<td class="center
+                      js-goodschoice-hide">'+goodsDisplayMobileFlText+'</td>';
+                      addHtml += '</tr>';
+                      cnt--;
+                      });
+                      $("#add_goods"+activeGoodsBody).html(addHtml);
+                      var cnt = 1;
+                      $('#add_goods'+activeGoodsBody+'
+                      input[name="itemGoodsNo[]"]').each(function () {
+                      $('#add_goods'+activeGoodsBody+'
+                      .addGoodsNumber_'+$(this).val()).html(cnt);
+                      cnt++;
+                      });
+                      }
+                      //-->
+                    form#frmCateDetail(name='frmCateDetail', action='category_ps.php', method='post', enctype='multipart/form-data', novalidate='novalidate')
+                      input(name='mode', value='register', type='hidden')
+                      input(name='cateCd', value='', type='hidden')
+                      input(name='cateSort', value='0', type='hidden')
+                      .table-title.gd-help-manual
+                        | 카테고리 정보
+                        span.depth-toggle
+                          a.displayCategory.btn.btn-sm.btn-gray(href='https://gdadmin.pro.godomall.com:14002/goods/goods_sort_category.php?cateGoods[]=', target='_blank') 상품진열
+                          button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryInfo')
+                            span 닫힘
+                        a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%A0%95%EB%B3%B4%EC%83%81%ED%92%88%EC%A7%84%EC%97%B4%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                      input#depth-toggle-hidden-categoryInfo(value='0', type='hidden')
+                      #depth-toggle-line-categoryInfo.depth-toggle-line.display-none
+                      #depth-toggle-layer-categoryInfo
+                        table.table.table-cols
+                          colgroup
+                            col(style='width:160px;')
+                            col
+                            col(style='width:160px;')
+                            col
+                          tbody
+                            tr
+                              th 노출상점
+                              td(colspan='3')
+                                label.checkbox-inline
+                                  input(name='mallDisplay[]', value='all', checked='checked', type='checkbox')
+                                  | 전체
+                                label.checkbox-inline
+                                  input(name='mallDisplay[]', value='1', type='checkbox')
+                                  span.flag.flag-16.flag-kr
+                                  |  기준몰
+                                label.checkbox-inline
+                                  input(name='mallDisplay[]', value='2', type='checkbox')
+                                  span.flag.flag-16.flag-us
+                                  |  영문몰
+                                label.checkbox-inline
+                                  input(name='mallDisplay[]', value='3', type='checkbox')
+                                  span.flag.flag-16.flag-cn
+                                  |  중문몰
+                                label.checkbox-inline
+                                  input(name='mallDisplay[]', value='4', type='checkbox')
+                                  span.flag.flag-16.flag-jp
+                                  |  일문몰
+                                div
+                                  label.checkbox-inline
+                                    input(name='mallDisplaySubFl', value='y', type='checkbox')
+                                    | 하위 카테고리 동일 적용
+                            tr
+                              th.require
+                                | 카테고리명
+                                button.btn.btn-xs.js-tooltip(type='button', title='', data-placement='right', data-original-title='한글/영문 대소문자/숫자/특수문자 30자까지 등록가능')
+                                  span.icon-tooltip
+                              td(colspan='3')
+                                div
+                                  table.table.table-cols(style='width:500px')
+                                    tbody
+                                      tr
+                                        th
+                                          | 기준몰
+                                        td(style='position: relative;')
+                                          input.form-control.width-lg.js-maxlength(name='cateNm', maxlength='30', type='text')
+                                          span.bootstrap-maxlength.label.label-success(style='display: block; position: absolute; white-space: nowrap; z-index: 999; top: 10.5px; left: 220px;')
+                                            em 0
+                                            |  / 30
+                                    tbody.js-global-catenm
+                                      tr
+                                        th
+                                          span.flag.flag-16.flag-us
+                                        td(style='position: relative;')
+                                          input.form-control.width-lg.js-maxlength(name='globalData[2][cateNm]', maxlength='30', disabled='disabled', type='text')
+                                          div
+                                            label.checkbox-inline
+                                              input(name='cateNmGlobalFl', value='2', checked='checked', type='checkbox')
+                                              |  기준몰 카테고리명 공통사용
+                                            a.btn.btn-sm.btn-black.js-translate-google(data-language='us', data-target-name='cateNm') 참고 번역
+                                          span.bootstrap-maxlength.label.label-success(style='display: block; position: absolute; white-space: nowrap; z-index: 999; top: 9px; left: 220px;')
+                                            em 0
+                                            |  / 30
+                                      tr
+                                        th
+                                          span.flag.flag-16.flag-cn
+                                        td(style='position: relative;')
+                                          input.form-control.width-lg.js-maxlength(name='globalData[3][cateNm]', maxlength='30', disabled='disabled', type='text')
+                                          div
+                                            label.checkbox-inline
+                                              input(name='cateNmGlobalFl', value='3', checked='checked', type='checkbox')
+                                              |  기준몰 카테고리명 공통사용
+                                            a.btn.btn-sm.btn-black.js-translate-google(data-language='cn', data-target-name='cateNm') 참고 번역
+                                          span.bootstrap-maxlength.label.label-success(style='display: block; position: absolute; white-space: nowrap; z-index: 999; top: 9px; left: 220px;')
+                                            em 0
+                                            |  / 30
+                                      tr
+                                        th
+                                          span.flag.flag-16.flag-jp
+                                        td(style='position: relative;')
+                                          input.form-control.width-lg.js-maxlength(name='globalData[4][cateNm]', maxlength='30', disabled='disabled', type='text')
+                                          div
+                                            label.checkbox-inline
+                                              input(name='cateNmGlobalFl', value='4', checked='checked', type='checkbox')
+                                              |  기준몰 카테고리명 공통사용
+                                            a.btn.btn-sm.btn-black.js-translate-google(data-language='jp', data-target-name='cateNm') 참고 번역
+                                          span.bootstrap-maxlength.label.label-success(style='display: block; position: absolute; white-space: nowrap; z-index: 999; top: 9px; left: 220px;')
+                                            em 0
+                                            |  / 30
+                                div
+                                  .notice-info
+                                    | 기본적으로 입력된 텍스트로 해당 카테고리 보여집니다<
+                                    br
+                                    | 									카테고리를 이미지로 노출하려면 아래 "카테고리 이미지등록" 항목에 이미지를 등록하세요.
+                            tr
+                              th 카테고리 타입
+                              td(colspan='3')
+                                div
+                                  label.radio-inline(title='일반 카테고리')
+                                    input(name='divisionFl', value='n', onclick='display_toggle(this.value);', checked='checked', type='radio')
+                                    | 일반 카테고리
+                                  span.notice-ref.notice-sm (카테고리 페이지가 있고, 상품연결이 되는 일반적인 카테고리입니다.)
+                                div
+                                  label.radio-inline(title='그룹(구분) 카테고리')
+                                    input(name='divisionFl', value='y', onclick='display_toggle(this.value);', type='radio')
+                                    | 그룹(구분) 카테고리
+                                  span.notice-ref.notice-sm (카테고리 페이지가 없고, 상품연결이 안되는 그룹(구분) 카테고리입니다.)
+                            tr
+                              th
+                                | PC쇼핑몰
+                                br
+                                | 노출상태
+                              td(colspan='3')
+                                label.radio-inline
+                                  input(name='cateDisplayFl', value='y', checked='checked', type='radio')
+                                  | 노출함
+                                label.radio-inline
+                                  input(name='cateDisplayFl', value='n', type='radio')
+                                  | 노출안함
+                            tr
+                              th
+                                | 모바일쇼핑몰
+                                br
+                                | 노출상태
+                              td(colspan='3')
+                                label.radio-inline
+                                  input(name='cateDisplayMobileFl', value='y', checked='checked', type='radio')
+                                  | 노출함
+                                label.radio-inline
+                                  input(name='cateDisplayMobileFl', value='n', type='radio')
+                                  | 노출안함
+                            tr
+                              th
+                                | PC쇼핑몰
+                                br
+                                | 카테고리 이미지 등록
+                              td
+                                p
+                                  label.checkbox-inline
+                                    input(name='cateImgMobileFl', value='y', type='checkbox')
+                                    | 모바일 쇼핑몰과 동일 적용
+                                label
+                                  input#filestyle-0(name='cateImg', style='position: absolute; clip: rect(0px, 0px, 0px, 0px);', tabindex='-1', type='file')
+                                  .bootstrap-filestyle.input-group
+                                    span.group-span-filestyle.input-group-btn(tabindex='0')
+                                      label.btn.btn-gray.btn-sm(for='filestyle-0')
+                                        span.buttonText 찾아보기
+                                    input.form-control.input-sm(placeholder='', disabled='disabled', type='text')
+                              th
+                                | PC쇼핑몰
+                                br
+                                |  마우스오버 이미지 등록
+                              td
+                                label
+                                  input#filestyle-1(name='cateOverImg', style='position: absolute; clip: rect(0px, 0px, 0px, 0px);', tabindex='-1', type='file')
+                                  .bootstrap-filestyle.input-group
+                                    span.group-span-filestyle.input-group-btn(tabindex='0')
+                                      label.btn.btn-gray.btn-sm(for='filestyle-1')
+                                        span.buttonText 찾아보기
+                                    input.form-control.input-sm(placeholder='', disabled='disabled', type='text')
+                            tr.js-cate-img-mobile
+                              th
+                                | 모바일쇼핑몰
+                                br
+                                | 카테고리 이미지 등록
+                              td(colspan='3')
+                                label
+                                  input#filestyle-2(name='cateImgMobile', style='position: absolute; clip: rect(0px, 0px, 0px, 0px);', tabindex='-1', type='file')
+                                  .bootstrap-filestyle.input-group
+                                    span.group-span-filestyle.input-group-btn(tabindex='0')
+                                      label.btn.btn-gray.btn-sm(for='filestyle-2')
+                                        span.buttonText 찾아보기
+                                    input.form-control.input-sm(placeholder='', disabled='disabled', type='text')
+                            tr.hideDivisionFl
+                              th 접근 권한
+                              td(colspan='3')
+                                label.radio-inline
+                                  input(name='catePermission', value='0', checked='checked', onclick='set_cate_permission(this.value)', type='radio')
+                                  |  전체(회원+비회원)
+                                label.radio-inline
+                                  input(name='catePermission', value='1', onclick='set_cate_permission(this.value)', type='radio')
+                                  |  회원전용(비회원제외)
+                                label.radio-inline
+                                  input(name='catePermission', value='2', onclick='set_cate_permission(this.value)', type='radio')
+                                  |  특정 회원등급
+                                input#btn_member_group.btn.btn-sm.btn-gray(value='회원등급 선택', onclick="layer_register('member_group')", disabled='disabled', type='button')
+                                label.checkbox-inline
+                                  input(name='catePermissionSubFl', value='y', type='checkbox')
+                                  | 하위  카테고리 동일 적용
+                                #member_groupLayer.selected-btn-group
+                            tr.hideDivisionFl
+                              th 상품진열 타입
+                              td(colspan='3')
+                                input(name='sortAutoFlChk', value='y', type='hidden')
+                                div(style='float:left;')
+                                  label.radio-inline
+                                    input(name='sortAutoFl', value='y', checked='checked', type='radio')
+                                    |  자동진열
+                                  br
+                                  label.radio-inline
+                                    input(name='sortAutoFl', value='n', type='radio')
+                                    |  수동진열
+                                div(style='margin-left:15px;float:left;')
+                                  label.js-sorttype-y
+                                    select#sortType.form-control(name='sortType')
+                                      option(value='g.goodsNo desc', selected='selected') 최근 등록 상품 위로
+                                      option(value='g.goodsNo asc') 최근 등록 상품 아래로
+                                      option(value='g.modDt desc') 최근 수정 상품 위로
+                                      option(value='g.modDt asc') 최근 수정 상품 아래로
+                                      option(value='goodsNm asc') 상품명 가나다순
+                                      option(value='goodsNm desc') 상품명 가나다역순
+                                      option(value='goodsPrice desc') 판매가 높은 상품 위로
+                                      option(value='goodsPrice asc') 판매가 높은 상품 아래로
+                                      option(value='orderCnt desc') 판매량 높은 상품 위로
+                                      option(value='orderCnt asc') 판매량 높은 상품 아래로
+                                      option(value='hitCnt desc') 조회수 높은 상품 위로
+                                      option(value='hitCnt asc') 조회수 높은 상품 아래로
+                                  label.js-sorttype-n(style='display:none')
+                                    select#sortType.form-control(name='sortType')
+                                      option(value='top', selected='selected') 신규 등록 상품 위로
+                                      option(value='bottom') 신규 등록 상품 아래로
+                                .text-info.mgt5(style='clear:both;') 수동진열 : [카테고리 페이지 상품진열]에서 진열순서를 별도로 설정할 수 있습니다.
+                            tr.hideDivisionFl
+                              th
+                                | PC쇼핑몰
+                                br
+                                | 테마선택
+                              td
+                                .form-inline
+                                  input(name='pcThemeCdChk', value='', type='hidden')
+                                  select.form-control(name='pcThemeCd', onchange="viewThemeConfig('tbl_pcThemeInfo',this.value);")
+                                    option(value='E0000001', selected='selected') 카테고리테마
+                                  input.btn.btn-sm.btn-black(value='테마 등록', onclick="add_theme_popup('E','pcThemeCd','n')", type='button')
+                              th
+                                | 모바일쇼핑몰
+                                br
+                                | 테마선택
+                              td
+                                .form-inline
+                                  input(name='mobileThemeCdChk', value='', type='hidden')
+                                  select.form-control(name='mobileThemeCd', onchange="viewThemeConfig('tbl_mobileThemeInfo',this.value);")
+                                    option(value='E0000002', selected='selected') 카테고리테마
+                                  input.btn.btn-sm.btn-black(value='테마 등록', onclick="add_theme_popup('E','mobileThemeCd','y')", type='button')
+                      #dv_divisionEx.display-none
+                        .table-title.gd-help-manual
+                          | 그룹(구분) 카테고리 활용예제
+                          a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EA%B7%B8%EB%A3%B9%28%EA%B5%AC%EB%B6%84%29%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%ED%99%9C%EC%9A%A9%EC%98%88%EC%A0%9C', target='_blank') 페이지 도움말
+                        table.input.width90p
+                          colgroup
+                            col.width50p
+                            col.width50p
+                          tbody
+                            tr
+                              td
+                                img(src='IMG/img_info_cate01.gif', alt='활용예제1')
+                              td
+                                img(src='IMG/img_info_cate02.gif', alt='활용예제2')
+                      .hideDivisionFl
+                        .table-title.gd-help-manual
+                          | 선택된 PC쇼핑몰 테마 정보
+                          span.depth-toggle
+                            button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryPcTemaInfo')
+                              span 닫힘
+                          a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%84%A0%ED%83%9D%EB%90%9C%20PC%EC%87%BC%ED%95%91%EB%AA%B0%20%ED%85%8C%EB%A7%88%20%EC%A0%95%EB%B3%B4%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                        input#depth-toggle-hidden-categoryPcTemaInfo(value='0', type='hidden')
+                        #depth-toggle-line-categoryPcTemaInfo.depth-toggle-line.display-none
+                        #depth-toggle-layer-categoryPcTemaInfo
+                          table#tbl_pcThemeInfo.table.table-cols
+                            colgroup
+                              col(style='width:160px;')
+                              col
+                              col(style='width:160px;')
+                              col
+                            tbody
+                              tr
+                                th 이미지 설정
+                                td.tbl_theme_imageCdNm(colspan='3') 리스트이미지(기본) 180pixel
+                              tr
+                                th 상품 노출 개수
+                                td.tbl_theme_cntNm(colspan='3') 가로 : 4 X  세로 : 5
+                              tr
+                                th 품절상품 노출
+                                td.tbl_theme_soldOutFlNm 예
+                                th 품절상품 진열
+                                td.tbl_theme_soldOutDisplayFlNm 정렬 순서대로 보여주기
+                              tr
+                                th 품절 아이콘 노출
+                                td.tbl_theme_soldOutIconFlNm 예
+                                th 아이콘 노출
+                                td.tbl_theme_iconFlNm 예
+                              tr
+                                th 노출항목 설정
+                                td.tbl_theme_displayFieldNm(colspan='3') 이미지,상품명,이미지,브랜드,제조사,상품명,판매가,정가,쿠폰가,마일리지
+                              tr
+                                th 디스플레이 유형
+                                td.tbl_theme_displayTypeNm(colspan='3') 갤러리형
+                        .table-title.gd-help-manual
+                          | 선택된 모바일쇼핑몰 테마 정보
+                          span.depth-toggle
+                            button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryMobileThemeInfo')
+                              span 닫힘
+                          a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%84%A0%ED%83%9D%EB%90%9C%20%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%87%BC%ED%95%91%EB%AA%B0%20%ED%85%8C%EB%A7%88%20%EC%A0%95%EB%B3%B4%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                        input#depth-toggle-hidden-categoryMobileThemeInfo(value='0', type='hidden')
+                        #depth-toggle-line-categoryMobileThemeInfo.depth-toggle-line.display-none
+                        #depth-toggle-layer-categoryMobileThemeInfo
+                          table#tbl_mobileThemeInfo.table.table-cols
+                            colgroup
+                              col(style='width:160px;')
+                              col
+                              col(style='width:160px;')
+                              col
+                            tbody
+                              tr
+                                th 이미지 설정
+                                td.tbl_theme_imageCdNm(colspan='3') 리스트이미지(기본) 180pixel
+                              tr
+                                th 상품 노출 개수
+                                td.tbl_theme_cntNm(colspan='3') 가로 : 1 X  세로 : 10
+                              tr
+                                th 품절상품 노출
+                                td.tbl_theme_soldOutFlNm 예
+                                th 품절상품 진열
+                                td.tbl_theme_soldOutDisplayFlNm 정렬 순서대로 보여주기
+                              tr
+                                th 품절 아이콘 노출
+                                td.tbl_theme_soldOutIconFlNm 예
+                                th 아이콘 노출
+                                td.tbl_theme_iconFlNm 예
+                              tr
+                                th 노출항목 설정
+                                td.tbl_theme_displayFieldNm(colspan='3') 이미지,상품명,이미지,상품명,판매가
+                              tr
+                                th 디스플레이 유형
+                                td.tbl_theme_displayTypeNm(colspan='3') 리스트형
+                        #dv_cateConf
+                          .table-title.gd-help-manual
+                            | 추천상품 정보
+                            span.depth-toggle
+                              button.btn.btn-sm.btn-link.bold.depth-toggle-button.opened(type='button', depth-name='categoryGoodsMd')
+                                span 펼침
+                            a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%B6%94%EC%B2%9C%EC%83%81%ED%92%88%20%EC%A0%95%EB%B3%B4%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                          input#depth-toggle-hidden-categoryGoodsMd(value='1', type='hidden')
+                          #depth-toggle-line-categoryGoodsMd.depth-toggle-line
+                          #depth-toggle-layer-categoryGoodsMd.display-none
+                            table.table.table-cols
+                              colgroup
+                                col(style='width:160px;')
+                                col
+                                col(style='width:160px;')
+                                col
+                              tbody
+                                tr
+                                  th 적용범위
+                                  td(colspan='3')
+                                    label.checkbox-inline
+                                      input(name='recomSubFl', value='y', type='checkbox')
+                                      | 하위  카테고리 동일 적용
+                                tr
+                                  th
+                                    | PC쇼핑몰
+                                    br
+                                    | 노출상태
+                                  td(colspan='3')
+                                    label.radio-inline
+                                      input(name='recomDisplayFl', value='y', checked='checked', type='radio')
+                                      | 노출함
+                                    label.radio-inline
+                                      input(name='recomDisplayFl', value='n', type='radio')
+                                      | 노출안함
+                                tr
+                                  th
+                                    | 모바일쇼핑몰
+                                    br
+                                    | 노출상태
+                                  td(colspan='3')
+                                    label.radio-inline
+                                      input(name='recomDisplayMobileFl', value='y', checked='checked', type='radio')
+                                      | 노출함
+                                    label.radio-inline
+                                      input(name='recomDisplayMobileFl', value='n', type='radio')
+                                      | 노출안함
+                                tr
+                                  th 상품진열 타입
+                                  td(colspan='3')
+                                    div(style='float:left;')
+                                      label.radio-inline
+                                        input(name='recomSortAutoFl', value='y', checked='checked', type='radio')
+                                        |  자동진열
+                                      br
+                                      label.radio-inline
+                                        input(name='recomSortAutoFl', value='n', type='radio')
+                                        |  수동진열
+                                    div(style='margin-left:15px;float:left;')
+                                      label.js-sorttype-recom-y
+                                        select#recomSortType.form-control(name='recomSortType')
+                                          option(value='g.goodsNo desc', selected='selected') 최근 등록 상품 위로
+                                          option(value='g.goodsNo asc') 최근 등록 상품 아래로
+                                          option(value='g.modDt desc') 최근 수정 상품 위로
+                                          option(value='g.modDt asc') 최근 수정 상품 아래로
+                                          option(value='goodsNm asc') 상품명 가나다순
+                                          option(value='goodsNm desc') 상품명 가나다역순
+                                          option(value='goodsPrice desc') 판매가 높은 상품 위로
+                                          option(value='goodsPrice asc') 판매가 높은 상품 아래로
+                                          option(value='orderCnt desc') 판매량 높은 상품 위로
+                                          option(value='orderCnt asc') 판매량 높은 상품 아래로
+                                          option(value='hitCnt desc') 조회수 높은 상품 위로
+                                          option(value='hitCnt asc') 조회수 높은 상품 아래로
+                                tr
+                                  th
+                                    | PC쇼핑몰
+                                    br
+                                    | 테마선택
+                                  td
+                                    .form-inline
+                                      input(name='recomPcThemeCdChk', value='', type='hidden')
+                                      select.form-control(name='recomPcThemeCd', onchange="viewThemeConfig('tbl_recomPcThemeInfo',this.value);")
+                                        option(value='D0000001', selected='selected') 추천상품테마
+                                      input.btn.btn-sm.btn-black(value='테마 등록', onclick="add_theme_popup('D','recomPcThemeCd','n')", type='button')
+                                  th
+                                    | 모바일쇼핑몰
+                                    br
+                                    | 테마선택
+                                  td
+                                    .form-inline
+                                      input(name='recomMobileThemeCdChk"', value='', type='hidden')
+                                      select.form-control(name='recomMobileThemeCd', onchange="viewThemeConfig('tbl_recomMobileThemeInfo',this.value);")
+                                        option(value='D0000002', selected='selected') 추천상품테마
+                                      input.btn.btn-sm.btn-black(value='테마 등록', onclick="add_theme_popup('D','recomMobileThemeCd','y')", type='button')
+                          .table-title.gd-help-manual
+                            | 선택된 PC쇼핑몰 추천상품 테마 정보
+                            span.depth-toggle
+                              button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryPcMdTemaInfo')
+                                span 닫힘
+                            a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%84%A0%ED%83%9D%EB%90%9C%20PC%EC%87%BC%ED%95%91%EB%AA%B0%20%EC%B6%94%EC%B2%9C%EC%83%81%ED%92%88%20%ED%85%8C%EB%A7%88%20%EC%A0%95%EB%B3%B4%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                          input#depth-toggle-hidden-categoryPcMdTemaInfo(value='0', type='hidden')
+                          #depth-toggle-line-categoryPcMdTemaInfo.depth-toggle-line.display-none
+                          #depth-toggle-layer-categoryPcMdTemaInfo
+                            table#tbl_recomPcThemeInfo.table.table-cols
+                              colgroup
+                                col(style='width:160px;')
+                                col
+                                col(style='width:160px;')
+                                col
+                              tbody
+                                tr
+                                  th 이미지 설정
+                                  td.tbl_theme_imageCdNm(colspan='3') 리스트이미지(기본) 180pixel
+                                tr
+                                  th 상품 노출 개수
+                                  td.tbl_theme_cntNm(colspan='3') 가로 : 4 X  세로 : 5
+                                tr
+                                  th 품절상품 노출
+                                  td.tbl_theme_soldOutFlNm 아니요
+                                  th 품절상품 진열
+                                  td.tbl_theme_soldOutDisplayFlNm 정렬 순서대로 보여주기
+                                tr
+                                  th 품절 아이콘 노출
+                                  td.tbl_theme_soldOutIconFlNm 아니요
+                                  th 아이콘 노출
+                                  td.tbl_theme_iconFlNm 아니요
+                                tr
+                                  th 노출항목 설정
+                                  td.tbl_theme_displayFieldNm(colspan='3') 이미지,상품명,판매가
+                                tr
+                                  th 갤러리형
+                                  td.tbl_theme_displayTypeNm(colspan='3') 선택강조형
+                          .table-title.gd-help-manual
+                            | 선택된 모바일쇼핑몰 추천상품 테마 정보
+                            span.depth-toggle
+                              button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryMobileMdTemaInfo')
+                                span 닫힘
+                            a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%84%A0%ED%83%9D%EB%90%9C%20%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%87%BC%ED%95%91%EB%AA%B0%20%EC%B6%94%EC%B2%9C%EC%83%81%ED%92%88%20%ED%85%8C%EB%A7%88%20%EC%A0%95%EB%B3%B4%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                          input#depth-toggle-hidden-categoryMobileMdTemaInfo(value='0', type='hidden')
+                          #depth-toggle-line-categoryMobileMdTemaInfo.depth-toggle-line.display-none
+                          #depth-toggle-layer-categoryMobileMdTemaInfo
+                            table#tbl_recomMobileThemeInfo.table.table-cols
+                              colgroup
+                                col(style='width:160px;')
+                                col
+                                col(style='width:160px;')
+                                col
+                              tbody
+                                tr
+                                  th 이미지 설정
+                                  td.tbl_theme_imageCdNm(colspan='3') 리스트이미지(기본) 180pixel
+                                tr
+                                  th 상품 노출 개수
+                                  td.tbl_theme_cntNm(colspan='3') 가로 : 4 X  세로 : 5
+                                tr
+                                  th 품절상품 노출
+                                  td.tbl_theme_soldOutFlNm 아니요
+                                  th 품절상품 진열
+                                  td.tbl_theme_soldOutDisplayFlNm 정렬 순서대로 보여주기
+                                tr
+                                  th 품절 아이콘 노출
+                                  td.tbl_theme_soldOutIconFlNm 아니요
+                                  th 아이콘 노출
+                                  td.tbl_theme_iconFlNm 아니요
+                                tr
+                                  th 노출항목 설정
+                                  td.tbl_theme_displayFieldNm(colspan='3') 이미지,상품명,판매가
+                                tr
+                                  th 갤러리형
+                                  td.tbl_theme_displayTypeNm(colspan='3') 갤러리형
+                          .table-title.gd-help-manual
+                            | 선택된 추천상품
+                            span.depth-toggle
+                              button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categorySelectMd')
+                                span 닫힘
+                            a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%84%A0%ED%83%9D%EB%90%9C%20%EC%B6%94%EC%B2%9C%EC%83%81%ED%92%88%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                          input#depth-toggle-hidden-categorySelectMd(value='', type='hidden')
+                          #depth-toggle-line-categorySelectMd.depth-toggle-line.display-none
+                          #depth-toggle-layer-categorySelectMd
+                            .js-recom-auto-goods
+                              table#goodsLayer.table.table-rows
+                                tbody
+                                  tr
+                                    th.center.width-3xs
+                                      input#allCheck(value='y', onclick="check_toggle(this.id,'recom_goods_');", type='checkbox')
+                                    th.center.width-3xs 번호
+                                    th.width-2xs 이미지
+                                    th 상품명
+                                    th.center.width10p 판매가
+                                    th.center.width10p 공급사
+                                    th.center.width5p 재고
+                                    th.center.width5p 품절상태
+                                    th.center.width10p PC쇼핑몰 노출상태
+                                    th.center.width10p 모바일쇼핑몰 노출상태
+                                tfoot
+                                  tr
+                                    td.no-data(colspan='10') 등록된 상품이 없습니다.
+                            .js-recom-manual-goods(style='display:none')
+                              table#tbl_add_goods_set.table.table-rows(width='100%', cellpadding='0')
+                                thead
+                                  tr
+                                    th.center.width-3xs
+                                      input#allCheck.js-checkall(value='y', data-target-name='itemGoodsNo[]', type='checkbox')
+                                    th.center.width-3xs 번호
+                                    th.width-2xs 이미지
+                                    th 상품명
+                                    th.center.width10p 판매가
+                                    th.center.width10p 공급사
+                                    th.center.width5p 재고
+                                    th.center.width5p 품절상태
+                                    th.center.width10p PC쇼핑몰 노출상태
+                                    th.center.width10p 모바일쇼핑몰 노출상태
+                                tbody#add_goods0.active
+                                  tr#tbl_add_goods_tr_none
+                                    td.no-data(colspan='11') 선택된 상품이 없습니다.
+                            .table-action
+                              .pull-left
+                                button.btn.btn-white(type='button', onclick='delete_option()') 선택 삭제
+                              .pull-right
+                                button.btn.btn-white(type='button', onclick='select_recom_goods()') 상품 선택
+                            br
+                          .table-title.gd-help-manual
+                            | 카테고리 네비게이션 상단 영역 꾸미기
+                            span.depth-toggle
+                              button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryNeviGnb')
+                                span 닫힘
+                            a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EB%84%A4%EB%B9%84%EA%B2%8C%EC%9D%B4%EC%85%98%20%EC%83%81%EB%8B%A8%20%EC%98%81%EC%97%AD%20%EA%BE%B8%EB%AF%B8%EA%B8%B0%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                          input#depth-toggle-hidden-categoryNeviGnb(value='', type='hidden')
+                          #depth-toggle-line-categoryNeviGnb.depth-toggle-line.display-none
+                          #depth-toggle-layer-categoryNeviGnb
+                            ul.nav.nav-tabs.nav-tabs-sm
+                              li#btnDescriptionNevi.active.display-inline(data-type='pc', data-target='DescriptionNevi')
+                                a(href='#textareaDescriptionNevi') PC쇼핑몰 상세 설명
+                              li#btnDescriptionNeviMobile.nav-none.display-inline(data-type='mobile', data-target='DescriptionNevi')
+                                a(href='#textareaDescriptionNeviMobile') 모바일쇼핑몰 상세 설명
+                              li(style='padding-left:10px;padding-top:5px')
+                                label.checkbox-inline
+                                  input(value='y', checked='checked', name='cateHtml1SameFl', data-target='DescriptionNevi', type='checkbox')
+                                  |  PC/모바일 상세설명 동일사용
+                            #textareaDescriptionNevi
+                              textarea#editor.form-control(name='cateHtml1', rows='3', style='width: 100%; height: 400px; display: none;')
+                              iframe(scrolling='no', style='width: 100%; height: 449px;', src='smart/SmartEditor2Skin_006.html', frameborder='0')
+                            #textareaDescriptionNeviMobile(style='display: none;')
+                              textarea#editor4.form-control(name='cateHtml1Mobile', rows='3', style='width: 100%; height: 400px; display: none;')
+                              iframe(scrolling='no', style='width: 100%; height: 449px;', src='smart/SmartEditor2Skin_006.html', frameborder='0')
+                          .table-title.gd-help-manual.mgt35
+                            | 카테고리 추천 상품 상단 영역 꾸미기
+                            span.depth-toggle
+                              button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryMdGnb')
+                                span 닫힘
+                            a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%B6%94%EC%B2%9C%20%EC%83%81%ED%92%88%20%EC%83%81%EB%8B%A8%20%EC%98%81%EC%97%AD%20%EA%BE%B8%EB%AF%B8%EA%B8%B0%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                          input#depth-toggle-hidden-categoryMdGnb(value='', type='hidden')
+                          #depth-toggle-line-categoryMdGnb.depth-toggle-line.display-none
+                          #depth-toggle-layer-categoryMdGnb
+                            ul.nav.nav-tabs.nav-tabs-sm
+                              li#btnDescriptionRecom.active.display-inline(data-type='pc', data-target='DescriptionRecom')
+                                a(href='#textareaDescriptionRecom') PC쇼핑몰 상세 설명
+                              li#btnDescriptionRecomMobile.nav-none.display-inline(data-type='mobile', data-target='DescriptionRecom')
+                                a(href='#textareaDescriptionRecomMobile') 모바일쇼핑몰 상세 설명
+                              li(style='padding-left:10px;padding-top:5px')
+                                label.checkbox-inline
+                                  input(value='y', checked='checked', name='cateHtml2SameFl', data-target='DescriptionRecom', type='checkbox')
+                                  |  PC/모바일 상세설명 동일사용
+                            #textareaDescriptionRecom
+                              textarea#editor2.form-control(name='cateHtml2', rows='3', style='width: 100%; height: 400px; display: none;')
+                              iframe(scrolling='no', style='width: 100%; height: 449px;', src='smart/SmartEditor2Skin_006.html', frameborder='0')
+                            #textareaDescriptionRecomMobile(style='display: none;')
+                              textarea#editor5.form-control(name='cateHtml2Mobile', rows='3', style='width: 100%; height: 400px; display: none;')
+                              iframe(scrolling='no', style='width: 100%; height: 449px;', src='smart/SmartEditor2Skin_006.html', frameborder='0')
+                          .table-title.gd-help-manual.mgt35
+                            | 카테고리 리스트 상단 영역 꾸미기
+                            span.depth-toggle
+                              button.btn.btn-sm.btn-link.bold.depth-toggle-button(type='button', depth-name='categoryListGnb')
+                                span 닫힘
+                            a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__category___category_tree#%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%83%81%EB%8B%A8%20%EC%98%81%EC%97%AD%20%EA%BE%B8%EB%AF%B8%EA%B8%B0%EB%8B%AB%ED%9E%98', target='_blank') 페이지 도움말
+                          input#depth-toggle-hidden-categoryListGnb(value='', type='hidden')
+                          #depth-toggle-line-categoryListGnb.depth-toggle-line.display-none
+                          #depth-toggle-layer-categoryListGnb
+                            ul.nav.nav-tabs.nav-tabs-sm
+                              li#btnDescriptionList.active.display-inline(data-type='pc', data-target='DescriptionList')
+                                a(href='#textareaDescriptionList') PC쇼핑몰 상세 설명
+                              li#btnDescriptionListMobile.nav-none.display-inline(data-type='mobile', data-target='DescriptionList')
+                                a(href='#textareaDescriptionListMobile') 모바일쇼핑몰 상세 설명
+                              li(style='padding-left:10px;padding-top:5px')
+                                label.checkbox-inline
+                                  input(value='y', checked='checked', name='cateHtml3SameFl', data-target='DescriptionList', type='checkbox')
+                                  |  PC/모바일 상세설명 동일사용
+                            #textareaDescriptionList
+                              textarea#editor3.form-control(name='cateHtml3', rows='3', style='width: 100%; height: 400px; display: none;')
+                              iframe(scrolling='no', style='width: 100%; height: 449px;', src='smart/SmartEditor2Skin_006.html', frameborder='0')
+                            #textareaDescriptionListMobile(style='display: none;')
+                              textarea#editor6.form-control(name='cateHtml3Mobile', rows='3', style='width: 100%; height: 400px; display: none;')
+                              iframe(scrolling='no', style='width: 100%; height: 449px;', src='smart/SmartEditor2Skin_006.html', frameborder='0')
+                    script(type='text/javascript', src='JS/HuskyEZCreator.js', charset='utf-8')
+                    script(type='text/javascript').
+                      var uploadImages = [];
+                      function addUploadImages(data) {
+                      uploadImages.push(data);
+                      }
+                      function cleanUploadImages() {
+                      uploadImages = null;
+                      }
+                      var oEditors = [];
+                      nhn.husky.EZCreator.createInIFrame({
+                      oAppRef: oEditors,
+                      elPlaceHolder: "editor",
+                      sSkinURI: "/admin/gd_share/script/smart/SmartEditor2Skin.php",
+                      htParams: {
+                      bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                      //aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+                      fOnBeforeUnload: function () {
+                      //alert("완료!");
+                      }
+                      }, //boolean
+                      fOnAppLoad: function () {
+                      //예제 코드
+                      //oEditors.getById["editor"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+                      toggleSelectionDisplay('categoryNeviGnb');
+                      },
+                      fCreator: "createSEditor"
+                      });
+                      nhn.husky.EZCreator.createInIFrame({
+                      oAppRef: oEditors,
+                      elPlaceHolder: "editor4",
+                      sSkinURI: "/admin/gd_share/script/smart/SmartEditor2Skin.php",
+                      htParams: {
+                      bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                      //aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+                      fOnBeforeUnload: function () {
+                      //alert("완료!");
+                      }
+                      }, //boolean
+                      fOnAppLoad: function () {
+                      //예제 코드
+                      //oEditors.getById["editor"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+                      $("#textareaDescriptionNeviMobile").hide();
+                      toggleSelectionDisplay('categoryNeviGnb');
+                      },
+                      fCreator: "createSEditor4"
+                      });
+                      nhn.husky.EZCreator.createInIFrame({
+                      oAppRef: oEditors,
+                      elPlaceHolder: "editor2",
+                      sSkinURI: "/admin/gd_share/script/smart/SmartEditor2Skin.php",
+                      htParams: {
+                      bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                      //aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+                      fOnBeforeUnload: function () {
+                      //alert("완료!");
+                      }
+                      }, //boolean
+                      fOnAppLoad: function () {
+                      //예제 코드
+                      //oEditors.getById["editor"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+                      toggleSelectionDisplay('categoryMdGnb');
+                      },
+                      fCreator: "createSEditor2"
+                      });
+                      nhn.husky.EZCreator.createInIFrame({
+                      oAppRef: oEditors,
+                      elPlaceHolder: "editor5",
+                      sSkinURI: "/admin/gd_share/script/smart/SmartEditor2Skin.php",
+                      htParams: {
+                      bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                      //aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+                      fOnBeforeUnload: function () {
+                      //alert("완료!");
+                      }
+                      }, //boolean
+                      fOnAppLoad: function () {
+                      //예제 코드
+                      //oEditors.getById["editor"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+                      $("#textareaDescriptionRecomMobile").hide();
+                      toggleSelectionDisplay('categoryMdGnb');
+                      },
+                      fCreator: "createSEditor5"
+                      });
+                      nhn.husky.EZCreator.createInIFrame({
+                      oAppRef: oEditors,
+                      elPlaceHolder: "editor3",
+                      sSkinURI: "/admin/gd_share/script/smart/SmartEditor2Skin.php",
+                      htParams: {
+                      bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                      //aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+                      fOnBeforeUnload: function () {
+                      //alert("완료!");
+                      }
+                      }, //boolean
+                      fOnAppLoad: function () {
+                      //예제 코드
+                      //oEditors.getById["editor"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+                      toggleSelectionDisplay('categoryListGnb');
+                      },
+                      fCreator: "createSEditor3"
+                      });
+                      nhn.husky.EZCreator.createInIFrame({
+                      oAppRef: oEditors,
+                      elPlaceHolder: "editor6",
+                      sSkinURI: "/admin/gd_share/script/smart/SmartEditor2Skin.php",
+                      htParams: {
+                      bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                      bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                      //aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+                      fOnBeforeUnload: function () {
+                      //alert("완료!");
+                      }
+                      }, //boolean
+                      fOnAppLoad: function () {
+                      //예제 코드
+                      //oEditors.getById["editor"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+                      $("#textareaDescriptionListMobile").hide();
+                      toggleSelectionDisplay('categoryListGnb');
+                      },
+                      fCreator: "createSEditor6"
+                      });
+              table(style='width: 100%')
+                tbody
+                  tr
+                    td#informationTd
+                      .information
+                        h4 안내
+                        .content
+                          p
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                              strong [카테고리 정보] 그룹(구분) 카테고리는 무엇인가요?
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 카테고리 페이지가 없고, 상품연결이 안되는 카테고리입니다.
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') ·
+                              | 상품 연결이 필요 없는 대표성이 있는 카테고리를 만들고 싶을때 사용을 합니다.
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') ·
+                              | 디자인적으로 카테고리 사이에 구분선을 삽입하고 싶을때 사용을 합니다.
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') ·
+                              | 그룹(구분) 카테고리는 하위 카테고리가 존재할 수 없으며, 1차 카테고리만 생성할 수 있습니다.
+                          p
+                            img(title='1453461063436350.jpg', src='IMG/1453461063436350.jpg')
+                          p  
+                          p
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                              strong [카테고리 정보] 카테고리 순서를 변경할 수 있나요?
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 카테고리를 선택(클릭)하고 마우스 드래그하여 원하는 위치에 끌어다 놓으면 순서 변경이 가능합니다.
+                          p
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')  
+                          p
+                            span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                              strong [카테고리 정보] 카테고리를 이동할 수 있나요?
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic;') · 카테고리를 선택(클릭)하고 마우스 드래그하여 원하는 위치에 끌어다 놓으면 이동이 가능합니다.
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic;') · 카테고리 이동시 4차(세분류) 카테고리 이상이 될 경우에는 이동이 되지 않습니다.
+                            br
+                            span(style='font-family: "나눔고딕",NanumGothic;') · 선택된 카테고리의 바로 아래 하위 카테고리로 이동은 불가능 합니다. (상위 카테고리로는 제한없이 이동 가능합니다.)
+                          p
+                            span(style='font-family: "나눔고딕",NanumGothic;')
+                              img(title='1453461127593052.jpg', src='IMG/1453461127593052.jpg')
+                              br(style='clear: both;')
+                            font(face='나눔고딕')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                                strong
+                          p
+                            font(face='나눔고딕')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                                strong
+                                  br
+                          p
+                            font(face='나눔고딕')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                                strong [카테고리 정보] 카테고리 폴더 이미지가 달라요.
+                              br
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 카테고리 폴더 이미지는 카테고리의 "타입, 노출상태, 접근권한"에 따라 다르게 노출됩니다.
+                          p
+                            font(face='나눔고딕')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                                img(title='1453461169313346.jpg', src='IMG/1453461169313346.jpg')
+                                br(style='clear: both;')
+                                span(style='font-size: 8pt;') ① 일반 카테고리 : 접근 권한에 제한이 없고, PC/모바일쇼핑몰 모두 노출된 상태의 일반 카테고리로 등록된 카테고리 입니다.
+                                br
+                                span(style='font-size: 8pt;')      - 카테고리 타입 : 일반 카테고리, PC/모바일쇼핑몰 노출상태 : 노출함, 접근 권한 : 전체(회원+비회원)
+                                br
+                                span(style='font-size: 8pt;') ② 그룹(구분) 카테고리 : 접근 권한에 제한이 없고, PC/모바일쇼핑몰 모두 노출된 상태의 그룹(구분) 카테고리로 등록된 카테고리 입니다.
+                                br
+                                span(style='font-size: 8pt;')      - 카테고리 타입 : 그룹(구분) 카테고리, PC/모바일쇼핑몰 노출상태 : 노출함, 접근 권한 : 전체(회원+비회원)
+                                br
+                                span(style='font-size: 8pt;') ③ 노출안함 카테고리 : 접근 권한에 제한이 없고, PC쇼핑몰 또는 모바일쇼핑몰 노출안함 상태의 일반 카테고리로 등록된 카테고리 입니다.
+                                br
+                                span(style='font-size: 8pt;')      - 카테고리 타입 : 일반 카테고리, PC/모바일쇼핑몰 노출상태 : 노출안함, 접근 권한 : 전체(회원+비회원)
+                                br
+                                span(style='font-size: 8pt;') ④ 접근 제한 카테고리 : 접근 권한에 제한이 있고, PC/모바일쇼핑몰 모두 노출된 상태의 일반 카테고리로 등록된 카테고리 입니다.
+                                br
+                                span(style='font-size: 8pt;')      - 카테고리 타입 : 일반 카테고리, PC/모바일쇼핑몰 노출상태 : 노출함, 접근 권한 : 회원전용(비회원제외) 또는 특정 회원등급
+                          p
+                            font(face='나눔고딕')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                                strong
+                                  span(style='font-size: 10pt;')
+                                    br
+                          p
+                            font(face='나눔고딕')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                                strong
+                                  span(style='font-size: 10pt;') [카테고리 정보] 등록 상품수는 무엇인가요?
+                                br
+                                span(style='font-size: 8pt;') · "등록 상품수"란 현재 선택된 카테고리가 연결된 상품의 총 수량입니다.
+                                br
+                                span(style='font-size: 8pt;')    - 카테고리 트리 내 카테고리 선택(클릭) 시 "카테고리 정보" 영역에 "등록 상품수" 항목으로 노출됩니다.
+                                br
+                                span(style='font-size: 8pt;')    - 선택된 카테고리의 "하위 카테고리"에 등록된 상품 수량 포함 노출됩니다.
+                          p
+                            font(face='나눔고딕')
+                              span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                                img(title='1453461232328283.jpg', src='IMG/1453461232328283.jpg')
+                          p
+                            font(face='나눔고딕')
+                              span(style='font-size: 8pt;') ① 카테고리 트리 내에서 이미 등록된 카테고리를 선택(클릭)하면 우측 "카테고리 정보" 영역에 "현재 카테고리"와 "등록 상품수" 항목 및 
+                              span(style='font-size: 8pt;') 카테고리명 항목 내 "카테고리 코드"가 추가 노출됩니다.
+                              br
+                              span(style='font-size: 8pt;')     - 현재 카테고리 : 운영자가 선택한 카테고리의 "카테고리명"이 노출되며, "화면바로보기/주소복사/삭제"가 가능합니다.
+                              br
+                              span(style='font-size: 8pt;')     - [화면바로보기] 버튼 클릭 시 해당 카테고리의 쇼핑몰 카테고리페이지가 새창으로 노출됩니다.
+                              br
+                              span(style='font-size: 8pt;')     - [주소복사] 버튼 클릭 시 해당 카테고리의 쇼핑몰 카테고리페이지 주소가 복사됩니다.
+                              br
+                              span(style='font-size: 8pt;')     - [삭제] 버튼 클릭 시 해당 카테고리가 삭제됩니다.
+                              br
+                              span(style='font-size: 8pt;') ② 운영자가 선택한 카테고리의 "코드"가 노출됩니다.
+                              br
+                              span(style='font-size: 8pt;')     - 카테고리 코드는 "상품 엑셀 관리>상품 업로드"에서 엑셀파일 이용 상품 등록 시 이용됩니다.
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    #panel_popupPanel
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='./blank.html', width='100%', height='200')
+    script(type='text/javascript').
+      adminPanelApiAjax('goods', 'category', 'category_tree');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });
+    ul#jstree-contextmenu.tree-context(style='display: none;')
+    #jstree-marker(style='display: none;')

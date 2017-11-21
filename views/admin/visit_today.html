@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>6.visit_today</title>
+    <meta name="author" content="qnibus">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Latest compiled and minified CSS -->
+    <link type="text/css" href="CSS/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-datetimepicker-standalone.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-dialog.css" rel="stylesheet">
+    <link type="text/css" href="CSS/jquery-ui.css" rel="stylesheet">
+    <link type="text/css" href="CSS/style.css" rel="stylesheet">
+    <link type="text/css" href="CSS/non-responsive.css" rel="stylesheet">
+    <link type="text/css" href="CSS/flags.css" rel="stylesheet">
+                <link type="text/css" href="CSS/chart.css" rel="stylesheet">
+                        <link type="text/css" href="CSS/grid.css" rel="stylesheet">
+                <link type="text/css" href="CSS/gd5-style.css" rel="stylesheet">
+    <link type="text/css" href="CSS/admin-custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="JS/underscore-min.js"></script>
+    <script type="text/javascript" src="JS/jquery_002.js"></script>
+    <script type="text/javascript" src="JS/jquery-ui.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.js"></script>
+    <script type="text/javascript" src="JS/moment.js"></script>
+    <script type="text/javascript" src="JS/numeral.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-dialog.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-filestyle.js"></script>
+    <script type="text/javascript" src="JS/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="JS/clipboard.js"></script>
+    <script type="text/javascript" src="JS/jquery_003.js"></script>
+    <script type="text/javascript" src="JS/jquery_006.js"></script>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript" src="JS/messages_ko.js"></script>
+    <script type="text/javascript" src="JS/additional-methods.js"></script>
+    <script type="text/javascript" src="JS/jquery_004.js"></script>
+    <script type="text/javascript" src="JS/jquery_005.js"></script>
+    <script type="text/javascript" src="JS/common2.js"></script>
+    <script type="text/javascript" src="JS/common.js"></script>
+    <script type="text/javascript" src="JS/schedule.js"></script>
+    <script type="text/javascript" src="JS/jquery_007.js"></script>
+    <script type="text/javascript" src="JS/admin_panel_api.js"></script>
+                <script type="text/javascript" src="JS/backbone-min.js"></script>
+                        <script type="text/javascript" src="JS/code-snippet.js"></script>
+                        <script type="text/javascript" src="JS/effects.js"></script>
+                        <script type="text/javascript" src="JS/raphael-min.js"></script>
+                        <script type="text/javascript" src="JS/chart.js"></script>
+                        <script type="text/javascript" src="JS/grid.js"></script>
+                <script type="text/javascript" src="JS/admin-custom.js"></script>
+
+    <script type="text/javascript">
+        <!--
+        $(document).ready(function () {
+
+            // 메뉴얼 링크
+            $(".gd-help-manual").each(function() {
+                var linkText = $(this).text().trim().replace(/\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+                var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__visit___visit_today#' + linkText;
+                $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+            });
+
+
+            // 툴팁 데이터
+            var tooltipData = [{"title":"방문자검색","attribute":"상점","content":"&lt;p&gt;사용안함으로 설정할 경우&lt;br&gt;휴면회원 해제 시 해당 회원의 기존 등급이 유지됩니다.&lt;br&gt;회원 &amp;gt;회원 관리 &amp;gt;휴면 회원 정책&amp;nbsp;&lt;\/p&gt;","cntWidth":"300"}];
+            var sectionEle = null;
+            $('#content .table.table-cols th').each(function(idx){
+                if ($(this).closest('table').siblings('.table-title').length) {
+                    sectionEle = $(this).closest('table').prevAll('.table-title:first');
+                } else if ($(this).closest('table').parent('div').siblings('.table-title').length) {
+                    sectionEle = $(this).closest('table').parent('div').prevAll('.table-title:first');
+                } else {
+                    sectionEle = $(this).closest('table').parent('div').parent('div').prevAll('.table-title:first');
+                }
+                if (typeof sectionEle[0] !== "undefined") {
+                    var sectionTitle = $(sectionEle[0]).html().replace(/\(?<\/?[^*]+>/gi, '').trim().replace(/ /gi, '').replace(/\n/gi, '');
+                    var titleName = $(this).text().trim().replace(/ /gi, '').replace(/\n/gi, '');
+                    for (var i in tooltipData) {
+                        if (tooltipData[i].title == sectionTitle) {
+                            if (tooltipData[i].attribute == titleName) {
+                                $(this).append('<button type="button" class="btn btn-xs js-tooltip" title="' + tooltipData[i].content + '" data-placement="right" data-width="' + tooltipData[i].cntWidth + '"><span class="icon-tooltip"></span></button>');
+                            }
+                        }
+                    }
+                }
+            });
+
+            if ($('.js-tooltip').length > 0) {
+                // 툴팁 초기화
+                $(document).on({
+                    'click': function() {
+                        if ($(this).attr('aria-describedby')) {
+                            $(this).tooltip('destroy');
+                        } else {
+                            var option = {
+                                trigger: 'click',
+                                container: '#content',
+                                html: true,
+                                template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div><button class="tooltip-close">close</button></div>',
+                            };
+                            $(this).on('shown.bs.tooltip', function () {
+                                $(".tooltip.in").css({
+                                    width: $(this).data('width'),
+                                    maxWidth: "none",
+                                });
+                            });
+                            $(this).tooltip(option).tooltip('show');
+                        }
+                    }
+                }, '.js-tooltip');
+                $(document).on('click', '.tooltip.in .tooltip-close', function () {
+                    $('.js-tooltip[aria-describedby=' + $(this).parent().attr('id') + ']').trigger('click');
+                });
+            }
+                    });
+        //-->
+    </script>
+
+<style type="text/css" id="tui-grid-theme-style">.tui-grid-container{background-color:#fff;color:#444}.tui-grid-content-area{border-color:#ccc}.tui-grid-table{border-color:#ccc}.tui-grid-head-area{border-color:#ccc}.tui-grid-foot-area{border-color:#ccc}.tui-grid-border-line{background-color:#ccc}.tui-grid-scrollbar-head{border-color:#ccc}.tui-grid-scrollbar-border{background-color:#ccc}.tui-grid-foot-area-right{border-color:#ccc}.tui-grid-container ::-webkit-scrollbar{background-color:#f5f5f5}.tui-grid-container ::-webkit-scrollbar-thumb{background-color:#d9d9d9}.tui-grid-container ::-webkit-scrollbar-thumb:hover{background-color:#c1c1c1}.tui-grid-container{scrollbar-3dlight-color:#f5f5f5;scrollbar-darkshadow-color:#f5f5f5;scrollbar-track-color:#f5f5f5;scrollbar-shadow-color:#f5f5f5;scrollbar-face-color:#d9d9d9;scrollbar-highlight-color:#d9d9d9;scrollbar-arrow-color:#c1c1c1}.tui-grid-scrollbar-right-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-left-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-head{background-color:#f5f5f5}.tui-grid-foot-area-right{background-color:#f5f5f5}.tui-grid-body-area{background-color:#f5f5f5}.tui-grid-toolbar{background-color:transparent;border-color:transparent}.tui-grid-height-resize-handle{background-color:#fff;border-color:#ccc}.tui-grid-pagination{background-color:transparent;border-color:transparent}.tui-grid-layer-selection{background-color:#4daaf9;border-color:#004082}.tui-grid-cell{background-color:#fbfbfb;border-color:#e0e0e0;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-cell-dummy{background-color:#fff}.tui-grid-cell-editable{background-color:#fff}.tui-grid-cell-head{background-color:#eee;border-color:#ccc;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-head-area{background-color:#eee}.tui-grid-foot-area{background-color:#eee}.tui-grid-cell-required{background-color:#fffdeb}.tui-grid-cell-disabled{color:#b0b0b0}.tui-grid-cell-invalid{background-color:#ff8080}.tui-grid-cell-head.tui-grid-cell-selected{background-color:#d8d8d8}.tui-grid-layer-focus-border{background-color:#418ed4}.tui-grid-layer-editing{border-color:#418ed4}</style></head>
+<body class="statistics visit-today layout-basic">
+
+  <div id="container-wrap" class="container-fluid">
+          <div id="container" class="row">
+              <div id="header" class="col-xs-12">
+                  <nav class="navbar">
+          <div class="container">
+              <div class="navbar-inner">
+
+                  <div class="navbar-header">
+                      <a class="navbar-brand" style="color:white;text-indent:0;" href="#">Inventory</a>
+                      <span class="pro"></span>
+
+                  </div>
+
+                  <div class="gnb">
+                      <ul class="list-inline">
+                          <li class="no-bar">
+                              <div class="dropdown">
+                                  <!--js-btn-layer-sub-menu-->
+                                  <a href="#" class="dropdown-toggle gnb-idinfo" id="headerSubMenuManager" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                      <span>유미나</span>님 (
+                                      <span>proad00</span>
+                                      ) </a>
+                                  <ul class="dropdown-menu gnb-dropdown-menu" aria-labelledby="headerSubMenuManager">
+                                      <li class="dropdown-item"><a href="#">운영자정보</a></li>
+                                      <li class="dropdown-item"><a href="#">로그아웃</a></li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="pos-r no-bar">
+                              <a href="javascript:Schedule.addToday()" class="schedule-a"> <img src="IMG/icon_bell.png">
+                                                                  <span class="badge" style="position:absolute;left:12px;top:-6px;">1</span>
+                                                          </a>
+                          </li>
+                                                             <li class="devide"></li>
+
+
+                         <li class="no-bar">
+                              <div class="form-inline gnb-search">
+                                  <div class="gnb-search-head">
+                                          <select id="headerSearchType" name="headerSearchType" class="header-select">
+                                              <option value="menu" selected="selected">메뉴</option>
+                                              <option value="member">회원</option>
+                                          </select>
+                                                                  </div>
+                                  <div class="gnb-search-body">
+                                      <span class="icon-magni"><img src="IMG/icon_magni.png" alt=""></span>
+                                      <input id="headerSearchKeyword" class="form-control" name="headerSearchKeyword" placeholder="메뉴검색" type="text">
+                                      <div class="gnb-search-hint form-inline display-none">
+                                          <select class="form-control multiple-select" size="5" id="headerSearchMenuList" style="height:100px;"></select>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--<a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>-->
+                          </li>
+                          <!-- 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨 -->
+                          <!-- <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>-->
+                      </ul>
+                  </div>
+
+              </div>
+
+              <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                                                  <li>
+                                      <a href="#" id="menu_policy" style="width:105.90909090909px;">기본설정</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_goods" style="width:105.90909090909px;">상품</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_order" style="width:105.90909090909px;">주문</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_member" style="width:105.90909090909px;">회원</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_board" style="width:105.90909090909px;">게시판</a>
+                                  </li>
+                                                              <li class="">
+                                      <a class="active" href="#" id="menu_promotion" style="width:105.90909090909px;">통계</a>
+                                  </li>
+                                              </ul>
+              </div><!-- /.navbar-collapse -->
+          </div>
+      </nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+        };
+        var _bootstrap_dialog = BootstrapDialog;
+
+        $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.favorite_menu.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                var menuName = 'none';
+                                var menuLink = '';
+                                if (typeof item.tName === 'string') {
+                                    menuName = item.tName;
+                                } else if (typeof item.sName === 'string') {
+                                    menuName = item.sName;
+                                } else if (typeof item.fName === 'string') {
+                                    menuName = item.fName;
+                                }
+                                if (typeof item.tUrl === 'string') {
+                                    menuLink = '/' + item.tUrl;
+                                } else if (typeof item.sUrl === 'string') {
+                                    menuLink = '/' + item.sUrl;
+                                } else {
+                                    menuLink = '/index.php';
+                                }
+                                if (typeof item.fCode === 'string') {
+                                    menuLink = item.fCode + menuLink;
+                                }
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+                            });
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        } else {
+                            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+                                dropdown_menu.find('li:gt(0)').remove();
+                                dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+                            }
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.order_presentation.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+                            });
+                            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+                var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+                _bootstrap_dialog.show({
+                    title: '문의/답변관리 조회설정 ',
+                    message: $(data)
+                });
+            });
+        });
+
+        $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+                var options = {title: title, message: $(data)};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+                var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+                layer_member_search();
+                document.getElementById('headerSearchType').options[0].selected = true;
+            }
+        });
+
+        $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+                $.ajax('../base/main_setting_ps.php', {
+                    method: "post",
+                    global_complete: false,
+                    data: {mode: "searchMenu", keyword: this.value},
+                    success: function () {
+                        var result = arguments[0].result;
+                        var optionHtml = [];
+                        $.each(result, function (idx, item) {
+                            var link = '../' + item.fCode + '/' + item.tUrl;
+                            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+                        });
+                        var $headerSearchMenuList = $('#headerSearchMenuList');
+                        $headerSearchMenuList.closest('div').removeClass('display-none');
+                        $headerSearchMenuList.find('option').remove();
+                        if (optionHtml.length == 0) {
+                            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+                        } else {
+                            $headerSearchMenuList.append(optionHtml.join(''));
+                        }
+                    }
+                });
+            }
+        });
+
+        $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+        });
+
+        $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+                $headerSearchMenuList.addClass('display-none');
+            }
+        });
+    });
+</script>
+        </div>
+
+        <div id="content-wrap">
+            <div id="menu">
+                <!-- close/open -->
+<div class="js-adminmenu-toggle"></div>
+<!-- //close/open -->
+
+<div class="menu-header statistics">
+    <h2>통계</h2>
+</div>
+<div class="panel ">
+                    <div class="panel-heading menu-icon-minus">방문자 분석</div>
+                <ul class="list-group">                <li class="list-group-item active">
+                    <a href="#">방문자 분석</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">방문자 경로분석</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">방문자 환경분석</a>                 </li>
+                                <li class="list-group-item">
+                    <a href="#">방문자 IP분석</a>                 </li>
+
+                    </ul>
+                    <div class="panel-heading menu-icon-minus">회원 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">신규 회원분석</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">전체 회원분석</a>                 </li>
+                    </ul>
+                    <div class="panel-heading menu-icon-minus">주문 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">주요 통계</a>                 </li>
+                    </ul>
+</div>
+            </div>
+            <div id="content" class="row">
+                <div class="col-xs-12">
+                    <div class="page-header js-affix affix-top" style="width: 1632px; left: auto;">
+    <h3>방문자 분석</h3>
+</div>
+
+<div class="table-title gd-help-manual">방문자 검색 <span class="notice-danger">PC/모바일 구분 데이터가 2017년 2월23일부터 제공됨에 따라 2017년 2월23일 이전 데이터는 PC/모바일 구분 데이터가 제공되지 않습니다.</span> <a href="http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__visit___visit_today#%EB%B0%A9%EB%AC%B8%EC%9E%90%EA%B2%80%EC%83%89PC/%EB%AA%A8%EB%B0%94%EC%9D%BC%EA%B5%AC%EB%B6%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%802017%EB%85%842%EC%9B%9423%EC%9D%BC%EB%B6%80%ED%84%B0%EC%A0%9C%EA%B3%B5%EB%90%A8%EC%97%90%EB%94%B0%EB%9D%BC2017%EB%85%842%EC%9B%9423%EC%9D%BC%EC%9D%B4%EC%A0%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8A%94PC/%EB%AA%A8%EB%B0%94%EC%9D%BC%EA%B5%AC%EB%B6%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EC%A0%9C%EA%B3%B5%EB%90%98%EC%A7%80%EC%95%8A%EC%8A%B5%EB%8B%88%EB%8B%A4." target="_blank" class="link-help">페이지 도움말</a></div>
+<form id="frmSearchStatistics" method="get">
+    <input name="searchDevice" type="hidden">
+    <table class="table table-cols">
+        <colgroup>
+            <col class="width-md">
+            <col>
+        </colgroup>
+        <tbody>
+                    <tr>
+                <th>상점</th>
+                <td colspan="3">
+                    <label class="radio-inline">
+                        <input name="mallFl" value="all" checked="checked" type="radio">전체
+                    </label>
+                                            <label class="radio-inline">
+                            <input name="mallFl" value="1" type="radio"><span class="flag flag-16 flag-kr"></span> 기준몰                        </label>
+                                                <label class="radio-inline">
+                            <input name="mallFl" value="2" type="radio"><span class="flag flag-16 flag-us"></span> 영문몰                        </label>
+                                                <label class="radio-inline">
+                            <input name="mallFl" value="3" type="radio"><span class="flag flag-16 flag-cn"></span> 중문몰                        </label>
+                                                <label class="radio-inline">
+                            <input name="mallFl" value="4" type="radio"><span class="flag flag-16 flag-jp"></span> 일문몰                        </label>
+                                        </td>
+            </tr>
+                <tr>
+            <th>기간검색</th>
+            <td>
+                <div class="form-inline">
+                    <div class="input-group">
+                        <input class="form-control width-xs" name="searchDate[]" value="2017-09-02" readonly="readonly" type="text">
+                    </div>
+                    ~
+                    <div class="input-group">
+                        <input class="form-control width-xs" name="searchDate[]" value="2017-09-02" readonly="readonly" type="text">
+                    </div>
+            </div></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="table-btn">
+        <button type="submit" class="btn btn-lg btn-black">검색</button>
+    </div>
+</form>
+
+<ul class="nav nav-tabs mgb20">
+    <li class="active"><a id="visitToday" class="hand">당일 방문현황</a></li>
+    <li><a id="visitDay" class="hand">일별 방문현황</a></li>
+    <li><a id="visitHour" class="hand">시간대별 방문현황</a></li>
+    <li><a id="visitWeek" class="hand">요일별 방문현황</a></li>
+    <li><a id="visitMonth" class="hand">월별 방문현황</a></li>
+    <li><a id="visitPageView" class="hand">페이지뷰 현황</a></li>
+</ul>
+
+<div class="table-dashboard">
+    <table class="table table-cols">
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <th class="bln point">총방문자수</th>
+            <th>PC쇼핑몰 방문자수</th>
+            <th>모바일쇼핑몰 방문자수</th>
+            <th class="point">총 페이지뷰</th>
+            <th>PC쇼핑몰 페이지뷰</th>
+            <th>모바일쇼핑몰 페이지뷰</th>
+        </tr>
+        <tr>
+            <td class="bln point">
+                <strong>3</strong>
+            </td>
+            <td>
+                <strong>2</strong>
+            </td>
+            <td>
+                <strong>1</strong>
+            </td>
+            <td class="point">
+                <strong>5</strong>
+            </td>
+            <td>
+                <strong>2</strong>
+            </td>
+            <td>
+                <strong>3</strong>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+    <div id="chart-area" style="overflow: hidden;"><div class="tui-line-chart tui-chart" style="width: 1580px; height: 400px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; font-family: Verdana;"><div class="tui-chart-series-custom-event-area" style="width: 1545px; height: 310px; top: 20px; left: 35px;"></div><div class="tui-chart-plot-area" style="width: 1526px; height: 291px; top: 30px; left: 44px; background: rgb(255, 255, 255) none repeat scroll 0% 0%;"><div class="tui-chart-plot-line horizontal" style="bottom:58px;width:1526px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:116px;width:1526px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:174px;width:1526px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:232px;width:1526px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:290px;width:1526px;background-color:#dddddd"></div></div><div class="tui-chart-axis-area vertical " style="width: 35px; height: 291px; top: 30px; left: 10px;"><div class="tui-chart-label-area" style="font-size: 12px; font-family: Verdana; color: rgb(0, 0, 0); width: 25px; top: 8px;"><div class="tui-chart-label" style="bottom:0px"><span>0</span></div><div class="tui-chart-label" style="bottom:58px"><span>1</span></div><div class="tui-chart-label" style="bottom:116px"><span>2</span></div><div class="tui-chart-label" style="bottom:174px"><span>3</span></div><div class="tui-chart-label" style="bottom:232px"><span>4</span></div><div class="tui-chart-label" style="bottom:290px"><span>5</span></div></div></div><div class="tui-chart-axis-area horizontal " style="width: 1526px; height: 34px; top: 320px; left: 44px;"><div class="tui-chart-tick-area" style="border-top-color: rgb(0, 0, 0);"><div class="tui-chart-tick" style="background-color:#000000;left: 0px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 66px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 133px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 199px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 265px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 332px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 398px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 464px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 530px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 597px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 663px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 729px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 796px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 862px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 928px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 995px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1061px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1127px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1193px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1260px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1326px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1392px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1459px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1525px"></div></div><div class="tui-chart-label-area" style="font-size: 10px; font-family: Verdana; color: rgb(0, 0, 0); left: -33px;"><div class="tui-chart-label" style="width:66px;left:0px"><span>0</span></div><div class="tui-chart-label" style="width:66px;left:66px"><span>1</span></div><div class="tui-chart-label" style="width:66px;left:133px"><span>2</span></div><div class="tui-chart-label" style="width:66px;left:199px"><span>3</span></div><div class="tui-chart-label" style="width:66px;left:265px"><span>4</span></div><div class="tui-chart-label" style="width:66px;left:332px"><span>5</span></div><div class="tui-chart-label" style="width:66px;left:398px"><span>6</span></div><div class="tui-chart-label" style="width:66px;left:464px"><span>7</span></div><div class="tui-chart-label" style="width:66px;left:530px"><span>8</span></div><div class="tui-chart-label" style="width:66px;left:597px"><span>9</span></div><div class="tui-chart-label" style="width:66px;left:663px"><span>10</span></div><div class="tui-chart-label" style="width:66px;left:729px"><span>11</span></div><div class="tui-chart-label" style="width:66px;left:796px"><span>12</span></div><div class="tui-chart-label" style="width:66px;left:862px"><span>13</span></div><div class="tui-chart-label" style="width:66px;left:928px"><span>14</span></div><div class="tui-chart-label" style="width:66px;left:995px"><span>15</span></div><div class="tui-chart-label" style="width:66px;left:1061px"><span>16</span></div><div class="tui-chart-label" style="width:66px;left:1127px"><span>17</span></div><div class="tui-chart-label" style="width:66px;left:1193px"><span>18</span></div><div class="tui-chart-label" style="width:66px;left:1260px"><span>19</span></div><div class="tui-chart-label" style="width:66px;left:1326px"><span>20</span></div><div class="tui-chart-label" style="width:66px;left:1392px"><span>21</span></div><div class="tui-chart-label" style="width:66px;left:1459px"><span>22</span></div><div class="tui-chart-label" style="width:66px;left:1525px"><span>23</span></div></div></div><div class="tui-chart-legend-area horizontal" style="top: 354px; left: 428px; font-size: 12px; font-family: Verdana; color: rgb(0, 0, 0);"><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="0" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#ac4142;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:74px" data-index="0">총 방문자수</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="1" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#d28445;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:79px" data-index="1">PC 방문자수</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="2" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#f4bf75;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:98px" data-index="2">모바일 방문자수</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="3" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#90a959;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:74px" data-index="3">총 페이지뷰</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="4" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#75b5aa;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:79px" data-index="4">PC 페이지뷰</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="5" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#6a9fb5;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:98px" data-index="5">모바일 페이지뷰</div></div></div><div class="tui-chart-series-area" style="width: 1545px; height: 310px; top: 20px; left: 35px;"><svg height="310" version="1.1" width="1545" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc>Created with Raphaël 2.1.2</desc><defs></defs><path style="" fill="none" stroke="#ac4142" d="M9,242L76.30434782608695,184L142.6086956521739,300L208.91304347826087,300L275.2173913043478,300L341.52173913043475,300L407.82608695652175,300L474.1304347826087,300L540.4347826086956,300L606.7391304347826,300L673.0434782608695,300L739.3478260869565,300L805.6521739130435,300L871.9565217391304,300L938.2608695652174,300L1004.5652173913043,300L1070.8695652173913,300L1137.1739130434783,300L1203.4782608695652,300L1269.782608695652,300L1336.086956521739,300L1402.391304347826,300L1468.695652173913,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#d28445" d="M9,242L76.30434782608695,242L142.6086956521739,300L208.91304347826087,300L275.2173913043478,300L341.52173913043475,300L407.82608695652175,300L474.1304347826087,300L540.4347826086956,300L606.7391304347826,300L673.0434782608695,300L739.3478260869565,300L805.6521739130435,300L871.9565217391304,300L938.2608695652174,300L1004.5652173913043,300L1070.8695652173913,300L1137.1739130434783,300L1203.4782608695652,300L1269.782608695652,300L1336.086956521739,300L1402.391304347826,300L1468.695652173913,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#f4bf75" d="M9,300L76.30434782608695,242L142.6086956521739,300L208.91304347826087,300L275.2173913043478,300L341.52173913043475,300L407.82608695652175,300L474.1304347826087,300L540.4347826086956,300L606.7391304347826,300L673.0434782608695,300L739.3478260869565,300L805.6521739130435,300L871.9565217391304,300L938.2608695652174,300L1004.5652173913043,300L1070.8695652173913,300L1137.1739130434783,300L1203.4782608695652,300L1269.782608695652,300L1336.086956521739,300L1402.391304347826,300L1468.695652173913,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#90a959" d="M9,242L76.30434782608695,68L142.6086956521739,300L208.91304347826087,300L275.2173913043478,300L341.52173913043475,300L407.82608695652175,300L474.1304347826087,300L540.4347826086956,300L606.7391304347826,300L673.0434782608695,300L739.3478260869565,300L805.6521739130435,300L871.9565217391304,300L938.2608695652174,300L1004.5652173913043,300L1070.8695652173913,300L1137.1739130434783,300L1203.4782608695652,300L1269.782608695652,300L1336.086956521739,300L1402.391304347826,300L1468.695652173913,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#75b5aa" d="M9,242L76.30434782608695,242L142.6086956521739,300L208.91304347826087,300L275.2173913043478,300L341.52173913043475,300L407.82608695652175,300L474.1304347826087,300L540.4347826086956,300L606.7391304347826,300L673.0434782608695,300L739.3478260869565,300L805.6521739130435,300L871.9565217391304,300L938.2608695652174,300L1004.5652173913043,300L1070.8695652173913,300L1137.1739130434783,300L1203.4782608695652,300L1269.782608695652,300L1336.086956521739,300L1402.391304347826,300L1468.695652173913,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#6a9fb5" d="M9,300L76.30434782608695,126L142.6086956521739,300L208.91304347826087,300L275.2173913043478,300L341.52173913043475,300L407.82608695652175,300L474.1304347826087,300L540.4347826086956,300L606.7391304347826,300L673.0434782608695,300L739.3478260869565,300L805.6521739130435,300L871.9565217391304,300L938.2608695652174,300L1004.5652173913043,300L1070.8695652173913,300L1137.1739130434783,300L1203.4782608695652,300L1269.782608695652,300L1336.086956521739,300L1402.391304347826,300L1468.695652173913,300L1535,300" stroke-width="2"></path><path style="stroke-opacity: 0;" fill="none" stroke="#ffffff" d="M9.5,310" stroke-width="1" stroke-opacity="0"></path><circle cx="0" cy="0" r="7" fill="#ffffff" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="9" cy="242" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="76.30434782608695" cy="184" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="142.6086956521739" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="208.91304347826087" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="275.2173913043478" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="341.52173913043475" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="407.82608695652175" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="474.1304347826087" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="540.4347826086956" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="606.7391304347826" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="673.0434782608695" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="739.3478260869565" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="805.6521739130435" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="871.9565217391304" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="938.2608695652174" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1004.5652173913043" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1070.8695652173913" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1137.1739130434783" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1203.4782608695652" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1269.782608695652" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1336.086956521739" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1402.391304347826" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1468.695652173913" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="242" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="76.30434782608695" cy="242" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="142.6086956521739" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="208.91304347826087" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="275.2173913043478" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="341.52173913043475" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="407.82608695652175" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="474.1304347826087" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="540.4347826086956" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="606.7391304347826" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="673.0434782608695" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="739.3478260869565" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="805.6521739130435" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="871.9565217391304" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="938.2608695652174" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1004.5652173913043" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1070.8695652173913" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1137.1739130434783" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1203.4782608695652" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1269.782608695652" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1336.086956521739" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1402.391304347826" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1468.695652173913" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="76.30434782608695" cy="242" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="142.6086956521739" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="208.91304347826087" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="275.2173913043478" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="341.52173913043475" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="407.82608695652175" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="474.1304347826087" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="540.4347826086956" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="606.7391304347826" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="673.0434782608695" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="739.3478260869565" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="805.6521739130435" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="871.9565217391304" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="938.2608695652174" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1004.5652173913043" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1070.8695652173913" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1137.1739130434783" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1203.4782608695652" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1269.782608695652" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1336.086956521739" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1402.391304347826" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1468.695652173913" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="242" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="76.30434782608695" cy="68" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="142.6086956521739" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="208.91304347826087" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="275.2173913043478" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="341.52173913043475" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="407.82608695652175" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="474.1304347826087" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="540.4347826086956" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="606.7391304347826" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="673.0434782608695" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="739.3478260869565" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="805.6521739130435" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="871.9565217391304" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="938.2608695652174" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1004.5652173913043" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1070.8695652173913" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1137.1739130434783" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1203.4782608695652" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1269.782608695652" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1336.086956521739" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1402.391304347826" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1468.695652173913" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="242" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="76.30434782608695" cy="242" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="142.6086956521739" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="208.91304347826087" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="275.2173913043478" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="341.52173913043475" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="407.82608695652175" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="474.1304347826087" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="540.4347826086956" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="606.7391304347826" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="673.0434782608695" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="739.3478260869565" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="805.6521739130435" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="871.9565217391304" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="938.2608695652174" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1004.5652173913043" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1070.8695652173913" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1137.1739130434783" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1203.4782608695652" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1269.782608695652" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1336.086956521739" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1402.391304347826" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1468.695652173913" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="76.30434782608695" cy="126" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="142.6086956521739" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="208.91304347826087" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="275.2173913043478" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="341.52173913043475" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="407.82608695652175" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="474.1304347826087" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="540.4347826086956" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="606.7391304347826" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="673.0434782608695" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="739.3478260869565" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="805.6521739130435" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="871.9565217391304" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="938.2608695652174" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1004.5652173913043" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1070.8695652173913" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1137.1739130434783" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1203.4782608695652" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1269.782608695652" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1336.086956521739" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1402.391304347826" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1468.695652173913" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle></svg><div class="tui-chart-series-label-area"></div></div><div class="tui-chart-tooltip-area" style="top: 20px; left: 35px;"><div class="tui-chart-tooltip show" data-chart-type="line" data-groupindex="12" data-index="0" data-showed="false" style="top: 255px; left: 755.652px;"><div class="tui-chart-default-tooltip"><div>12</div><div><span>총 방문자수</span>:&nbsp;<span>0</span><span></span></div></div></div></div></div></div>
+
+<div class="table-action mgt30 mgb0">
+    <div class="pull-right">
+        <button type="button" class="btn btn-white btn-icon-excel btn-excel">엑셀 다운로드</button>
+    </div>
+</div>
+
+<div class="code-html js-excel-data">
+    <div id="grid" class="tui-grid-container" data-grid-id="1"><div class="tui-grid-content-area"><div class="tui-grid-lside-area" style="display: block; width: 231px;"><div class="tui-grid-head-area" style="height: 49px;"><table class="tui-grid-table"><colgroup><col data-column-name="visitDate" style="width: 230px;"></colgroup><tbody><tr><th data-column-name="visitDate" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>시간대</b></th></tr></tbody></table><div class="tui-grid-column-resize-container" style="margin-top: -50px; height: 50px; display: block;"><div data-column-index="0" data-column-name="visitDate" class="tui-grid-column-resize-handle tui-grid-column-resize-handle-last" style="left: 227px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div></div></div><div class="tui-grid-body-area" style="height: 577px;"><div class="tui-grid-body-container" style="height: 672px;"><div class="tui-grid-table-container" style="top: 0px; overflow: visible;"><table class="tui-grid-table">   <colgroup><col data-column-name="visitDate" style="width: 230px;"></colgroup>   <tbody><tr data-row-key="0" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">00:00</div></td></tr><tr data-row-key="1" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">01:00</div></td></tr><tr data-row-key="2" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">02:00</div></td></tr><tr data-row-key="3" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">03:00</div></td></tr><tr data-row-key="4" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">04:00</div></td></tr><tr data-row-key="5" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">05:00</div></td></tr><tr data-row-key="6" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">06:00</div></td></tr><tr data-row-key="7" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="7" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">07:00</div></td></tr><tr data-row-key="8" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="8" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">08:00</div></td></tr><tr data-row-key="9" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="9" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">09:00</div></td></tr><tr data-row-key="10" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="10" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">10:00</div></td></tr><tr data-row-key="11" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="11" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">11:00</div></td></tr><tr data-row-key="12" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="12" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">12:00</div></td></tr><tr data-row-key="13" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="13" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">13:00</div></td></tr><tr data-row-key="14" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="14" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">14:00</div></td></tr><tr data-row-key="15" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="15" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">15:00</div></td></tr><tr data-row-key="16" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="16" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">16:00</div></td></tr><tr data-row-key="17" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="17" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">17:00</div></td></tr><tr data-row-key="18" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="18" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">18:00</div></td></tr><tr data-row-key="19" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="19" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">19:00</div></td></tr><tr data-row-key="20" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="20" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">20:00</div></td></tr><tr data-row-key="21" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="21" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">21:00</div></td></tr><tr data-row-key="22" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="22" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">22:00</div></td></tr><tr data-row-key="23" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="23" data-column-name="visitDate" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">23:00</div></td></tr></tbody></table></div><div class="tui-grid-layer-selection" style="display: none;"></div><div class="tui-grid-layer-focus" style="display: none;"><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div></div></div></div><div class="tui-grid-scrollbar-left-bottom"></div></div><div class="tui-grid-rside-area" style="display: block; width: 1401px; margin-left: 231px;"><div class="tui-grid-head-area" style="height: 49px;"><table class="tui-grid-table"><colgroup><col data-column-name="visitCount" style="width: 230px;"><col data-column-name="visitCountPc" style="width: 230px;"><col data-column-name="visitCountMobile" style="width: 230px;"><col data-column-name="visitPv" style="width: 230px;"><col data-column-name="visitPvPc" style="width: 230px;"><col data-column-name="visitPvMobile" style="width: 233px;"></colgroup><tbody><tr><th data-column-name="visitCount" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>총 방문자수</b></th><th data-column-name="visitCountPc" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>PC쇼핑몰 방문자수</b></th><th data-column-name="visitCountMobile" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>모바일쇼핑몰 방문자수</b></th><th data-column-name="visitPv" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>총 페이지뷰</b></th><th data-column-name="visitPvPc" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>PC쇼핑몰 페이지뷰</b></th><th data-column-name="visitPvMobile" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>모바일쇼핑몰 페이지뷰</b></th></tr></tbody></table><div class="tui-grid-column-resize-container" style="margin-top: -50px; height: 50px; display: block;"><div data-column-index="0" data-column-name="visitCount" class="tui-grid-column-resize-handle " style="left: 227px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="1" data-column-name="visitCountPc" class="tui-grid-column-resize-handle " style="left: 457px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="2" data-column-name="visitCountMobile" class="tui-grid-column-resize-handle " style="left: 687px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="3" data-column-name="visitPv" class="tui-grid-column-resize-handle " style="left: 917px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="4" data-column-name="visitPvPc" class="tui-grid-column-resize-handle " style="left: 1147px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="5" data-column-name="visitPvMobile" class="tui-grid-column-resize-handle tui-grid-column-resize-handle-last" style="left: 1380px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div></div></div><div class="tui-grid-body-area" style="height: 577px;"><div class="tui-grid-body-container" style="height: 672px;"><div class="tui-grid-table-container" style="top: 0px; overflow: visible;"><table class="tui-grid-table">   <colgroup><col data-column-name="visitCount" style="width: 230px;"><col data-column-name="visitCountPc" style="width: 230px;"><col data-column-name="visitCountMobile" style="width: 230px;"><col data-column-name="visitPv" style="width: 230px;"><col data-column-name="visitPvPc" style="width: 230px;"><col data-column-name="visitPvMobile" style="width: 233px;"></colgroup>   <tbody><tr data-row-key="0" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="1" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">2</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">4</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">3</div></td></tr><tr data-row-key="2" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="3" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="4" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="5" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="6" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="7" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="7" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="7" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="7" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="7" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="7" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="7" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="8" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="8" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="8" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="8" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="8" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="8" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="8" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="9" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="9" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="9" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="9" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="9" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="9" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="9" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="10" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="10" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="10" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="10" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="10" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="10" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="10" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="11" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="11" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="11" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="11" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="11" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="11" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="11" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="12" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="12" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="12" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="12" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="12" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="12" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="12" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="13" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="13" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="13" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="13" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="13" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="13" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="13" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="14" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="14" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="14" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="14" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="14" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="14" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="14" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="15" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="15" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="15" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="15" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="15" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="15" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="15" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="16" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="16" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="16" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="16" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="16" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="16" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="16" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="17" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="17" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="17" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="17" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="17" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="17" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="17" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="18" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="18" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="18" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="18" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="18" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="18" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="18" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="19" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="19" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="19" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="19" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="19" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="19" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="19" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="20" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="20" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="20" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="20" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="20" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="20" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="20" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="21" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="21" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="21" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="21" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="21" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="21" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="21" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="22" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="22" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="22" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="22" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="22" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="22" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="22" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr><tr data-row-key="23" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="23" data-column-name="visitCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="23" data-column-name="visitCountPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="23" data-column-name="visitCountMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="23" data-column-name="visitPv" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="23" data-column-name="visitPvPc" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="23" data-column-name="visitPvMobile" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td></tr></tbody></table></div><div class="tui-grid-layer-selection" style="display: none;"></div><div class="tui-grid-layer-focus" style="display: none;"><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div></div></div></div><div class="tui-grid-scrollbar-head" style="height: 50px;"></div><div class="tui-grid-scrollbar-border" style="top: 50px; height: 560px;"></div><div class="tui-grid-scrollbar-right-bottom"></div></div><div class="tui-grid-border-line tui-grid-border-line-top"></div><div class="tui-grid-border-line tui-grid-border-line-left"></div><div class="tui-grid-border-line tui-grid-border-line-right"></div><div class="tui-grid-border-line tui-grid-border-line-bottom" style="bottom: 17px;"></div></div><div class="tui-grid-layer-state" style="display: none; top: 49px; height: 559px; left: 0px; right: 17px;"></div><div class="tui-grid-layer-editing tui-grid-cell-content"></div><textarea class="tui-grid-clipboard"></textarea></div>
+</div>
+
+<script>
+    <!--
+    var widthSize = 930;
+    $(document).ready(function () {
+        $('#visitToday').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_today.php');
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitDay').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_day.php');
+            $('input[name="searchDate[]"]').val('');
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitHour').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_hour.php');
+            $('input[name="searchDate[]"]').val('');
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitWeek').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_week.php');
+            $('input[name="searchDate[]"]').val('');
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitMonth').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_month.php');
+            $('input[name="searchDate[]"]').val('');
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitPageView').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_pageview.php');
+            $('input[name="searchDate[]"]').val('');
+            $('#frmSearchStatistics').submit();
+        });
+        if ($('#chart-area').width() > 930) {
+            widthSize = $('#chart-area').width();
+        }
+        $('.btn-excel').click(function () {
+            grid.setDisplayRowCount('24');
+            statistics_excel_download();
+            grid.setDisplayRowCount('20');
+        });
+                var container = document.getElementById('chart-area'),
+            data = {
+                categories: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
+                series: [
+                    {
+                        name: '총 방문자수',
+                        data: [1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    },
+                    {
+                        name: 'PC 방문자수',
+                        data: [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    },
+                    {
+                        name: '모바일 방문자수',
+                        data: [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    },
+                    {
+                        name: '총 페이지뷰',
+                        data: [1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    },
+                    {
+                        name: 'PC 페이지뷰',
+                        data: [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    },
+                    {
+                        name: '모바일 페이지뷰',
+                        data: [0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    }
+                ]
+            },
+            options = {
+                chart: {
+                    width: widthSize - 50,
+                    height: 400,
+                    title: ''
+                },
+                yAxis: {
+                    min: 0,
+                    title: ''
+                },
+                xAxis: {
+                    title: ''
+                },
+                series: {
+                    hasDot: false
+                },
+                tooltip: {
+                    suffix: ''
+                },
+                legend: {
+                    align: 'bottom'
+                }
+            };
+        tui.chart.lineChart(container, data, options);
+            });
+
+    var grid = new tui.Grid({
+        el: $('#grid'),
+        autoNumbering: false,
+        columnFixCount: 1,
+        headerHeight: 50,
+        displayRowCount: 20,
+        minimumColumnWidth: 20,
+        columnModelList : [
+            {
+                "title" : "<b>시간대</b>",
+                "columnName" : "visitDate",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                }
+            },
+            {
+                "title" : "<b>총 방문자수</b>",
+                "columnName" : "visitCount",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            },
+            {
+                "title" : "<b>PC쇼핑몰 방문자수</b>",
+                "columnName" : "visitCountPc",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            },
+            {
+                "title" : "<b>모바일쇼핑몰 방문자수</b>",
+                "columnName" : "visitCountMobile",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            },
+            {
+                "title" : "<b>총 페이지뷰</b>",
+                "columnName" : "visitPv",
+                "width" : 100,
+                "align" : "center",
+                "editOption" : {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            },
+            {
+                "title" : "<b>PC쇼핑몰 페이지뷰</b>",
+                "columnName" : "visitPvPc",
+                "width" : 100,
+                "align" : "center",
+                "editOption" : {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            },
+            {
+                "title" : "<b>모바일쇼핑몰 페이지뷰</b>",
+                "columnName" : "visitPvMobile",
+                "width" : 100,
+                "align" : "center",
+                "editOption" : {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            }
+        ]
+    });
+    grid.setRowList([{"visitDate":"00:00","visitCount":1,"visitCountPc":1,"visitCountMobile":0,"visitPv":1,"visitPvPc":1,"visitPvMobile":0},{"visitDate":"01:00","visitCount":2,"visitCountPc":1,"visitCountMobile":1,"visitPv":4,"visitPvPc":1,"visitPvMobile":3},{"visitDate":"02:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"03:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"04:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"05:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"06:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"07:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"08:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"09:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"10:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"11:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"12:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"13:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"14:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"15:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"16:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"17:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"18:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"19:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"20:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"21:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"22:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0},{"visitDate":"23:00","visitCount":0,"visitCountPc":0,"visitCountMobile":0,"visitPv":0,"visitPvPc":0,"visitPvMobile":0}]);
+    //-->
+</script>
+<script type="text/javascript" src="JS/statistics.js"></script>
+
+                    <div class="information ">
+    <h4>안내</h4>
+    <div class="content">
+        <p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 방문자수란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 쇼핑몰에 방문한 사람 수를 의미하며, 방문한 쇼핑몰 유형 및 로그인 여부에 따라 수치 집계가 달라집니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 로그인한 경우 : 로그인한 사용자는 쇼핑몰 유형(PC쇼핑몰/모바일쇼핑몰)과 상관없이 ID 단위로 계산됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp; └ 한 개의 ID로 접속했을 때: 한 개의 ID로 PC쇼핑몰/모바일쇼핑몰 유형에 상관없이 여러 번 접속해도 방문자 수는 1명이 됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp; └ 여러 개의 ID로 접속했을 때: 만약 한 사람이 2개의 ID로 각각 방문했다면, 이때도 방문한 쇼핑몰 유형과 상관없이 방문자 수는 2명이 됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 비로그인한 경우 : 로그인하지 않은 사용자는 쇼핑몰 유형(PC쇼핑몰/모바일쇼핑몰)에 따라 IP 단위로 계산됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp; └ 한 개의 IP로 접속했을 때: 한 개의 IP로 PC쇼핑몰 또는 모바일쇼핑몰 중 하나의 쇼핑몰에 여러 번 접속해도 "방문자 수는 1명"이 되지만,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp; 한 개의 IP로 PC쇼핑몰과 모바일쇼핑몰&nbsp; 모두를 접속한 경우에는 방문자 수는 PC쇼핑몰 1명,
+모바일쇼핑몰 1명으로 총 2명이 됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp; └ 여러 개의 IP로 접속했을 때: 만약 한 사람이 2개의 IP로PC쇼핑몰과 모바일쇼핑몰을 각각 방문했다면, 방문자 수는 PC쇼핑몰 2명, 모바일쇼핑몰2명으로 총 4명이 됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp; └ 마찬가지 원리로 로그인하지 않고 쇼핑몰을 방문했던 사용자가 로그인 후 다시 방문했을 경우, 방문자 수는 2명이 됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;(주간 및 월간 단위의 방문자 수도 동일한 원칙에 따라 계산됨) </span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 방문횟수란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 방문자가 쇼핑몰에 방문한 횟수 입니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 방문횟수는 60분 이내에 다시 방문한 경우에는 방문횟수가 추가되지 않습니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp;&nbsp; ex) A라는 고객이 내 쇼핑몰에 아침과 저녁에 각각 한 번씩 방문했을 경우,방문횟수는 2회가 되지만, 오후 1시에 방문한 뒤 30분 후에 재방문한 경우 방문횟수는 1회가 됩니다.</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 신규방문자수란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 지난 30일 이내에 쇼핑몰에 방문한 적이 없었던 방문자 수 입니다.</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 재방문자수란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 지난 30일 이내에 쇼핑몰에 방문한 적이 있는 방문자 수 입니다.</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 페이지뷰란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 쇼핑몰 특정 페이지에 이용자가 접속하여 페이지의 내용이 브라우저에 나타나면 그 1회의 접속을 1페이지뷰라 합니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp;ex) A라는 고객이 쇼핑몰에 들어와서 쇼핑몰의 페이지 7곳을 둘러보았다면 페이지뷰는 7이 됩니다.</span>&nbsp;</p>    </div>
+</div>
+                </div>
+            </div>
+        </div>
+
+
+
+<script type="text/javascript">
+    <!--
+    $(document).ready(function () {
+
+        $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: 'orderPresentationNew'},
+            global_complete: false,
+            beforeSend: function () {
+                $('.js-oder-count-new').addClass('display-none')
+            },
+            success: function () {
+                if (arguments[0].success === 'OK') {
+                    var result = arguments[0].result;
+                    if (result === true) {
+                        $('.js-oder-count-new').removeClass('display-none');
+                    }
+                }
+            }
+        });
+    });
+    //-->
+</script>
+
+    </div>
+</div>
+
+
+<div id="gnbTopAnchor" style="display: none;">
+    <a href="#top"><img src="IMG/btn_gnb_top.png"></a>
+</div>
+
+<iframe name="ifrmProcess" src="./blank.html" class="display-none" width="100%" height="200"></iframe>
+<script type="text/javascript">
+    adminPanelApiAjax('statistics', 'visit', 'visit_today');
+    $(function(){
+        // 탑버튼 클릭
+        $(document).on("click", "a[href=#top]", function(e) {
+            $('html body').animate({scrollTop: 0}, 'fast');
+        });
+
+        // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+        $(window).scroll(function() {
+            if ($(window).height() < $(document).height()) {
+                if ($(window).scrollTop() >= 1) {
+                    $("#gnbTopAnchor").slideDown(150);
+                } else {
+                    $("#gnbTopAnchor").slideUp(100);
+                }
+            }
+        });
+    });
+</script>
+
+
+</body></html>

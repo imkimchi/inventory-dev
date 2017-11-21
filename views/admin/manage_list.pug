@@ -1,0 +1,575 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 1.기본 설정
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/css/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/css/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/css/style.css', rel='stylesheet')
+    link(type='text/css', href='/css/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/css/flags.css', rel='stylesheet')
+    link(type='text/css', href='/css/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/css/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='JS/underscore-min.js')
+    script(type='text/javascript', src='JS/jquery_003.js')
+    script(type='text/javascript', src='JS/jquery-ui.js')
+    script(type='text/javascript', src='JS/bootstrap.js')
+    script(type='text/javascript', src='JS/moment.js')
+    script(type='text/javascript', src='JS/numeral.js')
+    script(type='text/javascript', src='JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='JS/ZeroClipboard.js')
+    script(type='text/javascript', src='JS/clipboard.js')
+    script(type='text/javascript', src='JS/jquery_004.js')
+    script(type='text/javascript', src='JS/jquery_007.js')
+    script(type='text/javascript', src='JS/jquery.js')
+    script(type='text/javascript', src='JS/messages_ko.js')
+    script(type='text/javascript', src='JS/additional-methods.js')
+    script(type='text/javascript', src='JS/jquery_005.js')
+    script(type='text/javascript', src='JS/jquery_006.js')
+    script(type='text/javascript', src='JS/common2.js')
+    script(type='text/javascript', src='JS/common.js')
+    script(type='text/javascript', src='JS/schedule.js')
+    script(type='text/javascript', src='JS/jquery_002.js')
+    script(type='text/javascript', src='JS/admin_panel_api.js')
+    script(type='text/javascript', src='JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=policy__management___manage_list#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+  body.policy.manage-list.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                 )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy.active(href='manage_list.html', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='admin/goods', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='admin/order', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='admin/member', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board(href='admin/board', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='https://analytics.google.com/analytics/web/#embed/report-home/a109950709w164096919p164844100/', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }f
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .menu-header.policy
+              h2 기본설정
+            .panel
+              .panel-heading.menu-icon-minus 기본정책
+              ul.list-group
+                li.list-group-item.active
+                  a(href='manage_list.html') 운영자관리
+                li.list-group-item
+                  a(href='#') 이메일 관리
+          #content.row
+            .col-xs-12
+              script(type='text/javascript').
+                <!--
+                $(document).ready(function () {
+                $("#selectedAll").bind('click', function () {
+                $("input[name='chk[]']").prop("checked", $("#selectedAll").prop("checked"));
+                });
+                $('select[name=\\'sort\']').change(function () {
+                $('#frmSearchManager').submit();
+                });
+                $('select[name=\\'pageNum\']').change(function () {
+                $('#frmSearchManager').submit();
+                });
+                // 선택한 운영자 삭제
+                $('.js-btn-delete').bind('click', function () {
+                if ($("input[name='chk[]']:checked").length < 1) {
+                alert('삭제할 운영자를 선택해주세요.');
+                return;
+                }
+                dialog_confirm('선택하신 운영자를 정말 삭제 하시겠습니까?\\n\n삭제된 운영자는 복구 되지 않습니다.',function(data){
+                if(data) {
+                $('input[name=mode]').val('delete');
+                $('#listForm').submit();
+                }
+                });
+                });
+                });
+                /**
+                * 공급사 선택 레이어
+                */
+                function layer_register(typeStr, mode) {
+                var layerFormID = 'addSearchForm';
+                var parentFormID = typeStr + 'Layer';
+                var dataFormID = 'id' + typeStr;
+                // 레이어 창
+                var typeVar = 'scm';
+                var layerTitle = '공급사';
+                var dataInputNm = typeStr + "ID";
+                $('input:radio[name=scmFl]:input[value=y]').prop("checked", true);
+                var addParam = {
+                "mode": mode
+                };
+                layer_add_info(typeVar, layerFormID, parentFormID, dataFormID, dataInputNm, layerTitle, '', addParam);
+                }
+                //-->
+              .page-header.js-affix.affix-top(style='width: 100%')
+                h3(style="display: inline-block;") 운영자 관리
+                button.btn.btn-red-line(style="float:right", onclick="location.href='/admin/manage_register.html'", value='운영자 등록', type='button') 운영자 등록
+              form#frmSearchManager.js-form-enter-submit(name='frmSearchManager', method='get')
+                input(name='detailSearch', value='', type='hidden')
+                .table-title.gd-help-manual
+                  | 운영자 검색
+                  a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=policy__management___manage_list#%EC%9A%B4%EC%98%81%EC%9E%90%EA%B2%80%EC%83%89', target='_blank') 페이지 도움말
+                .search-detail-box
+                  co.width-3xl
+                  table.table.table-cols
+                    colgroup
+                      col.width-sm
+                    tbody
+                      tr
+                        th 검색어
+                        td.form-inline(colspan='3')
+                          select#key.form-control(name='key')
+                            option(value='', selected='selected') =통합검색=
+                            option(value='managerId') 아이디
+                            option(value='managerNm') 이름
+                            option(value='email') 이메일
+                            option(value='managerNickNm') 닉네임
+                            option(value='phone') 전화번호
+                            option(value='cellPhone') 휴대폰번호
+                          input.form-control(name='keyword', type='text')
+                    tbody.js-search-detail(style='display: none;')
+                      tr
+                        th
+                          | SMS 자동발송 
+                          br
+                          | 수신설정
+                        td(colspan='3')
+                          label.checkbox-inline
+                            input(name='smsAutoReceive', value='all', checked='checked', type='radio')
+                            |  전체
+                          label.checkbox-inline
+                            input(name='smsAutoReceive', value='n', type='radio')
+                            |  SMS 수신안함
+                          label.checkbox-inline
+                            input(name='smsAutoReceive', value='smsAutoOrder', type='radio')
+                            |  주문.배송 관련
+                          label.checkbox-inline
+                            input(name='smsAutoReceive', value='smsAutoMember', type='radio')
+                            |  회원 관련
+                          label.checkbox-inline
+                            input(name='smsAutoReceive', value='smsAutoPromotion', type='radio')
+                            |  프로모션 관련
+                          label.checkbox-inline
+                            input(name='smsAutoReceive', value='smsAutoBoard', type='radio')
+                            |  게시판 관련
+                      tr
+                        th 직원여부
+                        td.form-inline
+                          label.radio-inline
+                            input(name='employeeFl', checked='checked', value='', type='radio')
+                            |                         전체
+                          label.radio-inline
+                            input(name='employeeFl', value='y', type='radio')
+                            | 직원
+                          label.radio-inline
+                            input(name='employeeFl', value='t', type='radio')
+                            | 비정규직
+                          label.radio-inline
+                            input(name='employeeFl', value='p', type='radio')
+                            | 아르바이트
+                          label.radio-inline
+                            input(name='employeeFl', value='d', type='radio')
+                            | 파견직
+                          label.radio-inline
+                            input(name='employeeFl', value='r', type='radio')
+                            | 퇴사자
+                        th.width-sm 부서
+                        td.width40p.form-inline
+                          select#departmentCd.form-control(name='departmentCd', form-control='')
+                            option(value='', selected='selected') =부서 선택=
+                            option(value='02001001') 임원
+                            option(value='02001002') 재무회계팀
+                            option(value='02001003') 개발팀
+                            option(value='02001004') 디자인팀
+                            option(value='02001005') 기획팀
+                            option(value='02001006') 운영지원팀
+                            option(value='02001007') 마케팅팀
+                      tr
+                        th.width-sm 직급
+                        td.form-inline
+                          select#positionCd.form-control(name='positionCd', form-control='')
+                            option(value='', selected='selected') =직급 선택=
+                            option(value='02002001') 회장
+                            option(value='02002002') 사장
+                            option(value='02002003') 전무
+                            option(value='02002004') 상무
+                            option(value='02002005') 이사
+                            option(value='02002006') 부장
+                            option(value='02002007') 차장
+                            option(value='02002008') 과장
+                            option(value='02002009') 대리
+                            option(value='02002010') 주임
+                            option(value='02002011') 사원
+                        th 직책
+                        td.form-inline
+                          select#dutyCd.form-control(name='dutyCd', form-control='')
+                            option(value='', selected='selected') =직책 선택=
+                            option(value='02003001') 회장
+                            option(value='02003002') 사장
+                            option(value='02003003') 본부장
+                            option(value='02003004') 팀장
+                            option(value='02003005') 부서장
+                            option(value='02003006') 사원
+                  button.btn.btn-sm.btn-link.js-search-toggle.bold(type='button')
+                    | 상세검색
+                    span 펼침
+                .table-btn
+                  input.btn.btn-lg.btn-black(value='검색', type='submit')
+                .table-header
+                  .pull-left
+                    | 검색 
+                    strong 3
+                    | 개 / 전체
+                    strong 3
+                    | 개
+                  .pull-right
+                    .form-inline
+                      select#sort.form-control(name='sort')
+                        option(value='desc', selected='selected') 등록일↓
+                        option(value='asc') 등록일↑
+                      select#pageNum.js-page-number.form-control(name='pageNum')
+                        option(value='10', selected='selected') 10개 보기
+                        option(value='20') 20개 보기
+                        option(value='30') 30개 보기
+                        option(value='40') 40개 보기
+                        option(value='50') 50개 보기
+                        option(value='60') 60개 보기
+                        option(value='70') 70개 보기
+                        option(value='80') 80개 보기
+                        option(value='90') 90개 보기
+                        option(value='100') 100개 보기
+                        option(value='200') 200개 보기
+                        option(value='300') 300개 보기
+                        option(value='500') 500개 보기
+              form#listForm(target='ifrmProcess', action='manage_ps.php', method='post')
+                input(name='mode', type='hidden')
+                div
+                  table.table.table-rows.table-fixed
+                    thead
+                      tr
+                        th.width30p 아이디/닉네임
+                        th.width10p 이름
+                        th.width10p 공급사 구분
+                        th.width10p 직원여부
+                        th.width10p 직원/부서/직급/직책
+                        th.width10p 전화번호
+                        th.width10p 등록일
+                        th.width10p 삭제
+                    tbody
+                      each admin in adminList
+                        tr(align='center')
+                          td
+                            a.username(href='#') #{admin.username}
+                          td
+                            div #{admin.name}
+                          td 본사
+                          td
+                            | 직원
+                          td
+                            div  /
+                          td
+                            div
+                            div
+                            div
+                          td #{admin.joinedDate}
+                          td
+                            a.btn.btn.btn-white.btn-xs(href='#') 삭제
+                  // <div>
+                  // <input type="button" value="선택된 운영자 정보 삭제" class="btn btn-danger js-btn-delete"/>
+                  // </div>
+                  div(align='center')
+                    nav
+                      ul.pagination.pagination-sm
+                        li.active
+                          span 1
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    #panel_popupPanel
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+
+    script(src="/js/lib/axios.min.js")
+    script(src="/js/lib/store.min.js")
+    script.
+      $('.btn-xs').click(async function() {
+        let username = $(this).closest('tr').find('.username').text()
+        console.log("username", username)
+        let option = {
+          url: '/admin/delete',
+          method: 'POST',
+          headers: {Authorization: store.get('jwtToken')},
+          data: { username : username}
+        }
+        let res = await axios(option)
+        if(res.data.success) {
+          alert("성공적으로 계정을 삭제했습니다.")
+          window.reload()
+        }
+      })
+
+    script(type='text/javascript').
+      adminPanelApiAjax('policy', 'management', 'manage_list');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

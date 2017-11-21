@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>6.visit_inflow</title>
+    <meta name="author" content="qnibus">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Latest compiled and minified CSS -->
+    <link type="text/css" href="CSS/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-datetimepicker-standalone.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-dialog.css" rel="stylesheet">
+    <link type="text/css" href="CSS/jquery-ui.css" rel="stylesheet">
+    <link type="text/css" href="CSS/style.css" rel="stylesheet">
+    <link type="text/css" href="CSS/non-responsive.css" rel="stylesheet">
+    <link type="text/css" href="CSS/flags.css" rel="stylesheet">
+                <link type="text/css" href="CSS/chart.css" rel="stylesheet">
+                        <link type="text/css" href="CSS/grid.css" rel="stylesheet">
+                <link type="text/css" href="CSS/gd5-style.css" rel="stylesheet">
+    <link type="text/css" href="CSS/admin-custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="JS/underscore-min.js"></script>
+    <script type="text/javascript" src="JS/jquery_002.js"></script>
+    <script type="text/javascript" src="JS/jquery-ui.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.js"></script>
+    <script type="text/javascript" src="JS/moment.js"></script>
+    <script type="text/javascript" src="JS/numeral.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-dialog.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-filestyle.js"></script>
+    <script type="text/javascript" src="JS/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="JS/clipboard.js"></script>
+    <script type="text/javascript" src="JS/jquery_003.js"></script>
+    <script type="text/javascript" src="JS/jquery_006.js"></script>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript" src="JS/messages_ko.js"></script>
+    <script type="text/javascript" src="JS/additional-methods.js"></script>
+    <script type="text/javascript" src="JS/jquery_004.js"></script>
+    <script type="text/javascript" src="JS/jquery_005.js"></script>
+    <script type="text/javascript" src="JS/common2.js"></script>
+    <script type="text/javascript" src="JS/common.js"></script>
+    <script type="text/javascript" src="JS/schedule.js"></script>
+    <script type="text/javascript" src="JS/jquery_007.js"></script>
+    <script type="text/javascript" src="JS/admin_panel_api.js"></script>
+                <script type="text/javascript" src="JS/backbone-min.js"></script>
+                        <script type="text/javascript" src="JS/code-snippet.js"></script>
+                        <script type="text/javascript" src="JS/effects.js"></script>
+                        <script type="text/javascript" src="JS/raphael-min.js"></script>
+                        <script type="text/javascript" src="JS/chart.js"></script>
+                        <script type="text/javascript" src="JS/grid.js"></script>
+                <script type="text/javascript" src="JS/admin-custom.js"></script>
+
+    <script type="text/javascript">
+        <!--
+        $(document).ready(function () {
+            
+            // 메뉴얼 링크
+            $(".gd-help-manual").each(function() {
+                var linkText = $(this).text().trim().replace(/\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+                var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__visit___visit_inflow#' + linkText;
+                $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+            });
+            
+                    });
+        //-->
+    </script>
+
+<style type="text/css" id="tui-grid-theme-style">.tui-grid-container{background-color:#fff;color:#444}.tui-grid-content-area{border-color:#ccc}.tui-grid-table{border-color:#ccc}.tui-grid-head-area{border-color:#ccc}.tui-grid-foot-area{border-color:#ccc}.tui-grid-border-line{background-color:#ccc}.tui-grid-scrollbar-head{border-color:#ccc}.tui-grid-scrollbar-border{background-color:#ccc}.tui-grid-foot-area-right{border-color:#ccc}.tui-grid-container ::-webkit-scrollbar{background-color:#f5f5f5}.tui-grid-container ::-webkit-scrollbar-thumb{background-color:#d9d9d9}.tui-grid-container ::-webkit-scrollbar-thumb:hover{background-color:#c1c1c1}.tui-grid-container{scrollbar-3dlight-color:#f5f5f5;scrollbar-darkshadow-color:#f5f5f5;scrollbar-track-color:#f5f5f5;scrollbar-shadow-color:#f5f5f5;scrollbar-face-color:#d9d9d9;scrollbar-highlight-color:#d9d9d9;scrollbar-arrow-color:#c1c1c1}.tui-grid-scrollbar-right-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-left-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-head{background-color:#f5f5f5}.tui-grid-foot-area-right{background-color:#f5f5f5}.tui-grid-body-area{background-color:#f5f5f5}.tui-grid-toolbar{background-color:transparent;border-color:transparent}.tui-grid-height-resize-handle{background-color:#fff;border-color:#ccc}.tui-grid-pagination{background-color:transparent;border-color:transparent}.tui-grid-layer-selection{background-color:#4daaf9;border-color:#004082}.tui-grid-cell{background-color:#fbfbfb;border-color:#e0e0e0;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-cell-dummy{background-color:#fff}.tui-grid-cell-editable{background-color:#fff}.tui-grid-cell-head{background-color:#eee;border-color:#ccc;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-head-area{background-color:#eee}.tui-grid-foot-area{background-color:#eee}.tui-grid-cell-required{background-color:#fffdeb}.tui-grid-cell-disabled{color:#b0b0b0}.tui-grid-cell-invalid{background-color:#ff8080}.tui-grid-cell-head.tui-grid-cell-selected{background-color:#d8d8d8}.tui-grid-layer-focus-border{background-color:#418ed4}.tui-grid-layer-editing{border-color:#418ed4}</style></head>
+<body class="statistics visit-inflow layout-basic">
+
+<div id="container-wrap" class="container-fluid">
+          <div id="container" class="row">
+              <div id="header" class="col-xs-12">
+                  <nav class="navbar">
+          <div class="container">
+              <div class="navbar-inner">
+
+                  <div class="navbar-header">
+                      <a class="navbar-brand" style="color:white;text-indent:0;" href="#">Inventory</a>
+                      <span class="pro"></span>
+
+                  </div>
+
+                  <div class="gnb">
+                      <ul class="list-inline">
+                          <li class="no-bar">
+                              <div class="dropdown">
+                                  <!--js-btn-layer-sub-menu-->
+                                  <a href="#" class="dropdown-toggle gnb-idinfo" id="headerSubMenuManager" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                      <span>유미나</span>님 (
+                                      <span>proad00</span>
+                                      ) </a>
+                                  <ul class="dropdown-menu gnb-dropdown-menu" aria-labelledby="headerSubMenuManager">
+                                      <li class="dropdown-item"><a href="#">운영자정보</a></li>
+                                      <li class="dropdown-item"><a href="#">로그아웃</a></li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="pos-r no-bar">
+                              <a href="javascript:Schedule.addToday()" class="schedule-a"> <img src="IMG/icon_bell.png">
+                                                                  <span class="badge" style="position:absolute;left:12px;top:-6px;">1</span>
+                                                          </a>
+                          </li>
+                                                             <li class="devide"></li>
+
+
+                         <li class="no-bar">
+                              <div class="form-inline gnb-search">
+                                  <div class="gnb-search-head">
+                                          <select id="headerSearchType" name="headerSearchType" class="header-select">
+                                              <option value="menu" selected="selected">메뉴</option>
+                                              <option value="member">회원</option>
+                                          </select>
+                                                                  </div>
+                                  <div class="gnb-search-body">
+                                      <span class="icon-magni"><img src="IMG/icon_magni.png" alt=""></span>
+                                      <input id="headerSearchKeyword" class="form-control" name="headerSearchKeyword" placeholder="메뉴검색" type="text">
+                                      <div class="gnb-search-hint form-inline display-none">
+                                          <select class="form-control multiple-select" size="5" id="headerSearchMenuList" style="height:100px;"></select>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--<a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>-->
+                          </li>
+                          <!-- 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨 -->
+                          <!-- <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>-->
+                      </ul>
+                  </div>
+
+              </div>
+
+              <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                                                  <li>
+                                      <a href="#" id="menu_policy" style="width:105.90909090909px;">기본설정</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_goods" style="width:105.90909090909px;">상품</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_order" style="width:105.90909090909px;">주문</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_member" style="width:105.90909090909px;">회원</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_board" style="width:105.90909090909px;">게시판</a>
+                                  </li>
+                                                              <li class="">
+                                      <a class="active" href="#" id="menu_promotion" style="width:105.90909090909px;">통계</a>
+                                  </li>
+                                              </ul>
+              </div><!-- /.navbar-collapse -->
+          </div>
+      </nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+        };
+        var _bootstrap_dialog = BootstrapDialog;
+
+        $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.favorite_menu.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                var menuName = 'none';
+                                var menuLink = '';
+                                if (typeof item.tName === 'string') {
+                                    menuName = item.tName;
+                                } else if (typeof item.sName === 'string') {
+                                    menuName = item.sName;
+                                } else if (typeof item.fName === 'string') {
+                                    menuName = item.fName;
+                                }
+                                if (typeof item.tUrl === 'string') {
+                                    menuLink = '/' + item.tUrl;
+                                } else if (typeof item.sUrl === 'string') {
+                                    menuLink = '/' + item.sUrl;
+                                } else {
+                                    menuLink = '/index.php';
+                                }
+                                if (typeof item.fCode === 'string') {
+                                    menuLink = item.fCode + menuLink;
+                                }
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+                            });
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        } else {
+                            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+                                dropdown_menu.find('li:gt(0)').remove();
+                                dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+                            }
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.order_presentation.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+                            });
+                            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+                var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+                _bootstrap_dialog.show({
+                    title: '문의/답변관리 조회설정 ',
+                    message: $(data)
+                });
+            });
+        });
+
+        $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+                var options = {title: title, message: $(data)};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+                var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+                layer_member_search();
+                document.getElementById('headerSearchType').options[0].selected = true;
+            }
+        });
+
+        $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+                $.ajax('../base/main_setting_ps.php', {
+                    method: "post",
+                    global_complete: false,
+                    data: {mode: "searchMenu", keyword: this.value},
+                    success: function () {
+                        var result = arguments[0].result;
+                        var optionHtml = [];
+                        $.each(result, function (idx, item) {
+                            var link = '../' + item.fCode + '/' + item.tUrl;
+                            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+                        });
+                        var $headerSearchMenuList = $('#headerSearchMenuList');
+                        $headerSearchMenuList.closest('div').removeClass('display-none');
+                        $headerSearchMenuList.find('option').remove();
+                        if (optionHtml.length == 0) {
+                            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+                        } else {
+                            $headerSearchMenuList.append(optionHtml.join(''));
+                        }
+                    }
+                });
+            }
+        });
+
+        $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+        });
+
+        $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+                $headerSearchMenuList.addClass('display-none');
+            }
+        });
+    });
+</script>
+        </div>
+
+        <div id="content-wrap">
+            <div id="menu">
+                <!-- close/open -->
+<div class="js-adminmenu-toggle"></div>
+<!-- //close/open -->
+
+<div class="menu-header statistics">
+    <h2>통계</h2>
+</div>
+<div class="panel ">
+                    <div class="panel-heading menu-icon-minus">방문자 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">방문자 분석</a>                 </li>
+                                <li class="list-group-item active">
+                    <a href="#">방문자 경로분석</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">방문자 환경분석</a>                 </li>
+                                <li class="list-group-item">
+                    <a href="#">방문자 IP분석</a>                 </li>
+
+                    </ul>
+                    <div class="panel-heading menu-icon-minus">회원 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">신규 회원분석</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">전체 회원분석</a>                 </li>
+                    </ul>
+                    <div class="panel-heading menu-icon-minus">주문 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">주요 통계</a>                 </li>
+                    </ul>
+</div>
+            </div>
+            <div id="content" class="row">
+                <div class="col-xs-12">
+                    <div class="page-header js-affix affix-top" style="width: 1632px;">
+    <h3>방문자 경로분석</h3>
+</div>
+
+<div class="table-title gd-help-manual">방문자 경로 검색 <span class="notice-danger">PC/모바일 구분 데이터가 2017년 2월23일부터 제공됨에 따라 2017년 2월23일 이전 데이터는 PC/모바일 구분 데이터가 제공되지 않습니다.</span> <a href="http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__visit___visit_inflow#%EB%B0%A9%EB%AC%B8%EC%9E%90%EA%B2%BD%EB%A1%9C%EA%B2%80%EC%83%89PC/%EB%AA%A8%EB%B0%94%EC%9D%BC%EA%B5%AC%EB%B6%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%802017%EB%85%842%EC%9B%9423%EC%9D%BC%EB%B6%80%ED%84%B0%EC%A0%9C%EA%B3%B5%EB%90%A8%EC%97%90%EB%94%B0%EB%9D%BC2017%EB%85%842%EC%9B%9423%EC%9D%BC%EC%9D%B4%EC%A0%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8A%94PC/%EB%AA%A8%EB%B0%94%EC%9D%BC%EA%B5%AC%EB%B6%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EC%A0%9C%EA%B3%B5%EB%90%98%EC%A7%80%EC%95%8A%EC%8A%B5%EB%8B%88%EB%8B%A4." target="_blank" class="link-help">페이지 도움말</a></div>
+<form id="frmSearchStatistics" method="get">
+    <input name="searchDevice" type="hidden">
+    <table class="table table-cols">
+        <colgroup>
+            <col class="width-md">
+            <col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>기간검색</th>
+            <td>
+                <div class="form-inline">
+                    <div class="input-group js-datepicker">
+                        <input class="form-control width-xs" name="searchDate[]" value="2017-08-27" type="text">
+                        <span class="input-group-addon"><span class="btn-icon-calendar"></span></span>
+                    </div>
+                    ~
+                    <div class="input-group js-datepicker">
+                        <input class="form-control width-xs" name="searchDate[]" value="2017-09-02" type="text">
+                        <span class="input-group-addon"><span class="btn-icon-calendar"></span></span>
+                    </div>
+
+                    <div class="btn-group js-dateperiod" data-toggle="buttons" data-target-name="searchDate[]">
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="0" type="radio">오늘
+                        </label>
+                        <label class="btn btn-white btn-sm hand active">
+                            <input name="searchPeriod" value="6" checked="checked" type="radio">7일
+                        </label>
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="14" type="radio">15일
+                        </label>
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="29" type="radio">1개월
+                        </label>
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="89" type="radio">3개월
+                        </label>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="table-btn">
+        <button type="submit" class="btn btn-lg btn-black">검색</button>
+    </div>
+</form>
+
+<ul class="nav nav-tabs mgb20">
+    <li class="active"><a id="visitInflow" class="hand">검색유입 현황</a></li>
+    <li><a id="visitSearchword" class="hand">유입검색어 현황</a></li>
+</ul>
+
+<div class="table-dashboard">
+    <table class="table table-cols">
+        <colgroup>
+            <col class="width20p">
+            <col class="width20p">
+            <col class="width20p">
+            <col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <th class="bln">검색유입수</th>
+            <th>전체유입수</th>
+            <th>검색유입율</th>
+            <th>TOP검색엔진</th>
+        </tr>
+        <tr>
+            <td class="bln">
+                <strong>0</strong>
+                <ul class="list-unstyled">
+                    <li><strong>PC</strong><span>0</span></li>
+                    <li><strong>모바일</strong><span>0</span></li>
+                </ul>
+            </td>
+            <td>
+                <strong>3</strong>
+                <ul class="list-unstyled">
+                    <li><strong>PC</strong><span>2</span></li>
+                    <li><strong>모바일</strong><span>1</span></li>
+                </ul>
+            </td>
+            <td>
+                <strong>0</strong>
+                <ul class="list-unstyled">
+                    <li><strong>PC</strong><span>0</span></li>
+                    <li><strong>모바일</strong><span>0</span></li>
+                </ul>
+            </td>
+            <td>
+                <strong>3</strong><br>
+                <b>기타</b> | 2017-09-02                <ul class="list-unstyled">
+                    <li><strong>PC</strong><span><b>2</b> (기타 | 2017-09-02)</span></li>
+                    <li><strong>모바일</strong><span><b>1</b> (기타 | 2017-09-02)</span></li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-header form-inline select-device">
+    <div class="pull-left">
+        데이터 노출형태 :
+        <select name="deviceFl">
+            <option value="all" selected="selected">통합</option>
+            <option value="pc">PC쇼핑몰</option>
+            <option value="mobile">모바일쇼핑몰</option>
+        </select>
+    </div>
+</div>
+
+    <div id="chart-area" style="overflow: hidden;"><div class="tui-line-chart tui-chart" style="width: 1580px; height: 400px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; font-family: Verdana;"><div class="tui-chart-series-custom-event-area" style="width: 1545px; height: 310px; top: 20px; left: 35px;"></div><div class="tui-chart-plot-area" style="width: 1526px; height: 291px; top: 30px; left: 44px; background: rgb(255, 255, 255) none repeat scroll 0% 0%;"><div class="tui-chart-plot-line horizontal" style="bottom:73px;width:1526px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:145px;width:1526px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:218px;width:1526px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:290px;width:1526px;background-color:#dddddd"></div></div><div class="tui-chart-axis-area vertical " style="width: 35px; height: 291px; top: 30px; left: 10px;"><div class="tui-chart-label-area" style="font-size: 12px; font-family: Verdana; color: rgb(0, 0, 0); width: 25px; top: 8px;"><div class="tui-chart-label" style="bottom:0px"><span>0</span></div><div class="tui-chart-label" style="bottom:73px"><span>1</span></div><div class="tui-chart-label" style="bottom:145px"><span>2</span></div><div class="tui-chart-label" style="bottom:218px"><span>3</span></div><div class="tui-chart-label" style="bottom:290px"><span>4</span></div></div></div><div class="tui-chart-axis-area horizontal " style="width: 1526px; height: 34px; top: 320px; left: 44px;"><div class="tui-chart-tick-area" style="border-top-color: rgb(0, 0, 0);"><div class="tui-chart-tick" style="background-color:#000000;left: 0px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 254px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 508px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 763px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1017px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1271px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1525px"></div></div><div class="tui-chart-label-area" style="font-size: 10px; font-family: Verdana; color: rgb(0, 0, 0); left: -127px;"><div class="tui-chart-label" style="width:254px;left:0px"><span>20170827</span></div><div class="tui-chart-label" style="width:254px;left:254px"><span>20170828</span></div><div class="tui-chart-label" style="width:254px;left:508px"><span>20170829</span></div><div class="tui-chart-label" style="width:254px;left:763px"><span>20170830</span></div><div class="tui-chart-label" style="width:254px;left:1017px"><span>20170831</span></div><div class="tui-chart-label" style="width:254px;left:1271px"><span>20170901</span></div><div class="tui-chart-label" style="width:254px;left:1525px"><span>20170902</span></div></div></div><div class="tui-chart-legend-area horizontal" style="top: 354px; left: 529.5px; font-size: 12px; font-family: Verdana; color: rgb(0, 0, 0);"><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="0" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#ac4142;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:34px" data-index="0">기타</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="1" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#d28445;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:46px" data-index="1">네이버</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="2" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#f4bf75;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:34px" data-index="2">다음</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="3" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#90a959;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:46px" data-index="3">카카오</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="4" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#75b5aa;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:34px" data-index="4">구글</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="5" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#6a9fb5;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:46px" data-index="5">네이트</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="6" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#aa759f;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:22px" data-index="6">빙</div></div></div><div class="tui-chart-series-area" style="width: 1545px; height: 310px; top: 20px; left: 35px;"><svg height="310" version="1.1" width="1545" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc>Created with Raphaël 2.1.2</desc><defs></defs><path style="" fill="none" stroke="#ac4142" d="M9,300L264.16666666666663,300L518.3333333333333,300L772.5,300L1026.6666666666665,300L1280.8333333333333,300L1535,82.5" stroke-width="2"></path><path style="" fill="none" stroke="#d28445" d="M9,300L264.16666666666663,300L518.3333333333333,300L772.5,300L1026.6666666666665,300L1280.8333333333333,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#f4bf75" d="M9,300L264.16666666666663,300L518.3333333333333,300L772.5,300L1026.6666666666665,300L1280.8333333333333,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#90a959" d="M9,300L264.16666666666663,300L518.3333333333333,300L772.5,300L1026.6666666666665,300L1280.8333333333333,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#75b5aa" d="M9,300L264.16666666666663,300L518.3333333333333,300L772.5,300L1026.6666666666665,300L1280.8333333333333,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#6a9fb5" d="M9,300L264.16666666666663,300L518.3333333333333,300L772.5,300L1026.6666666666665,300L1280.8333333333333,300L1535,300" stroke-width="2"></path><path style="" fill="none" stroke="#aa759f" d="M9,300L264.16666666666663,300L518.3333333333333,300L772.5,300L1026.6666666666665,300L1280.8333333333333,300L1535,300" stroke-width="2"></path><path style="stroke-opacity: 0;" fill="none" stroke="#ffffff" d="M9.5,310" stroke-width="1" stroke-opacity="0"></path><circle cx="0" cy="0" r="7" fill="#ffffff" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="9" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="264.16666666666663" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="518.3333333333333" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="772.5" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="1026.6666666666665" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1280.8333333333333" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="82.5" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="264.16666666666663" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="518.3333333333333" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="772.5" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1026.6666666666665" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1280.8333333333333" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="264.16666666666663" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="518.3333333333333" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="772.5" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1026.6666666666665" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1280.8333333333333" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="264.16666666666663" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="518.3333333333333" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="772.5" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1026.6666666666665" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1280.8333333333333" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="264.16666666666663" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="518.3333333333333" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="772.5" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1026.6666666666665" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1280.8333333333333" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="264.16666666666663" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="518.3333333333333" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="772.5" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1026.6666666666665" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1280.8333333333333" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="264.16666666666663" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="518.3333333333333" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="772.5" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1026.6666666666665" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1280.8333333333333" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1535" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle></svg><div class="tui-chart-series-label-area"></div></div><div class="tui-chart-tooltip-area" style="top: 20px; left: 35px;"><div class="tui-chart-tooltip show" data-chart-type="line" data-groupindex="1" data-index="0" data-showed="false" style="top: 255px; left: 214.167px;"><div class="tui-chart-default-tooltip"><div>20170828</div><div><span>기타</span>:&nbsp;<span>0</span><span></span></div></div></div></div></div></div>
+    
+<div class="table-action mgt30 mgb0">
+    <div class="pull-right">
+        <button type="button" class="btn btn-white btn-icon-excel btn-excel">엑셀 다운로드</button>
+    </div>
+</div>
+
+<div class="code-html js-excel-data">
+    <div id="grid" class="tui-grid-container" data-grid-id="1"><div class="tui-grid-content-area"><div class="tui-grid-lside-area" style="display: block; width: 579px;"><div class="tui-grid-head-area" style="height: 49px;"><table class="tui-grid-table"><colgroup><col data-column-name="_number" style="width:61px"><col data-column-name="searchTool" style="width: 517px;"></colgroup><tbody><tr><th data-column-name="_number" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48">순위</th><th data-column-name="searchTool" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>검색엔진</b></th></tr></tbody></table><div class="tui-grid-column-resize-container" style="margin-top: -50px; height: 50px; display: block;"><div data-column-index="0" data-column-name="_number" class="tui-grid-column-resize-handle " style="left: 58px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="1" data-column-name="searchTool" class="tui-grid-column-resize-handle tui-grid-column-resize-handle-last" style="left: 575px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div></div></div><div class="tui-grid-body-area" style="height: 213px;"><div class="tui-grid-body-container" style="height: 196px;"><div class="tui-grid-table-container" style="top: 0px; overflow: visible;"><table class="tui-grid-table">   <colgroup><col data-column-name="_number" style="width:61px"><col data-column-name="searchTool" style="width: 517px;"></colgroup>   <tbody><tr data-row-key="0" "="" class="" style="height: 28px;"><td class="tui-grid-cell-head tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="_number" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">1</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="searchTool" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">기타</div></td></tr><tr data-row-key="1" "="" class="" style="height: 28px;"><td class="tui-grid-cell-head tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="_number" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">2</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="searchTool" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">네이버</div></td></tr><tr data-row-key="2" "="" class="" style="height: 28px;"><td class="tui-grid-cell-head tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="_number" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">3</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="searchTool" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">다음</div></td></tr><tr data-row-key="3" "="" class="" style="height: 28px;"><td class="tui-grid-cell-head tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="_number" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">4</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="searchTool" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">카카오</div></td></tr><tr data-row-key="4" "="" class="" style="height: 28px;"><td class="tui-grid-cell-head tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="_number" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">5</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="searchTool" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">구글</div></td></tr><tr data-row-key="5" "="" class="" style="height: 28px;"><td class="tui-grid-cell-head tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="_number" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">6</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="searchTool" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">네이트</div></td></tr><tr data-row-key="6" "="" class="" style="height: 28px;"><td class="tui-grid-cell-head tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="_number" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">7</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="searchTool" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">빙</div></td></tr></tbody></table></div><div class="tui-grid-layer-selection" style="display: none;"></div><div class="tui-grid-layer-focus" style="display: none;"><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div></div></div></div><div class="tui-grid-scrollbar-left-bottom"></div></div><div class="tui-grid-rside-area" style="display: block; width: 1053px; margin-left: 579px;"><div class="tui-grid-head-area" style="height: 49px;"><table class="tui-grid-table"><colgroup><col data-column-name="searchCount" style="width: 517px;"><col data-column-name="searchPercent" style="width: 518px;"></colgroup><tbody><tr><th data-column-name="searchCount" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>유입수</b></th><th data-column-name="searchPercent" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>비율</b></th></tr></tbody></table><div class="tui-grid-column-resize-container" style="margin-top: -50px; height: 50px; display: block;"><div data-column-index="0" data-column-name="searchCount" class="tui-grid-column-resize-handle " style="left: 514px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="1" data-column-name="searchPercent" class="tui-grid-column-resize-handle tui-grid-column-resize-handle-last" style="left: 1032px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div></div></div><div class="tui-grid-body-area" style="height: 213px;"><div class="tui-grid-body-container" style="height: 196px;"><div class="tui-grid-table-container" style="top: 0px; overflow: visible;"><table class="tui-grid-table">   <colgroup><col data-column-name="searchCount" style="width: 517px;"><col data-column-name="searchPercent" style="width: 518px;"></colgroup>   <tbody><tr data-row-key="0" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="searchCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">3</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="0" data-column-name="searchPercent" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">100 %</div></td></tr><tr data-row-key="1" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="searchCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="1" data-column-name="searchPercent" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0 %</div></td></tr><tr data-row-key="2" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="searchCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="2" data-column-name="searchPercent" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0 %</div></td></tr><tr data-row-key="3" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="searchCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="3" data-column-name="searchPercent" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0 %</div></td></tr><tr data-row-key="4" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="searchCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="4" data-column-name="searchPercent" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0 %</div></td></tr><tr data-row-key="5" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="searchCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-even" data-edit-type="normal" data-row-key="5" data-column-name="searchPercent" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0 %</div></td></tr><tr data-row-key="6" "="" class="" style="height: 28px;"><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="searchCount" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0</div></td><td class=" tui-grid-cell tui-grid-cell-row-odd" data-edit-type="normal" data-row-key="6" data-column-name="searchPercent" style="" align="center"><div class="tui-grid-cell-content" style="white-space:nowrap;max-height:27px">0 %</div></td></tr></tbody></table></div><div class="tui-grid-layer-selection" style="display: none;"></div><div class="tui-grid-layer-focus" style="display: none;"><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div></div></div></div><div class="tui-grid-scrollbar-head" style="height: 50px;"></div><div class="tui-grid-scrollbar-border" style="top: 50px; height: 196px;"></div><div class="tui-grid-scrollbar-right-bottom"></div></div><div class="tui-grid-border-line tui-grid-border-line-top"></div><div class="tui-grid-border-line tui-grid-border-line-left"></div><div class="tui-grid-border-line tui-grid-border-line-right"></div><div class="tui-grid-border-line tui-grid-border-line-bottom" style="bottom: 17px;"></div></div><div class="tui-grid-layer-state" style="display: none; top: 49px; height: 195px; left: 0px; right: 17px;"></div><div class="tui-grid-layer-editing tui-grid-cell-content"></div><textarea class="tui-grid-clipboard"></textarea></div>
+</div>
+
+<script>
+    <!--
+    var widthSize = 930;
+    $(document).ready(function () {
+        $('[name="deviceFl"]').change(function (e) {
+            $('[name="searchDevice"]').val($('[name="deviceFl"]').val());
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitInflow').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_inflow.php');
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitSearchword').click(function (e) {
+            $('#frmSearchStatistics').attr('action','./visit_search_word.php');
+            $('#frmSearchStatistics').submit();
+        });
+        if ($('#chart-area').width() > 930) {
+            widthSize = $('#chart-area').width();
+        }
+
+        $('.btn-excel').click(function () {
+            grid.setDisplayRowCount('7');
+            statistics_excel_download();
+            grid.setDisplayRowCount('7');
+        });
+                var container = document.getElementById('chart-area'),
+            data = {
+                categories: ['20170827','20170828','20170829','20170830','20170831','20170901','20170902'],
+                series: [
+                                        {
+                        name: '기타',
+                        data: [0,0,0,0,0,0,3]
+                    },
+                                        {
+                        name: '네이버',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: '다음',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: '카카오',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: '구글',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: '네이트',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: '빙',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                    ]
+            },
+            options = {
+                chart: {
+                    width: widthSize - 50,
+                    height: 400,
+                    title: ''
+                },
+                yAxis: {
+                    min: 0,
+                    title: ''
+                },
+                xAxis: {
+                    title: ''
+                },
+                series: {
+                    hasDot: false
+                },
+                tooltip: {
+                    suffix: ''
+                },
+                legend: {
+                    align: 'bottom'
+                }
+            };
+        try {
+            tui.chart.lineChart(container, data, options);
+        } catch (e) {
+            container.style.display = 'none';
+        }
+            });
+
+    var grid = new tui.Grid({
+        el: $('#grid'),
+        autoNumbering: true,
+        columnFixCount: 1,
+        headerHeight: 50,
+        displayRowCount: 7,
+        minimumColumnWidth: 20,
+        columnModelList : [
+            {
+                "title" : "<b>검색엔진</b>",
+                "columnName" : "searchTool",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                }
+            },
+            {
+                "title" : "<b>유입수</b>",
+                "columnName" : "searchCount",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            },
+            {
+                "title" : "<b>비율</b>",
+                "columnName" : "searchPercent",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal',
+                    "afterContent" : " %"
+                }
+            }
+        ]
+    });
+    grid.setRowList([{"searchTool":"\uae30\ud0c0","searchCount":3,"searchPercent":100},{"searchTool":"\ub124\uc774\ubc84","searchCount":0,"searchPercent":0},{"searchTool":"\ub2e4\uc74c","searchCount":0,"searchPercent":0},{"searchTool":"\uce74\uce74\uc624","searchCount":0,"searchPercent":0},{"searchTool":"\uad6c\uae00","searchCount":0,"searchPercent":0},{"searchTool":"\ub124\uc774\ud2b8","searchCount":0,"searchPercent":0},{"searchTool":"\ube59","searchCount":0,"searchPercent":0}]);
+    //-->
+</script>
+<script type="text/javascript" src="JS/statistics.js"></script>
+
+                    <div class="information ">
+    <h4>안내</h4>
+    <div class="content">
+        <p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 검색유입수란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 검색엔진에서 검색결과를 통해 쇼핑몰에 방문한 수치를 PC쇼핑몰/모바일쇼핑몰로 구분하여 집계됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 검색을 통하지 않은 "직접입력, 즐겨찾기, 로봇의 방문"은 검색유입수로 측정되지 않습니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 검색유입수 측정은 시간제약 없이 쇼핑몰에 유입된 경우 모두 측정됩니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;&nbsp;&nbsp; ex. 한 사람이 동일한 유입경로를 이용 7번 방문한 경우 검색유입수는 7회가 됨.</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 전체유입수란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 방문경로와 상관없이 내 쇼핑몰 이외의 다른페이지에서 내 쇼핑몰로 방문한 수치가 집계됩니다.</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 검색엔진에서 검색결과를 통한 방문 및 직접입력, 즐겨찾기, 로봇의 방문도 포함되어 측정합니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 검색을 통하지 않은 직접입력, 즐겨찾기, 로봇의 방문은 "기타" 항목으로 집계됩니다.</span><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;"></span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp;</span></p><p><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 10pt;"><strong>[통계 정보] 검색유입율이란 무엇인가요?</strong></span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">· 전체유입수를 기준으로 검색을 통해 들어온 비율입니다.</span><br><span style="font-family: &quot;나눔고딕&quot;,NanumGothic; font-size: 8pt;">&nbsp; - 수식 : 검색 유입율(%) = (총 검색유입수 / 전체유입수) x 100</span>&nbsp;</p>    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        
+            
+
+
+<script type="text/javascript">
+    <!--
+    $(document).ready(function () {
+        
+        $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: 'orderPresentationNew'},
+            global_complete: false,
+            beforeSend: function () {
+                $('.js-oder-count-new').addClass('display-none')
+            },
+            success: function () {
+                if (arguments[0].success === 'OK') {
+                    var result = arguments[0].result;
+                    if (result === true) {
+                        $('.js-oder-count-new').removeClass('display-none');
+                    }
+                }
+            }
+        });
+    });
+    //-->
+</script>
+        
+    </div>
+</div>
+
+
+
+<div id="gnbTopAnchor">
+    <a href="#top"><img src="IMG/btn_gnb_top.png"></a>
+</div>
+
+<iframe name="ifrmProcess" src="./blank.html" class="display-none" width="100%" height="200"></iframe>
+<script type="text/javascript">
+    adminPanelApiAjax('statistics', 'visit', 'visit_inflow');
+    $(function(){
+        // 탑버튼 클릭
+        $(document).on("click", "a[href=#top]", function(e) {
+            $('html body').animate({scrollTop: 0}, 'fast');
+        });
+
+        // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+        $(window).scroll(function() {
+            if ($(window).height() < $(document).height()) {
+                if ($(window).scrollTop() >= 1) {
+                    $("#gnbTopAnchor").slideDown(150);
+                } else {
+                    $("#gnbTopAnchor").slideUp(100);
+                }
+            }
+        });
+    });
+</script>
+
+
+</body></html>
