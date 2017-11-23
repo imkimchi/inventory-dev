@@ -53,7 +53,7 @@ html(lang='en')
     script(src='/js/jquery.fancybox.js')
     script(src='/js/post.js')
     script(src='//paypalobjects.com/api/checkout.js')
-    script(src='/js/paypal.js')
+    //script(src='/js/paypal.js')
   body
   #mypage_wrap.mypage_container_cover
 // mypage//
@@ -242,7 +242,7 @@ html(lang='en')
                   span Other
                   input(type='radio', name='market_name')
     // 탭2
-#wrap.index
+#wrap.index(style="margin-bottom: 60px")
   #header
     .header_inner
       .header_row
@@ -684,9 +684,66 @@ html(lang='en')
               a(href='#') PRIVACY POLICY
             li
               a(href='#') CONTACT
+
+
       span.shadow
     .black_shadow
+    .one(style='display:none')
+      .two
+        .mypage_container_cover
+          .mypage_container.shipform-wrapper(style='\
+                margin-top: 0px;\
+                margin-bottom: 0px;\
+                ')
+            h1 Shipping Information
+            i.buy-now-x.fa.fa-times.fa-1x(aria-hidden='true', style="float: right")
+            form.form(action='', method='post')
+              .form-group
+                label(for='username') name
+                input#name.form-control(type='text', name='_username', placeholder='Name')
+              .form-group
+                label(for='username') address1
+                input#address1.form-control(type='text', name='_username', placeholder='Address1')
+              .form-group
+                label(for='username') address2
+                input#address2.form-control(type='text', name='_username', placeholder='Address2')
+              .city-state
+                .form-labels
+                  input(type='text', placeholder='City', name='city', value='')
+                .form-labels
+                  input(type='text', placeholder='State', name='state', value='')
+              .country-zip
+                .select-container
+                  select(name='country')
+                    option(selected='', value='') Country
+                    option(value='US') United States
+                    option(value='AU') Australia
+                    option(value='AF') Afghanistan
+                .form-field
+                  input(type='text', placeholder='Zip', name='zipcode', value='')
+              .form-group
+                #shipping-btn.btn.btn-join.btn-info(title='joinus', type='submit')
+                  a(href='#')
+                    span Buy it now
+            .form-group-txt
+              | All payments are processed securely by PayPal and covered by PayPal & Inventory Protection.
+              | If you do not have a PayPal accout, you can check out as a guest using your debit/credit card.
     script(src="/js/like.js")
+    script.
+        $(document).on('click', '#paypal', function (e) {
+            e.preventDefault()
+
+            let convoId = $(this).closest('.mix').attr('data-id')
+            $('.one').css('display', 'flex')
+            $('.one').attr('data-id', convoId)
+        })
+
+        $(document).on('click', '.buy-now-x', function () {
+            $('.one').css('display', 'none')
+            $('.shipform-wrapper input').val('')
+            $('.shipform-wrapper option[value=""]').prop('selected', true)
+        })
+
     script.
       if(!jwtToken) {
           $('.comment-this-item').remove()

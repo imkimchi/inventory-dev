@@ -1467,11 +1467,7 @@ html(lang='en')
         location.reload()
         })
 
-        if(!$('.unread-big').length) {
-            $('.header_row .right_header_box .member_category li:last-child').css("padding-top", "8px!important")
-        } else {
-            $('.header_row .right_header_box .member_category li:last-child').css("padding-top", "2px!important")
-        }
+        if($('.unread-big').length) $('.unread-big').closest('li').css('padding-top', '2px')
 
 
         $('label span').click(function (e) {

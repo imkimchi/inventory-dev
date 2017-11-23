@@ -31,6 +31,8 @@ function socketChat (username, jwtToken) {
             console.log("last message nigga", lastMessage)
             socket.emit('quit', {convoId: latestConvo, username: username, lastMessage: lastMessage})
         }
+        
+        if($('.unread-msg').length) $('.unread-msg').remove()
 
         if(latestConvo === convoId) {
             return false
