@@ -30,6 +30,8 @@ function socketChat (username, jwtToken) {
             let lastMessage = $(this).closest('.mix').find('.conversation-right').last().find('.messages').attr('data-id')
             socket.emit('quit', {convoId: latestConvo, username: username, lastMessage: lastMessage})
         }
+        
+        if($('.unread-msg').length) $('.unread-msg').remove()
 
         if(latestConvo === convoId) {
             return false

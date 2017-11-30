@@ -28,7 +28,6 @@ input[name="gender_name"], input[name="productCategory"], input[name="seller_cou
 	color: white;
 	height: 18px;
 	background-color: #F44336;
-	margin-top: 8px;
 }
 
 div.member_category > li:last-child > a {

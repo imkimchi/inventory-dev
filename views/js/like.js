@@ -1,6 +1,6 @@
 const isMainPage = () => window.location.pathname.length === 1
 
-$(".goodtog").click(async function (e) {
+$(document).on("click", ".goodtog", async function (e) {
     e.preventDefault()
     $('img', this).toggle()
 
@@ -13,6 +13,8 @@ $(".goodtog").click(async function (e) {
         headers: {'Authorization': store.get('jwtToken')},
         data: { productURL : isMainPage() ? productURL : currentURL}
     }
+
+    console.log(reqOpt.data.productURL)
 
     let res = await axios(reqOpt)
 
