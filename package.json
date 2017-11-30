@@ -23,6 +23,7 @@
     "koa-session": "^5.4.0",
     "koa-static": "^3.0.0",
     "koa-views": "^6.0.2",
+    "luxon": "^0.2.3",
     "moment": "^2.18.1",
     "mongoose": "^4.10.8",
     "passport": "^0.3.2",
