@@ -102,6 +102,9 @@ const PostSchema = mongoose.Schema({
         type: Array,
         default: []
     },
+    blockDate: {
+        type: Date
+    },
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 })
 

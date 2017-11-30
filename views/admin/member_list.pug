@@ -1,0 +1,396 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 1.기본 설정
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/css/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/css/jquery-ui.css', rel='stylesheet')
+    //link(type='text/css', href='/css/style.css', rel='stylesheet')
+    style.
+      .form-control {
+        height: 30px!important;
+      }
+    link(type='text/css', href='/css/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/css/flags.css', rel='stylesheet')
+    link(type='text/css', href='/css/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/css/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=policy__management___manage_list#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+  body.policy.manage-list.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                 )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy.active(href='manage_list.html', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='/admin/goods', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='/admin/order', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='/admin/member', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board(href='/admin/board', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='https://analytics.google.com/analytics/web/#embed/report-home/a109950709w164096919p164844100/', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          // 고도 사이트로 이동 시작
+          form(name='frmGotoGodomall', action='', method='post')
+            input(name='pageKey', value='332317', type='hidden')
+            input(name='sno', value='332317', type='hidden')
+            input(name='mode', value='', type='hidden')
+          // 고도 사이트로 이동 끝
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.member
+              h2 회원
+            .panel
+              .panel-heading.menu-icon-minus 주문관리
+              ul.list-group
+                li.list-group-item.active
+                  a(href='#') 회원 리스트
+                li.list-group-item
+                  a(href='#') 회원 메세지 내역
+                li.list-group-item
+                  a(href='#') 메세지 금칙어 관리
+          #content.row
+            .col-xs-12
+              .page-header.js-affix.affix-top(style='width: 1632px;border-bottom-width: 0px;!important')
+                h3 회원 리스트
+              form#frmList(action='', method='get', target='ifrmProcess')
+                .table-header.form-inline
+                  .pull-left
+                    | 전체
+                    strong #{memberLength}
+                    |             명
+                  .pull-right
+                    div
+                      select.form-control(name='sort')
+                        option(value='entryDt desc', selected='selected') 회원가입일↓
+                        option(value='entryDt asc') 회원가입일↑
+                        option(value='lastLoginDt desc')
+                          | 최종로그인↓
+                        option(value='lastLoginDt asc')
+                          | 최종로그인↑
+                        option(value='loginCnt desc')
+                          | 방문횟수↓
+                        option(value='loginCnt asc') 방문횟수↑
+                        option(value='memNm desc') 이름↓
+                        option(value='memNm asc') 이름↑
+                        option(value='memId desc') 아이디↓
+                        option(value='memId asc') 아이디↑
+                        option(value='mileage desc') 마일리지↓
+                        option(value='mileage asc') 마일리지↑
+                        option(value='saleAmt desc') 구매금액↓
+                        option(value='saleAmt asc') 구매금액↑
+                      select#pageNum.js-page-number.form-control(name='pageNum')
+                        option(value='10', selected='selected') 10개 보기
+                        option(value='20') 20개 보기
+                        option(value='30') 30개 보기
+                        option(value='40') 40개 보기
+                        option(value='50') 50개 보기
+                        option(value='60') 60개 보기
+                        option(value='70') 70개 보기
+                        option(value='80') 80개 보기
+                        option(value='90') 90개 보기
+                        option(value='100') 100개 보기
+                        option(value='200') 200개 보기
+                        option(value='300') 300개 보기
+                        option(value='500') 500개 보기
+                      // <button type="button" class="btn btn-sm btn-default" id="btnGrid">GRID</button>
+                table.table.table-rows
+                  colgroup
+                    col.width-xs
+                    col
+                    col.width-xs
+                    col
+                    col
+                    col
+                    col
+                    col
+                    col
+                    col
+                    col
+                    col
+                    col
+                    col
+                  thead
+                    tr
+                      th 아이디/닉네임
+                      th 이름
+                      th 회원가입일
+                      th 최종로그인
+                      th 이메일
+                      th 뉴스레터 동의
+                      th 성별
+                      th 국가
+                      th 제재
+                  tbody
+                    each user in users
+                      tr.center(data-member-no=''+i)
+                        td
+                          span.font-eng.js-layer-crm.hand
+                            | #{user.username}
+                        td
+                          span.js-layer-crm.hand  #{user.firstName+user.lastName}
+                        td
+                          span.font-date.js-layer-crm.hand #{user.joinedDate}
+                        td
+                          span.font-date.js-layer-crm.hand 17-09-01
+                        td
+                          span.font-date.js-layer-crm.hand #{user.email}
+                        td
+                          span.font-date.js-layer-crm.hand #{user.newsletter}
+                        td
+                          span.font-date.js-layer-crm.hand #{user.gender}
+                        td
+                          span.font-date.js-layer-crm.hand #{user.country}
+                        td
+                          button.btn.btn-white.btn-sm.btnModify(type='button', data-toggle="modal" data-target="#myModal")
+                            | 제재
+                .center
+                  nav
+                    ul.pagination.pagination-sm
+                      li.active
+                        span 1
+  #myModal.modal.fade(role='dialog')
+    .modal-dialog
+      // Modal content
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal') ×
+          h4.modal-title 회원 제재
+        .modal-body
+          .input-group
+            input.form-control(type='text', placeholder="몇", aria-label="Recipient's username", aria-describedby='basic-addon2')
+            span#basic-addon2.input-group-addon 일
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') 적용
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='./blank.html', width='100%', height='200')
+    script(src="/js/lib/axios.min.js")
+    script(src="/js/admin-block.js")

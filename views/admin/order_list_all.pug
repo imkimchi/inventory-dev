@@ -1,0 +1,860 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 1.기본 설정
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/css/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/css/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/css/style.css', rel='stylesheet')
+    link(type='text/css', href='/css/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/css/flags.css', rel='stylesheet')
+    link(type='text/css', href='/css/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/css/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='JS/underscore-min.js')
+    script(type='text/javascript', src='JS/jquery_003.js')
+    script(type='text/javascript', src='JS/jquery-ui.js')
+    script(type='text/javascript', src='JS/bootstrap.js')
+    script(type='text/javascript', src='JS/moment.js')
+    script(type='text/javascript', src='JS/numeral.js')
+    script(type='text/javascript', src='JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='JS/ZeroClipboard.js')
+    script(type='text/javascript', src='JS/clipboard.js')
+    script(type='text/javascript', src='JS/jquery_004.js')
+    script(type='text/javascript', src='JS/jquery_007.js')
+    script(type='text/javascript', src='JS/jquery.js')
+    script(type='text/javascript', src='JS/messages_ko.js')
+    script(type='text/javascript', src='JS/additional-methods.js')
+    script(type='text/javascript', src='JS/jquery_005.js')
+    script(type='text/javascript', src='JS/jquery_006.js')
+    script(type='text/javascript', src='JS/common2.js')
+    script(type='text/javascript', src='JS/common.js')
+    script(type='text/javascript', src='JS/schedule.js')
+    script(type='text/javascript', src='JS/jquery_002.js')
+    script(type='text/javascript', src='JS/admin_panel_api.js')
+    script(type='text/javascript', src='JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=policy__management___manage_list#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+  body.policy.manage-list.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                 )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy.active(href='manage_list.html', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='/admin/goods', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='/admin/order', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='/admin/member', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board(href='/admin/board', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='https://analytics.google.com/analytics/web/#embed/report-home/a109950709w164096919p164844100/', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.order
+              h2 주문/배송
+            .panel
+              .panel-heading.menu-icon-minus 주문관리
+              ul.list-group
+                li.list-group-item.active
+                  a(href='#') 주문통합리스트
+                li.list-group-item
+                  a(href='#') 취소 리스트
+          #content.row
+            .col-xs-12
+              .page-header.js-affix.affix-top(style='width: 1632px; left: auto;')
+                h3
+                  | 주문통합리스트        
+                  small 취소/환불/반품/교환을 포함한 전체 주문리스트입니다.
+                .btn-group
+                  a.btn.btn-red-line(href='https://gdadmin.pro.godomall.com:14002/order/order_write.php') 수기주문 등록
+              // 검색을 위한 form
+              form#frmSearchOrder.js-form-enter-submit(method='get')
+                input(name='detailSearch', value='', type='hidden')
+                .table-title.gd-help-manual
+                  | 주문 검색
+                  span.search
+                    button.btn.btn-sm.btn-black(type='button', onclick='set_search_config(this.form)') 검색설정저장
+                  a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=order__order___order_list_all#%EC%A3%BC%EB%AC%B8%EA%B2%80%EC%83%89%EA%B2%80%EC%83%89%EC%84%A4%EC%A0%95%EC%A0%80%EC%9E%A5', target='_blank') 페이지 도움말
+                .search-detail-box
+                  table.table.table-cols
+                    colgroup
+                      col.width-sm
+                      col
+                      col.width-sm
+                      col
+                    tbody
+                      tr
+                        th 상점
+                        td(colspan='3')
+                          label.radio-inline
+                            input(name='mallFl', value='all', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='mallFl', value='1', type='radio')
+                            span.flag.flag-16.flag-kr
+                            |  기준몰
+                          label.radio-inline
+                            input(name='mallFl', value='2', type='radio')
+                            span.flag.flag-16.flag-us
+                            |  영문몰
+                          label.radio-inline
+                            input(name='mallFl', value='3', type='radio')
+                            span.flag.flag-16.flag-cn
+                            |  중문몰
+                          label.radio-inline
+                            input(name='mallFl', value='4', type='radio')
+                            span.flag.flag-16.flag-jp
+                            |  일문몰
+                      tr
+                        th 검색어
+                        td(colspan='3')
+                          .form-inline
+                            select#key.form-control(name='key')
+                              option(value='all', selected='selected') =통합검색=
+                              option(value='o.orderNo') 주문번호
+                              option(value='oi.orderName') 주문자명
+                              option(value='oi.orderPhone') 주문자 전화번호
+                              option(value='oi.orderCellPhone') 주문자 휴대폰번호
+                              option(value='oi.orderEmail') 주문자 이메일
+                              option(value='oi.receiverName') 수령자명
+                              option(value='oi.receiverPhone') 수령자 전화번호
+                              option(value='oi.receiverCellPhone') 수령자 휴대폰번호
+                              option(value='o.bankSender') 입금자명
+                              option(value='m.memId') 아이디
+                              option(value='m.nickNm') 닉네임
+                              option(value='sm.companyNm') 공급사명
+                              option(value='og.invoiceNo') 송장번호
+                              option(value='og.goodsNm') 상품명
+                              option(value='og.goodsNo') 상품코드
+                              option(value='og.goodsCd') 자체 상품코드
+                              option(value='og.goodsModelNo') 상품모델명
+                              option(value='og.makerNm') 제조사
+                            input.form-control(name='keyword', type='text')
+                      tr
+                        th 기간검색
+                        td(colspan='3')
+                          .form-inline
+                            select#treatDateFl.form-control(name='treatDateFl')
+                              option(value='og.regDt', selected='selected') 주문일
+                              option(value='og.paymentDt') 결제확인일
+                              option(value='og.invoiceDt') 송장입력일
+                              option(value='og.deliveryDt') 배송일
+                              option(value='og.deliveryCompleteDt') 배송완료일
+                              option(value='og.finishDt') 구매확정일
+                              option(value='og.cancelDt') 취소완료일
+                              option(value='oh.regDt.b') 반품접수일
+                              option(value='oh.handleDt.b') 반품완료일
+                              option(value='oh.regDt.e') 교환접수일
+                              option(value='oh.handleDt.e') 교환완료일
+                              option(value='oh.regDt.r') 환불접수일
+                              option(value='oh.handleDt.r') 환불완료일
+                            .input-group.js-datepicker
+                              input.form-control.width-xs(name='treatDate[]', value='2017-08-26', type='text')
+                              span.input-group-addon
+                                span.btn-icon-calendar
+                            |                         ~
+                            .input-group.js-datepicker
+                              input.form-control.width-xs(name='treatDate[]', value='2017-09-02', type='text')
+                              span.input-group-addon
+                                span.btn-icon-calendar
+                            .btn-group.js-dateperiod(data-toggle='buttons', data-target-name='treatDate[]')
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='periodFl', value='0', type='radio')
+                                | 오늘
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='periodFl', value='6', type='radio')
+                                | 7일
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='periodFl', value='14', type='radio')
+                                | 15일
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='periodFl', value='29', type='radio')
+                                | 1개월
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='periodFl', value='89', type='radio')
+                                | 3개월
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='periodFl', value='364', type='radio')
+                                | 1년
+                    tbody.js-search-detail(style='display: none;')
+                      tr
+                        th 주문유형
+                        td
+                          .dl-horizontal.dl-checkbox
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input.js-not-checkall(name='orderTypeFl[]', value='', data-target-name='orderTypeFl[]', checked='checked', type='checkbox')
+                              |  전체
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input(name='orderTypeFl[]', value='pc', type='checkbox')
+                              |  PC쇼핑몰
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input(name='orderTypeFl[]', value='mobile', type='checkbox')
+                              |  모바일쇼핑몰
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input(name='orderTypeFl[]', value='write', type='checkbox')
+                              |  수기주문
+                        th 주문채널구분
+                        td
+                          .dl-horizontal.dl-checkbox
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input.js-not-checkall(name='orderChannelFl[]', value='', data-target-name='orderChannelFl[]', checked='checked', type='checkbox')
+                              |  전체
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input(name='orderChannelFl[]', value='shop', type='checkbox')
+                              |  쇼핑몰
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input(name='orderChannelFl[]', value='payco', type='checkbox')
+                              img.middle(src='IMG/payco.gif')
+                              |  페이코
+                            label.checkbox-inline(style='margin: 0 10px 0 0;')
+                              input(name='orderChannelFl[]', value='naverpay', type='checkbox')
+                              img.middle(src='IMG/naverpay.gif')
+                              |  네이버페이
+                      tr
+                        th 결제수단
+                        td(colspan='3')
+                          .dl-horizontal.dl-checkbox
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input.js-not-checkall(name='settleKind[]', value='', data-target-name='settleKind[]', checked='checked', type='checkbox')
+                                |  전체
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='gb', type='checkbox')
+                                img(src='IMG/icon_settlekind_gb.gif', alt='무통장 입금', data-pin-nopin='true')
+                                |                                     무통장 입금
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='gz', type='checkbox')
+                                img(src='IMG/icon_settlekind_gz.gif', alt='전액할인', data-pin-nopin='true')
+                                |                                     전액할인
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='gm', type='checkbox')
+                                img(src='IMG/icon_settlekind_gm.gif', alt='적립금', data-pin-nopin='true')
+                                |                                     적립금
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='gd', type='checkbox')
+                                img(src='IMG/icon_settlekind_gd.gif', alt='예치금', data-pin-nopin='true')
+                                |                                     예치금
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='pc', type='checkbox')
+                                img(src='IMG/icon_settlekind_pc.gif', alt='신용카드', data-pin-nopin='true')
+                                |                                     신용카드
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='pb', type='checkbox')
+                                img(src='IMG/icon_settlekind_pb.gif', alt='계좌이체', data-pin-nopin='true')
+                                |                                     계좌이체
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='pv', type='checkbox')
+                                img(src='IMG/icon_settlekind_pv.gif', alt='가상계좌', data-pin-nopin='true')
+                                |                                     가상계좌
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='ph', type='checkbox')
+                                img(src='IMG/icon_settlekind_ph.gif', alt='휴대폰', data-pin-nopin='true')
+                                |                                     휴대폰
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='ec', type='checkbox')
+                                img(src='IMG/icon_settlekind_ec.gif', alt='신용카드 (에스크로)', data-pin-nopin='true')
+                                |                                     신용카드 (에스크로)
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='eb', type='checkbox')
+                                img(src='IMG/icon_settlekind_eb.gif', alt='계좌이체 (에스크로)', data-pin-nopin='true')
+                                |                                     계좌이체 (에스크로)
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='ev', type='checkbox')
+                                img(src='IMG/icon_settlekind_ev.gif', alt='가상계좌 (에스크로)', data-pin-nopin='true')
+                                |                                     가상계좌 (에스크로)
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='fc', type='checkbox')
+                                img(src='IMG/icon_settlekind_fc.gif', alt='신용카드 (간편결제)', data-pin-nopin='true')
+                                |                                     신용카드 (간편결제)
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='fb', type='checkbox')
+                                img(src='IMG/icon_settlekind_fb.gif', alt='계좌이체 (간편결제)', data-pin-nopin='true')
+                                |                                     계좌이체 (간편결제)
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='fv', type='checkbox')
+                                img(src='IMG/icon_settlekind_fv.gif', alt='가상계좌 (간편결제)', data-pin-nopin='true')
+                                |                                     가상계좌 (간편결제)
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='fh', type='checkbox')
+                                img(src='IMG/icon_settlekind_fh.gif', alt='휴대폰 (간편결제)', data-pin-nopin='true')
+                                |                                     휴대폰 (간편결제)
+                            span(style='margin: 0 10px 0 0; width: 160px; display: inline-block;')
+                              label.checkbox-inline
+                                input(name='settleKind[]', value='fp', type='checkbox')
+                                img(src='IMG/icon_settlekind_fp.gif', alt='포인트 (간편결제)', data-pin-nopin='true')
+                                |                                     포인트 (간편결제)
+                      tr
+                        th 송장번호
+                        td.form-inline(colspan='3')
+                          select.form-control(id='', name='invoiceCompanySno')
+                            option(value='0', selected='selected') =배송 업체=
+                            option(value='12') 우체국택배
+                            option(value='37') 기타 택배
+                          label.radio-inline.mgl10
+                            input(name='invoiceNoFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='invoiceNoFl', value='y', type='radio')
+                            |  송장번호 등록
+                          label.radio-inline
+                            input(name='invoiceNoFl', value='n', type='radio')
+                            |  송장번호 미등록
+                      tr
+                        th 회원정보
+                        td
+                          label.checkbox-inline
+                            input(name='firstSaleFl', value='y', type='checkbox')
+                            |  첫주문
+                        th 배송정보
+                        td
+                          label.checkbox-inline
+                            input(name='withGiftFl', value='y', type='checkbox')
+                            |  사은품 포함
+                          label.checkbox-inline
+                            input(name='withMemoFl', value='y', type='checkbox')
+                            |  배송메세지 입력
+                          label.checkbox-inline
+                            input(name='withAdminMemoFl', value='y', type='checkbox')
+                            |  관리자메모 입력
+                      tr
+                        th 회원검색
+                        td
+                          label.radio-inline
+                            input(name='memFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='memFl', value='n', type='radio')
+                            | 비회원
+                          label.radio-inline
+                            input(name='memFl', value='y', type='radio')
+                            | 회원
+                          button.btn.btn-gray.btn-sm.js-layer-register(type='button', data-type='member_group') 회원등급 선택
+                          #member_groupLayer.selected-btn-group
+                            h5 선택된 회원등급
+                        th 결제금액
+                        td
+                          .form-inline
+                            input.form-control.width-sm(name='settlePrice[]', type='text')
+                            | 원 ~
+                            input.form-control.width-sm(name='settlePrice[]', type='text')
+                            | 원
+                      tr
+                        th 영수증 신청
+                        td(colspan='3')
+                          label.radio-inline
+                            input(name='receiptFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='receiptFl', value='r', type='radio')
+                            img.middle(src='IMG/receipt_r.png')
+                            |  현금영수증
+                          label.radio-inline
+                            input(name='receiptFl', value='t', type='radio')
+                            img.middle(src='IMG/receipt_t.png')
+                            |  세금계산서
+                      tr
+                        th 입금경과일
+                        td
+                          .form-inline
+                            input.form-control.width-2xs(name='overDepositDay', type='text')
+                            |                             일 이상 경과
+                        th 배송지연일
+                        td
+                          .form-inline
+                            input.form-control.width-2xs(name='underDeliveryDay', type='text')
+                            |  일 이상 지연
+                            // <label class="checkbox-inline mgl10">
+                            // <input type="checkbox" name="underDeliveryOrder" value="y"
+                            // ?//= gd_isset($checked['underDeliveryOrder']['y']); ?
+                            // /> 포함된 주문 모두
+                            // </label>
+                            .notice-info 입력 시 배송 전 주문상태만 검색 가능합니다.
+                      tr
+                        th 프로모션 정보
+                        td
+                          div
+                            input.btn.btn-sm.btn-gray.js-layer-register(value='쿠폰선택', data-type='coupon', type='button')
+                            // <input type="button" value="기획전선택" class="btn btn-sm btn-gray js-layer-register" data-type="event"/>
+                            label.checkbox-inline.mgl10
+                              input(name='couponAllFl', value='y', type='checkbox')
+                              |  쿠폰사용 주문 전체 검색
+                            label.checkbox-inline.mgl10
+                            #couponLayer.selected-btn-group
+                              h5 선택된 쿠폰 : 
+                            // <div id="eventLayer" class="selected-btn-group
+                            // ?//=!empty($search['eventNo']) ? 'active' : ''?
+                            // ">
+                            // <h5>선택된 기획전 : </h5>
+                            // 
+                            // <div id="info_event_
+                            // ?//= $search['eventNo'] ?
+                            // " class="btn-group btn-group-xs">
+                            // <input type="hidden" name="eventNo" value="
+                            // ?//= $search['eventNo'] ?
+                            // "/>
+                            // <input type="hidden" name="eventNoNm" value="
+                            // ?//= $search['eventNoNm'] ?
+                            // "/>
+                            // <span class="btn">
+                            // ?//= $search['eventNoNm'] ?
+                            // </span>
+                            // <button type="button" class="btn btn-icon-delete" data-toggle="delete" data-target="#info_event_
+                            // ?//= $search['eventNo'] ?
+                            // ">삭제</button>
+                            // </div>
+                            // 
+                            // </div>
+                        th 수동입금확인
+                        td
+                          label.checkbox-inline
+                            input(name='manualPayment', value='y', type='checkbox')
+                            |  수동입금확인 주문만 보기
+                      tr
+                        th 브랜드
+                        td(colspan='3')
+                          .form-inline
+                            label
+                              input.btn.btn-sm.btn-gray.js-layer-register(value='브랜드선택', data-type='brand', data-mode='radio', type='button')
+                            label.checkbox-inline.mgl10
+                              input(name='brandNoneFl', value='y', type='checkbox')
+                              |  브랜드 미지정 상품
+                            #brandLayer.selected-btn-group
+                              h5 선택된 브랜드 : 
+                  button.btn.btn-sm.btn-link.js-search-toggle.bold(type='button')
+                    | 상세검색 
+                    span 펼침
+                .table-btn
+                  input.btn.btn-lg.btn-black(value='검색', type='submit')
+                ul.nav.nav-tabs.mgb0(role='tablist')
+                  li.active(role='presentation')
+                    a(href='https://gdadmin.pro.godomall.com:14002/order/order_list_all.php?view=order&') 주문번호별
+                  li(role='presentation')
+                    a(href='https://gdadmin.pro.godomall.com:14002/order/order_list_all.php?view=orderGoods&') 상품주문번호별
+                .table-header.table-header-tab
+                  .pull-left
+                    | 검색 
+                    strong.text-danger 0
+                    | 개 /
+                    |             전체 
+                    strong.text-danger 0
+                    | 개
+                    |             ( 검색된 주문 총 결제금액 : 
+                    span.text-danger 0
+                    | 원                        )
+                  .pull-right
+                    .form-inline
+                      select#sort.form-control(name='sort')
+                        option(value='og.orderNo desc', selected='selected') 주문번호↓
+                        option(value='og.orderNo asc') 주문번호↑
+                        option(value='o.orderGoodsNm desc') 상품명↓
+                        option(value='o.orderGoodsNm asc') 상품명↑
+                        option(value='oi.orderName desc') 주문자↓
+                        option(value='oi.orderName asc') 주문자↑
+                        option(value='o.settlePrice desc') 총 결제금액↓
+                        option(value='o.settlePrice asc') 총 결제금액↑
+                        option(value='oi.receiverName desc') 수령자↓
+                        option(value='oi.receiverName asc') 수령자↑
+                        option(value='sm.companyNm desc') 공급사↓
+                        option(value='sm.companyNm asc') 공급사↑
+                      select#pageNum.form-control(name='pageNum')
+                        option(value='10') 10개 보기
+                        option(value='20', selected='selected') 20개 보기
+                        option(value='30') 30개 보기
+                        option(value='40') 40개 보기
+                        option(value='50') 50개 보기
+                        option(value='60') 60개 보기
+                        option(value='70') 70개 보기
+                        option(value='80') 80개 보기
+                        option(value='90') 90개 보기
+                        option(value='100') 100개 보기
+                        option(value='200') 200개 보기
+                        option(value='300') 300개 보기
+                        option(value='500') 500개 보기
+                input(name='view', value='order', type='hidden')
+                input(name='searchFl', value='y', type='hidden')
+                input(name='applyPath', value='/order/order_list_all.php?view=order', type='hidden')
+              // // 검색을 위한 form
+              // 프린트 출력을 위한 form
+              form#frmOrderPrint.display-none(name='frmOrderPrint', action='', method='post')
+                input(name='orderPrintCode', value='', type='hidden')
+                input(name='orderPrintMode', value='', type='hidden')
+              // // 프린트 출력을 위한 form
+              form#frmOrderStatus(action='./order_ps.php', method='post', novalidate='novalidate')
+                input(name='mode', value='combine_status_change', type='hidden')
+                input#orderStatus(name='changeStatus', value='', type='hidden')
+                .table-action-dropdown
+                  .table-action.mgt0.mgb0
+                    .pull-right
+                      .form-inline
+                        .dropdown
+                          button#btnSmsLayer.btn.btn-red.js-sms-layer-open.dropdown-toggle.dropdown-arr(type='button', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false') SMS발송
+                          ul.dropdown-menu.mgt10(aria-labelledby='btnSmsLayer')
+                            li.dropdown-item
+                              a.js-sms-send(data-type='select', data-opener='order', data-target-selector='input[name*=statusCheck]:checked') 선택 주문 배송
+                            li.dropdown-item
+                              a.js-sms-send(data-type='search', data-opener='order', data-target-selector='#frmSearchOrder') 검색 주문 배송
+                        select#orderPrintMode.form-control(name='')
+                          option(value='', selected='selected') =인쇄 선택=
+                          option(value='report') 주문내역서
+                          option(value='customerReport') 주문내역서 (고객용)
+                          option(value='reception') 간이영수증
+                          option(value='particular') 거래명세서
+                          option(value='taxInvoice') 세금계산서
+                        input.btn.btn-white.btn-icon-print(onclick="order_print_popup($('#orderPrintMode').val(), 'frmOrderPrint', 'frmOrderStatus', 'statusCheck[', false);", value='프린트', type='button')
+                .table-responsive
+                  table.table.table-rows.order-list
+                    thead
+                      tr
+                        th.width3p
+                          input.js-checkall(value='y', data-target-name='statusCheck', type='checkbox')
+                        th.width3p 번호
+                        th.width5p 상점 구분
+                        th.width5p 주문일시
+                        th.width7p 주문번호
+                        th.width7p 주문자
+                        th 주문상품
+                        th.width5p 총 금액
+                        th.width5p 총 결제금액
+                        th.width3p 결제방법
+                        th.width5p 수령자
+                        th.width5p 결제상태
+                        th.width3p 미배송
+                        th.width3p 배송중
+                        th.width3p 배송완료
+                        th.width3p 취소
+                        th.width3p 교환
+                        th.width3p 반품
+                        th.width3p 환불
+                        th.width5p 관리자메모
+                    tbody
+                      tr
+                        td.no-data(colspan='20')
+                          | 검색된 주문이 없습니다.
+                .table-action
+                  .pull-right
+                    button.btn.btn-white.btn-icon-excel.js-excel-download(type='button', data-target-form='frmSearchOrder', data-search-count='0', data-total-count='22', data-state-code='', data-target-list-form='frmOrderStatus', data-target-list-sno='statusCheck')
+                      | 엑셀다운로드
+              .text-center
+                nav
+                  ul.pagination.pagination-sm
+              script(type='text/javascript', src='JS/orderList.js')
+              .information
+                h4 안내
+                .content
+                  p
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                      strong [주문 정보] 주문상태를 추가할 수 있나요?
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                      | · 주문상태는 "기본설정>주문정책>주문상태 설정" 메뉴에서 운영자가 추가할 수 있으며, 관리자페이지와 쇼핑몰페이지에 노출될 주문상태명을 각각 수정할 수 있습니다.
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')
+                      | · 주문상태 설정 메뉴의 "사용설정"항목에 체크박스가 체크된 주문상태만 관리자페이지와 쇼핑몰페이지에 노출되며, 체크가 되지않은 경우 노출되지 않습니다.
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 추가 또는 수정된 주문상태는 저장 즉시 관리자페이지와 쇼핑몰페이지에 반영되어 수정된 정보로 노출됩니다.
+                  p
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')  
+                  p
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                      strong [주문 정보] 결제완료 상태를 입금대기 상태로 변경할 수 있나요?
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 주문리스트에서 결제완료 상태의 주문을 "입금대기" 상태로 변경할 수 없습니다.
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 결제완료 상태에서 입금대기 상태로 변경은 해당 주문의 "주문 상세정보" 페이지에서만 가능합니다.
+                  p
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;')  
+                  p
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 10pt;')
+                      strong [주문 정보] 주문상태 변경에 제한이 있나요?
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 주문리스트 내 선택된 주문의 상태를 "결제완료/상품준비중/배송중/배송완료/구매확정" 중 선택하여 변경할 수 있습니다.
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · 입금대기 상태의 주문은 "결제완료" 상태로만 변경할 수 있으며, 주문의 일부 상품만 부분적으로 결제완료 상태로 변경이 불가능합니다.
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') · "취소/교환/반품/환불" 등의 주문상태로 변경은 해당 주문의 "주문 상세정보" 페이지에서 내 "클래임 접수" 항목에서 가능합니다.
+                    br
+                    span(style='font-family: "나눔고딕",NanumGothic; font-size: 8pt;') ·  교환/반품/환불접수 상태의 주문은 "취소/교환/반품/환불 관리"의 각각의 상태별 메뉴에서 변경할 수 있습니다.
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    #gnbTopAnchor(style='display: none;')
+      a(href='#top')
+        img(src='JS/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='./blank.html', width='100%', height='200')
+    script(type='text/javascript').
+      adminPanelApiAjax('order', 'order', 'order_list_all');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

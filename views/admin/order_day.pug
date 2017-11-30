@@ -1,0 +1,1209 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 6.order_day
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/CSS/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/flags.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/chart.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/grid.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/CSS/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='/JS/underscore-min.js')
+    script(type='text/javascript', src='/JS/jquery_002.js')
+    script(type='text/javascript', src='/JS/jquery-ui.js')
+    script(type='text/javascript', src='/JS/bootstrap.js')
+    script(type='text/javascript', src='/JS/moment.js')
+    script(type='text/javascript', src='/JS/numeral.js')
+    script(type='text/javascript', src='/JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='/JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='/JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='/JS/ZeroClipboard.js')
+    script(type='text/javascript', src='/JS/clipboard.js')
+    script(type='text/javascript', src='/JS/jquery_003.js')
+    script(type='text/javascript', src='/JS/jquery_006.js')
+    script(type='text/javascript', src='/JS/jquery.js')
+    script(type='text/javascript', src='/JS/messages_ko.js')
+    script(type='text/javascript', src='/JS/additional-methods.js')
+    script(type='text/javascript', src='/JS/jquery_004.js')
+    script(type='text/javascript', src='/JS/jquery_005.js')
+    script(type='text/javascript', src='/JS/common2.js')
+    script(type='text/javascript', src='/JS/common.js')
+    script(type='text/javascript', src='/JS/schedule.js')
+    script(type='text/javascript', src='/JS/jquery_007.js')
+    script(type='text/javascript', src='/JS/admin_panel_api.js')
+    script(type='text/javascript', src='/JS/backbone-min.js')
+    script(type='text/javascript', src='/JS/code-snippet.js')
+    script(type='text/javascript', src='/JS/effects.js')
+    script(type='text/javascript', src='/JS/raphael-min.js')
+    script(type='text/javascript', src='/JS/chart.js')
+    script(type='text/javascript', src='/JS/grid.js')
+    script(type='text/javascript', src='/JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__order___order_day#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+    style#tui-grid-theme-style(type='text/css').
+      .tui-grid-container{background-color:#fff;color:#444}.tui-grid-content-area{border-color:#ccc}.tui-grid-table{border-color:#ccc}.tui-grid-head-area{border-color:#ccc}.tui-grid-foot-area{border-color:#ccc}.tui-grid-border-line{background-color:#ccc}.tui-grid-scrollbar-head{border-color:#ccc}.tui-grid-scrollbar-border{background-color:#ccc}.tui-grid-foot-area-right{border-color:#ccc}.tui-grid-container ::-webkit-scrollbar{background-color:#f5f5f5}.tui-grid-container ::-webkit-scrollbar-thumb{background-color:#d9d9d9}.tui-grid-container ::-webkit-scrollbar-thumb:hover{background-color:#c1c1c1}.tui-grid-container{scrollbar-3dlight-color:#f5f5f5;scrollbar-darkshadow-color:#f5f5f5;scrollbar-track-color:#f5f5f5;scrollbar-shadow-color:#f5f5f5;scrollbar-face-color:#d9d9d9;scrollbar-highlight-color:#d9d9d9;scrollbar-arrow-color:#c1c1c1}.tui-grid-scrollbar-right-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-left-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-head{background-color:#f5f5f5}.tui-grid-foot-area-right{background-color:#f5f5f5}.tui-grid-body-area{background-color:#f5f5f5}.tui-grid-toolbar{background-color:transparent;border-color:transparent}.tui-grid-height-resize-handle{background-color:#fff;border-color:#ccc}.tui-grid-pagination{background-color:transparent;border-color:transparent}.tui-grid-layer-selection{background-color:#4daaf9;border-color:#004082}.tui-grid-cell{background-color:#fbfbfb;border-color:#e0e0e0;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-cell-dummy{background-color:#fff}.tui-grid-cell-editable{background-color:#fff}.tui-grid-cell-head{background-color:#eee;border-color:#ccc;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-head-area{background-color:#eee}.tui-grid-foot-area{background-color:#eee}.tui-grid-cell-required{background-color:#fffdeb}.tui-grid-cell-disabled{color:#b0b0b0}.tui-grid-cell-invalid{background-color:#ff8080}.tui-grid-cell-head.tui-grid-cell-selected{background-color:#d8d8d8}.tui-grid-layer-focus-border{background-color:#418ed4}.tui-grid-layer-editing{border-color:#418ed4}
+  body.statistics.order-day.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                       )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy(href='#', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='#', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='#', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='#', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board(href='#', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion.active(href='#', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.statistics
+              h2 통계
+            .panel
+              .panel-heading.menu-icon-minus 방문자 분석
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 방문자 분석
+                li.list-group-item
+                  a(href='#') 방문자 경로분석
+                li.list-group-item
+                  a(href='#') 방문자 환경분석
+                li.list-group-item
+                  a(href='#') 방문자 IP분석
+              .panel-heading.menu-icon-minus 회원 분석
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 신규 회원분석
+                li.list-group-item
+                  a(href='#') 전체 회원분석
+              .panel-heading.menu-icon-minus 주문 분석
+              ul.list-group
+                li.list-group-item.active
+                  a(href='#') 주요 통계
+          #content.row
+            .col-xs-12
+              .page-header.js-affix.affix-top(style='width: 1632px;')
+                h3 주문통계
+              form#frmSearchBase(method='get')
+                .table-title.gd-help-manual
+                  | 주문 검색
+                  span.notice-danger 통계 데이터는 2시간마다 집계되므로 주문데이터와 약 1시간~2시간의 데이터 오차가 있을 수 있습니다.
+                  a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__order___order_day#%EC%A3%BC%EB%AC%B8%EA%B2%80%EC%83%89%ED%86%B5%EA%B3%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8A%942%EC%8B%9C%EA%B0%84%EB%A7%88%EB%8B%A4%EC%A7%91%EA%B3%84%EB%90%98%EB%AF%80%EB%A1%9C%EC%A3%BC%EB%AC%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80%EC%95%BD1%EC%8B%9C%EA%B0%84%7E2%EC%8B%9C%EA%B0%84%EC%9D%98%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%98%A4%EC%B0%A8%EA%B0%80%EC%9E%88%EC%9D%84%EC%88%98%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.', target='_blank') 페이지 도움말
+                table.table.table-cols
+                  colgroup
+                    col.width-md
+                    col
+                  tbody
+                    tr
+                      th 상점
+                      td
+                        label.radio-inline
+                          input(name='mallFl', value='all', checked='checked', type='radio')
+                          | 전체
+                        label.radio-inline
+                          input(name='mallFl', value='1', type='radio')
+                          span.flag.flag-16.flag-kr
+                          |  기준몰
+                        label.radio-inline
+                          input(name='mallFl', value='2', type='radio')
+                          span.flag.flag-16.flag-us
+                          |  영문몰
+                        label.radio-inline
+                          input(name='mallFl', value='3', type='radio')
+                          span.flag.flag-16.flag-cn
+                          |  중문몰
+                        label.radio-inline
+                          input(name='mallFl', value='4', type='radio')
+                          span.flag.flag-16.flag-jp
+                          |  일문몰
+                    tr
+                      th 기간검색
+                      td
+                        .form-inline
+                          .input-group.js-datepicker
+                            input.form-control.width-xs(name='searchDate[]', value='2017-08-27', type='text')
+                            span.input-group-addon
+                              span.btn-icon-calendar
+                          |                         ~
+                          .input-group.js-datepicker
+                            input.form-control.width-xs(name='searchDate[]', value='2017-09-02', type='text')
+                            span.input-group-addon
+                              span.btn-icon-calendar
+                          .btn-group.js-dateperiod(data-toggle='buttons', data-target-name='searchDate[]')
+                            label.btn.btn-white.btn-sm.hand
+                              input(name='searchPeriod', value='0', type='radio')
+                              | 오늘
+                            label.btn.btn-white.btn-sm.hand.active
+                              input(name='searchPeriod', value='6', checked='checked', type='radio')
+                              | 7일
+                            label.btn.btn-white.btn-sm.hand
+                              input(name='searchPeriod', value='14', type='radio')
+                              | 15일
+                            label.btn.btn-white.btn-sm.hand
+                              input(name='searchPeriod', value='29', type='radio')
+                              | 1개월
+                            label.btn.btn-white.btn-sm.hand
+                              input(name='searchPeriod', value='89', type='radio')
+                              | 3개월
+                .table-btn
+                  button.btn.btn-lg.btn-black(type='submit') 검색
+              ul.nav.nav-tabs.mgb30(role='tablist')
+                li.active(role='presentation')
+                  a(href='https://gdadmin.pro.godomall.com:14002/statistics/order_day.php') 일별 주문현황
+                li(role='presentation')
+                  a(href='https://gdadmin.pro.godomall.com:14002/statistics/order_hour.php') 시간대별 주문현황
+                li(role='presentation')
+                  a(href='https://gdadmin.pro.godomall.com:14002/statistics/order_week.php') 요일별 주문현황
+                li(role='presentation')
+                  a(href='https://gdadmin.pro.godomall.com:14002/statistics/order_month.php') 월별 주문현황
+                li(role='presentation')
+                  a(href='https://gdadmin.pro.godomall.com:14002/statistics/order_member.php') 회원구분 주문현황
+              .table-dashboard
+                table.table.table-cols
+                  colgroup
+                    col(style='width:20%;')
+                    col(style='width:16%;')
+                    col(style='width:16%;')
+                    col(style='width:16%;')
+                    col(style='width:16%;')
+                    col(style='width:16%;')
+                  thead
+                    tr
+                      th.bln.point
+                        | 총 판매금액
+                      th
+                        | 총 구매건수
+                      th
+                        | 총 구매자수
+                      th
+                        | 총 구매개수
+                      th
+                        | 최대/최소 판매금액
+                      th
+                        | 최대/최소 구매건수
+                  tbody
+                    tr
+                      td.bln.point
+                        strong 0
+                        | 원
+                        ul.list-unstyled
+                          li
+                            strong PC
+                            span 0
+                          li
+                            strong 모바일
+                            span 0
+                          li
+                            strong 수기주문
+                            span 0
+                      td
+                        strong 0
+                        ul.list-unstyled
+                          li
+                            strong PC
+                            span 0
+                          li
+                            strong 모바일
+                            span 0
+                          li
+                            strong 수기주문
+                            span 0
+                      td
+                        strong 0
+                        ul.list-unstyled
+                          li
+                            strong PC
+                            span 0
+                          li
+                            strong 모바일
+                            span 0
+                          li
+                            strong 수기주문
+                            span 0
+                      td
+                        strong 0
+                        ul.list-unstyled
+                          li
+                            strong PC
+                            span 0
+                          li
+                            strong 모바일
+                            span 0
+                          li
+                            strong 수기주문
+                            span 0
+                      td
+                        ul.list-unstyled
+                          li
+                            strong 최대 판매금액
+                            span 0
+                          li
+                            strong 최소 판매금액
+                            span 0
+                      td
+                        ul.list-unstyled
+                          li
+                            strong 최대 구매건수
+                            span 0
+                          li
+                            strong 최소 구매건수
+                            span 0
+              .table-action.mgt30.mgb0
+                .pull-right
+                  button.btn.btn-white.btn-icon-excel.btn-excel(type='button') 엑셀 다운로드
+              .code-html.js-excel-data
+                #grid.tui-grid-container(data-grid-id='1')
+                  .tui-grid-content-area
+                    .tui-grid-lside-area(style='display: block; width: 131px;')
+                      .tui-grid-head-area(style='height: 79px;')
+                        table.tui-grid-table
+                          colgroup
+                            col(data-column-name='paymentDate', style='width: 130px;')
+                          tbody
+                            tr
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='paymentDate', colspan='1', rowspan='1', height='78')
+                                b 날짜
+                        .tui-grid-column-resize-container(style='margin-top: -80px; height: 80px; display: block;')
+                          .tui-grid-column-resize-handle.tui-grid-column-resize-handle-last(data-column-index='0', data-column-name='paymentDate', style='left: 127px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                      .tui-grid-body-area(style='height: 213px;')
+                        .tui-grid-body-container(style='height: 196px;')
+                          .tui-grid-table-container(style='top: 0px; overflow: visible;')
+                            table.tui-grid-table
+                              colgroup
+                                col(data-column-name='paymentDate', style='width: 130px;')
+                              tbody
+                                tr(data-row-key='0', style='height: 28px;')
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='paymentDate', style='', align='center')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 2017-08-27
+                                tr(data-row-key='1', style='height: 28px;')
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='paymentDate', style='', align='center')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 2017-08-28
+                                tr(data-row-key='2', style='height: 28px;')
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='paymentDate', style='', align='center')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 2017-08-29
+                                tr(data-row-key='3', style='height: 28px;')
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='paymentDate', style='', align='center')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 2017-08-30
+                                tr(data-row-key='4', style='height: 28px;')
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='paymentDate', style='', align='center')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 2017-08-31
+                                tr(data-row-key='5', style='height: 28px;')
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='paymentDate', style='', align='center')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 2017-09-01
+                                tr(data-row-key='6', style='height: 28px;')
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='paymentDate', style='', align='center')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 2017-09-02
+                          .tui-grid-layer-selection(style='display: none;')
+                          .tui-grid-layer-focus(style='display: none;')
+                            .tui-grid-layer-focus-border
+                            .tui-grid-layer-focus-border
+                            .tui-grid-layer-focus-border
+                            .tui-grid-layer-focus-border
+                      .tui-grid-scrollbar-left-bottom
+                    .tui-grid-rside-area(style='display: block; width: 1501px; margin-left: 131px;')
+                      .tui-grid-head-area(style='height: 79px;')
+                        table.tui-grid-table
+                          colgroup
+                            col(data-column-name='goodsPriceTotal', style='width: 130px;')
+                            col(data-column-name='orderCntTotal', style='width: 80px;')
+                            col(data-column-name='memberCntTotal', style='width: 80px;')
+                            col(data-column-name='goodsCntTotal', style='width: 80px;')
+                            col(data-column-name='goodsPricePc', style='width: 130px;')
+                            col(data-column-name='orderCntPc', style='width: 80px;')
+                            col(data-column-name='memberCntPc', style='width: 80px;')
+                            col(data-column-name='goodsCntPc', style='width: 80px;')
+                            col(data-column-name='goodsPriceMobile', style='width: 130px;')
+                            col(data-column-name='orderCntMobile', style='width: 80px;')
+                            col(data-column-name='memberCntMobile', style='width: 80px;')
+                            col(data-column-name='goodsCntMobile', style='width: 80px;')
+                            col(data-column-name='goodsPriceWrite', style='width: 130px;')
+                            col(data-column-name='orderCntWrite', style='width: 80px;')
+                            col(data-column-name='memberCntWrite', style='width: 80px;')
+                            col(data-column-name='goodsCntWrite', style='width: 83px;')
+                          tbody
+                            tr
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='total', colspan='4', rowspan='1', height='38') 전체
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='pc', colspan='4', rowspan='1', height='38') PC쇼핑몰
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='mobile', colspan='4', rowspan='1', height='38') 모바일쇼핑몰
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='write', colspan='4', rowspan='1', height='38') 수기주문
+                            tr
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsPriceTotal', colspan='1', rowspan='1', height='39')
+                                b 판매금액
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='orderCntTotal', colspan='1', rowspan='1', height='39')
+                                b 구매건수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='memberCntTotal', colspan='1', rowspan='1', height='39')
+                                b 구매자수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsCntTotal', colspan='1', rowspan='1', height='39')
+                                b 구매개수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsPricePc', colspan='1', rowspan='1', height='39')
+                                b 판매금액
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='orderCntPc', colspan='1', rowspan='1', height='39')
+                                b 구매건수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='memberCntPc', colspan='1', rowspan='1', height='39')
+                                b 구매자수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsCntPc', colspan='1', rowspan='1', height='39')
+                                b 구매개수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsPriceMobile', colspan='1', rowspan='1', height='39')
+                                b 판매금액
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='orderCntMobile', colspan='1', rowspan='1', height='39')
+                                b 구매건수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='memberCntMobile', colspan='1', rowspan='1', height='39')
+                                b 구매자수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsCntMobile', colspan='1', rowspan='1', height='39')
+                                b 구매개수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsPriceWrite', colspan='1', rowspan='1', height='39')
+                                b 판매금액
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='orderCntWrite', colspan='1', rowspan='1', height='39')
+                                b 구매건수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='memberCntWrite', colspan='1', rowspan='1', height='39')
+                                b 구매자수
+                              th.tui-grid-cell.tui-grid-cell-head(data-column-name='goodsCntWrite', colspan='1', rowspan='1', height='39')
+                                b 구매개수
+                        .tui-grid-column-resize-container(style='margin-top: -80px; height: 80px; display: block;')
+                          .tui-grid-column-resize-handle(data-column-index='0', data-column-name='goodsPriceTotal', style='left: 127px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='1', data-column-name='orderCntTotal', style='left: 207px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='2', data-column-name='memberCntTotal', style='left: 287px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='3', data-column-name='goodsCntTotal', style='left: 367px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='4', data-column-name='goodsPricePc', style='left: 497px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='5', data-column-name='orderCntPc', style='left: 577px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='6', data-column-name='memberCntPc', style='left: 657px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='7', data-column-name='goodsCntPc', style='left: 737px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='8', data-column-name='goodsPriceMobile', style='left: 867px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='9', data-column-name='orderCntMobile', style='left: 947px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='10', data-column-name='memberCntMobile', style='left: 1027px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='11', data-column-name='goodsCntMobile', style='left: 1107px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='12', data-column-name='goodsPriceWrite', style='left: 1237px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='13', data-column-name='orderCntWrite', style='left: 1317px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle(data-column-index='14', data-column-name='memberCntWrite', style='left: 1397px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                          .tui-grid-column-resize-handle.tui-grid-column-resize-handle-last(data-column-index='15', data-column-name='goodsCntWrite', style='left: 1480px;', title='마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다.')
+                      .tui-grid-body-area(style='height: 213px;')
+                        .tui-grid-body-container(style='height: 196px;')
+                          .tui-grid-table-container(style='top: 0px; overflow: visible;')
+                            table.tui-grid-table
+                              colgroup
+                                col(data-column-name='goodsPriceTotal', style='width: 130px;')
+                                col(data-column-name='orderCntTotal', style='width: 80px;')
+                                col(data-column-name='memberCntTotal', style='width: 80px;')
+                                col(data-column-name='goodsCntTotal', style='width: 80px;')
+                                col(data-column-name='goodsPricePc', style='width: 130px;')
+                                col(data-column-name='orderCntPc', style='width: 80px;')
+                                col(data-column-name='memberCntPc', style='width: 80px;')
+                                col(data-column-name='goodsCntPc', style='width: 80px;')
+                                col(data-column-name='goodsPriceMobile', style='width: 130px;')
+                                col(data-column-name='orderCntMobile', style='width: 80px;')
+                                col(data-column-name='memberCntMobile', style='width: 80px;')
+                                col(data-column-name='goodsCntMobile', style='width: 80px;')
+                                col(data-column-name='goodsPriceWrite', style='width: 130px;')
+                                col(data-column-name='orderCntWrite', style='width: 80px;')
+                                col(data-column-name='memberCntWrite', style='width: 80px;')
+                                col(data-column-name='goodsCntWrite', style='width: 83px;')
+                              tbody
+                                tr(data-row-key='0', style='height: 28px;')
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsPriceTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='orderCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='memberCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsPricePc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='orderCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='memberCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsPriceMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='orderCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='memberCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsPriceWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='orderCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='memberCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='0', data-column-name='goodsCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                tr(data-row-key='1', style='height: 28px;')
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsPriceTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='orderCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='memberCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsPricePc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='orderCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='memberCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsPriceMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='orderCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='memberCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsPriceWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='orderCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='memberCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='1', data-column-name='goodsCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                tr(data-row-key='2', style='height: 28px;')
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsPriceTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='orderCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='memberCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsPricePc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='orderCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='memberCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsPriceMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='orderCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='memberCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsPriceWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='orderCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='memberCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='2', data-column-name='goodsCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                tr(data-row-key='3', style='height: 28px;')
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsPriceTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='orderCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='memberCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsPricePc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='orderCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='memberCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsPriceMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='orderCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='memberCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsPriceWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='orderCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='memberCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='3', data-column-name='goodsCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                tr(data-row-key='4', style='height: 28px;')
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsPriceTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='orderCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='memberCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsPricePc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='orderCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='memberCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsPriceMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='orderCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='memberCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsPriceWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='orderCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='memberCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='4', data-column-name='goodsCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                tr(data-row-key='5', style='height: 28px;')
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsPriceTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='orderCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='memberCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsPricePc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='orderCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='memberCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsPriceMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='orderCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='memberCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsPriceWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='orderCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='memberCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-even(data-edit-type='normal', data-row-key='5', data-column-name='goodsCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                tr(data-row-key='6', style='height: 28px;')
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsPriceTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='orderCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='memberCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsCntTotal', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsPricePc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='orderCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='memberCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsCntPc', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsPriceMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='orderCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='memberCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsCntMobile', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.order-price.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsPriceWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='orderCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='memberCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                                  td.tui-grid-cell.tui-grid-cell-row-odd(data-edit-type='normal', data-row-key='6', data-column-name='goodsCntWrite', style='', align='right')
+                                    .tui-grid-cell-content(style='white-space:nowrap;max-height:27px') 0
+                          .tui-grid-layer-selection(style='display: none;')
+                          .tui-grid-layer-focus(style='display: none;')
+                            .tui-grid-layer-focus-border
+                            .tui-grid-layer-focus-border
+                            .tui-grid-layer-focus-border
+                            .tui-grid-layer-focus-border
+                      .tui-grid-scrollbar-head(style='height: 80px;')
+                      .tui-grid-scrollbar-border(style='top: 80px; height: 196px;')
+                      .tui-grid-scrollbar-right-bottom
+                    .tui-grid-border-line.tui-grid-border-line-top
+                    .tui-grid-border-line.tui-grid-border-line-left
+                    .tui-grid-border-line.tui-grid-border-line-right
+                    .tui-grid-border-line.tui-grid-border-line-bottom(style='bottom: 17px;')
+                  .tui-grid-layer-state(style='display: none; top: 79px; height: 195px; left: 0px; right: 17px;')
+                  .tui-grid-layer-editing.tui-grid-cell-content
+                  textarea.tui-grid-clipboard
+              script.code-js(type='text/javascript').
+                var grid = new tui.Grid({
+                el: $('#grid'),
+                autoNumbering: false,
+                columnFixCount: 1,
+                headerHeight: 80,
+                displayRowCount: 7,
+                minimumColumnWidth: 20,
+                columnMerge : [
+                {
+                columnName : "total",
+                title : "전체",
+                columnNameList : ["goodsPriceTotal", "orderCntTotal", "memberCntTotal", "goodsCntTotal"]
+                },
+                {
+                columnName : "pc",
+                title : "PC쇼핑몰",
+                columnNameList : ["goodsPricePc", "orderCntPc", "memberCntPc", "goodsCntPc"]
+                },
+                {
+                columnName : "mobile",
+                title : "모바일쇼핑몰",
+                columnNameList : ["goodsPriceMobile", "orderCntMobile", "memberCntMobile", "goodsCntMobile"]
+                },
+                {
+                columnName : "write",
+                title : "수기주문",
+                columnNameList : ["goodsPriceWrite", "orderCntWrite", "memberCntWrite", "goodsCntWrite"]
+                }
+                ],
+                columnModelList : [
+                {
+                "title" : "<b>날짜</b>",
+                "columnName" : "paymentDate",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>판매금액</b>",
+                "columnName" : "goodsPriceTotal",
+                "align" : "right",
+                "width" : 100,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매건수</b>",
+                "columnName" : "orderCntTotal",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매자수</b>",
+                "columnName" : "memberCntTotal",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매개수</b>",
+                "columnName" : "goodsCntTotal",
+                "width" : 50,
+                "align" : "right",
+                "editOption" : {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>판매금액</b>",
+                "columnName" : "goodsPricePc",
+                "align" : "right",
+                "width" : 100,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매건수</b>",
+                "columnName" : "orderCntPc",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매자수</b>",
+                "columnName" : "memberCntPc",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매개수</b>",
+                "columnName" : "goodsCntPc",
+                "width" : 50,
+                "align" : "right",
+                "editOption" : {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>판매금액</b>",
+                "columnName" : "goodsPriceMobile",
+                "align" : "right",
+                "width" : 100,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매건수</b>",
+                "columnName" : "orderCntMobile",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매자수</b>",
+                "columnName" : "memberCntMobile",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매개수</b>",
+                "columnName" : "goodsCntMobile",
+                "width" : 50,
+                "align" : "right",
+                "editOption" : {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>판매금액</b>",
+                "columnName" : "goodsPriceWrite",
+                "align" : "right",
+                "width" : 100,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매건수</b>",
+                "columnName" : "orderCntWrite",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매자수</b>",
+                "columnName" : "memberCntWrite",
+                "align" : "right",
+                "width" : 50,
+                editOption: {
+                type: 'normal'
+                }
+                },
+                {
+                "title" : "<b>구매개수</b>",
+                "columnName" : "goodsCntWrite",
+                "width" : 50,
+                "align" : "right",
+                "editOption" : {
+                type: 'normal'
+                }
+                }
+                ]
+                });
+                grid.setRowList([{"paymentDate":"2017-08-27","_extraData":{"className":{"column":{"goodsPricePc":["order-price"],"goodsPriceMobile":["order-price"],"goodsPriceWrite":["order-price"],"goodsPriceTotal":["order-price"]}}},"goodsPricePc":0,"goodsCntPc":0,"orderCntPc":0,"memberCntPc":0,"goodsPriceMobile":0,"goodsCntMobile":0,"orderCntMobile":0,"memberCntMobile":0,"goodsPriceWrite":0,"goodsCntWrite":0,"orderCntWrite":0,"memberCntWrite":0,"goodsPriceTotal":0,"goodsCntTotal":0,"orderCntTotal":0,"memberCntTotal":0},{"paymentDate":"2017-08-28","_extraData":{"className":{"column":{"goodsPricePc":["order-price"],"goodsPriceMobile":["order-price"],"goodsPriceWrite":["order-price"],"goodsPriceTotal":["order-price"]}}},"goodsPricePc":0,"goodsCntPc":0,"orderCntPc":0,"memberCntPc":0,"goodsPriceMobile":0,"goodsCntMobile":0,"orderCntMobile":0,"memberCntMobile":0,"goodsPriceWrite":0,"goodsCntWrite":0,"orderCntWrite":0,"memberCntWrite":0,"goodsPriceTotal":0,"goodsCntTotal":0,"orderCntTotal":0,"memberCntTotal":0},{"paymentDate":"2017-08-29","_extraData":{"className":{"column":{"goodsPricePc":["order-price"],"goodsPriceMobile":["order-price"],"goodsPriceWrite":["order-price"],"goodsPriceTotal":["order-price"]}}},"goodsPricePc":0,"goodsCntPc":0,"orderCntPc":0,"memberCntPc":0,"goodsPriceMobile":0,"goodsCntMobile":0,"orderCntMobile":0,"memberCntMobile":0,"goodsPriceWrite":0,"goodsCntWrite":0,"orderCntWrite":0,"memberCntWrite":0,"goodsPriceTotal":0,"goodsCntTotal":0,"orderCntTotal":0,"memberCntTotal":0},{"paymentDate":"2017-08-30","_extraData":{"className":{"column":{"goodsPricePc":["order-price"],"goodsPriceMobile":["order-price"],"goodsPriceWrite":["order-price"],"goodsPriceTotal":["order-price"]}}},"goodsPricePc":0,"goodsCntPc":0,"orderCntPc":0,"memberCntPc":0,"goodsPriceMobile":0,"goodsCntMobile":0,"orderCntMobile":0,"memberCntMobile":0,"goodsPriceWrite":0,"goodsCntWrite":0,"orderCntWrite":0,"memberCntWrite":0,"goodsPriceTotal":0,"goodsCntTotal":0,"orderCntTotal":0,"memberCntTotal":0},{"paymentDate":"2017-08-31","_extraData":{"className":{"column":{"goodsPricePc":["order-price"],"goodsPriceMobile":["order-price"],"goodsPriceWrite":["order-price"],"goodsPriceTotal":["order-price"]}}},"goodsPricePc":0,"goodsCntPc":0,"orderCntPc":0,"memberCntPc":0,"goodsPriceMobile":0,"goodsCntMobile":0,"orderCntMobile":0,"memberCntMobile":0,"goodsPriceWrite":0,"goodsCntWrite":0,"orderCntWrite":0,"memberCntWrite":0,"goodsPriceTotal":0,"goodsCntTotal":0,"orderCntTotal":0,"memberCntTotal":0},{"paymentDate":"2017-09-01","_extraData":{"className":{"column":{"goodsPricePc":["order-price"],"goodsPriceMobile":["order-price"],"goodsPriceWrite":["order-price"],"goodsPriceTotal":["order-price"]}}},"goodsPricePc":0,"goodsCntPc":0,"orderCntPc":0,"memberCntPc":0,"goodsPriceMobile":0,"goodsCntMobile":0,"orderCntMobile":0,"memberCntMobile":0,"goodsPriceWrite":0,"goodsCntWrite":0,"orderCntWrite":0,"memberCntWrite":0,"goodsPriceTotal":0,"goodsCntTotal":0,"orderCntTotal":0,"memberCntTotal":0},{"paymentDate":"2017-09-02","_extraData":{"className":{"column":{"goodsPricePc":["order-price"],"goodsPriceMobile":["order-price"],"goodsPriceWrite":["order-price"],"goodsPriceTotal":["order-price"]}}},"goodsPricePc":0,"goodsCntPc":0,"orderCntPc":0,"memberCntPc":0,"goodsPriceMobile":0,"goodsCntMobile":0,"orderCntMobile":0,"memberCntMobile":0,"goodsPriceWrite":0,"goodsCntWrite":0,"orderCntWrite":0,"memberCntWrite":0,"goodsPriceTotal":0,"goodsCntTotal":0,"orderCntTotal":0,"memberCntTotal":0}]);
+                //    grid.use('Net', {
+                //        el: $('#grid'),
+                //        initialRequest: true,
+                //        readDataMethod: 'GET',
+                //        perPage: 500,
+                //        enableAjaxHistory: true,
+                //        api: {
+                //            readData: '/sample',
+                //            downloadExcel: '/download/excel',
+                //            downloadExcelAll: '/download/excelAll'
+                //        }
+                //    });
+                // 엑셀다운로드
+                $('.btn-excel').click(function () {
+                grid.setDisplayRowCount('7');
+                statistics_excel_download();
+                grid.setDisplayRowCount('7');
+                });
+              script(type='text/javascript', src='JS/statistics.js')
+              .information
+                h4 안내
+                .content
+                  p
+                    span(style='font-family: ', font-size:='')
+                      strong
+                        span(style='font-size: 10pt;') [통계 정보] 주문통계의 집계 기준은 무엇인가요?
+                    br
+                    span(style='font-family: ', font-size:='')
+                      | · 주문통계는
+                      span(style='color: rgb(58, 50, 195);')
+                      b
+                        span(style='color: rgb(58, 50, 195);') "결제완료(입금확인)"
+                      span(style='color: rgb(58, 50, 195);')
+                      | 일자 기준으로 집계됩니다.
+                    br
+                    span(style='font-family: ', font-size:='')
+                      | ·
+                      span(style='color: rgb(255, 0, 0);')  입금대기, 상품준비중, 배송중, 배송완료, 구매확정, 취소, 교환, 반품, 환불 건은 반영되지 않습니다.
+                    br
+                    span(style='font-family: ', font-size:='')  └ Ex) 1월 1일 주문완료 후 1월 8일 결제완료 되었다면 해당건은 1월 8일자의 데이터로 집계됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') · 주문관리의 주문일 기준 주문건수와 금액이 다르게 보일 수 있으나, 실제주 문의 차이가 있는 것은 아닙니다.
+                  p
+                    span(style='font-family: ', font-size:='')  
+                  p
+                    span(style='font-family: ', font-size:='')
+                      strong [통계 정보] 판매금액이란 무엇인가요?
+                    br
+                    span(style='font-family: ', font-size:='')
+                      | · 검색기간 동안 결제완료(입금확인)된 주문에 포함된
+                      u 상품의 판매가이며, 배송비는 포함되지 않습니다.
+                    br
+                    span(style='font-family: ', font-size:='') · 판매가는 “판매가/옵션가/추가상품가/텍스트옵션가”의 합계금액입니다.
+                    br
+                    span(style='font-family: ', font-size:='')
+                      | ·
+                      b
+                      span(style='color: rgb(255, 0, 0);') 할인금액 “상품할인, 회원할인, 쿠폰할인(상품/주문)”은 차감 적용되지 않습니다.
+                  p
+                    br
+                    span(style='font-family: ', font-size:='')
+                      strong [통계 정보] 구매건수란 무엇인가요?
+                    br
+                    span(style='font-family: ', font-size:='') · 검색기간 동안 결제완료(입금확인)된 총 주문 수를 의미하며, 회원/비회원 모두 집계됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') · 1명의 구매자가 여러 건의 주문을 결제한 경우, 결제한 주문 건수만큼  집계됩니다.
+                  p
+                    br
+                    span(style='font-family: ', font-size:='')
+                      strong [통계 정보] 구매자수란 무엇인가요?
+                    br
+                    span(style='font-family: ', font-size:='') · 검색기간 동안 결제완료(입금확인)된 주문을 구매한 총 사람 수를 의미하며, 회원/비회원 모두 집계됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') · 1명의 구매자가 여러 건의 주문을 결제완료 하여도 구매자 수는 한 번만 집계됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') - 로그인한 경우 : 로그인한 사용자는 ID 단위로 계산됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') └ 한 개의 ID로 접속했을 때: 한 개의 ID로 여러 번 주문해도, 구매자수는 1명이 됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') └ 여러 개의 ID로 접속했을 때: 만약 한 사람이 2개의 ID로 각각 주문했다면, 구매자 수는 2명이 됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') - 비로그인한 경우 : 로그인하지 않은 사용자는 PC 단위로 계산됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') └ 한 개의 PC로 접속했을 때: 한 개의 PC로 여러 번 주문해도, 구매자 수는 1명이 됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') └ 여러 개의 PC로 접속했을 때: 만약 한 사람이 2개의 PC에서 각각 주문했다면, 구매자 수는 2명이 됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') - 마찬가지 원리로 로그인하지 않고 주문했던 사용자가 로그인 후 추가 주문했을 경우, 구매자 수는 2명이 됩니다.
+                    br
+                    span(style='font-family: ', font-size:='')    (주간 및 월간 단위의 구매자 수도 동일한 원칙에 따라 계산됨)
+                  p
+                    br
+                    span(style='font-family: ', font-size:='')
+                      strong [통계 정보] 구매개수란 무엇인가요?
+                    br
+                    span(style='font-family: ', font-size:='') · 검색기간 동안 결제완료(입금확인)된 주문의 각 상품별 총 구매개수를 의미합니다.
+                    br
+                    span(style='font-family: ', font-size:='') · “추가상품/텍스트옵션”의 구매 수량도 포함하여 집계됩니다.
+                    br
+                    span(style='font-family: ', font-size:='') · 1개의 상품을 여러 개 주문한 경우 주문한 수량만큼 집계됩니다.
+                    br
+                    span(style='font-family: ', font-size:='')   Ex) A상품을 2개 주문하면 2건으로 집계됨
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    | >
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='./blank.html', width='100%', height='200')
+    script(type='text/javascript').
+      adminPanelApiAjax('statistics', 'order', 'order_day');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

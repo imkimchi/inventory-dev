@@ -735,6 +735,13 @@ html(lang='en')
               a(href='#') CONTACT
       span.shadow
     .black_shadow
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-109950709-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-109950709-1');
+
     script.
         $(".history .productw .product .box").css("display", "none");
         $(".history .productw .product a").mouseover(function () {

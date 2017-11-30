@@ -4,6 +4,8 @@ import passport from 'koa-passport'
 import User from '../models/user'
 import jwt from 'jsonwebtoken'
 
+const { DateTime } = require('luxon');
+
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (err) => {
     console.error('MongoDB error: %s', err);
@@ -40,6 +42,24 @@ router.post('/login', async (ctx, next) => {
 	} catch (e) {
 		console.error(e)
 		ctx.body = { message: 'Authentication failed.' }
+	}
+})
+
+router.post('/account/block', async (ctx, next) => {
+	let data = ctx.request.body
+	let fixedDate = parseInt(data.days)
+	let blockDate = DateTime.local().plus({days: fixedDate}).toISO()
+	let param = {
+		search: { username: data.username},
+		update: { $set: {blockDate: blockDate}}
+	}
+
+	try {
+		console.log(param)
+		let res = await User.update({username: data.username}, { $set: {blockDate: blockDate}}, {multi: true})
+		console.log("res", res)
+	} catch (e) {
+		console.log("err", e)
 	}
 })
 

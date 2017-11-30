@@ -1,0 +1,832 @@
+doctype html
+html(lang='ko')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title 1.기본 설정
+    meta(name='author', content='qnibus')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(http-equiv='cleartype', content='on')
+    // Latest compiled and minified CSS
+    link(type='text/css', href='/css/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/css/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/css/style.css', rel='stylesheet')
+    link(type='text/css', href='/css/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/css/flags.css', rel='stylesheet')
+    link(type='text/css', href='/css/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/css/admin-custom.css', rel='stylesheet')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    script(type='text/javascript', src='JS/underscore-min.js')
+    script(type='text/javascript', src='JS/jquery_003.js')
+    script(type='text/javascript', src='JS/jquery-ui.js')
+    script(type='text/javascript', src='JS/bootstrap.js')
+    script(type='text/javascript', src='JS/moment.js')
+    script(type='text/javascript', src='JS/numeral.js')
+    script(type='text/javascript', src='JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='JS/ZeroClipboard.js')
+    script(type='text/javascript', src='JS/clipboard.js')
+    script(type='text/javascript', src='JS/jquery_004.js')
+    script(type='text/javascript', src='JS/jquery_007.js')
+    script(type='text/javascript', src='JS/jquery.js')
+    script(type='text/javascript', src='JS/messages_ko.js')
+    script(type='text/javascript', src='JS/additional-methods.js')
+    script(type='text/javascript', src='JS/jquery_005.js')
+    script(type='text/javascript', src='JS/jquery_006.js')
+    script(type='text/javascript', src='JS/common2.js')
+    script(type='text/javascript', src='JS/common.js')
+    script(type='text/javascript', src='JS/schedule.js')
+    script(type='text/javascript', src='JS/jquery_002.js')
+    script(type='text/javascript', src='JS/admin_panel_api.js')
+    script(type='text/javascript', src='JS/admin-custom.js')
+    script(type='text/javascript').
+      <!--
+      $(document).ready(function () {
+      // 메뉴얼 링크
+      $(".gd-help-manual").each(function() {
+      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=policy__management___manage_list#' + linkText;
+      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+      });
+      });
+      //-->
+  body.policy.manage-list.layout-basic
+    #container-wrap.container-fluid
+      #container.row
+        #header.col-xs-12
+          nav.navbar
+            .container
+              .navbar-inner
+                .navbar-header
+                  a.navbar-brand(style='color:white;text-indent:0;', href='#') Inventory
+                  span.pro
+                .gnb
+                  ul.list-inline
+                    li.no-bar
+                      .dropdown
+                        // js-btn-layer-sub-menu
+                        a#headerSubMenuManager.dropdown-toggle.gnb-idinfo(href='#', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false')
+                          span 유미나
+                          | 님 (
+                          span proad00
+                          |                                 )
+                        ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
+                          li.dropdown-item
+                            a(href='#') 운영자정보
+                          li.dropdown-item
+                            a(href='#') 로그아웃
+                    li.pos-r.no-bar
+                      a.schedule-a(href='javascript:Schedule.addToday()')
+                        img(src='IMG/icon_bell.png')
+                        span.badge(style='position:absolute;left:12px;top:-6px;') 1
+                    li.devide
+                    li.no-bar
+                      .form-inline.gnb-search
+                        .gnb-search-head
+                          select#headerSearchType.header-select(name='headerSearchType')
+                            option(value='menu', selected='selected') 메뉴
+                            option(value='member') 회원
+                        .gnb-search-body
+                          span.icon-magni
+                            img(src='IMG/icon_magni.png', alt='')
+                          input#headerSearchKeyword.form-control(name='headerSearchKeyword', placeholder='메뉴검색', type='text')
+                          .gnb-search-hint.form-inline.display-none
+                            select#headerSearchMenuList.form-control.multiple-select(size='5', style='height:100px;')
+                      // <a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>
+                    // 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨
+                    // <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>
+              .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a#menu_policy.active(href='manage_list.html', style='width:105.90909090909px;') 기본설정
+                  li
+                    a#menu_goods(href='/admin/goods', style='width:105.90909090909px;') 상품
+                  li
+                    a#menu_order(href='/admin/order', style='width:105.90909090909px;') 주문
+                  li
+                    a#menu_member(href='/admin/member', style='width:105.90909090909px;') 회원
+                  li
+                    a#menu_board(href='/admin/board', style='width:105.90909090909px;') 게시판
+                  li
+                    a#menu_promotion(href='https://analytics.google.com/analytics/web/#embed/report-home/a109950709w164096919p164844100/', style='width:105.90909090909px;') 통계
+              // /.navbar-collapse
+          script(type='text/javascript').
+            $(document).ready(function () {
+            var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+            };
+            var _bootstrap_dialog = BootstrapDialog;
+            $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.favorite_menu.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            var menuName = 'none';
+            var menuLink = '';
+            if (typeof item.tName === 'string') {
+            menuName = item.tName;
+            } else if (typeof item.sName === 'string') {
+            menuName = item.sName;
+            } else if (typeof item.fName === 'string') {
+            menuName = item.fName;
+            }
+            if (typeof item.tUrl === 'string') {
+            menuLink = '/' + item.tUrl;
+            } else if (typeof item.sUrl === 'string') {
+            menuLink = '/' + item.sUrl;
+            } else {
+            menuLink = '/index.php';
+            }
+            if (typeof item.fCode === 'string') {
+            menuLink = item.fCode + menuLink;
+            }
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+            });
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            } else {
+            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+            }
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: gd_main_layer.order_presentation.get_id},
+            global_complete: false,
+            success: function () {
+            if (arguments[0].success === 'OK') {
+            var result = arguments[0].result;
+            if (result.length > 0) {
+            var html = [];
+            $.each(result, function (idx, item) {
+            // html.push('<li role="separator" class="divider"></li>');
+            html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+            });
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            dropdown_menu.find('li:gt(0)').remove();
+            dropdown_menu.append(html.join(''));
+            }
+            } else {
+            console.log(arguments);
+            }
+            }
+            });
+            });
+            $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+            var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+            _bootstrap_dialog.show({
+            title: '문의/답변관리 조회설정 ',
+            message: $(data)
+            });
+            });
+            });
+            $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+            var options = {title: title, message: $(data)};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+            var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+            _bootstrap_dialog.show(options);
+            });
+            });
+            $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+            layer_member_search();
+            document.getElementById('headerSearchType').options[0].selected = true;
+            }
+            });
+            $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+            $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            global_complete: false,
+            data: {mode: "searchMenu", keyword: this.value},
+            success: function () {
+            var result = arguments[0].result;
+            var optionHtml = [];
+            $.each(result, function (idx, item) {
+            var link = '../' + item.fCode + '/' + item.tUrl;
+            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+            });
+            var $headerSearchMenuList = $('#headerSearchMenuList');
+            $headerSearchMenuList.closest('div').removeClass('display-none');
+            $headerSearchMenuList.find('option').remove();
+            if (optionHtml.length == 0) {
+            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+            } else {
+            $headerSearchMenuList.append(optionHtml.join(''));
+            }
+            }
+            });
+            }
+            });
+            $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+            });
+            $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+            $headerSearchMenuList.addClass('display-none');
+            }
+            });
+            });
+        #content-wrap
+          #menu
+            // close/open
+            .js-adminmenu-toggle
+            // //close/open
+            .menu-header.goods
+              h2 상품
+            .panel
+              .panel-heading.menu-icon-minus.active 상품 관리
+              ul.list-group
+                li.list-group-item.active
+                  a(href='#') 상품 리스트
+                li.list-group-item
+                  a(href='/admin/goods/reg') 상품 등록
+              .panel-heading.menu-icon-minus 상품 일괄 관리
+              ul.list-group
+                li.list-group-item
+                  a(href='#') 상품 가격 관리
+                li.list-group-item
+                  a(href='#') 상품 마일리지/할인 관리
+          #content.row
+            .col-xs-12
+              .page-header.js-affix.affix-top(style='width: 1634px;')
+                h3 상품 리스트
+                .btn-group
+                  input.btn.btn-red-line.js-register(value='상품 등록', type='button')
+              form#frmSearchGoods.js-form-enter-submit(name='frmSearchGoods', method='get')
+                .table-title.gd-help-manual
+                  | 상품 검색
+                  span.search
+                    button.btn.btn-sm.btn-black(type='button', onclick='set_search_config(this.form)') 검색설정저장
+                  a.link-help(href='http://manual.godomall5.godomall.com/data/manual_view.php?category=goods__goods___goods_list#%EC%83%81%ED%92%88%EA%B2%80%EC%83%89%EA%B2%80%EC%83%89%EC%84%A4%EC%A0%95%EC%A0%80%EC%9E%A5', target='_blank') 페이지 도움말
+                .search-detail-box
+                  input(name='detailSearch', value='', type='hidden')
+                  input(name='delFl', value='n', type='hidden')
+                  table.table.table-cols
+                    colgroup
+                      col.width-md
+                      col
+                      col.width-md
+                      col
+                    tbody
+                      tr
+                        th 검색어
+                        td(colspan='3')
+                          .form-inline
+                            select#key.form-control(name='key')
+                              option(value='all', selected='selected') =통합검색=
+                              option(value='goodsNm') 상품명
+                              option(value='goodsCd') 자체상품코드
+                              option(value='makerNm') 제조사
+                              option(value='originNm') 원산지
+                              option(value='goodsSearchWord') 검색 키워드
+                              option(value='goodsModelNo') 모델번호
+                              option(value='companyNm') 공급사명
+                            input.form-control(name='keyword', type='text')
+                      tr
+                        th 기간검색
+                        td(colspan='3')
+                          .form-inline
+                            select.form-control(name='searchDateFl')
+                              option(value='regDt', selected='selected') 등록일
+                              option(value='modDt') 수정일
+                            .input-group.js-datepicker
+                              input.form-control.width-xs(name='searchDate[]', type='text')
+                              span.input-group-addon
+                                span.btn-icon-calendar
+                            |                         ~
+                            .input-group.js-datepicker
+                              input.form-control.width-xs(name='searchDate[]', type='text')
+                              span.input-group-addon
+                                span.btn-icon-calendar
+                            .btn-group.js-dateperiod(data-toggle='buttons', data-target-name='searchDate')
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='searchPeriod', value='0', type='radio')
+                                | 오늘
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='searchPeriod', value='7', type='radio')
+                                | 7일
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='searchPeriod', value='15', type='radio')
+                                | 15일
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='searchPeriod', value='30', type='radio')
+                                | 1개월
+                              label.btn.btn-white.btn-sm.hand
+                                input(name='searchPeriod', value='90', type='radio')
+                                | 3개월
+                              label.btn.btn-white.btn-sm.hand.active
+                                input(name='searchPeriod', value='-1', checked='checked', type='radio')
+                                | 전체
+                    tbody.js-search-detail(style='display: none;')
+                      tr
+                        th 카테고리
+                        td.contents(colspan='3')
+                          .form-inline
+                            select#cateGoods1.form-control.multiple-select(name='cateGoods[]')
+                              option(value='', selected='selected') =카테고리선택=
+                              option(value='015', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') 가위
+                              option(value='008', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') 새 카테고리
+                              option(value='011', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') 새 카테고리
+                              option(value='004', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') ACC
+                              option(value='007', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') SHOES
+                              option(value='010', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') 테스트
+                              option(value='006', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') BAG
+                              option(value='012', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') 영업시간안내
+                              option(value='013', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') 가방안내
+                              option(value='014', data-flag='kr,us,cn,jp', data-mall-name='기준몰,영문몰,중문몰,일문몰') 안내
+                            select#cateGoods2.form-control.multiple-select(name='cateGoods[]')
+                              option(value='', selected='selected') =카테고리선택=
+                            select#cateGoods3.form-control.multiple-select(name='cateGoods[]')
+                              option(value='', selected='selected') =카테고리선택=
+                            select#cateGoods4.form-control.multiple-select(name='cateGoods[]')
+                              option(value='', selected='selected') =카테고리선택=
+                            script(type='text/javascript').
+                              $(function() {
+                              $('#cateGoods1').multi_select_box('#cateGoods',4,'/share/category_select_json.php','=카테고리선택=');
+                              $('#cateGoods2').multi_select_box('#cateGoods',4,'/share/category_select_json.php','=카테고리선택=');
+                              $('#cateGoods3').multi_select_box('#cateGoods',4,'/share/category_select_json.php','=카테고리선택=');
+                              $('#cateGoods4').multi_select_box('#cateGoods',4,'/share/category_select_json.php','=카테고리선택=');
+                              });
+                            label.checkbox-inline.mgl10
+                              input(name='categoryNoneFl', value='y', type='checkbox')
+                              |  카테고리 미지정 상품
+                      tr
+                        th 브랜드
+                        td
+                          .form-inline
+                            label
+                              input.btn.btn-sm.btn-gray(value='브랜드선택', onclick="layer_register('brand', 'radio')", type='button')
+                            label.checkbox-inline.mgl10
+                              input(name='brandNoneFl', value='y', type='checkbox')
+                              |  브랜드 미지정 상품
+                            #brandLayer.selected-btn-group
+                              h5 선택된 브랜드 :
+                        th 판매가
+                        td
+                          .form-inline
+                            input.form-control.width-sm.js-number(name='goodsPrice[]', type='text')
+                            | 이상 ~
+                            input.form-control.width-sm.js-number(name='goodsPrice[]', type='text')
+                            | 이하
+                      tr
+                        th 마일리지
+                        td
+                          .form-inline
+                            input.form-control.width-sm.js-number(name='mileage[]', type='text')
+                            | 이상 ~
+                            input.form-control.width-sm.js-number(name='mileage[]', type='text')
+                            | 이하
+                        th 마일리지 지급방법
+                        td
+                          label.radio-inline
+                            input(name='mileageFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='mileageFl', value='c', type='radio')
+                            | 통합설정
+                          label.radio-inline
+                            input(name='mileageFl', value='g', type='radio')
+                            | 개별설정
+                      tr
+                        th 상품 재고
+                        td
+                          .form-inline
+                            input.form-control.width-sm(name='stock[]', type='text')
+                            | 개 이상 ~
+                            input.form-control.width-sm(name='stock[]', type='text')
+                            | 개 이하
+                        th 옵션 사용
+                        td
+                          label.radio-inline
+                            input(name='optionFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='optionFl', value='y', type='radio')
+                            | 사용함
+                          label.radio-inline
+                            input(name='optionFl', value='n', type='radio')
+                            | 사용안함
+                      tr
+                        th 텍스트옵션 사용
+                        td
+                          label.radio-inline
+                            input(name='optionTextFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='optionTextFl', value='y', type='radio')
+                            | 사용함
+                          label.radio-inline
+                            input(name='optionTextFl', value='n', type='radio')
+                            | 사용안함
+                        th 추가상품 사용
+                        td
+                          label.radio-inline
+                            input(name='addGoodsFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='addGoodsFl', value='y', type='radio')
+                            | 사용함
+                          label.radio-inline
+                            input(name='addGoodsFl', value='n', type='radio')
+                            | 사용안함
+                      tr
+                        th 상품노출 상태
+                        td
+                          label.radio-inline
+                            input(name='goodsDisplayFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='goodsDisplayFl', value='y', type='radio')
+                            | 노출함
+                          label.radio-inline
+                            input(name='goodsDisplayFl', value='n', type='radio')
+                            | 노출안함
+                        th 상품판매 상태
+                        td
+                          label.radio-inline
+                            input(name='goodsSellFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='goodsSellFl', value='y', type='radio')
+                            | 판매함
+                          label.radio-inline
+                            input(name='goodsSellFl', value='n', type='radio')
+                            | 판매안함
+                      tr
+                        th 판매 재고
+                        td
+                          label.radio-inline
+                            input(name='stockFl', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='stockFl', value='n', type='radio')
+                            | 무한정 판매
+                          label.radio-inline
+                            input(name='stockFl', value='y', type='radio')
+                            | 재고량에 따름
+                        th 품절 상태
+                        td
+                          label.radio-inline
+                            input(name='soldOut', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='soldOut', value='y', type='radio')
+                            | 품절
+                          label.radio-inline
+                            input(name='soldOut', value='n', type='radio')
+                            | 정상
+                      tr.js-search-icon
+                        th 아이콘(기간제한)
+                        td
+                          label.radio-inline
+                            input(name='goodsIconCdPeriod', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='goodsIconCdPeriod', value='icon0003', type='radio')
+                            img.middle(src='IMG/icon_new.png', alt='신상품', title='신상품')
+                          label.radio-inline
+                            input(name='goodsIconCdPeriod', value='icon0008', type='radio')
+                            img.middle(src='IMG/icon_reservation.png', alt='예약상품', title='예약상품')
+                        th 아이콘(무제한)
+                        td
+                          label.radio-inline
+                            input(name='goodsIconCd', value='', checked='checked', type='radio')
+                            | 전체
+                          label.radio-inline
+                            input(name='goodsIconCd', value='icon0001', type='radio')
+                            img.middle(src='IMG/icon_best.png', alt='베스트상품', title='베스트상품')
+                          label.radio-inline
+                            input(name='goodsIconCd', value='icon0002', type='radio')
+                            img.middle(src='IMG/icon_event.png', alt='이벤트상품', title='이벤트상품')
+                          label.radio-inline
+                            input(name='goodsIconCd', value='icon0004', type='radio')
+                            img.middle(src='IMG/icon_hot.png', alt='인기상품', title='인기상품')
+                          label.radio-inline
+                            input(name='goodsIconCd', value='icon0005', type='radio')
+                            img.middle(src='IMG/icon_recommend.png', alt='추천상품', title='추천상품')
+                          label.radio-inline
+                            input(name='goodsIconCd', value='icon0006', type='radio')
+                            img.middle(src='IMG/icon_sale.png', alt='세일상품', title='세일상품')
+                          label.radio-inline
+                            input(name='goodsIconCd', value='icon0007', type='radio')
+                            img.middle(src='IMG/icon_plan.png', alt='기획상품', title='기획상품')
+                      tr.js-search-delivery
+                        th 배송비 조건
+                        td(colspan='3')
+                          .radio
+                            label.radio-inline
+                              input(name='goodsDeliveryFl', value='', checked='checked', type='radio')
+                              |  전체
+                            label.radio-inline
+                              input(name='goodsDeliveryFl', value='y', type='radio')
+                              |  배송비조건별
+                            label.radio-inline
+                              input(name='goodsDeliveryFl', value='n', type='radio')
+                              |  상품별
+                          .checkbox
+                            label.checkbox-inline
+                              input.js-not-checkall(name='goodsDeliveryFixFl[]', value='all', data-target-name='goodsDeliveryFixFl[]', checked='checked', type='checkbox')
+                              |  전체
+                            label
+                              input.checkbox-inline(name='goodsDeliveryFixFl[]', value='free', type='checkbox')
+                              |  배송비무료
+                            label
+                              input.checkbox-inline(name='goodsDeliveryFixFl[]', value='price', type='checkbox')
+                              |  금액별배송
+                            label
+                              input.checkbox-inline(name='goodsDeliveryFixFl[]', value='count', type='checkbox')
+                              |  수량별배송
+                            label
+                              input.checkbox-inline(name='goodsDeliveryFixFl[]', value='weight', type='checkbox')
+                              |  무게별배송
+                            label
+                              input.checkbox-inline(name='goodsDeliveryFixFl[]', value='fixed', type='checkbox')
+                              |  고정배송비
+                      tr#eventSearchArea.js-search-mileage.js-search-price.display-none
+                        th 기획전 검색
+                        td(colspan='3')
+                          .form-inline
+                            input.form-control(name='event_text', readonly='readonly', type='text')
+                            button.btn.btn-sm.btn-gray(type='button', onclick="javascript:layer_register('event_select', 'search');") 기획전 검색
+                            input(name='eventThemeSno', value='', type='hidden')
+                            span#eventGroupSelectArea.display-none
+                              select#eventGroupSearchSelect.form-control.multiple-select(name='eventGroup')
+                            span#eventSearchResetArea.pdl10.display-none
+                              button.btn.btn-icon-delete(type='button', onclick='javascript:resetEventSearchCondition();') 삭제
+                  button.btn.btn-sm.btn-link.js-search-toggle.bold(type='button')
+                    | 상세검색
+                    span 펼침
+                .table-btn
+                  input.btn.btn-lg.btn-black(value='검색', type='submit')
+                .table-header
+                  .pull-left
+                  .pull-right.form-inline
+                    select#sort.form-control(name='sort')
+                      option(value='g.goodsNo desc', selected='selected') 등록일 ↓
+                      option(value='g.goodsNo asc') 등록일 ↑
+                      option(value='goodsNm asc') 상품명 ↓
+                      option(value='goodsNm desc') 상품명 ↑
+                      option(value='goodsPrice asc') 판매가 ↓
+                      option(value='goodsPrice desc') 판매가 ↑
+                      option(value='companyNm asc') 공급사 ↓
+                      option(value='companyNm desc') 공급사 ↑
+                      option(value='makerNm asc') 제조사 ↓
+                      option(value='makerNm desc') 제조사 ↑
+                    select#pageNum.form-control(name='pageNum')
+                      option(value='10', selected='selected') 10개 보기
+                      option(value='20') 20개 보기
+                      option(value='30') 30개 보기
+                      option(value='40') 40개 보기
+                      option(value='50') 50개 보기
+                      option(value='60') 60개 보기
+                      option(value='70') 70개 보기
+                      option(value='80') 80개 보기
+                      option(value='90') 90개 보기
+                      option(value='100') 100개 보기
+                      option(value='200') 200개 보기
+                      option(value='300') 300개 보기
+                      option(value='500') 500개 보기
+                input(name='searchFl', value='y', type='hidden')
+                input(name='applyPath', value='/goods/goods_list.php', type='hidden')
+              script.
+                function brand_del(){
+                $('input[name=brandCdNm]').val('');
+                }
+              form#frmList(action='', method='get', target='ifrmProcess')
+                input(name='mode', value='', type='hidden')
+                table.table.table-rows
+                  thead
+                    tr
+                      th.width40p 상품명
+                      th.width10p 판매가
+                      th.width10p 판매자
+                      th.width10p 등록일 / 수정일
+                      th.width5p 삭제
+                  tbody#post-pagination
+                    each post in posts
+                      tr
+                        td
+                          .hand.title #{post.productTitle}
+                          .notice-ref.notice-sm
+                          div
+                        td.center
+                          div
+                            span.font-num #{post.productPrice}
+                        td.center.lmenu #{post.seller}
+                        td.center.date
+                          | #{post.uploadDate}
+                        td.center.padlr10
+                          a.btn.btn-white.btn-sm.delete-post(href='#') 삭제
+                
+              .text-center
+                nav
+                  ul.pagination
+                  //ul.pagination.pagination-sm
+              script(type='text/javascript').
+                <!--
+                $(document).ready(function () {
+                // 삭제
+                $('button.js-check-delete').click(function () {
+                var chkCnt = $('input[name*="goodsNo"]:checked').length;
+                if (chkCnt == 0) {
+                alert('선택된 상품이 없습니다.');
+                return;
+                }
+                dialog_confirm('선택한 ' + chkCnt + '개 상품을  정말로 삭제하시겠습니까?\\n삭제 된 상품은 [삭제상품 리스트]에서 확인 가능합니다.', function (result) {
+                if (result) {
+                $('#frmList input[name=\\'mode\']').val('delete_state');
+                $('#frmList').attr('method', 'post');
+                $('#frmList').attr('action', './goods_ps.php');
+                $('#frmList').submit();
+                }
+                });
+                });
+                $('button.js-check-copy').click(function () {
+                var chkCnt = $('input[name*="goodsNo"]:checked').length;
+                if (chkCnt == 0) {
+                alert('선택된 상품이 없습니다.');
+                return;
+                }
+                dialog_confirm('선택한 ' + chkCnt + '개 상품을  정말로 복사하시겠습니까?', function (result) {
+                if (result) {
+                $('#frmList input[name=\\'mode\']').val('copy');
+                $('#frmList').attr('method', 'post');
+                $('#frmList').attr('action', './goods_ps.php');
+                $('#frmList').submit();
+                }
+                });
+                });
+                $('button.js-check-soldout').click(function () {
+                var chkCnt = $('input[name*="goodsNo"]:checked').length;
+                if (chkCnt == 0) {
+                alert('선택된 상품이 없습니다.');
+                return;
+                }
+                dialog_confirm('선택한 ' + chkCnt + '개 상품을 품절처리 하시겠습니까?', function (result) {
+                if (result) {
+                $('#frmList input[name=\\'mode\']').val('soldout');
+                $('#frmList').attr('method', 'post');
+                $('#frmList').attr('action', './goods_ps.php');
+                $('#frmList').submit();
+                }
+                });
+                });
+                // 노출 설정
+                $('button.js-check-sale').click(function () {
+                var chkCnt = $('input[name*="goodsNo"]:checked').length;
+                if (chkCnt == 0) {
+                alert('선택된 상품이 없습니다.');
+                return;
+                }
+                var childNm = 'goods_sale';
+                var addParam = {
+                mode: 'simple',
+                layerTitle: '노출 및 판매상태 설정',
+                layerFormID: childNm + "Layer",
+                parentFormID: childNm + "Row",
+                dataFormID: childNm + "Id",
+                dataInputNm: childNm
+                };
+                layer_add_info(childNm, addParam);
+                });
+                // 등록
+                $('.js-register').click(function () {
+                location.href = './goods_register.php';
+                });
+                $('select[name=\\'pageNum\']').change(function () {
+                $('#frmSearchGoods').submit();
+                });
+                $('select[name=\\'sort\']').change(function () {
+                $('#frmSearchGoods').submit();
+                });
+                });
+                /**
+                * 카테고리 연결하기 Ajax layer
+                */
+                function layer_register(typeStr, mode, isDisabled) {
+                var addParam = {
+                "mode": mode,
+                };
+                if (typeStr == 'scm') {
+                $('input:radio[name=scmFl]:input[value=y]').prop("checked", true);
+                }
+                if (!_.isUndefined(isDisabled) && isDisabled == true) {
+                addParam.disabled = 'disabled';
+                }
+                layer_add_info(typeStr,addParam);
+                }
+                //-->
+        script(type='text/javascript').
+          <!--
+          $(document).ready(function () {
+          $.ajax('../base/main_setting_ps.php', {
+          method: "post",
+          data: {mode: 'orderPresentationNew'},
+          global_complete: false,
+          beforeSend: function () {
+          $('.js-oder-count-new').addClass('display-none')
+          },
+          success: function () {
+          if (arguments[0].success === 'OK') {
+          var result = arguments[0].result;
+          if (result === true) {
+          $('.js-oder-count-new').removeClass('display-none');
+          }
+          }
+          }
+          });
+          });
+          //-->
+    #panel_popupPanel
+    #gnbTopAnchor
+      a(href='#top')
+        img(src='IMG/btn_gnb_top.png')
+    iframe.display-none(name='ifrmProcess', src='%EC%9D%B4%EB%9D%BC%EA%B3%A0%20%20%20%EC%87%BC%ED%95%91%EB%AA%B0%20%EA%B4%80%EB%A6%AC%EC%9E%90%20-%20%EA%B3%A0%EB%8F%84%EB%AA%B05_files/blank.html', width='100%', height='200')
+    script(src="/js/lib/store.min.js")
+    script(src="/js/lib/axios.min.js")
+    script.
+      $('.delete-post').click(async function() {
+        let productTitle = $(this).closest('tr').find('.title').text()
+        console.log("title", productTitle)
+        let option = {
+          url: '/admin/post/delete',
+          method: 'POST',
+          headers: {Authorization: store.get('jwtToken')},
+          data: { productTitle : productTitle}
+        }
+        let res = await axios(option)
+        if(res.data.success) {
+          alert("성공적으로 포스트를 삭제했습니다.")
+          window.location.reload()
+        }
+      })
+
+    script.
+      let postList = new List('post-pagination')
+      let options = {
+        page: 10,
+        pagination: true
+      }
+    script(type='text/javascript').
+      adminPanelApiAjax('goods', 'goods', 'goods_list');
+      $(function(){
+      // 탑버튼 클릭
+      $(document).on("click", "a[href=#top]", function(e) {
+      $('html body').animate({scrollTop: 0}, 'fast');
+      });
+      // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+      $(window).scroll(function() {
+      if ($(window).height() < $(document).height()) {
+      if ($(window).scrollTop() >= 1) {
+      $("#gnbTopAnchor").slideDown(150);
+      } else {
+      $("#gnbTopAnchor").slideUp(100);
+      }
+      }
+      });
+      });

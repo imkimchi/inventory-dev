@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>1.기본 설정</title>
+    <meta name="author" content="qnibus">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Latest compiled and minified CSS -->
+    <link type="text/css" href="/CSS/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/bootstrap-datetimepicker-standalone.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/bootstrap-dialog.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/jquery-ui.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/style.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/non-responsive.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/flags.css" rel="stylesheet">
+        <link type="text/css" href="/CSS/gd5-style.css" rel="stylesheet">
+    <link type="text/css" href="/CSS/admin-custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="/JS/underscore-min.js"></script>
+    <script type="text/javascript" src="/JS/jquery_003.js"></script>
+    <script type="text/javascript" src="/JS/jquery-ui.js"></script>
+    <script type="text/javascript" src="/JS/bootstrap.js"></script>
+    <script type="text/javascript" src="/JS/moment.js"></script>
+    <script type="text/javascript" src="/JS/numeral.js"></script>
+    <script type="text/javascript" src="/JS/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="/JS/bootstrap-dialog.js"></script>
+    <script type="text/javascript" src="/JS/bootstrap-filestyle.js"></script>
+    <script type="text/javascript" src="/JS/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="/JS/clipboard.js"></script>
+    <script type="text/javascript" src="/JS/jquery_004.js"></script>
+    <script type="text/javascript" src="/JS/jquery_007.js"></script>
+    <script type="text/javascript" src="/JS/jquery.js"></script>
+    <script type="text/javascript" src="/JS/messages_ko.js"></script>
+    <script type="text/javascript" src="/JS/additional-methods.js"></script>
+    <script type="text/javascript" src="/JS/jquery_005.js"></script>
+    <script type="text/javascript" src="/JS/jquery_006.js"></script>
+    <script type="text/javascript" src="/JS/common2.js"></script>
+    <script type="text/javascript" src="/JS/common.js"></script>
+    <script type="text/javascript" src="/JS/schedule.js"></script>
+    <script type="text/javascript" src="/JS/jquery_002.js"></script>
+    <script type="text/javascript" src="/JS/admin_panel_api.js"></script>
+        <script type="text/javascript" src="/JS/admin-custom.js"></script>
+
+    <script type="text/javascript">
+        <!--
+        $(document).ready(function () {
+
+            // 메뉴얼 링크
+            $(".gd-help-manual").each(function() {
+                var linkText = $(this).text().trim().replace(/\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+                var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=policy__management___manage_list#' + linkText;
+                $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+            });
+
+                    });
+        //-->
+    </script>
+
+</head>
+<body class="policy manage-list layout-basic">
+
+<div id="container-wrap" class="container-fluid">
+    <div id="container" class="row">
+        <div id="header" class="col-xs-12">
+            <nav class="navbar">
+    <div class="container">
+        <div class="navbar-inner">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" style="color:white;text-indent:0;" href="#">Inventory</a>
+                <span class="pro"></span>
+
+            </div>
+
+            <div class="gnb">
+                <ul class="list-inline">
+                    <li class="no-bar">
+                        <div class="dropdown">
+                            <!--js-btn-layer-sub-menu-->
+                            <a href="#" class="dropdown-toggle gnb-idinfo" id="headerSubMenuManager" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                <span>유미나</span>님 (
+                                <span>proad00</span>
+                                ) </a>
+                            <ul class="dropdown-menu gnb-dropdown-menu" aria-labelledby="headerSubMenuManager">
+                                <li class="dropdown-item"><a href="#">운영자정보</a></li>
+                                <li class="dropdown-item"><a href="#">로그아웃</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="pos-r no-bar">
+                        <a href="javascript:Schedule.addToday()" class="schedule-a"> <img src="IMG/icon_bell.png">
+                                                            <span class="badge" style="position:absolute;left:12px;top:-6px;">1</span>
+                                                    </a>
+                    </li>
+                                                       <li class="devide"></li>
+
+
+                   <li class="no-bar">
+                        <div class="form-inline gnb-search">
+                            <div class="gnb-search-head">
+                                    <select id="headerSearchType" name="headerSearchType" class="header-select">
+                                        <option value="menu" selected="selected">메뉴</option>
+                                        <option value="member">회원</option>
+                                    </select>
+                                                            </div>
+                            <div class="gnb-search-body">
+                                <span class="icon-magni"><img src="IMG/icon_magni.png" alt=""></span>
+                                <input id="headerSearchKeyword" class="form-control" name="headerSearchKeyword" placeholder="메뉴검색" type="text">
+                                <div class="gnb-search-hint form-inline display-none">
+                                    <select class="form-control multiple-select" size="5" id="headerSearchMenuList" style="height:100px;"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<a href="#" class="/JS-btn-layer-search-member pdr0 ">회원검색</a>-->
+                    </li>
+                    <!-- 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨 -->
+                    <!-- <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>-->
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+    <a class="active" href="manage_list.html" id="menu_policy" style="width:105.90909090909px;">기본설정</a>
+</li>
+                            <li class="">
+    <a href="goods_list.html" id="menu_goods" style="width:105.90909090909px;">상품</a>
+</li>
+                            <li class="">
+    <a href="order_list_all.html" id="menu_order" style="width:105.90909090909px;">주문</a>
+</li>
+                            <li class="">
+    <a href="member_list.html" id="menu_member" style="width:105.90909090909px;">회원</a>
+</li>
+                            <li class="">
+    <a href="board_list.html" id="menu_board" style="width:105.90909090909px;">게시판</a>
+</li>
+                            <li class="">
+    <a href="visit_today.html" id="menu_promotion" style="width:105.90909090909px;">통계</a>
+</li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+        };
+        var _bootstrap_dialog = BootstrapDialog;
+
+        $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.favorite_menu.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                var menuName = 'none';
+                                var menuLink = '';
+                                if (typeof item.tName === 'string') {
+                                    menuName = item.tName;
+                                } else if (typeof item.sName === 'string') {
+                                    menuName = item.sName;
+                                } else if (typeof item.fName === 'string') {
+                                    menuName = item.fName;
+                                }
+                                if (typeof item.tUrl === 'string') {
+                                    menuLink = '/' + item.tUrl;
+                                } else if (typeof item.sUrl === 'string') {
+                                    menuLink = '/' + item.sUrl;
+                                } else {
+                                    menuLink = '/index.php';
+                                }
+                                if (typeof item.fCode === 'string') {
+                                    menuLink = item.fCode + menuLink;
+                                }
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+                            });
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        } else {
+                            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+                                dropdown_menu.find('li:gt(0)').remove();
+                                dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+                            }
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.order_presentation.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+                            });
+                            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+                var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+                _bootstrap_dialog.show({
+                    title: '문의/답변관리 조회설정 ',
+                    message: $(data)
+                });
+            });
+        });
+
+        $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+                var options = {title: title, message: $(data)};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+                var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+                layer_member_search();
+                document.getElementById('headerSearchType').options[0].selected = true;
+            }
+        });
+
+        $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+                $.ajax('../base/main_setting_ps.php', {
+                    method: "post",
+                    global_complete: false,
+                    data: {mode: "searchMenu", keyword: this.value},
+                    success: function () {
+                        var result = arguments[0].result;
+                        var optionHtml = [];
+                        $.each(result, function (idx, item) {
+                            var link = '../' + item.fCode + '/' + item.tUrl;
+                            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+                        });
+                        var $headerSearchMenuList = $('#headerSearchMenuList');
+                        $headerSearchMenuList.closest('div').removeClass('display-none');
+                        $headerSearchMenuList.find('option').remove();
+                        if (optionHtml.length == 0) {
+                            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+                        } else {
+                            $headerSearchMenuList.append(optionHtml.join(''));
+                        }
+                    }
+                });
+            }
+        });
+
+        $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+        });
+
+        $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+                $headerSearchMenuList.addClass('display-none');
+            }
+        });
+    });
+</script>
+        </div>
+
+        <div id="content-wrap">
+            <div id="menu">
+                <!-- close/open -->
+
+<div class="menu-header policy">
+    <h2>기본설정</h2>
+</div>
+<div class="panel">
+                    <div class="panel-heading menu-icon-minus">기본정책</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="manage_list.html">운영자 관리</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">이메일 관리</a>                 </li>
+
+
+                </ul>
+                <div class="panel-heading menu-icon-minus">관리 정책</div>
+            <ul class="list-group">                <li class="list-group-item active">
+                <a href="manage_register.html">운영자 관리</a>                 </li>
+
+
+            </ul>
+                </div>
+            </div>
+
+            <div id="content" class="row">
+                <div class="col-xs-12">
+                    <script type="text/javascript">
+    <!--
+    $(document).ready(function () {
+        $("#selectedAll").bind('click', function () {
+            $("input[name='chk[]']").prop("checked", $("#selectedAll").prop("checked"));
+        });
+
+        $('select[name=\'sort\']').change(function () {
+            $('#frmSearchManager').submit();
+        });
+
+        $('select[name=\'pageNum\']').change(function () {
+            $('#frmSearchManager').submit();
+        });
+
+        // 선택한 운영자 삭제
+        $('.js-btn-delete').bind('click', function () {
+            if ($("input[name='chk[]']:checked").length < 1) {
+                alert('삭제할 운영자를 선택해주세요.');
+                return;
+            }
+
+            dialog_confirm('선택하신 운영자를 정말 삭제 하시겠습니까?\n\n삭제된 운영자는 복구 되지 않습니다.',function(data){
+               if(data) {
+                   $('input[name=mode]').val('delete');
+                   $('#listForm').submit();
+               }
+            });
+
+
+        });
+    });
+
+    /**
+     * 공급사 선택 레이어
+     */
+    function layer_register(typeStr, mode) {
+        var layerFormID = 'addSearchForm';
+
+        var parentFormID = typeStr + 'Layer';
+        var dataFormID = 'id' + typeStr;
+
+        // 레이어 창
+        var typeVar = 'scm';
+        var layerTitle = '공급사';
+        var dataInputNm = typeStr + "ID";
+
+        $('input:radio[name=scmFl]:input[value=y]').prop("checked", true);
+
+        var addParam = {
+            "mode": mode
+        };
+
+        layer_add_info(typeVar, layerFormID, parentFormID, dataFormID, dataInputNm, layerTitle, '', addParam);
+    }
+    //-->
+</script>
+
+<div class="page-header js-affix">
+        <h3>운영자 등록</h3>
+        <div class="btn-group">
+            <input type="button" value="목록" class="btn btn-white btn-icon-list" onclick="goList('./manage_list.html');"/>
+            <button type="submit" class="btn btn-red">저장</button>
+        </div>
+    </div>
+
+    <div class="table-title gd-help-manual">
+        기본정보
+    </div>
+
+    <table class="table table-cols">
+        <colgroup>
+            <col class="width-md"/>
+            <col class="width-3xl"/>
+            <col class="width-md"/>
+            <col/>
+        </colgroup>
+        <tbody>
+                <tr>
+            <th class="require">아이디</th>
+            <td class="form-inline">
+                <input type="hidden" name="chkManagerId" value=""/>
+                                    <input type="text" name="managerId" class="form-control width-sm js-maxlength" maxlength="50"/>
+                    <span id="managerId_msg" class="input_error_msg"></span>
+                            </td>
+            <th class="require">비밀번호</th>
+            <td class="form-inline">
+                                    <dl class="dl-horizontal">
+                        <dt style="width:100px">비밀번호</dt>
+                        <dd class="mgl0"><input type="password" name="managerPw" class="form-control width-lg"/></dd>
+                        <dt style="width:100px" class="mgt5">비밀번호확인</dt>
+                        <dd class="mgt5 mgl0"><input type="password" name="managerPwRe" class="form-control width-lg"/></dd>
+                    </dl>
+                                <div class="notice-danger notice-info">
+                    영문대문자/영문소문자/숫자/특수문자 중 2가지 이상 조합, 10~16자리 이하로 설정할 수 있습니다.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th class="require">이름</th>
+            <td class="form-inline">
+                <input type="text" name="managerNm" value="" class="form-control js-maxlength" maxlength="20"/>
+            </td>
+            <th>이메일</th>
+            <td class="form-inline" colspan="3">
+                <label title="이메일을 입력해 주세요!">
+                    <input type="text" name="email[]" value="" class="form-control width-md"/>
+                    @
+                    <input type="text" id="email" name="email[]" value="" c lass="form-control width-md"/>
+                    <select class="form-control " id="email_domain" name="" ><option value="self" >직접입력</option><option value="naver.com" >naver.com</option><option value="hanmail.net" >hanmail.net</option><option value="daum.net" >daum.net</option><option value="nate.com" >nate.com</option><option value="hotmail.com" >hotmail.com</option><option value="gmail.com" >gmail.com</option><option value="icloud.com" >icloud.com</option></select>                </label>
+
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+<script type="text/javascript">
+    <!--
+    $(document).ready(function () {
+
+        $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: 'orderPresentationNew'},
+            global_complete: false,
+            beforeSend: function () {
+                $('.js-oder-count-new').addClass('display-none')
+            },
+            success: function () {
+                if (arguments[0].success === 'OK') {
+                    var result = arguments[0].result;
+                    if (result === true) {
+                        $('.js-oder-count-new').removeClass('display-none');
+                    }
+                }
+            }
+        });
+    });
+    //-->
+</script>
+    </div>
+</div>
+
+<div id="panel_popupPanel"></div>
+
+<div id="gnbTopAnchor">
+    <a href="#top"><img src="IMG/btn_gnb_top.png"></a>
+</div>
+
+<script type="text/javascript">
+    adminPanelApiAjax('policy', 'management', 'manage_list');
+    $(function(){
+        // 탑버튼 클릭
+        $(document).on("click", "a[href=#top]", function(e) {
+            $('html body').animate({scrollTop: 0}, 'fast');
+        });
+
+        // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+        $(window).scroll(function() {
+            if ($(window).height() < $(document).height()) {
+                if ($(window).scrollTop() >= 1) {
+                    $("#gnbTopAnchor").slideDown(150);
+                } else {
+                    $("#gnbTopAnchor").slideUp(100);
+                }
+            }
+        });
+    });
+</script>
+<script src="/js/lib/axios.min.js"></script>
+<script>
+    $('button[type="submit"]').click(async () => {
+        let emailElem = $('input[name="email[]"]')
+        let option = {
+            url: '/admin/signup',
+            method: "POST",
+            data: {
+                username: $('input[name="managerId"]').val(),
+                password: $('input[name="managerPw"]').val(),
+                name: $('input[name="managerNm"]').val(),
+                email: `${emailElem.eq(0).val()}@${emailElem.eq(1).val()}`
+            }
+        }
+        let res = await axios(option)
+        if(res.data.success) window.location.href = '/admin'
+    })
+</script>
+
+
+</body></html>

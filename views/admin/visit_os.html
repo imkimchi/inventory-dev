@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>6.visit_os</title>
+    <meta name="author" content="qnibus">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Latest compiled and minified CSS -->
+    <link type="text/css" href="CSS/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-datetimepicker-standalone.css" rel="stylesheet">
+    <link type="text/css" href="CSS/bootstrap-dialog.css" rel="stylesheet">
+    <link type="text/css" href="CSS/jquery-ui.css" rel="stylesheet">
+    <link type="text/css" href="CSS/style.css" rel="stylesheet">
+    <link type="text/css" href="CSS/non-responsive.css" rel="stylesheet">
+    <link type="text/css" href="CSS/flags.css" rel="stylesheet">
+                <link type="text/css" href="CSS/chart.css" rel="stylesheet">
+                        <link type="text/css" href="CSS/grid.css" rel="stylesheet">
+                <link type="text/css" href="CSS/gd5-style.css" rel="stylesheet">
+    <link type="text/css" href="CSS/admin-custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="JS/underscore-min.js"></script>
+    <script type="text/javascript" src="JS/jquery_002.js"></script>
+    <script type="text/javascript" src="JS/jquery-ui.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.js"></script>
+    <script type="text/javascript" src="JS/moment.js"></script>
+    <script type="text/javascript" src="JS/numeral.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-dialog.js"></script>
+    <script type="text/javascript" src="JS/bootstrap-filestyle.js"></script>
+    <script type="text/javascript" src="JS/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="JS/clipboard.js"></script>
+    <script type="text/javascript" src="JS/jquery_003.js"></script>
+    <script type="text/javascript" src="JS/jquery_006.js"></script>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript" src="JS/messages_ko.js"></script>
+    <script type="text/javascript" src="JS/additional-methods.js"></script>
+    <script type="text/javascript" src="JS/jquery_004.js"></script>
+    <script type="text/javascript" src="JS/jquery_005.js"></script>
+    <script type="text/javascript" src="JS/common2.js"></script>
+    <script type="text/javascript" src="JS/common.js"></script>
+    <script type="text/javascript" src="JS/schedule.js"></script>
+    <script type="text/javascript" src="JS/jquery_007.js"></script>
+    <script type="text/javascript" src="JS/admin_panel_api.js"></script>
+                <script type="text/javascript" src="JS/backbone-min.js"></script>
+                        <script type="text/javascript" src="JS/code-snippet.js"></script>
+                        <script type="text/javascript" src="JS/effects.js"></script>
+                        <script type="text/javascript" src="JS/raphael-min.js"></script>
+                        <script type="text/javascript" src="JS/chart.js"></script>
+                        <script type="text/javascript" src="JS/grid.js"></script>
+                <script type="text/javascript" src="JS/admin-custom.js"></script>
+
+    <script type="text/javascript">
+        <!--
+        $(document).ready(function () {
+            
+            // 메뉴얼 링크
+            $(".gd-help-manual").each(function() {
+                var linkText = $(this).text().trim().replace(/\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+                var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__visit___visit_os#' + linkText;
+                $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+            });
+            
+                    });
+        //-->
+    </script>
+
+<style type="text/css" id="tui-grid-theme-style">.tui-grid-container{background-color:#fff;color:#444}.tui-grid-content-area{border-color:#ccc}.tui-grid-table{border-color:#ccc}.tui-grid-head-area{border-color:#ccc}.tui-grid-foot-area{border-color:#ccc}.tui-grid-border-line{background-color:#ccc}.tui-grid-scrollbar-head{border-color:#ccc}.tui-grid-scrollbar-border{background-color:#ccc}.tui-grid-foot-area-right{border-color:#ccc}.tui-grid-container ::-webkit-scrollbar{background-color:#f5f5f5}.tui-grid-container ::-webkit-scrollbar-thumb{background-color:#d9d9d9}.tui-grid-container ::-webkit-scrollbar-thumb:hover{background-color:#c1c1c1}.tui-grid-container{scrollbar-3dlight-color:#f5f5f5;scrollbar-darkshadow-color:#f5f5f5;scrollbar-track-color:#f5f5f5;scrollbar-shadow-color:#f5f5f5;scrollbar-face-color:#d9d9d9;scrollbar-highlight-color:#d9d9d9;scrollbar-arrow-color:#c1c1c1}.tui-grid-scrollbar-right-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-left-bottom{background-color:#f5f5f5}.tui-grid-scrollbar-head{background-color:#f5f5f5}.tui-grid-foot-area-right{background-color:#f5f5f5}.tui-grid-body-area{background-color:#f5f5f5}.tui-grid-toolbar{background-color:transparent;border-color:transparent}.tui-grid-height-resize-handle{background-color:#fff;border-color:#ccc}.tui-grid-pagination{background-color:transparent;border-color:transparent}.tui-grid-layer-selection{background-color:#4daaf9;border-color:#004082}.tui-grid-cell{background-color:#fbfbfb;border-color:#e0e0e0;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-cell-dummy{background-color:#fff}.tui-grid-cell-editable{background-color:#fff}.tui-grid-cell-head{background-color:#eee;border-color:#ccc;border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px}.tui-grid-head-area{background-color:#eee}.tui-grid-foot-area{background-color:#eee}.tui-grid-cell-required{background-color:#fffdeb}.tui-grid-cell-disabled{color:#b0b0b0}.tui-grid-cell-invalid{background-color:#ff8080}.tui-grid-cell-head.tui-grid-cell-selected{background-color:#d8d8d8}.tui-grid-layer-focus-border{background-color:#418ed4}.tui-grid-layer-editing{border-color:#418ed4}</style></head>
+<body class="statistics visit-os layout-basic">
+
+<div id="container-wrap" class="container-fluid">
+          <div id="container" class="row">
+              <div id="header" class="col-xs-12">
+                  <nav class="navbar">
+          <div class="container">
+              <div class="navbar-inner">
+
+                  <div class="navbar-header">
+                      <a class="navbar-brand" style="color:white;text-indent:0;" href="#">Inventory</a>
+                      <span class="pro"></span>
+
+                  </div>
+
+                  <div class="gnb">
+                      <ul class="list-inline">
+                          <li class="no-bar">
+                              <div class="dropdown">
+                                  <!--js-btn-layer-sub-menu-->
+                                  <a href="#" class="dropdown-toggle gnb-idinfo" id="headerSubMenuManager" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                      <span>유미나</span>님 (
+                                      <span>proad00</span>
+                                      ) </a>
+                                  <ul class="dropdown-menu gnb-dropdown-menu" aria-labelledby="headerSubMenuManager">
+                                      <li class="dropdown-item"><a href="#">운영자정보</a></li>
+                                      <li class="dropdown-item"><a href="#">로그아웃</a></li>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li class="pos-r no-bar">
+                              <a href="javascript:Schedule.addToday()" class="schedule-a"> <img src="IMG/icon_bell.png">
+                                                                  <span class="badge" style="position:absolute;left:12px;top:-6px;">1</span>
+                                                          </a>
+                          </li>
+                                                             <li class="devide"></li>
+
+
+                         <li class="no-bar">
+                              <div class="form-inline gnb-search">
+                                  <div class="gnb-search-head">
+                                          <select id="headerSearchType" name="headerSearchType" class="header-select">
+                                              <option value="menu" selected="selected">메뉴</option>
+                                              <option value="member">회원</option>
+                                          </select>
+                                                                  </div>
+                                  <div class="gnb-search-body">
+                                      <span class="icon-magni"><img src="IMG/icon_magni.png" alt=""></span>
+                                      <input id="headerSearchKeyword" class="form-control" name="headerSearchKeyword" placeholder="메뉴검색" type="text">
+                                      <div class="gnb-search-hint form-inline display-none">
+                                          <select class="form-control multiple-select" size="5" id="headerSearchMenuList" style="height:100px;"></select>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--<a href="#" class="js-btn-layer-search-member pdr0 ">회원검색</a>-->
+                          </li>
+                          <!-- 스타일 안보임 처리 : 컨트롤러 제거는 하지 않음. 직접 URL 입력시 접속됨 -->
+                          <!-- <li><a href="../bootstrap/index" style="color:yellow;" target="_blank">스타일</a></li>-->
+                      </ul>
+                  </div>
+
+              </div>
+
+              <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                                                  <li>
+                                      <a href="#" id="menu_policy" style="width:105.90909090909px;">기본설정</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_goods" style="width:105.90909090909px;">상품</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_order" style="width:105.90909090909px;">주문</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_member" style="width:105.90909090909px;">회원</a>
+                                  </li>
+                                                              <li class="">
+                                      <a href="#" id="menu_board" style="width:105.90909090909px;">게시판</a>
+                                  </li>
+                                                              <li class="">
+                                      <a class="active" href="#" id="menu_promotion" style="width:105.90909090909px;">통계</a>
+                                  </li>
+                                              </ul>
+              </div><!-- /.navbar-collapse -->
+          </div>
+      </nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var gd_main_layer = {
+            presentation: {id: "presentation", selector: "#layerPresentation", title: "주요현황 조회설정"},
+            order_presentation: {id: "orderPresentation", get_id: "getOrderPresentation", title: "주문현황 조회설정"},
+            order_setting: {id: "orderSetting", title: "주문관리 조회설정"},
+            favorite_menu: {id: "favoriteMenu", get_id: "getFavoriteMenu", selector: "#layerFavorite", title: "자주쓰는 메뉴 설정"}
+        };
+        var _bootstrap_dialog = BootstrapDialog;
+
+        $('#dropDownFavoriteMenu').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.favorite_menu.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                var menuName = 'none';
+                                var menuLink = '';
+                                if (typeof item.tName === 'string') {
+                                    menuName = item.tName;
+                                } else if (typeof item.sName === 'string') {
+                                    menuName = item.sName;
+                                } else if (typeof item.fName === 'string') {
+                                    menuName = item.fName;
+                                }
+                                if (typeof item.tUrl === 'string') {
+                                    menuLink = '/' + item.tUrl;
+                                } else if (typeof item.sUrl === 'string') {
+                                    menuLink = '/' + item.sUrl;
+                                } else {
+                                    menuLink = '/index.php';
+                                }
+                                if (typeof item.fCode === 'string') {
+                                    menuLink = item.fCode + menuLink;
+                                }
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="../' + menuLink + '">' + menuName + '</a></li>');
+                            });
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        } else {
+                            if (dropdown_menu.find('.dropdown-noitem').length == 0) {
+                                dropdown_menu.find('li:gt(0)').remove();
+                                dropdown_menu.append('<li class="dropdown-noitem">자주쓰는 메뉴를<br>설정해주세요.</li>');
+                            }
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('#dropDownOrderPresentation').on('show.bs.dropdown', function () {
+            var dropdown_container = $(this);
+            $.ajax('../base/main_setting_ps.php', {
+                method: "post",
+                data: {mode: gd_main_layer.order_presentation.get_id},
+                global_complete: false,
+                success: function () {
+                    if (arguments[0].success === 'OK') {
+                        var result = arguments[0].result;
+                        if (result.length > 0) {
+                            var html = [];
+                            $.each(result, function (idx, item) {
+                                // html.push('<li role="separator" class="divider"></li>');
+                                html.push('<li class="dropdown-item"><a href="' + item.link + '">' + item.name + '<span class="dropdown-item-val"><span class="text-red">' + item.count + '</span>건</span></a></li>');
+                            });
+                            var dropdown_menu = dropdown_container.find('.dropdown-menu');
+                            dropdown_menu.find('li:gt(0)').remove();
+                            dropdown_menu.append(html.join(''));
+                        }
+                    } else {
+                        console.log(arguments);
+                    }
+                }
+            });
+        });
+
+        $('.js-setting-presentation').click(function () {
+            $.post('/share/layer_presentation_setting.php', {mode: gd_main_layer.presentation.id}, function (data) {
+                var options = {title: gd_main_layer.presentation.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-cs').bind('click', function () {
+            $.post('/share/layer_cs_setting.php', null, function (data) {
+                _bootstrap_dialog.show({
+                    title: '문의/답변관리 조회설정 ',
+                    message: $(data)
+                });
+            });
+        });
+
+        $('.js-setting-order').bind('click', function () {
+            var layer_id = this.dataset.role;
+            var title = (layer_id === gd_main_layer.order_presentation.id) ? gd_main_layer.order_presentation.title : gd_main_layer.order_setting.title;
+            $.post('../base/layer_order_setting.php', {mode: layer_id}, function (data) {
+                var options = {title: title, message: $(data)};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('.js-setting-favorite-menu').bind('click', function () {
+            $.post('/share/layer_favorite_menu.php', {mode: gd_main_layer.favorite_menu.id}, function (data) {
+                var options = {title: gd_main_layer.favorite_menu.title, message: $(data), size: _bootstrap_dialog.SIZE_WIDE};
+                _bootstrap_dialog.show(options);
+            });
+        });
+
+        $('#headerSearchType').change(function () {
+            if (this.value === 'member') {
+                layer_member_search();
+                document.getElementById('headerSearchType').options[0].selected = true;
+            }
+        });
+
+        $('#headerSearchKeyword').keyup(function (e) {
+            if (e.keyCode === 13 && this.value.length > 1) {
+                $.ajax('../base/main_setting_ps.php', {
+                    method: "post",
+                    global_complete: false,
+                    data: {mode: "searchMenu", keyword: this.value},
+                    success: function () {
+                        var result = arguments[0].result;
+                        var optionHtml = [];
+                        $.each(result, function (idx, item) {
+                            var link = '../' + item.fCode + '/' + item.tUrl;
+                            optionHtml.push('<option value="' + link + '">' + item.tName + '</option>');
+                        });
+                        var $headerSearchMenuList = $('#headerSearchMenuList');
+                        $headerSearchMenuList.closest('div').removeClass('display-none');
+                        $headerSearchMenuList.find('option').remove();
+                        if (optionHtml.length == 0) {
+                            $headerSearchMenuList.append('<option>검색된 메뉴가 없습니다.</option>');
+                        } else {
+                            $headerSearchMenuList.append(optionHtml.join(''));
+                        }
+                    }
+                });
+            }
+        });
+
+        $('#headerSearchMenuList').on('click', function () {
+            location.href = this.value;
+        });
+
+        $(window).click(function () {
+            var $headerSearchMenuList = $('#headerSearchMenuList').closest('div');
+            if ($headerSearchMenuList.hasClass('display-none') === false) {
+                $headerSearchMenuList.addClass('display-none');
+            }
+        });
+    });
+</script>
+        </div>
+
+        <div id="content-wrap">
+            <div id="menu">
+                <!-- close/open -->
+<div class="js-adminmenu-toggle"></div>
+<!-- //close/open -->
+
+<div class="menu-header statistics">
+    <h2>통계</h2>
+</div>
+<div class="panel ">
+                    <div class="panel-heading menu-icon-minus">방문자 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">방문자 분석</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">방문자 경로분석</a>                 </li>
+                                <li class="list-group-item active">
+                    <a href="#">방문자 환경분석</a>                 </li>
+                                <li class="list-group-item">
+                    <a href="#">방문자 IP분석</a>                 </li>
+
+                    </ul>
+                    <div class="panel-heading menu-icon-minus">회원 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">신규 회원분석</a>                 </li>
+                                <li class="list-group-item ">
+                    <a href="#">전체 회원분석</a>                 </li>
+                    </ul>
+                    <div class="panel-heading menu-icon-minus">주문 분석</div>
+                <ul class="list-group">                <li class="list-group-item">
+                    <a href="#">주요 통계</a>                 </li>
+                    </ul>
+</div>
+            </div>
+            <div id="content" class="row">
+                <div class="col-xs-12">
+                    <div class="page-header js-affix affix-top" style="width: 1632px;">
+    <h3>방문자 환경분석</h3>
+</div>
+
+<div class="table-title gd-help-manual">방문자 환경 검색 <span class="notice-danger">PC/모바일 구분 데이터가 2017년 2월23일부터 제공됨에 따라 2017년 2월23일 이전 데이터는 PC/모바일 구분 데이터가 제공되지 않습니다.</span> <a href="http://manual.godomall5.godomall.com/data/manual_view.php?category=statistics__visit___visit_os#%EB%B0%A9%EB%AC%B8%EC%9E%90%ED%99%98%EA%B2%BD%EA%B2%80%EC%83%89PC/%EB%AA%A8%EB%B0%94%EC%9D%BC%EA%B5%AC%EB%B6%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%802017%EB%85%842%EC%9B%9423%EC%9D%BC%EB%B6%80%ED%84%B0%EC%A0%9C%EA%B3%B5%EB%90%A8%EC%97%90%EB%94%B0%EB%9D%BC2017%EB%85%842%EC%9B%9423%EC%9D%BC%EC%9D%B4%EC%A0%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8A%94PC/%EB%AA%A8%EB%B0%94%EC%9D%BC%EA%B5%AC%EB%B6%84%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EC%A0%9C%EA%B3%B5%EB%90%98%EC%A7%80%EC%95%8A%EC%8A%B5%EB%8B%88%EB%8B%A4." target="_blank" class="link-help">페이지 도움말</a></div>
+<form id="frmSearchStatistics" method="get">
+    <table class="table table-cols">
+        <colgroup>
+            <col class="width-md">
+            <col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>기간검색</th>
+            <td>
+                <div class="form-inline">
+                    <div class="input-group js-datepicker">
+                        <input class="form-control width-xs" name="searchDate[]" value="2017-08-15" type="text">
+                        <span class="input-group-addon"><span class="btn-icon-calendar"></span></span>
+                    </div>
+                    ~
+                    <div class="input-group js-datepicker">
+                        <input class="form-control width-xs" name="searchDate[]" value="2017-08-21" type="text">
+                        <span class="input-group-addon"><span class="btn-icon-calendar"></span></span>
+                    </div>
+
+                    <div class="btn-group js-dateperiod" data-toggle="buttons" data-target-name="searchDate[]">
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="0" type="radio">오늘
+                        </label>
+                        <label class="btn btn-white btn-sm hand active">
+                            <input name="searchPeriod" value="6" checked="checked" type="radio">7일
+                        </label>
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="14" type="radio">15일
+                        </label>
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="29" type="radio">1개월
+                        </label>
+                        <label class="btn btn-white btn-sm hand ">
+                            <input name="searchPeriod" value="89" type="radio">3개월
+                        </label>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="table-btn">
+        <button type="submit" class="btn btn-lg btn-black">검색</button>
+    </div>
+
+    <ul class="nav nav-tabs mgb20">
+        <li class="active"><a id="visitInflow" class="hand">운영체제 현황</a></li>
+        <li><a id="visitBrowser" class="hand">웹브라우저 현황</a></li>
+    </ul>
+
+    <div class="table-dashboard">
+        <table class="table table-cols">
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th class="bln">PC OS 총점유율</th>
+                <th>모바일 OS 총점유율</th>
+                <th>PC 최다OS</th>
+                <th>모바일 최다OS</th>
+            </tr>
+            <tr>
+                <td class="bln">
+                    <strong>0</strong> %<br>
+                </td>
+                <td>
+                    <strong>0</strong> %<br>
+                </td>
+                <td>
+                    <strong>0</strong><br>
+                    <b>기타</b> |                 </td>
+                <td>
+                    <strong>0</strong><br>
+                    <b>기타</b> |                 </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-header form-inline select-device">
+        <div class="pull-left">
+            데이터 노출형태 :
+            <select name="searchDevice">
+                <option value="all" selected="selected">통합</option>
+                <option value="pc">PC쇼핑몰</option>
+                <option value="mobile">모바일쇼핑몰</option>
+            </select>
+        </div>
+    </div>
+</form>
+
+    <div id="chart-area" style="overflow: hidden;"><div class="tui-line-chart tui-chart" style="width: 1580px; height: 400px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; font-family: Verdana;"><div class="tui-chart-series-custom-event-area" style="width: 1553px; height: 310px; top: 20px; left: 27px;"></div><div class="tui-chart-plot-area" style="width: 1534px; height: 291px; top: 30px; left: 36px; background: rgb(255, 255, 255) none repeat scroll 0% 0%;"><div class="tui-chart-plot-line horizontal" style="bottom:97px;width:1534px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:193px;width:1534px;background-color:#dddddd"></div><div class="tui-chart-plot-line horizontal" style="bottom:290px;width:1534px;background-color:#dddddd"></div></div><div class="tui-chart-axis-area vertical " style="width: 27px; height: 291px; top: 30px; left: 10px;"><div class="tui-chart-label-area" style="font-size: 12px; font-family: Verdana; color: rgb(0, 0, 0); width: 17px; top: 8px;"><div class="tui-chart-label" style="bottom:0px"><span>0</span></div><div class="tui-chart-label" style="bottom:97px"><span>2</span></div><div class="tui-chart-label" style="bottom:193px"><span>4</span></div><div class="tui-chart-label" style="bottom:290px"><span>6</span></div></div></div><div class="tui-chart-axis-area horizontal " style="width: 1534px; height: 34px; top: 320px; left: 36px;"><div class="tui-chart-tick-area" style="border-top-color: rgb(0, 0, 0);"><div class="tui-chart-tick" style="background-color:#000000;left: 0px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 256px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 511px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 767px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1022px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1278px"></div><div class="tui-chart-tick" style="background-color:#000000;left: 1533px"></div></div><div class="tui-chart-label-area" style="font-size: 10px; font-family: Verdana; color: rgb(0, 0, 0); left: -128px;"><div class="tui-chart-label" style="width:256px;left:0px"><span>20170815</span></div><div class="tui-chart-label" style="width:256px;left:256px"><span>20170816</span></div><div class="tui-chart-label" style="width:256px;left:511px"><span>20170817</span></div><div class="tui-chart-label" style="width:256px;left:767px"><span>20170818</span></div><div class="tui-chart-label" style="width:256px;left:1022px"><span>20170819</span></div><div class="tui-chart-label" style="width:256px;left:1278px"><span>20170820</span></div><div class="tui-chart-label" style="width:256px;left:1533px"><span>20170821</span></div></div></div><div class="tui-chart-legend-area horizontal" style="top: 354px; left: 364px; font-size: 12px; font-family: Verdana; color: rgb(0, 0, 0);"><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="0" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#ac4142;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:50px" data-index="0">Win10</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="1" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#d28445;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:54px" data-index="1">Win8.1</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="2" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#f4bf75;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:42px" data-index="2">Win8</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="3" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#90a959;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:42px" data-index="3">Win7</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="4" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#75b5aa;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:65px" data-index="4">WinVista</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="5" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#6a9fb5;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:50px" data-index="5">WinXP</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="6" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#aa759f;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:53px" data-index="6">iPhone</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="7" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#8f5536;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:58px" data-index="7">Android</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="8" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#f64142;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:34px" data-index="8">Mac</div></div><div class="tui-chart-legend" style="height:21px"><div class="tui-chart-legend-checkbox-area"><input class="tui-chart-legend-checkbox" value="9" checked="checked" type="checkbox"></div><div class="tui-chart-legend-rect line" style="background-color:#e851b6;margin-top:8px"></div><div class="tui-chart-legend-label" style="height:17px;width:34px" data-index="9">기타</div></div></div><div class="tui-chart-series-area" style="width: 1553px; height: 310px; top: 20px; left: 27px;"><svg height="310" version="1.1" width="1553" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc>Created with Raphaël 2.1.2</desc><defs></defs><path style="" fill="none" stroke="#ac4142" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#d28445" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#f4bf75" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#90a959" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#75b5aa" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#6a9fb5" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#aa759f" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#8f5536" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#f64142" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="" fill="none" stroke="#e851b6" d="M9,300L265.5,300L521,300L776.5,300L1032,300L1287.5,300L1543,300" stroke-width="2"></path><path style="stroke-opacity: 0;" fill="none" stroke="#ffffff" d="M9.5,310" stroke-width="1" stroke-opacity="0"></path><circle cx="0" cy="0" r="7" fill="#ffffff" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0" stroke-width="2"></circle><circle cx="9" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#ac4142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#d28445" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#f4bf75" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#90a959" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#75b5aa" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#6a9fb5" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#aa759f" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#8f5536" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#8f5536" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#8f5536" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#8f5536" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#8f5536" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#8f5536" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#8f5536" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#f64142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#f64142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#f64142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#f64142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#f64142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#f64142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#f64142" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="9" cy="300" r="3" fill="#e851b6" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="265.5" cy="300" r="3" fill="#e851b6" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="521" cy="300" r="3" fill="#e851b6" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="776.5" cy="300" r="3" fill="#e851b6" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1032" cy="300" r="3" fill="#e851b6" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1287.5" cy="300" r="3" fill="#e851b6" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle><circle cx="1543" cy="300" r="3" fill="#e851b6" stroke="#000" style="fill-opacity: 0; stroke-opacity: 0;" fill-opacity="0" stroke-opacity="0"></circle></svg><div class="tui-chart-series-label-area"></div></div><div class="tui-chart-tooltip-area" style="top: 20px; left: 27px;"></div></div></div>
+    
+<div class="table-action mgt30 mgb0">
+    <div class="pull-right">
+        <button type="button" class="btn btn-white btn-icon-excel btn-excel">엑셀 다운로드</button>
+    </div>
+</div>
+
+<div class="code-html js-excel-data">
+    <div id="grid" class="tui-grid-container" data-grid-id="1"><div class="tui-grid-content-area"><div class="tui-grid-lside-area" style="display: block; width: 579px;"><div class="tui-grid-head-area" style="height: 49px;"><table class="tui-grid-table"><colgroup><col data-column-name="_number" style="width:61px"><col data-column-name="searchTool" style="width: 517px;"></colgroup><tbody><tr><th data-column-name="_number" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48">순위</th><th data-column-name="searchTool" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>운영체제</b></th></tr></tbody></table><div class="tui-grid-column-resize-container" style="margin-top: -50px; height: 50px; display: block;"><div data-column-index="0" data-column-name="_number" class="tui-grid-column-resize-handle " style="left: 58px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="1" data-column-name="searchTool" class="tui-grid-column-resize-handle tui-grid-column-resize-handle-last" style="left: 575px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div></div></div><div class="tui-grid-body-area" style="height: 297px;"><div class="tui-grid-body-container" style="height: 0px;"><div class="tui-grid-table-container" style="top: 0px; overflow: visible;"><table class="tui-grid-table">   <colgroup><col data-column-name="_number" style="width:61px"><col data-column-name="searchTool" style="width: 517px;"></colgroup>   <tbody></tbody></table></div><div class="tui-grid-layer-selection" style="display: none;"></div><div class="tui-grid-layer-focus" style="display: none;"><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div></div></div></div><div class="tui-grid-scrollbar-left-bottom"></div></div><div class="tui-grid-rside-area" style="display: block; width: 1053px; margin-left: 579px;"><div class="tui-grid-head-area" style="height: 49px;"><table class="tui-grid-table"><colgroup><col data-column-name="searchCount" style="width: 517px;"><col data-column-name="searchPercent" style="width: 518px;"></colgroup><tbody><tr><th data-column-name="searchCount" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>방문자수</b></th><th data-column-name="searchPercent" class="tui-grid-cell tui-grid-cell-head" colspan="1" rowspan="1" height="48"><b>비율</b></th></tr></tbody></table><div class="tui-grid-column-resize-container" style="margin-top: -50px; height: 50px; display: block;"><div data-column-index="0" data-column-name="searchCount" class="tui-grid-column-resize-handle " style="left: 514px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div><div data-column-index="1" data-column-name="searchPercent" class="tui-grid-column-resize-handle tui-grid-column-resize-handle-last" style="left: 1032px;" title="마우스 드래그를 통해 컬럼의 넓이를 변경할 수 있고,더블클릭을 통해 넓이를 초기화할 수 있습니다."></div></div></div><div class="tui-grid-body-area" style="height: 297px;"><div class="tui-grid-body-container" style="height: 0px;"><div class="tui-grid-table-container" style="top: 0px; overflow: visible;"><table class="tui-grid-table">   <colgroup><col data-column-name="searchCount" style="width: 517px;"><col data-column-name="searchPercent" style="width: 518px;"></colgroup>   <tbody></tbody></table></div><div class="tui-grid-layer-selection" style="display: none;"></div><div class="tui-grid-layer-focus" style="display: none;"><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div><div class="tui-grid-layer-focus-border"></div></div></div></div><div class="tui-grid-scrollbar-head" style="height: 50px;"></div><div class="tui-grid-scrollbar-border" style="top: 50px; height: 280px;"></div><div class="tui-grid-scrollbar-right-bottom"></div></div><div class="tui-grid-border-line tui-grid-border-line-top"></div><div class="tui-grid-border-line tui-grid-border-line-left"></div><div class="tui-grid-border-line tui-grid-border-line-right"></div><div class="tui-grid-border-line tui-grid-border-line-bottom" style="bottom: 17px;"></div></div><div class="tui-grid-layer-state" style="top: 49px; height: 279px; left: 0px; right: 17px;"><div class="tui-grid-layer-state-content">    <p>데이터가 존재하지 않습니다.</p>    </div></div><div class="tui-grid-layer-editing tui-grid-cell-content"></div><textarea class="tui-grid-clipboard"></textarea></div>
+</div>
+
+<script>
+    <!--
+    var widthSize = 930;
+    $(document).ready(function () {
+        $('[name="searchDevice"]').change(function (e) {
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitOs').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_os.php');
+            $('#frmSearchStatistics').submit();
+        });
+        $('#visitBrowser').click(function (e) {
+            $('#frmSearchStatistics').attr('action', './visit_browser.php');
+            $('#frmSearchStatistics').submit();
+        });
+        if ($('#chart-area').width() > 930) {
+            widthSize = $('#chart-area').width();
+        }
+
+        $('.btn-excel').click(function () {
+            grid.setDisplayRowCount('10');
+            statistics_excel_download();
+            grid.setDisplayRowCount('10');
+        });
+                var container = document.getElementById('chart-area'),
+            data = {
+                categories: ['20170815','20170816','20170817','20170818','20170819','20170820','20170821'],
+                series: [
+                                        {
+                        name: 'Win10',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'Win8.1',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'Win8',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'Win7',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'WinVista',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'WinXP',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'iPhone',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'Android',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: 'Mac',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                        {
+                        name: '기타',
+                        data: [0,0,0,0,0,0,0]
+                    },
+                                    ]
+            },
+            options = {
+                chart: {
+                    width: widthSize - 50,
+                    height: 400,
+                    title: ''
+                },
+                yAxis: {
+                    min: 0,
+                    title: ''
+                },
+                xAxis: {
+                    title: ''
+                },
+                series: {
+                    hasDot: false
+                },
+                tooltip: {
+                    suffix: ''
+                },
+                legend: {
+                    align: 'bottom'
+                }
+            };
+        try {
+            tui.chart.lineChart(container, data, options);
+        } catch (e) {
+            container.style.display = 'none';
+        }
+            });
+
+    var grid = new tui.Grid({
+        el: $('#grid'),
+        autoNumbering: true,
+        columnFixCount: 1,
+        headerHeight: 50,
+        displayRowCount: 10,
+        minimumColumnWidth: 20,
+        columnModelList : [
+            {
+                "title" : "<b>운영체제</b>",
+                "columnName" : "searchTool",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                }
+            },
+            {
+                "title" : "<b>방문자수</b>",
+                "columnName" : "searchCount",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal'
+                },
+                "formatter" : function(columnValue){
+                    var sValue = String(columnValue) || "0";
+                    return sValue.replace(/(\d)(?=(\d{3})+$)/gi, "$1,");
+                }
+            },
+            {
+                "title" : "<b>비율</b>",
+                "columnName" : "searchPercent",
+                "align" : "center",
+                "width" : 100,
+                editOption: {
+                    type: 'normal',
+                    "afterContent" : " %"
+                }
+            }
+        ]
+    });
+    grid.setRowList();
+    //-->
+</script>
+<script type="text/javascript" src="JS/statistics.js"></script>
+
+                    <div class="information ">
+    <h4>안내</h4>
+    <div class="content">
+        <p><span style="font-family: 나눔고딕, NanumGothic; font-size: 10pt;"><b>※ 2017년 7월 26일 이전 고도몰5 운영자 에이스카운터 II 사용 안내</b></span></p><p>&nbsp;</p><p><span style="font-family: 나눔고딕, NanumGothic;">1. 2017년 7월 26일 이전 무료스킨을 사용하시는 경우 반드시 스킨패치를 적용해야 에이스카운터 II 사용이 가능합니다. <span style="color: rgb(0, 117, 200);">패치바로가기 &gt;</span></span></p><p><span style="font-family: 나눔고딕, NanumGothic;">2. 에이스카운터 II 서비스는 쇼핑몰 방문자의 행동과 특성을 분석하기 때문에 형태정보 제공을 위한 정보수집을 안내 하여야합니다.</span></p><p><span style="font-family: 나눔고딕, NanumGothic;">&nbsp; &nbsp;서비스 이용전에 반드시 아래 가이드에 따라 "개인정보처리방침"을 수정하고 개정 내용을 고지하여주세요!</span></p><p style="margin-left: 40px;"><span style="font-family: 나눔고딕, NanumGothic;">- 관리자 &gt; 기본설정 &gt; 약관/개인정보처리방침 &gt; 개인정보처리방침 (<span style="color: rgb(0, 117, 200);">10. 행태정보 제공에 대한 매체서 고지 항목 추가</span>)</span></p><p style="margin-left: 40px;"><span style="font-family: 나눔고딕, NanumGothic;">- 행태정보 제공에 대한 매체사 고지 내용 추가</span></p><table style="border:1px solid #cccccc; border-left:0; border-bottom:0;" class="__se_tbl" cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr><td style="border-width: 0px 0px 1px 1px; border-bottom-style: solid; border-left-style: solid; border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-image: initial; border-top-style: initial; border-top-color: initial; border-right-style: initial; border-right-color: initial; width: 1638px; height: 108px; background-color: rgb(255, 255, 255);" class=""><p><span style="font-family: 나눔고딕, NanumGothic; color: rgb(0, 117, 200);">&nbsp;10. 행태정보 제공에 대한 매체사 고지</span></p><p>&nbsp;</p><p><span style="font-family: 나눔고딕, NanumGothic; color: rgb(0, 117, 200);">&nbsp;회사는 아래의 광고사업자가 회사 서비스 내 생생정보 분석 툴을 통해 온라인상의 이용자 행태정보를 수집하고,</span></p><p><span style="font-family: 나눔고딕, NanumGothic; color: rgb(0, 117, 200);">&nbsp;이용자 대상 맞춤형 광고 서비스 전송 목적으로 이용할 수 있도록 허용하고 있습니다.</span></p><p>&nbsp;</p><p><span style="font-family: 나눔고딕, NanumGothic; color: rgb(0, 117, 200);">&nbsp;- (주)엔에이치엔에이스 (NHN ACE)</span></p></td>
+</tr>
+</tbody>
+</table><p>&nbsp;&nbsp;</p><p><img src="IMG/1500958527946868.png" title="1500958527946868.png"><span style="font-family: 나눔고딕, NanumGothic;">&nbsp;</span><img src="IMG/1500958527707547.png" title="1500958527707547.png"><br style="clear:both;">&nbsp;</p>    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        
+            
+
+<script type="text/javascript">
+    <!--
+    $(document).ready(function () {
+        
+        $.ajax('../base/main_setting_ps.php', {
+            method: "post",
+            data: {mode: 'orderPresentationNew'},
+            global_complete: false,
+            beforeSend: function () {
+                $('.js-oder-count-new').addClass('display-none')
+            },
+            success: function () {
+                if (arguments[0].success === 'OK') {
+                    var result = arguments[0].result;
+                    if (result === true) {
+                        $('.js-oder-count-new').removeClass('display-none');
+                    }
+                }
+            }
+        });
+    });
+    //-->
+</script>
+        </div>
+    </div>
+
+
+
+<div id="gnbTopAnchor">
+    <a href="#top"><img src="IMG/btn_gnb_top.png"></a>
+</div>
+
+<iframe name="ifrmProcess" src="./blank.html" class="display-none" width="100%" height="200"></iframe>
+<script type="text/javascript">
+    adminPanelApiAjax('statistics', 'visit', 'visit_os');
+    $(function(){
+        // 탑버튼 클릭
+        $(document).on("click", "a[href=#top]", function(e) {
+            $('html body').animate({scrollTop: 0}, 'fast');
+        });
+
+        // 스크롤 최하단시 탑아이콘 출력 (실제 컨텐츠 $('#content > .col-xs-12').height())
+        $(window).scroll(function() {
+            if ($(window).height() < $(document).height()) {
+                if ($(window).scrollTop() >= 1) {
+                    $("#gnbTopAnchor").slideDown(150);
+                } else {
+                    $("#gnbTopAnchor").slideUp(100);
+                }
+            }
+        });
+    });
+</script>
+
+
+</body></html>

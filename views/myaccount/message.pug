@@ -619,6 +619,13 @@ html(lang='en')
     script(src='/js/appendMsg.js')
     script(src='/js/lib/mixitup.min.js')
     script(src='/js/msgFilter.js')
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-109950709-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-109950709-1');
+
     script.
       $('.logout').click(() => {
         store.remove('jwtToken')

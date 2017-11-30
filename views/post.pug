@@ -687,6 +687,13 @@ html(lang='en')
       span.shadow
     .black_shadow
     script(src="/js/like.js")
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-109950709-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-109950709-1');
+
     script.
       if(!jwtToken) {
           $('.comment-this-item').remove()

@@ -28,7 +28,6 @@ function socketChat (username, jwtToken) {
 
         if(convoHistory.length) {
             let lastMessage = $(this).closest('.mix').find('.conversation-right').last().find('.messages').attr('data-id')
-            console.log("last message nigga", lastMessage)
             socket.emit('quit', {convoId: latestConvo, username: username, lastMessage: lastMessage})
         }
 
