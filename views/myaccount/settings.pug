@@ -551,7 +551,7 @@ html(lang='en')
                     input(type='radio', name='user-notifications')
                     p.flex-one.align-center Receive Emails for Messages / Offers
                 .user-notifications
-                  button.red Sign Out
+                  button.red SUBMIt
             // setting
       // subcon
     #footer
@@ -587,6 +587,7 @@ html(lang='en')
       gtag('config', 'UA-109950709-1');
 
     script.
+      $('button.red').click(() => window.location.reload())
       $('.user-notifications').eq(1).click(() => {
         store.remove('jwtToken')
         window.location = '/'
