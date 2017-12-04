@@ -10,16 +10,16 @@ html(lang='ko')
     meta(name='viewport', content='minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     meta(http-equiv='cleartype', content='on')
     // Latest compiled and minified CSS
-    link(type='text/css', href='/CSS/bootstrap.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/bootstrap-datetimepicker.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/bootstrap-dialog.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/jquery-ui.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/style.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/non-responsive.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/flags.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/gd5-style.css', rel='stylesheet')
-    link(type='text/css', href='/CSS/admin-custom.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-datetimepicker-standalone.css', rel='stylesheet')
+    link(type='text/css', href='/css/bootstrap-dialog.css', rel='stylesheet')
+    link(type='text/css', href='/css/jquery-ui.css', rel='stylesheet')
+    link(type='text/css', href='/css/style.css', rel='stylesheet')
+    link(type='text/css', href='/css/non-responsive.css', rel='stylesheet')
+    link(type='text/css', href='/css/flags.css', rel='stylesheet')
+    link(type='text/css', href='/css/gd5-style.css', rel='stylesheet')
+    link(type='text/css', href='/css/admin-custom.css', rel='stylesheet')
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -284,13 +284,13 @@ html(lang='ko')
               .panel-heading.menu-icon-minus 게시판 관리
               ul.list-group
                 li.list-group-item
-                  a(href='#') 게시판 리스트
+                  a(href='/admin/board') 게시판 리스트
                 li.list-group-item
-                  a(href='#') 게시판 등록
+                  a(href='/admin/board/regi') 게시판 등록
                 li.list-group-item
                   a(href='#') 게시글 관리
                 li.list-group-item.active
-                  a(href='#') 게시판 스킨 관리
+                  a(href='/admin/board/theme') 게시판 스킨 관리
           #content.row
             .col-xs-12
               .page-header.js-affix

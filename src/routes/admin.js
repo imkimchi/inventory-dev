@@ -101,9 +101,15 @@ router.post('/admin/post/delete', async (ctx, next) => {
 })
 
 router.get('/admin/board', async (ctx, next) => {
-    let posts = await Post.find()
+    let posts = []
     await ctx.render('admin/board_list', posts)
 })
+
+router.get('/admin/brand_edit', async (ctx, next) => {
+    await ctx.render('admin/brand_edit')
+})
+
+
 
 router.get('/admin/board/regi', async (ctx, next) => {
     await ctx.render('admin/board_register')
@@ -153,7 +159,7 @@ router.get('/admin/order', async (ctx, next ) => {
   await ctx.render('admin/order_list_all')
 })
 
-router.get('/admin/cancel', async (ctx, next) => {
+router.get('/admin/order_cancel', async (ctx, next) => {
   await ctx.render('admin/order_list_cancel')
 })
 

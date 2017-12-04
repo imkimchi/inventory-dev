@@ -107,11 +107,11 @@ html(lang='ko')
               .collapse.navbar-collapse
                 ul.nav.navbar-nav
                   li
-                    a#menu_policy.active(href='manage_list.html', style='width:105.90909090909px;') 기본설정
+                    a#menu_policy(href='manage_list.html', style='width:105.90909090909px;') 기본설정
                   li
                     a#menu_goods(href='/admin/goods', style='width:105.90909090909px;') 상품
                   li
-                    a#menu_order(href='/admin/order', style='width:105.90909090909px;') 주문
+                    a#menu_order.active(href='/admin/order', style='width:105.90909090909px;') 주문
                   li
                     a#menu_member(href='/admin/member', style='width:105.90909090909px;') 회원
                   li
@@ -284,7 +284,7 @@ html(lang='ko')
                 li.list-group-item.active
                   a(href='#') 주문통합리스트
                 li.list-group-item
-                  a(href='#') 취소 리스트
+                  a(href='/admin/order_cancel') 취소 리스트
           #content.row
             .col-xs-12
               .page-header.js-affix.affix-top(style='width: 1632px; left: auto;')
@@ -725,23 +725,7 @@ html(lang='ko')
                 input#orderStatus(name='changeStatus', value='', type='hidden')
                 .table-action-dropdown
                   .table-action.mgt0.mgb0
-                    .pull-right
-                      .form-inline
-                        .dropdown
-                          button#btnSmsLayer.btn.btn-red.js-sms-layer-open.dropdown-toggle.dropdown-arr(type='button', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false') SMS발송
-                          ul.dropdown-menu.mgt10(aria-labelledby='btnSmsLayer')
-                            li.dropdown-item
-                              a.js-sms-send(data-type='select', data-opener='order', data-target-selector='input[name*=statusCheck]:checked') 선택 주문 배송
-                            li.dropdown-item
-                              a.js-sms-send(data-type='search', data-opener='order', data-target-selector='#frmSearchOrder') 검색 주문 배송
-                        select#orderPrintMode.form-control(name='')
-                          option(value='', selected='selected') =인쇄 선택=
-                          option(value='report') 주문내역서
-                          option(value='customerReport') 주문내역서 (고객용)
-                          option(value='reception') 간이영수증
-                          option(value='particular') 거래명세서
-                          option(value='taxInvoice') 세금계산서
-                        input.btn.btn-white.btn-icon-print(onclick="order_print_popup($('#orderPrintMode').val(), 'frmOrderPrint', 'frmOrderStatus', 'statusCheck[', false);", value='프린트', type='button')
+
                 .table-responsive
                   table.table.table-rows.order-list
                     thead
@@ -749,32 +733,20 @@ html(lang='ko')
                         th.width3p
                           input.js-checkall(value='y', data-target-name='statusCheck', type='checkbox')
                         th.width3p 번호
-                        th.width5p 상점 구분
                         th.width5p 주문일시
                         th.width7p 주문번호
                         th.width7p 주문자
                         th 주문상품
                         th.width5p 총 금액
                         th.width5p 총 결제금액
-                        th.width3p 결제방법
                         th.width5p 수령자
                         th.width5p 결제상태
                         th.width3p 미배송
-                        th.width3p 배송중
-                        th.width3p 배송완료
-                        th.width3p 취소
-                        th.width3p 교환
-                        th.width3p 반품
-                        th.width3p 환불
-                        th.width5p 관리자메모
                     tbody
                       tr
                         td.no-data(colspan='20')
                           | 검색된 주문이 없습니다.
                 .table-action
-                  .pull-right
-                    button.btn.btn-white.btn-icon-excel.js-excel-download(type='button', data-target-form='frmSearchOrder', data-search-count='0', data-total-count='22', data-state-code='', data-target-list-form='frmOrderStatus', data-target-list-sno='statusCheck')
-                      | 엑셀다운로드
               .text-center
                 nav
                   ul.pagination.pagination-sm
