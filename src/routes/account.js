@@ -55,8 +55,10 @@ router.post('/account/block', async (ctx, next) => {
 	}
 
 	try {
-		console.log(param)
-		let res = await User.update({username: data.username}, { $set: {blockDate: blockDate}}, {multi: true})
+		console.log(param.update)
+		let test = await User.find({username: "a"})
+		console.log("test", test)
+		//let res = await User.findOneAndUpdate(param.search, { $set: {blockDate: blockDate}}, {upsert: true})
 		console.log("res", res)
 	} catch (e) {
 		console.log("err", e)
