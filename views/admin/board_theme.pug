@@ -3,7 +3,7 @@ html(lang='ko')
   head
     meta(http-equiv='content-type', content='text/html; charset=UTF-8')
     meta(charset='utf-8')
-    title 5.board_list
+    title 1.기본 설정
     meta(name='author', content='qnibus')
     meta(name='HandheldFriendly', content='True')
     meta(name='MobileOptimized', content='320')
@@ -24,44 +24,42 @@ html(lang='ko')
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
-    script(type='text/javascript', src='/JS/underscore-min.js')
-    script(type='text/javascript', src='/JS/jquery_003.js')
-    script(type='text/javascript', src='/JS/jquery-ui.js')
-    script(type='text/javascript', src='/JS/bootstrap.js')
-    script(type='text/javascript', src='/JS/moment.js')
-    script(type='text/javascript', src='/JS/numeral.js')
-    script(type='text/javascript', src='/JS/bootstrap-datetimepicker.js')
-    script(type='text/javascript', src='/JS/bootstrap-dialog.js')
-    script(type='text/javascript', src='/JS/bootstrap-filestyle.js')
-    script(type='text/javascript', src='/JS/ZeroClipboard.js')
-    script(type='text/javascript', src='/JS/clipboard.js')
-    script(type='text/javascript', src='/JS/jquery_004.js')
-    script(type='text/javascript', src='/JS/jquery_007.js')
-    script(type='text/javascript', src='/JS/jquery.js')
-    script(type='text/javascript', src='/JS/messages_ko.js')
-    script(type='text/javascript', src='/JS/additional-methods.js')
-    script(type='text/javascript', src='/JS/jquery_005.js')
-    script(type='text/javascript', src='/JS/jquery_006.js')
-    script(type='text/javascript', src='/JS/common2.js')
-    script(type='text/javascript', src='/JS/common.js')
-    script(type='text/javascript', src='/JS/schedule.js')
-    script(type='text/javascript', src='/JS/jquery_002.js')
-    script(type='text/javascript', src='/JS/admin_panel_api.js')
-    script(type='text/javascript', src='/JS/member.js')
-    script(type='text/javascript', src='/JS/sms.js')
-    script(type='text/javascript', src='/JS/admin-custom.js')
+    script(type='text/javascript', src='JS/underscore-min.js')
+    script(type='text/javascript', src='JS/jquery_003.js')
+    script(type='text/javascript', src='JS/jquery-ui.js')
+    script(type='text/javascript', src='JS/bootstrap.js')
+    script(type='text/javascript', src='JS/moment.js')
+    script(type='text/javascript', src='JS/numeral.js')
+    script(type='text/javascript', src='JS/bootstrap-datetimepicker.js')
+    script(type='text/javascript', src='JS/bootstrap-dialog.js')
+    script(type='text/javascript', src='JS/bootstrap-filestyle.js')
+    script(type='text/javascript', src='JS/ZeroClipboard.js')
+    script(type='text/javascript', src='JS/clipboard.js')
+    script(type='text/javascript', src='JS/jquery_004.js')
+    script(type='text/javascript', src='JS/jquery_007.js')
+    script(type='text/javascript', src='JS/jquery.js')
+    script(type='text/javascript', src='JS/messages_ko.js')
+    script(type='text/javascript', src='JS/additional-methods.js')
+    script(type='text/javascript', src='JS/jquery_005.js')
+    script(type='text/javascript', src='JS/jquery_006.js')
+    script(type='text/javascript', src='JS/common2.js')
+    script(type='text/javascript', src='JS/common.js')
+    script(type='text/javascript', src='JS/schedule.js')
+    script(type='text/javascript', src='JS/jquery_002.js')
+    script(type='text/javascript', src='JS/admin_panel_api.js')
+    script(type='text/javascript', src='JS/admin-custom.js')
     script(type='text/javascript').
       <!--
       $(document).ready(function () {
-      // 메뉴얼 링크
-      $(".gd-help-manual").each(function() {
-      var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
-      var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=board__board___board_theme#' + linkText;
-      $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
-      });
+          // 메뉴얼 링크
+          $(".gd-help-manual").each(function() {
+              var linkText = $(this).text().trim().replace(/\\s/g, ''); // 타이틀의 문자열의 공백을 제거함
+              var manualUrl = 'http://manual.godomall5.godomall.com/data/manual_view.php?category=policy__management___manage_list#' + linkText;
+              $(this).append(' <a href="' + manualUrl + '" target="_blank" class="link-help">페이지 도움말</a>');
+          });
       });
       //-->
-  body.board.board-theme.layout-basic
+  body.policy.manage-list.layout-basic
     #container-wrap.container-fluid
       #container.row
         #header.col-xs-12
@@ -80,7 +78,7 @@ html(lang='ko')
                           span 유미나
                           | 님 (
                           span proad00
-                          |                                     )
+                          |                                 )
                         ul.dropdown-menu.gnb-dropdown-menu(aria-labelledby='headerSubMenuManager')
                           li.dropdown-item
                             a(href='#') 운영자정보
@@ -109,17 +107,17 @@ html(lang='ko')
               .collapse.navbar-collapse
                 ul.nav.navbar-nav
                   li
-                    a#menu_policy(href='#', style='width:105.90909090909px;') 기본설정
+                    a#menu_policy(href='/admin', style='width:105.90909090909px;') 기본설정
                   li
-                    a#menu_goods(href='#', style='width:105.90909090909px;') 상품
+                    a#menu_goods.active(href='/admin/goods', style='width:105.90909090909px;') 상품
                   li
-                    a#menu_order(href='#', style='width:105.90909090909px;') 주문
+                    a#menu_order(href='/admin/order', style='width:105.90909090909px;') 주문
                   li
-                    a#menu_member(href='#', style='width:105.90909090909px;') 회원
+                    a#menu_member(href='/admin/member', style='width:105.90909090909px;') 회원
                   li
-                    a#menu_board.active(href='#', style='width:105.90909090909px;') 게시판
+                    a#menu_board(href='/admin/board', style='width:105.90909090909px;') 게시판
                   li
-                    a#menu_promotion(href='#', style='width:105.90909090909px;') 통계
+                    a#menu_promotion(href='https://analytics.google.com/analytics/web/#embed/report-home/a109950709w164096919p164844100/', style='width:105.90909090909px;') 통계
               // /.navbar-collapse
           script(type='text/javascript').
             $(document).ready(function () {
