@@ -6,23 +6,23 @@ import jwt from 'jsonwebtoken'
 const router = new Router()
 
 router.post('/auth/decode', async (ctx, next) => {
-    let data = ctx.request.body
-    let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
-    let user = await User.findOne({username: decoded.username})
-    decoded.itemCount = user.itemCount
-    decoded.profilePic = user.profilePic
+  let data = ctx.request.body
+  let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
+  let user = await User.findOne({username: decoded.username})
+  decoded.itemCount = user.itemCount
+  decoded.profilePic = user.profilePic
 
-    ctx.body = decoded
+  ctx.body = decoded
 })
 
 router.post('/auth/jwt', async (ctx, next) => {
-    let data = ctx.request.body
+  let data = ctx.request.body
 
-    let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
-    let post = await Post.findOne({productURL: data.url})
+  let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
+  let post = await Post.findOne({productURL: data.url})
 
-    if(post.seller === decoded.username) ctx.body = { data: "approved" } 
-    else ctx.body = { data: "Auth failed" }
+  if (post.seller === decoded.username) ctx.body = { data: 'approved' }
+  else ctx.body = { data: 'Auth failed' }
 })
 
 export default router

@@ -12,39 +12,39 @@ import routes from './routes'
 import config from './config'
 import form from './util/formidable'
 import chatfeature from './util/chat'
-import socketIO  from 'socket.io'
+import socketIO from 'socket.io'
 import redis from 'socket.io-redis'
 import mongoose from 'mongoose'
 mongoose.Promise = global.Promise
 
 mongoose
-    .connect(config.MONGODB_URI)
-    .then(startApp).catch(::console.error)
+  .connect(config.MONGODB_URI)
+  .then(startApp).catch(::console.error)
 
-function startApp() {
-    const app = new Koa()
-    const port = process.env.PORT || 8080
-    const dist = __dirname + '/../views/'
-    const bpOption = {
-        fields: 'body',
-        IncomingForm: form
-    }
+function startApp () {
+  const app = new Koa()
+  const port = process.env.PORT || 8080
+  const dist = path.resolve(__dirname, '..', 'views')
+  const bpOption = {
+    fields: 'body',
+    IncomingForm: form
+  }
 
-    app.keys = ['secret', 'key'];
-    require('./util/passport')
+  app.keys = ['secret', 'key']
+  require('./util/passport')
 
-    app
-        .use(logger())
-        .use(serve(dist))
-        .use(session({}, app))
-        .use(bodyParser(bpOption))
-        .use(passport.initialize())
-        .use(passport.session())
-        .use(views(__dirname+'/../views', { extension: 'pug'}))
-        .use(routes())
+  app
+    .use(logger())
+    .use(serve(dist))
+    .use(session({}, app))
+    .use(bodyParser(bpOption))
+    .use(passport.initialize())
+    .use(passport.session())
+    .use(views(dist, { extension: 'pug' }))
+    .use(routes())
 
-    let server = app.listen(port, () => console.log(`[!] Server is Running on  ${port}`))
-    let io = socketIO(server)
-    io.adapter(redis({ host: 'localhost', port: 6379 }))
-    chatfeature(io)
+  let server = app.listen(port, () => console.log(`[!] Server is Running on  ${port}`))
+  let io = socketIO(server)
+  io.adapter(redis({ host: 'localhost', port: 6379 }))
+  chatfeature(io)
 }
