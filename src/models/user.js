@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 import Promise from 'bluebird'
 import _bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import config from '../util/config'
 
 const bcrypt = Promise.promisifyAll(_bcrypt)
 

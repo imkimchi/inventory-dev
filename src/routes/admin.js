@@ -4,6 +4,7 @@ import User from '../models/user'
 // import Convo from '../models/convo'
 import Admin from '../models/admin'
 import jwt from 'jsonwebtoken'
+import config from '../util/config'
 
 const router = new Router()
 // const redirectToLogin = ctx => ctx.redirect('/admin/login')
@@ -11,7 +12,7 @@ const router = new Router()
 router.get('/admin', async (ctx, next) => {
   if (!ctx.header.cookie) await ctx.redirect('/admin/login')
   let token = ctx.header.cookie.split(';')[0].split('=')[1]
-  let decoded = await jwt.verify(token, 'RESTFULAPIs')
+  let decoded = await jwt.verify(token, config.token)
   let admin = await Admin.findOne({username: decoded.username})
 
   if (!admin || !admin.master) {
@@ -38,7 +39,7 @@ router.post('/admin/signin', async (ctx, next) => {
       ctx.body = {message: 'Wrong password.'}
     } else {
       // let fullName = user.firstName + user.lastName
-      ctx.body = {token: jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs')}
+      ctx.body = {token: jwt.sign({ username: user.username, _id: user._id }, config.token)}
     }
   } catch (e) {
     console.error(e)
@@ -63,7 +64,7 @@ router.post('/admin/signup', async (ctx, next) => {
 router.post('/admin/delete', async (ctx, next) => {
   let jwtToken = ctx.headers.authorization
   let data = ctx.request.body
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   let requester = await Admin.findOne({username: decoded.username})
 
   if (requester.master) {
@@ -83,7 +84,7 @@ router.post('/admin/delete', async (ctx, next) => {
 router.post('/admin/post/delete', async (ctx, next) => {
   let jwtToken = ctx.headers.authorization
   let data = ctx.request.body
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   let requester = await Admin.findOne({username: decoded.username})
 
   if (requester.master) {
