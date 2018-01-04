@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 import Router from 'koa-router'
 // import Post from '../models/post'
 // import User from '../models/user'
@@ -7,11 +6,6 @@ import Router from 'koa-router'
 // import timeago from 'timeago.js'
 
 const router = new Router()
-
-mongoose.Promise = global.Promise
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB error: %s', err)
-})
 
 router.get('/myaccount/messages', async (ctx, next) => {
   await ctx.render('myaccount/message')

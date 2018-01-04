@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 import Router from 'koa-router'
 // import passport from 'koa-passport'
 import Post from '../models/post'
@@ -9,11 +8,6 @@ import m from 'moment'
 import timeago from 'timeago.js'
 
 const router = new Router({ prefix: '/u' })
-
-mongoose.Promise = global.Promise
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB error: %s', err)
-})
 
 router.get('/:userName', async (ctx, next) => {
   // let jwtToken = ctx.header.authorization

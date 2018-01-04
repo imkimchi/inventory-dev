@@ -6,6 +6,7 @@ import User from '../models/user'
 import Convo from '../models/convo'
 import rp from 'request-promise'
 import jwt from 'jsonwebtoken'
+import config from '../util/config'
 import timeago from 'timeago.js'
 
 const router = new Router()
@@ -13,11 +14,6 @@ const postURL = ctx => ctx.request ? ctx.request.body.url : ctx.params.id
 const isInclude = (arr, obj) => (arr.indexOf(obj) !== -1)
 const getLastest = arr => arr[arr.length - 1]
 const dropBy10Per = n => n - n / 10
-
-mongoose.Promise = global.Promise
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB error: %s', err)
-})
 
 router.get('/post/get/id/:id', async (ctx, next) => {
   let id = ctx.params.id
@@ -42,7 +38,7 @@ router.get('/post/get/username/:username', async (ctx, next) => {
 router.post('/post/drop', async (ctx, body) => {
   let data = ctx.request.body
   let jwtToken = ctx.request.headers.authorization
-  /* let decoded = */ await jwt.verify(jwtToken, 'RESTFULAPIs')
+  /* let decoded = */ await jwt.verify(jwtToken, config.token)
 
   let post = await Post.findOne({productURL: data.url})
   let droppedPrice = Math.floor(dropBy10Per(post.productPrice))
@@ -53,7 +49,7 @@ router.post('/post/drop', async (ctx, body) => {
 router.post('/post/bump', async (ctx, next) => {
   let data = ctx.request.body
   let jwtToken = ctx.request.headers.authorization
-  /* let decoded = */ await jwt.verify(jwtToken, 'RESTFULAPIs')
+  /* let decoded = */ await jwt.verify(jwtToken, config.token)
 
   let post = await Post.findOne({productURL: data.url})
   let lastBumpedDate = getLastest(post.bumpedDates)
@@ -113,7 +109,7 @@ router.post('/post/upload', async (ctx, next) => {
   let jwtToken = ctx.request.headers.authorization
 
   console.log('data', data)
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   const param = await makeParam(data, decoded)
 
   try {
@@ -143,7 +139,7 @@ router.post('/post/edit', async (ctx, next) => {
   let data = ctx.request.body
   let jwtToken = ctx.request.headers.authorization
 
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
 
   try {
     let originPost = await Post.findOne({productURL: data.url})
@@ -184,7 +180,7 @@ router.get('/listings/:id', async (ctx, next) => {
       if (str.includes('jwtToken')) {
         let jwtToken = str.split('=')[1]
         if (jwtToken) {
-          decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+          decoded = await jwt.verify(jwtToken, config.token)
         }
       }
     }
@@ -251,7 +247,7 @@ router.get('/listings/:id', async (ctx, next) => {
 router.post('/post/comment', async (ctx, next) => {
   let data = ctx.request.body
   let jwtToken = ctx.request.headers.authorization
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   let userInfo = await User.findOne({username: decoded.username})
 
   console.log(jwtToken)
@@ -281,7 +277,7 @@ router.post('/post/like/', async (ctx, next) => {
   let data = ctx.request.bodyauthorization
   let jwtToken = ctx.request.headers.authorization
 
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
 
   let post = await Post.findOne({productURL: data.productURL})
   let usersArray = post.like.likedUsers
@@ -320,7 +316,7 @@ function checkBumpAvailability (post) {
 async function getPost (ctx) {
   let data = postURL(ctx)
   let jwtToken = ctx.request.headers.authorization
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   let post = await Post.findOne({productURL: data})
 
   if (post.seller === decoded.username) return post

@@ -5,6 +5,7 @@ import Post from '../models/post'
 import Convo from '../models/convo'
 import m from 'moment'
 import jwt from 'jsonwebtoken'
+import config from '../util/config'
 import timeago from 'timeago.js'
 
 let router = new Router()
@@ -18,7 +19,7 @@ router.post('/message/dup', async (ctx, next) => {
   let data = ctx.request.body
   let jwtToken = ctx.request.headers.authorization
 
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   let thePost = await Post.findOne({productURL: data.url})
 
   console.log('thePost', thePost, 'data.url', data.url)
@@ -81,7 +82,7 @@ router.post('/message/unread', async (ctx, next) => {
   let data = ctx.request.body
   let jwtToken = data.jwt
 
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   let message = await Message.find({recipient: decoded.username, isRead: { $nin: [decoded.username] }})
   ctx.body = {username: decoded.username, unreadCount: message.length}
 })
@@ -91,7 +92,7 @@ async function messageHandler (ctx, next) {
   let jwtToken = ctx.request.headers.authorization
 
   console.log('data from message handler', data)
-  let decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+  let decoded = await jwt.verify(jwtToken, config.token)
   const msgParam = await makeMsgParam(data, decoded)
   const convoParam = await makeconvoParam(data, decoded)
   const post = await Post.findOne({productURL: data.productURL})

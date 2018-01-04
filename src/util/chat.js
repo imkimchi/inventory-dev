@@ -4,6 +4,7 @@ import User from '../models/user'
 import jwt from 'jsonwebtoken'
 import rp from 'request-promise'
 import m from 'moment'
+import config from './config'
 
 async function chatFeature (io) {
   let onlineUsers = []
@@ -13,7 +14,7 @@ async function chatFeature (io) {
     if (!isIploggedIn) onlineUsers.push(socket.handshake.address)
 
     let jwtToken = socket.handshake.query.jwt
-    let decoded = jwtToken ? await jwt.verify(jwtToken, 'RESTFULAPIs') : ''
+    let decoded = jwtToken ? await jwt.verify(jwtToken, config.token) : ''
 
     io.emit('users', {
       onlineUsers: onlineUsers.length,
@@ -51,7 +52,7 @@ async function chatFeature (io) {
     })
 
     socket.on('offer', async data => {
-      let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
+      let decoded = await jwt.verify(data.jwt, config.token)
       let convo = await Convo.findOne({_id: data.id})
       let param = await makeMsgParam(data, convo, decoded, data.identifier)
 
@@ -84,7 +85,7 @@ async function chatFeature (io) {
     })
 
     socket.on('chat', async data => {
-      let decoded = await jwt.verify(data.jwt, 'RESTFULAPIs')
+      let decoded = await jwt.verify(data.jwt, config.token)
       let convo = await Convo.findOne({_id: data.id})
       let param = await makeMsgParam(data, convo, decoded)
 

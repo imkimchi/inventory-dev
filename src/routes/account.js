@@ -1,15 +1,9 @@
-import mongoose from 'mongoose'
 import Router from 'koa-router'
-// import passport from 'koa-passport'
 import User from '../models/user'
+
+import { DateTime } from 'luxon'
 import jwt from 'jsonwebtoken'
-
-const { DateTime } = require('luxon')
-
-mongoose.Promise = global.Promise
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB error: %s', err)
-})
+import config from '../util/config'
 
 const router = new Router({ prefix: '' })
 
@@ -37,7 +31,7 @@ router.post('/login', async (ctx, next) => {
       ctx.body = {message: 'Wrong password.'}
     } else {
       // let fullName = user.firstName + user.lastName
-      ctx.body = {token: jwt.sign({ username: user.username, country: user.country, gender: user.gender, _id: user._id }, 'RESTFULAPIs')}
+      ctx.body = {token: jwt.sign({ username: user.username, country: user.country, gender: user.gender, _id: user._id }, config.token)}
     }
   } catch (e) {
     console.error(e)

@@ -4,6 +4,7 @@ import Post from '../models/post'
 import Message from '../models/message'
 import timeago from 'timeago.js'
 import jwt from 'jsonwebtoken'
+import config from '../util/config'
 
 const router = new Router()
 const isInclude = (arr, obj) => (arr.indexOf(obj) !== -1)
@@ -21,7 +22,7 @@ router.get('/', async (ctx, next) => {
       if (str.includes('jwtToken')) {
         let jwtToken = str.split('=')[1]
         if (jwtToken) {
-          decoded = await jwt.verify(jwtToken, 'RESTFULAPIs')
+          decoded = await jwt.verify(jwtToken, config.token)
           let message = await Message.find({recipient: decoded.username, isRead: { $nin: [decoded.username] }})
           console.log('messsage', message, message.length)
           unReadMsg = message.length
