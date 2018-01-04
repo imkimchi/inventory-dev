@@ -2,7 +2,7 @@ import 'babel-polyfill'
 
 import Koa from 'koa'
 import serve from 'koa-static'
-import logger from 'koa-logger'
+import logger from 'koa-chalk-logger'
 import views from 'koa-views'
 import session from 'koa-session'
 import passport from 'koa-passport'

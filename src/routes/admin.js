@@ -148,8 +148,8 @@ router.get('/admin/board/config', async (ctx, next) => {
 })
 
 router.get('/admin/member', async (ctx, next) => {
-  let user = await User.find({})
-  await ctx.render('admin/member_list', {users: user, memberLength: user.length})
+  let users = await User.find({})
+  await ctx.render('admin/member_list', {users, memberLength: users.length})
 })
 
 router.get('/admin/order', async (ctx, next) => {
