@@ -5,7 +5,7 @@ import Post from '../models/post'
 import Convo from '../models/convo'
 import m from 'moment'
 import jwt from 'jsonwebtoken'
-import config from '../util/config'
+import config from '../config'
 import timeago from 'timeago.js'
 
 let router = new Router()

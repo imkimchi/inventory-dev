@@ -6,7 +6,7 @@ import User from '../models/user'
 import Convo from '../models/convo'
 import rp from 'request-promise'
 import jwt from 'jsonwebtoken'
-import config from '../util/config'
+import config from '../config'
 import timeago from 'timeago.js'
 
 const router = new Router()

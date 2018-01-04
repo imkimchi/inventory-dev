@@ -2,7 +2,7 @@ import Router from 'koa-router'
 import Post from '../models/post'
 import User from '../models/user'
 import jwt from 'jsonwebtoken'
-import config from '../util/config'
+import config from '../config'
 
 const router = new Router()
 

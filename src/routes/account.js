@@ -3,7 +3,7 @@ import User from '../models/user'
 
 import { DateTime } from 'luxon'
 import jwt from 'jsonwebtoken'
-import config from '../util/config'
+import config from '../config'
 
 const router = new Router({ prefix: '' })
 

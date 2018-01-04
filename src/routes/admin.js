@@ -4,7 +4,7 @@ import User from '../models/user'
 // import Convo from '../models/convo'
 import Admin from '../models/admin'
 import jwt from 'jsonwebtoken'
-import config from '../util/config'
+import config from '../config'
 
 const router = new Router()
 // const redirectToLogin = ctx => ctx.redirect('/admin/login')

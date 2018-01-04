@@ -4,7 +4,7 @@ import Post from '../models/post'
 import Message from '../models/message'
 import timeago from 'timeago.js'
 import jwt from 'jsonwebtoken'
-import config from '../util/config'
+import config from '../config'
 
 const router = new Router()
 const isInclude = (arr, obj) => (arr.indexOf(obj) !== -1)

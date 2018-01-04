@@ -4,7 +4,7 @@ import User from '../models/user'
 import jwt from 'jsonwebtoken'
 import rp from 'request-promise'
 import m from 'moment'
-import config from './config'
+import config from '../config'
 
 async function chatFeature (io) {
   let onlineUsers = []
